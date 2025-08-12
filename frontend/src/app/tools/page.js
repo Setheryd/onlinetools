@@ -34,7 +34,7 @@ const ToolsIndexPage = () => {
                   </div>
                 </div>
                 <div className="mt-4">
-                  <Link href={tool.url}>
+                  <Link href={tool.path}>
                     <Button variant="primary" size="sm">Open</Button>
                   </Link>
                 </div>

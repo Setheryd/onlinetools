@@ -13,6 +13,7 @@ export const tools = [
     icon: '🔤',
     featured: true,
     priority: 0.9,
+    built: true,
   },
   {
     id: 'password-generator',
@@ -24,6 +25,7 @@ export const tools = [
     icon: '🔐',
     featured: true,
     priority: 0.9,
+    built: true,
   },
   // Add new tools here - they will automatically be included in:
   // - Sitemap generation
@@ -74,6 +76,15 @@ export function getAllToolsForSitemap() {
     changeFrequency: 'weekly',
     priority: tool.priority,
   }))
+}
+
+// Functions for built/unbuilt tools
+export function getBuiltTools() {
+  return tools.filter(tool => tool.built === true)
+}
+
+export function getUnbuiltTools() {
+  return tools.filter(tool => tool.built !== true)
 }
 
 

@@ -2,7 +2,7 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Button from '../ui/Button';
-import { getBuiltTools, TOOL_CATEGORIES } from '@/lib/tools';
+import { getBuiltTools } from '@/lib/tools';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -83,7 +83,7 @@ const Header = () => {
                             {tools.map(tool => (
                               <li key={tool.id}>
                                 <Link
-                                  href={tool.url}
+                                  href={tool.path}
                                   className="group flex items-center justify-between rounded-md px-3 py-2 text-sm text-gray-700 hover:bg-blue-50 hover:text-blue-700 transition-colors"
                                 >
                                   <span className="flex items-center gap-2">
@@ -165,7 +165,7 @@ const Header = () => {
                           {tools.map(tool => (
                             <li key={tool.id}>
                               <Link
-                                href={tool.url}
+                                href={tool.path}
                                 className="block px-3 py-2 text-sm text-gray-700 rounded-md hover:bg-blue-50 hover:text-blue-700"
                                 onClick={() => setIsMobileMenuOpen(false)}
                               >
