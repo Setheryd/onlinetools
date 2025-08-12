@@ -14,26 +14,26 @@ onlinetools/
 │   │   ├── utils/                   # Shared utilities and helpers
 │   │   └── config/                  # Configuration files
 │   └── data_warehouse/              # Data storage and management
-├── frontend/                         # Next.js frontend application
-│   ├── components/
-│   │   ├── ui/                      # Reusable UI components
-│   │   ├── tools/                   # Tool-specific components
-│   │   └── layout/                  # Layout components
-│   ├── styles/                      # CSS and styling files
-│   ├── pages/
-│   │   ├── tools/                   # Tool pages
-│   │   └── blog/                    # Blog pages
-│   ├── utils/                       # Frontend utilities
-│   ├── hooks/                       # Custom React hooks
-│   └── types/                       # TypeScript type definitions
-├── shared/                          # Shared resources
-│   ├── config/                      # Shared configuration
-│   └── constants/                   # Shared constants
-└── onlinetools/                     # Next.js app directory
-    ├── src/
-    │   └── app/                     # Next.js 13+ app router
-    ├── public/                      # Static assets
-    └── package.json                 # Frontend dependencies
+├── onlinetools/                      # Next.js frontend application
+│   ├── src/
+│   │   ├── app/                     # Next.js 13+ app router
+│   │   │   ├── components/          # Layout and page components
+│   │   │   │   ├── layout/          # Header, Footer, Hero, Body
+│   │   │   │   ├── tools/           # Tool-specific components
+│   │   │   │   └── ui/              # Reusable UI components
+│   │   │   ├── hooks/               # Custom React hooks
+│   │   │   ├── pages/               # Page components
+│   │   │   │   ├── home.js          # Home page
+│   │   │   │   ├── tools/           # Tool pages
+│   │   │   │   └── blog/            # Blog pages
+│   │   │   ├── styles/              # CSS and styling files
+│   │   │   ├── types/               # TypeScript type definitions
+│   │   │   └── utils/               # Frontend utilities
+│   │   └── public/                  # Static assets
+│   └── package.json                 # Frontend dependencies
+└── shared/                          # Shared resources
+    ├── config/                      # Shared configuration
+    └── constants/                   # Shared constants
 ```
 
 ## Features
