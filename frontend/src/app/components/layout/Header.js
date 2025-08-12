@@ -2,7 +2,7 @@
 import React, { useState, useMemo, useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Button from '../ui/Button';
-import { TOOLS, TOOL_CATEGORIES } from '@/lib/tools';
+import { getBuiltTools, TOOL_CATEGORIES } from '@/lib/tools';
 
 const Header = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -24,8 +24,7 @@ const Header = () => {
     { name: 'Contact', href: '/contact' }
   ];
 
-  const enabledToolIds = ['base64'];
-  const visibleTools = useMemo(() => TOOLS.filter(t => enabledToolIds.includes(t.id)), []);
+  const visibleTools = useMemo(() => getBuiltTools(), []);
   const categoriesInUse = useMemo(() => {
     const map = {};
     visibleTools.forEach(tool => {
