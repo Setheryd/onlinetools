@@ -145,7 +145,7 @@ const Home = () => {
               </p>
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Link href="/tools">
-                  <Button variant="primary" size="lg" className="bg-white text-blue-600 hover:bg-gray-100">
+                  <Button variant="primary" size="lg">
                     Explore Tools
                   </Button>
                 </Link>

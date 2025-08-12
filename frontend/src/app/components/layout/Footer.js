@@ -39,7 +39,7 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center mb-4">
-              <span className="text-2xl font-bold text-blue-400">OnlineTools</span>
+              <span className="text-2xl font-bold" style={{ color: '#3A7BD5' }}>OnlineTools</span>
             </Link>
             <p className="text-gray-400 mb-6 max-w-md">
               Free online tools to help you with everyday tasks. Fast, secure, and completely free to use.
