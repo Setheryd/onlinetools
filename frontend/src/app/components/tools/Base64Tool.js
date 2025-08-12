@@ -69,6 +69,27 @@ function detectMimeFromBytes(bytes) {
   return 'application/octet-stream';
 }
 
+function defaultFilenameForType(mime) {
+  switch (mime) {
+    case 'application/pdf':
+      return 'decoded.pdf';
+    case 'image/png':
+      return 'decoded.png';
+    case 'image/jpeg':
+      return 'decoded.jpg';
+    case 'image/gif':
+      return 'decoded.gif';
+    case 'image/webp':
+      return 'decoded.webp';
+    case 'image/svg+xml':
+      return 'decoded.svg';
+    case 'text/plain; charset=utf-8':
+      return 'decoded.txt';
+    default:
+      return 'decoded.bin';
+  }
+}
+
 const Base64Tool = () => {
   const [input, setInput] = useState('');
   const [output, setOutput] = useState('');
@@ -80,6 +101,7 @@ const Base64Tool = () => {
   const [decodeAsText, setDecodeAsText] = useState(true);
   const [decodedBlobUrl, setDecodedBlobUrl] = useState('');
   const [decodedFilename, setDecodedFilename] = useState('decoded.bin');
+  const [filenameTouched, setFilenameTouched] = useState(false);
   const [previewEnabled, setPreviewEnabled] = useState(true);
   const [selectedMimeType, setSelectedMimeType] = useState('auto');
   const [resolvedMimeType, setResolvedMimeType] = useState('application/octet-stream');
@@ -138,6 +160,9 @@ const Base64Tool = () => {
         setOutput(text);
         setDecodedBlobUrl('');
         setResolvedMimeType('text/plain; charset=utf-8');
+        if (!filenameTouched) {
+          setDecodedFilename(defaultFilenameForType('text/plain; charset=utf-8'));
+        }
       } else {
         const type = selectedMimeType !== 'auto' ? selectedMimeType : (mimeFromDataUrl || detectMimeFromBytes(bytes));
         const blob = new Blob([bytes], { type });
@@ -145,6 +170,9 @@ const Base64Tool = () => {
         const url = URL.createObjectURL(blob);
         setDecodedBlobUrl(url);
         setResolvedMimeType(type);
+        if (!filenameTouched) {
+          setDecodedFilename(defaultFilenameForType(type));
+        }
         setOutput('');
       }
       setError('');
@@ -266,19 +294,22 @@ const Base64Tool = () => {
             <Checkbox label="Decode as text" checked={decodeAsText} onChange={(e) => setDecodeAsText(e.target.checked)} />
           )}
           {mode === 'decode' && !decodeAsText && (
-            <div className="flex items-center gap-2">
+            <div className="flex flex-wrap items-center gap-2 w-full">
               <input
                 type="text"
                 value={decodedFilename}
-                onChange={(e) => setDecodedFilename(e.target.value)}
-                className="px-3 py-2 border border-gray-300 rounded-md text-sm"
+                onChange={(e) => {
+                  setFilenameTouched(true);
+                  setDecodedFilename(e.target.value);
+                }}
+                className="px-3 py-2 border border-gray-300 rounded-md text-sm flex-1 min-w-0"
                 placeholder="Filename"
               />
               {decodedBlobUrl && (
                 <a
                   href={decodedBlobUrl}
                   download={decodedFilename || 'decoded.bin'}
-                  className="text-blue-600 text-sm hover:underline"
+                  className="text-blue-600 text-sm hover:underline shrink-0"
                 >
                   Download file
                 </a>
@@ -409,23 +440,23 @@ const Base64Tool = () => {
                 </div>
               )}
               {!previewEnabled || (!resolvedMimeType?.startsWith('image/') && resolvedMimeType !== 'application/pdf') ? (
-                <div className="flex items-center justify-between">
+                <div className="flex items-center justify-between flex-wrap gap-2">
                   <div className="text-sm text-gray-700">Binary data decoded. Preview not available for this type.</div>
                   <a
                     href={decodedBlobUrl}
                     download={decodedFilename || 'decoded.bin'}
-                    className="text-blue-600 text-sm hover:underline"
+                    className="text-blue-600 text-sm hover:underline shrink-0"
                   >
                     Download {decodedFilename || 'decoded.bin'}
                   </a>
                 </div>
               ) : (
-                <div className="mt-3 flex items-center justify-between">
+                <div className="mt-3 flex items-center justify-between flex-wrap gap-2">
                   <span className="text-xs text-gray-500">Type: {resolvedMimeType}</span>
                   <a
                     href={decodedBlobUrl}
                     download={decodedFilename || 'decoded.bin'}
-                    className="text-blue-600 text-sm hover:underline"
+                    className="text-blue-600 text-sm hover:underline shrink-0"
                   >
                     Download
                   </a>
