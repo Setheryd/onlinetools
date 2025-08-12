@@ -1,12 +1,12 @@
 import React from 'react';
 import Link from 'next/link';
-import Header from '../components/layout/Header';
-import Hero from '../components/layout/Hero';
-import Footer from '../components/layout/Footer';
-import Body from '../components/layout/Body';
-import Card from '../components/ui/Card';
-import Badge from '../components/ui/Badge';
-import Button from '../components/ui/Button';
+import Header from './components/layout/Header';
+import Hero from './components/layout/Hero';
+import Footer from './components/layout/Footer';
+import Body from './components/layout/Body';
+import Card from './components/ui/Card';
+import Badge from './components/ui/Badge';
+import Button from './components/ui/Button';
 
 const Home = () => {
   const featuredTools = [
