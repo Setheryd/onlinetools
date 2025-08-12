@@ -526,7 +526,7 @@ export const getCategoryStats = () => {
 };
 
 // Built vs coming-soon helpers (driven by which routes are implemented)
-export const BUILT_TOOL_IDS = ['base64'];
+export const BUILT_TOOL_IDS = ['base64', 'password-generator'];
 
 export const getBuiltTools = () => {
   return TOOLS.filter(tool => BUILT_TOOL_IDS.includes(tool.id));
