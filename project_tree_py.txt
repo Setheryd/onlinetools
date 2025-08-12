@@ -41,10 +41,17 @@
                 ├── layout.js
                 ├── components/
                     ├── layout/
+                        ├── Body.js
+                        ├── Footer.js
+                        ├── Header.js
+                        ├── Hero.js
                     ├── tools/
                         ├── Base64Tool.js
                     ├── ui/
+                        ├── Badge.js
                         ├── Button.js
+                        ├── Card.js
+                        ├── Input.js
                 ├── hooks/
                 ├── pages/
                     ├── home.js
@@ -52,6 +59,8 @@
                     ├── tools/
                 ├── styles/
                     ├── globals.css
+                    ├── layout.css
+                    ├── ui.css
                 ├── types/
                 ├── utils/
     ├── shared/

@@ -1,4 +1,4 @@
-import './globals.css'
+import './styles/globals.css'
 import './styles/layout.css'
 import './styles/ui.css'
 
