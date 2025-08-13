@@ -533,7 +533,7 @@ export const tools = [
     icon: '💯',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   {
     id: 'mortgage-calculator',
@@ -1443,7 +1443,7 @@ export const tools = [
     icon: '⚖️',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   {
     id: 'area-converter',
@@ -1455,7 +1455,7 @@ export const tools = [
     icon: '📐',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'volume-converter',
@@ -1467,7 +1467,7 @@ export const tools = [
     icon: '🧪',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'speed-converter',
@@ -1479,7 +1479,7 @@ export const tools = [
     icon: '🏃',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'pressure-converter',
@@ -1491,7 +1491,7 @@ export const tools = [
     icon: '🌪️',
     featured: false,
     priority: 0.4,
-    built: false,
+    built: true,
   },
   {
     id: 'energy-converter',

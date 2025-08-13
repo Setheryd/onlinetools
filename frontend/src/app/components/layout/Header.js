@@ -85,7 +85,7 @@ const Header = () => {
                         <div key={category} className="">
                           <div className="text-xs uppercase tracking-wider text-gray-500 mb-2">{category}</div>
                           <ul className="space-y-1">
-                            {tools.map(tool => (
+                            {tools.slice(0, 5).map(tool => (
                               <li key={tool.id}>
                                 <Link
                                   href={tool.path}
@@ -167,7 +167,7 @@ const Header = () => {
                       <div key={category} className="mt-2">
                         <div className="text-xs uppercase tracking-wider text-gray-500 mb-1">{category}</div>
                         <ul className="space-y-1">
-                          {tools.map(tool => (
+                          {tools.slice(0, 5).map(tool => (
                             <li key={tool.id}>
                               <Link
                                 href={tool.path}
