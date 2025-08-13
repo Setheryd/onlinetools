@@ -511,18 +511,7 @@ export const tools = [
     built: false,
   },
   // ADVANCED CALCULATORS & MATHEMATICAL TOOLS
-  {
-    id: 'scientific-calculator',
-    name: 'Scientific Calculator',
-    description: 'Advanced calculator with trigonometric, logarithmic, and statistical functions.',
-    path: '/tools/scientific-calculator',
-    category: 'calculator',
-    keywords: ['calculator', 'scientific', 'math', 'trigonometry', 'logarithm', 'statistics'],
-    icon: '🧮',
-    featured: true,
-    priority: 0.8,
-    built: false,
-  },
+  
   {
     id: 'percentage-calculator',
     name: 'Percentage Calculator',
@@ -545,7 +534,7 @@ export const tools = [
     icon: '🏠',
     featured: true,
     priority: 0.7,
-    built: false,
+    built: true,
   },
   {
     id: 'compound-interest-calculator',
@@ -569,7 +558,7 @@ export const tools = [
     icon: '💸',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   {
     id: 'bmi-calculator',
