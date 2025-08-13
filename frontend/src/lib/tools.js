@@ -78,6 +78,18 @@ export const tools = [
     built: true,
   },
   {
+    id: 'scientific-calculator',
+    name: 'Scientific Calculator',
+    description: 'Advanced calculator with scientific functions, history, variables, and graphing.',
+    path: '/tools/scientific-calculator',
+    category: 'calculator',
+    keywords: ['calculator', 'scientific', 'graph', 'math', 'trigonometry', 'algebra'],
+    icon: '🧮',
+    featured: true,
+    priority: 0.75,
+    built: true,
+  },
+  {
     id: 'image-compressor',
     name: 'Image Compressor',
     description: 'Compress images to reduce file size while maintaining quality.',
