@@ -123,7 +123,7 @@ export const tools = [
     icon: '🔒',
     featured: true,
     priority: 0.7,
-    built: false,
+    built: true,
   },
   {
     id: 'text-case-converter',
@@ -135,7 +135,7 @@ export const tools = [
     icon: '🔤',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   {
     id: 'csv-to-json',
@@ -196,7 +196,7 @@ export const tools = [
     icon: '🔍',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   {
     id: 'diff-checker',

@@ -33,6 +33,14 @@ const Home = () => {
       icon: '📋',
       category: 'Developer Tools',
       url: '/tools/json-formatter'
+    },
+    {
+      id: 'hash-generator',
+      name: 'Hash Generator',
+      description: 'Generate MD5, SHA1, SHA256, and other hash values for text.',
+      icon: '🔒',
+      category: 'Security Tools',
+      url: '/tools/hash-generator'
     }
   ];
 
@@ -163,7 +171,7 @@ const Home = () => {
         <section className="mb-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">3+</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">6+</div>
               <div className="text-gray-600">Free Tools</div>
             </div>
             <div className="text-center">
