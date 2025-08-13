@@ -63,7 +63,7 @@ export const tools = [
     icon: '🔗',
     featured: true,
     priority: 0.8,
-    built: false,
+    built: true,
   },
   {
     id: 'qr-code-generator',
@@ -172,7 +172,7 @@ export const tools = [
     icon: '🆔',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   {
     id: 'jwt-decoder',
@@ -232,7 +232,7 @@ export const tools = [
     icon: '⏰',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'lorem-ipsum',
