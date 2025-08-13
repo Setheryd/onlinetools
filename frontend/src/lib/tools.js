@@ -512,18 +512,6 @@ export const tools = [
     built: false,
   },
   {
-    id: 'unit-converter',
-    name: 'Unit Converter',
-    description: 'Convert between different units of measurement: length, weight, volume, temperature, and more.',
-    path: '/tools/unit-converter',
-    category: 'conversion',
-    keywords: ['unit', 'convert', 'measurement', 'length', 'weight', 'temperature', 'volume'],
-    icon: '📏',
-    featured: true,
-    priority: 0.8,
-    built: false,
-  },
-  {
     id: 'percentage-calculator',
     name: 'Percentage Calculator',
     description: 'Calculate percentages, percentage changes, and percentage-based problems.',
@@ -1395,7 +1383,7 @@ export const tools = [
     icon: '🌍',
     featured: false,
     priority: 0.7,
-    built: false,
+    built: true,
   },
   {
     id: 'currency-converter',
@@ -1503,7 +1491,7 @@ export const tools = [
     icon: '⚡',
     featured: false,
     priority: 0.4,
-    built: false,
+    built: true,
   },
   {
     id: 'power-converter',
@@ -1515,7 +1503,7 @@ export const tools = [
     icon: '⚡',
     featured: false,
     priority: 0.4,
-    built: false,
+    built: true,
   },
   {
     id: 'data-storage-converter',
