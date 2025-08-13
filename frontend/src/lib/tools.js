@@ -147,7 +147,7 @@ export const tools = [
     icon: '📊',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   {
     id: 'markdown-editor',
@@ -678,7 +678,7 @@ export const tools = [
     icon: '🔄',
     featured: false,
     priority: 0.4,
-    built: false,
+    built: true,
   },
   {
     id: 'hex-encoder',
@@ -690,7 +690,7 @@ export const tools = [
     icon: '🔢',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'binary-encoder',
@@ -702,7 +702,7 @@ export const tools = [
     icon: '💻',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   // ADVANCED TEXT & LANGUAGE TOOLS
   {
@@ -1419,7 +1419,7 @@ export const tools = [
     icon: '🌡️',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   {
     id: 'length-converter',
@@ -1431,7 +1431,7 @@ export const tools = [
     icon: '📏',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   {
     id: 'weight-converter',

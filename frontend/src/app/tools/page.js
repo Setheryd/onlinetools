@@ -82,7 +82,16 @@ const ToolsIndexPage = () => {
 
         {/* Available tools */}
         <section className="mb-12">
-          <h2 className="text-xl font-semibold text-gray-900 mb-4">Available</h2>
+          <div className="flex items-center gap-2 mb-4">
+            <h2 className="text-xl font-semibold text-gray-900">Available</h2>
+            <span
+              className="inline-flex items-center justify-center w-6 h-6 text-xs font-semibold bg-blue-100 text-blue-800 rounded-full"
+              aria-label={`Available tools count: ${filteredActive.length}`}
+              title={`${filteredActive.length} tools`}
+            >
+              {filteredActive.length > 99 ? '99+' : filteredActive.length}
+            </span>
+          </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
             {filteredActive.map(tool => (
               <Card key={tool.id} hover>
