@@ -5,6 +5,126 @@
 const mockPosts = [
   {
     id: 1,
+    slug: 'ultimate-guide-to-password-generators',
+    title: 'The Ultimate Guide to Password Generators: Why You Need Strong Passwords',
+    excerpt: 'Discover why strong passwords are crucial in today\'s digital world and how password generators can protect your online accounts from cyber threats.',
+    content: `
+      <h2>Why Strong Passwords Matter More Than Ever</h2>
+      <p>In today's interconnected digital landscape, your online security is only as strong as your weakest password. With cyber attacks becoming increasingly sophisticated and data breaches making headlines regularly, having strong, unique passwords for each of your accounts is no longer optional—it's essential.</p>
+      
+      <h2>The Hidden Dangers of Weak Passwords</h2>
+      <p>Weak passwords are the primary entry point for cybercriminals. Here's what can happen when you use weak passwords:</p>
+      <ul>
+        <li><strong>Account Takeover:</strong> Hackers can gain access to your personal accounts</li>
+        <li><strong>Identity Theft:</strong> Your personal information can be stolen and misused</li>
+        <li><strong>Financial Loss:</strong> Banking and payment accounts can be compromised</li>
+        <li><strong>Data Breach:</strong> Sensitive information can be exposed to malicious actors</li>
+        <li><strong>Reputation Damage:</strong> Compromised social media accounts can damage your online reputation</li>
+      </ul>
+      
+      <h2>What Makes a Password Strong?</h2>
+      <p>A strong password should meet these criteria:</p>
+      <ul>
+        <li><strong>Length:</strong> At least 12 characters (16+ is even better)</li>
+        <li><strong>Complexity:</strong> Mix of uppercase and lowercase letters, numbers, and special characters</li>
+        <li><strong>Uniqueness:</strong> Different password for each account</li>
+        <li><strong>Randomness:</strong> Avoid predictable patterns or personal information</li>
+      </ul>
+      
+      <h2>Why Manual Password Creation Fails</h2>
+      <p>When people create passwords manually, they often fall into predictable patterns:</p>
+      <ul>
+        <li>Using personal information (birthdays, names, addresses)</li>
+        <li>Creating simple patterns (123456, qwerty, password)</li>
+        <li>Reusing passwords across multiple accounts</li>
+        <li>Making minor variations (password1, password2)</li>
+      </ul>
+      
+      <h2>How Password Generators Solve These Problems</h2>
+      <p>Password generators create truly random, complex passwords that are virtually impossible to guess or crack through brute force attacks. Here's how they work:</p>
+      <ul>
+        <li><strong>True Randomness:</strong> Uses cryptographically secure random number generators</li>
+        <li><strong>Customizable Length:</strong> Generate passwords of any desired length</li>
+        <li><strong>Character Set Control:</strong> Include or exclude specific character types</li>
+        <li><strong>Instant Generation:</strong> Create multiple passwords quickly</li>
+        <li><strong>No Patterns:</strong> Eliminates human bias and predictable patterns</li>
+      </ul>
+      
+      <h2>When to Use a Password Generator</h2>
+      <p>You should use a password generator in these situations:</p>
+      <ul>
+        <li><strong>Creating New Accounts:</strong> Start with a strong password from day one</li>
+        <li><strong>Password Updates:</strong> Regularly update existing passwords</li>
+        <li><strong>Security Audits:</strong> When reviewing your account security</li>
+        <li><strong>Data Breach Response:</strong> After learning your account may be compromised</li>
+        <li><strong>High-Value Accounts:</strong> Banking, email, and work accounts</li>
+      </ul>
+      
+      <h2>Best Practices for Password Management</h2>
+      <p>Combine password generators with these best practices:</p>
+      <ul>
+        <li><strong>Use a Password Manager:</strong> Store generated passwords securely</li>
+        <li><strong>Enable Two-Factor Authentication:</strong> Add an extra layer of security</li>
+        <li><strong>Regular Updates:</strong> Change passwords every 3-6 months</li>
+        <li><strong>Monitor for Breaches:</strong> Use services like Have I Been Pwned</li>
+        <li><strong>Secure Storage:</strong> Never store passwords in plain text</li>
+      </ul>
+      
+      <h2>Common Password Generator Features</h2>
+      <p>Modern password generators offer various features:</p>
+      <ul>
+        <li><strong>Length Control:</strong> Generate passwords from 8 to 128+ characters</li>
+        <li><strong>Character Types:</strong> Uppercase, lowercase, numbers, symbols</li>
+        <li><strong>Exclusion Options:</strong> Avoid similar characters (l, 1, I)</li>
+        <li><strong>Strength Indicators:</strong> Visual feedback on password strength</li>
+        <li><strong>Copy to Clipboard:</strong> Easy copying for immediate use</li>
+      </ul>
+      
+      <h2>Who Needs Password Generators?</h2>
+      <p>Password generators are essential for:</p>
+      <ul>
+        <li><strong>Individuals:</strong> Anyone with online accounts</li>
+        <li><strong>Businesses:</strong> IT administrators and security teams</li>
+        <li><strong>Developers:</strong> Creating secure application credentials</li>
+        <li><strong>Security Professionals:</strong> Testing and auditing systems</li>
+        <li><strong>Privacy-Conscious Users:</strong> Those who value online security</li>
+      </ul>
+      
+      <h2>Conclusion</h2>
+      <p>In today's digital age, strong passwords are your first line of defense against cyber threats. Password generators eliminate the guesswork and human error that often leads to weak passwords. By using a reliable password generator and following security best practices, you can significantly improve your online security posture.</p>
+      
+      <p>Ready to improve your password security? Try our <a href="/tools/password-generator" class="text-blue-600 hover:text-blue-800 underline">Password Generator tool</a> to create strong, secure passwords for all your accounts.</p>
+    `,
+    featuredImage: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    category: 'Security',
+    tags: ['Password Generator', 'Security', 'Cybersecurity', 'Online Safety', 'Password Management'],
+    publishedAt: '2024-01-20T10:00:00Z',
+    featured: true,
+    author: {
+      name: 'David Chen',
+      bio: 'Cybersecurity expert with 10+ years of experience in digital security and password management. Passionate about helping users protect their online identities.',
+      social: {
+        twitter: 'https://twitter.com/davidchen',
+        linkedin: 'https://linkedin.com/in/davidchen'
+      }
+    },
+    relatedPosts: [
+      {
+        slug: 'getting-started-with-base64-encoding',
+        title: 'Getting Started with Base64 Encoding: A Complete Guide',
+        excerpt: 'Learn everything you need to know about Base64 encoding, from basic concepts to advanced usage in web development and data transmission.',
+        featuredImage: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        slug: 'understanding-url-encoding',
+        title: 'Understanding URL Encoding: A Deep Dive',
+        excerpt: 'Explore the fundamentals of URL encoding, why it\'s necessary, and how to implement it correctly in your web applications.',
+        featuredImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+      }
+    ]
+  },
+  {
+    id: 2,
     slug: 'getting-started-with-base64-encoding',
     title: 'Getting Started with Base64 Encoding: A Complete Guide',
     excerpt: 'Learn everything you need to know about Base64 encoding, from basic concepts to advanced usage in web development and data transmission.',
@@ -73,6 +193,8 @@ console.log(decoded); // Hello, World!</code></pre>
       
       <h2>Conclusion</h2>
       <p>Base64 encoding is a fundamental tool in web development and data processing. Understanding how it works and when to use it will help you build more robust applications. Remember to always consider the trade-offs and choose the right encoding method for your specific use case.</p>
+      
+      <p>Ready to try Base64 encoding? Use our <a href="/tools/base64" class="text-blue-600 hover:text-blue-800 underline">Base64 Encoder/Decoder tool</a> to convert your data instantly.</p>
     `,
     featuredImage: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
     category: 'Tutorial',
@@ -103,7 +225,7 @@ console.log(decoded); // Hello, World!</code></pre>
     ]
   },
   {
-    id: 2,
+    id: 5,
     slug: 'top-10-productivity-tools-for-developers',
     title: 'Top 10 Productivity Tools Every Developer Should Know',
     excerpt: 'Discover the most effective productivity tools that can streamline your development workflow and boost your coding efficiency.',
@@ -225,6 +347,142 @@ console.log(decoded); // Hello, World!</code></pre>
   },
   {
     id: 3,
+    slug: 'mastering-json-formatting-and-validation',
+    title: 'Mastering JSON Formatting and Validation: A Developer\'s Essential Guide',
+    excerpt: 'Learn why proper JSON formatting matters, how to validate JSON data, and discover best practices for working with JSON in modern applications.',
+    content: `
+      <h2>Why JSON Formatting Matters in Modern Development</h2>
+      <p>JSON (JavaScript Object Notation) has become the de facto standard for data exchange in web applications, APIs, and modern software systems. While JSON is human-readable by design, properly formatted JSON is crucial for debugging, collaboration, and maintaining code quality.</p>
+      
+      <h2>The Hidden Costs of Poorly Formatted JSON</h2>
+      <p>Working with unformatted or invalid JSON can lead to numerous problems:</p>
+      <ul>
+        <li><strong>Debugging Nightmares:</strong> Hard-to-read JSON makes troubleshooting nearly impossible</li>
+        <li><strong>Syntax Errors:</strong> Missing commas, brackets, or quotes cause parsing failures</li>
+        <li><strong>Team Collaboration Issues:</strong> Poor formatting makes code reviews difficult</li>
+        <li><strong>API Integration Problems:</strong> Invalid JSON breaks API communications</li>
+        <li><strong>Performance Issues:</strong> Malformed JSON can cause unexpected application behavior</li>
+      </ul>
+      
+      <h2>What Makes JSON Well-Formatted?</h2>
+      <p>Properly formatted JSON should have:</p>
+      <ul>
+        <li><strong>Consistent Indentation:</strong> Usually 2 or 4 spaces for readability</li>
+        <li><strong>Proper Structure:</strong> Correct nesting of objects and arrays</li>
+        <li><strong>Valid Syntax:</strong> All brackets, braces, and quotes properly closed</li>
+        <li><strong>Logical Organization:</strong> Related data grouped together</li>
+        <li><strong>Clear Naming:</strong> Descriptive key names that explain the data</li>
+      </ul>
+      
+      <h2>Common JSON Validation Issues</h2>
+      <p>Here are the most frequent problems developers encounter:</p>
+      <ul>
+        <li><strong>Missing Commas:</strong> Forgetting commas between object properties</li>
+        <li><strong>Trailing Commas:</strong> Extra commas at the end of objects or arrays</li>
+        <li><strong>Unquoted Keys:</strong> Object keys must be in double quotes</li>
+        <li><strong>Invalid Characters:</strong> Special characters not properly escaped</li>
+        <li><strong>Mismatched Brackets:</strong> Unclosed objects or arrays</li>
+      </ul>
+      
+      <h2>When You Need JSON Formatting and Validation</h2>
+      <p>JSON tools are essential in these scenarios:</p>
+      <ul>
+        <li><strong>API Development:</strong> Creating and testing API responses</li>
+        <li><strong>Data Migration:</strong> Converting between different data formats</li>
+        <li><strong>Configuration Files:</strong> Managing application settings</li>
+        <li><strong>Debugging:</strong> Analyzing API responses and data structures</li>
+        <li><strong>Code Reviews:</strong> Ensuring consistent formatting across teams</li>
+        <li><strong>Documentation:</strong> Creating readable examples for APIs</li>
+      </ul>
+      
+      <h2>Benefits of Using JSON Formatters</h2>
+      <p>Professional JSON formatters provide several advantages:</p>
+      <ul>
+        <li><strong>Instant Validation:</strong> Catch syntax errors immediately</li>
+        <li><strong>Consistent Formatting:</strong> Apply uniform indentation and spacing</li>
+        <li><strong>Syntax Highlighting:</strong> Color-coded elements for better readability</li>
+        <li><strong>Error Detection:</strong> Pinpoint exact locations of syntax issues</li>
+        <li><strong>Minification Options:</strong> Reduce file size for production</li>
+        <li><strong>Copy-Paste Support:</strong> Easy integration with your workflow</li>
+      </ul>
+      
+      <h2>JSON Best Practices for Developers</h2>
+      <p>Follow these guidelines for better JSON handling:</p>
+      <ul>
+        <li><strong>Always Validate:</strong> Check JSON before using it in production</li>
+        <li><strong>Use Descriptive Keys:</strong> Make your data self-documenting</li>
+        <li><strong>Consistent Data Types:</strong> Maintain uniform types across similar fields</li>
+        <li><strong>Handle Null Values:</strong> Be explicit about missing data</li>
+        <li><strong>Escape Special Characters:</strong> Properly escape quotes and backslashes</li>
+        <li><strong>Version Your APIs:</strong> Include version information in JSON responses</li>
+      </ul>
+      
+      <h2>Advanced JSON Techniques</h2>
+      <p>For more complex scenarios, consider these advanced approaches:</p>
+      <ul>
+        <li><strong>Schema Validation:</strong> Use JSON Schema for data validation</li>
+        <li><strong>Custom Serialization:</strong> Control how objects are converted to JSON</li>
+        <li><strong>Streaming Parsing:</strong> Handle large JSON files efficiently</li>
+        <li><strong>Compression:</strong> Use gzip or other compression for large payloads</li>
+        <li><strong>Binary JSON:</strong> Consider BSON for performance-critical applications</li>
+      </ul>
+      
+      <h2>Who Benefits from JSON Tools?</h2>
+      <p>JSON formatting and validation tools are valuable for:</p>
+      <ul>
+        <li><strong>Frontend Developers:</strong> Working with API responses and data binding</li>
+        <li><strong>Backend Developers:</strong> Creating and testing API endpoints</li>
+        <li><strong>Full-Stack Developers:</strong> Managing data flow between layers</li>
+        <li><strong>DevOps Engineers:</strong> Configuring services and infrastructure</li>
+        <li><strong>QA Engineers:</strong> Testing API integrations and data validation</li>
+        <li><strong>Technical Writers:</strong> Documenting APIs and data structures</li>
+      </ul>
+      
+      <h2>Common Use Cases and Examples</h2>
+      <p>Here are real-world scenarios where JSON formatting is crucial:</p>
+      <ul>
+        <li><strong>API Response Debugging:</strong> Formatting complex API responses for analysis</li>
+        <li><strong>Configuration Management:</strong> Organizing application settings</li>
+        <li><strong>Data Transformation:</strong> Converting between different data formats</li>
+        <li><strong>Log Analysis:</strong> Making log files readable and searchable</li>
+        <li><strong>Database Exports:</strong> Formatting exported data for analysis</li>
+      </ul>
+      
+      <h2>Conclusion</h2>
+      <p>Proper JSON formatting and validation are fundamental skills for modern developers. Whether you're building APIs, working with configuration files, or debugging data issues, having reliable JSON tools in your toolkit will save time and prevent errors.</p>
+      
+      <p>Ready to improve your JSON workflow? Try our <a href="/tools/json-formatter" class="text-blue-600 hover:text-blue-800 underline">JSON Formatter & Validator tool</a> to format, validate, and beautify your JSON data instantly.</p>
+    `,
+    featuredImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    category: 'Development',
+    tags: ['JSON', 'Formatting', 'Validation', 'Web Development', 'API Development'],
+    publishedAt: '2024-01-18T14:30:00Z',
+    featured: true,
+    author: {
+      name: 'Emily Watson',
+      bio: 'Senior software engineer specializing in API development and data processing. Expert in JSON, REST APIs, and modern web technologies.',
+      social: {
+        twitter: 'https://twitter.com/emilywatson',
+        linkedin: 'https://linkedin.com/in/emilywatson'
+      }
+    },
+    relatedPosts: [
+      {
+        slug: 'getting-started-with-base64-encoding',
+        title: 'Getting Started with Base64 Encoding: A Complete Guide',
+        excerpt: 'Learn everything you need to know about Base64 encoding, from basic concepts to advanced usage in web development and data transmission.',
+        featuredImage: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+      },
+      {
+        slug: 'understanding-url-encoding',
+        title: 'Understanding URL Encoding: A Deep Dive',
+        excerpt: 'Explore the fundamentals of URL encoding, why it\'s necessary, and how to implement it correctly in your web applications.',
+        featuredImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
+      }
+    ]
+  },
+  {
+    id: 6,
     slug: 'understanding-url-encoding',
     title: 'Understanding URL Encoding: A Deep Dive',
     excerpt: 'Explore the fundamentals of URL encoding, why it\'s necessary, and how to implement it correctly in your web applications.',
@@ -315,10 +573,11 @@ console.log(decoded); // Hello World!</code></pre>
 ];
 
 const mockCategories = [
+  { slug: 'security', name: 'Security', count: 1 },
   { slug: 'tutorial', name: 'Tutorial', count: 2 },
+  { slug: 'development', name: 'Development', count: 1 },
   { slug: 'productivity', name: 'Productivity', count: 1 },
-  { slug: 'tips', name: 'Tips & Tricks', count: 0 },
-  { slug: 'development', name: 'Development', count: 0 }
+  { slug: 'tips', name: 'Tips & Tricks', count: 0 }
 ];
 
 // Blog service class
