@@ -256,7 +256,7 @@ export const tools = [
     icon: '🌐',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'file-size-converter',
@@ -268,7 +268,7 @@ export const tools = [
     icon: '💾',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'number-base-converter',
@@ -280,7 +280,7 @@ export const tools = [
     icon: '🔢',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'css-minifier',
