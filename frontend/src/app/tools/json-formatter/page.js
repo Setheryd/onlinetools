@@ -5,11 +5,14 @@ import Body from '../../components/layout/Body';
 import JsonFormatterTool from '../../components/tools/JsonFormatterTool';
 
 export const metadata = {
-  title: 'JSON Formatter & Validator — OnlineTools',
-  description:
-    'Format and validate JSON data with proper indentation, syntax highlighting, and error detection. Perfect for developers and API testing.',
-  keywords: ['json', 'formatter', 'validator', 'beautify', 'developer', 'api', 'code']
-};
+  title: 'JSON Formatter & Validator — The Tool Guru',
+  description: 'Format and validate JSON data with proper indentation and syntax highlighting. Free online JSON tool.',
+  keywords: ['json formatter', 'json validator', 'json beautifier', 'online tool', 'the tool guru'],
+  openGraph: {
+    title: 'JSON Formatter & Validator — The Tool Guru',
+    description: 'Format and validate JSON data with proper indentation and syntax highlighting.',
+  },
+}
 
 const JsonFormatterPage = () => {
   return (

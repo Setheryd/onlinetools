@@ -1,6 +1,6 @@
 {
-  "name": "Online Tools - Free Web Utilities",
-  "short_name": "Online Tools",
+  "name": "The Tool Guru - Free Online Tools & Utilities",
+  "short_name": "The Tool Guru",
   "description": "A collection of free online tools including base64 encoder/decoder, password generator, and more useful utilities for developers and professionals.",
   "start_url": "/",
   "display": "standalone",
@@ -9,9 +9,9 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/next.svg",
+      "src": "/Brand_Assets/Profile_Photo.png",
       "sizes": "any",
-      "type": "image/svg+xml",
+      "type": "image/jpeg",
       "purpose": "any"
     }
   ],

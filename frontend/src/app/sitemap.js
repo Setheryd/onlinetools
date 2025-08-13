@@ -1,7 +1,7 @@
 import { getAllToolsForSitemap } from '../lib/tools'
 
 export default function sitemap() {
-  const baseUrl = 'https://onlinetools.com'
+  const baseUrl = 'https://thetool.guru'
   const currentDate = new Date().toISOString()
   
   // Static pages

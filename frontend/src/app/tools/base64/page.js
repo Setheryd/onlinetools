@@ -5,11 +5,14 @@ import Body from '../../components/layout/Body';
 import Base64Tool from '../../components/tools/Base64Tool';
 
 export const metadata = {
-  title: 'Base64 Encoder/Decoder — OnlineTools',
-  description:
-    'Modern Base64 encoder/decoder with UTF-8 support, URL-safe, padding, line wrap, and file drag-and-drop. 100% in-browser.',
-  keywords: ['base64', 'encoder', 'decoder', 'url-safe', 'utf-8']
-};
+  title: 'Base64 Encoder/Decoder — The Tool Guru',
+  description: 'Free online Base64 encoder and decoder. Convert text to Base64 and decode Base64 back to text instantly. No registration required.',
+  keywords: ['base64', 'encoder', 'decoder', 'online tool', 'text encoding', 'data encoding', 'the tool guru'],
+  openGraph: {
+    title: 'Base64 Encoder/Decoder — The Tool Guru',
+    description: 'Free online Base64 encoder and decoder. Convert text to Base64 and decode Base64 back to text instantly.',
+  },
+}
 
 const Base64Page = () => {
   return (

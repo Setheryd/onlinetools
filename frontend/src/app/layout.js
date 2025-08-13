@@ -4,32 +4,32 @@ import './styles/ui.css'
 import WebVitals from './components/analytics/WebVitals'
 
 export const metadata = {
-  title: 'Online Tools - Free Web Utilities',
+  title: 'The Tool Guru - Free Online Tools & Utilities',
   description: 'A collection of free online tools including base64 encoder/decoder, password generator, and more useful utilities for developers and professionals.',
-  keywords: 'online tools, base64, password generator, web utilities, free tools, developer tools, encoder, decoder',
-  authors: [{ name: 'Online Tools' }],
-  creator: 'Online Tools',
-  publisher: 'Online Tools',
+  keywords: 'online tools, base64, password generator, web utilities, free tools, developer tools, encoder, decoder, the tool guru',
+  authors: [{ name: 'The Tool Guru' }],
+  creator: 'The Tool Guru',
+  publisher: 'The Tool Guru',
   formatDetection: {
     email: false,
     address: false,
     telephone: false,
   },
-  metadataBase: new URL('https://onlinetools.com'),
+  metadataBase: new URL('https://thetool.guru'),
   alternates: {
     canonical: '/',
   },
   openGraph: {
-    title: 'Online Tools - Free Web Utilities',
+    title: 'The Tool Guru - Free Online Tools & Utilities',
     description: 'A collection of free online tools including base64 encoder/decoder, password generator, and more useful utilities for developers and professionals.',
-    url: 'https://onlinetools.com',
-    siteName: 'Online Tools',
+    url: 'https://thetool.guru',
+    siteName: 'The Tool Guru',
     images: [
       {
-        url: '/og-image.png',
+        url: '/Brand_Assets/Profile_Photo.png',
         width: 1200,
         height: 630,
-        alt: 'Online Tools - Free Web Utilities',
+        alt: 'The Tool Guru - Free Online Tools & Utilities',
       },
     ],
     locale: 'en_US',
@@ -37,10 +37,10 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Online Tools - Free Web Utilities',
+    title: 'The Tool Guru - Free Online Tools & Utilities',
     description: 'A collection of free online tools including base64 encoder/decoder, password generator, and more useful utilities for developers and professionals.',
-    images: ['/og-image.png'],
-    creator: '@onlinetools',
+    images: ['/Brand_Assets/Profile_Photo.png'],
+    creator: '@thetoolguru',
   },
   robots: {
     index: true,
@@ -103,7 +103,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <meta name="theme-color" content="#3B82F6" />
         <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="default" />
-        <meta name="apple-mobile-web-app-title" content="Online Tools" />
+        <meta name="apple-mobile-web-app-title" content="The Tool Guru" />
         <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <link rel="icon" type="image/x-icon" href="/favicon.ico" />
         <link rel="manifest" href="/manifest.json" />

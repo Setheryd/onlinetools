@@ -33,7 +33,12 @@ const Footer = () => {
           {/* Company Info */}
           <div className="lg:col-span-2">
             <Link href="/" className="flex items-center mb-4">
-              <span className="text-2xl font-bold" style={{ color: '#3A7BD5' }}>OnlineTools</span>
+              <img 
+                src="/Brand_Assets/Profile_Photo.png" 
+                alt="The Tool Guru" 
+                className="h-8 w-auto mr-2"
+              />
+              <span className="text-2xl font-bold" style={{ color: '#3A7BD5' }}>The Tool Guru</span>
             </Link>
             <p className="text-gray-400 mb-6 max-w-md">
               Free online tools to help you with everyday tasks. Fast, secure, and completely free to use.
@@ -109,7 +114,7 @@ const Footer = () => {
         <div className="border-t border-gray-800 mt-12 pt-8">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <p className="text-gray-400 text-sm">
-              © {currentYear} OnlineTools. All rights reserved.
+              © {currentYear} The Tool Guru. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
               <span className="text-gray-400 text-sm">

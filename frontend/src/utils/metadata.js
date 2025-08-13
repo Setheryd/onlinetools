@@ -1,25 +1,25 @@
 export function generateMetadata({ title, description, keywords, path, image }) {
-  const baseUrl = 'https://onlinetools.com'
+  const baseUrl = 'https://thetool.guru'
   const fullUrl = `${baseUrl}${path}`
   
   return {
-    title: title ? `${title} - Online Tools` : 'Online Tools - Free Web Utilities',
+    title: title ? `${title} - The Tool Guru` : 'The Tool Guru - Free Online Tools & Utilities',
     description: description || 'A collection of free online tools including base64 encoder/decoder, password generator, and more useful utilities for developers and professionals.',
-    keywords: keywords || 'online tools, web utilities, free tools, developer tools',
+    keywords: keywords || 'online tools, web utilities, free tools, developer tools, the tool guru',
     alternates: {
       canonical: fullUrl,
     },
     openGraph: {
-      title: title ? `${title} - Online Tools` : 'Online Tools - Free Web Utilities',
+      title: title ? `${title} - The Tool Guru` : 'The Tool Guru - Free Online Tools & Utilities',
       description: description || 'A collection of free online tools including base64 encoder/decoder, password generator, and more useful utilities for developers and professionals.',
       url: fullUrl,
-      siteName: 'Online Tools',
+      siteName: 'The Tool Guru',
       images: [
         {
-          url: image || '/og-image.png',
+          url: image || '/Brand_Assets/Logo.jpg',
           width: 1200,
           height: 630,
-          alt: title || 'Online Tools',
+          alt: title || 'The Tool Guru',
         },
       ],
       locale: 'en_US',
@@ -27,10 +27,10 @@ export function generateMetadata({ title, description, keywords, path, image }) 
     },
     twitter: {
       card: 'summary_large_image',
-      title: title ? `${title} - Online Tools` : 'Online Tools - Free Web Utilities',
+      title: title ? `${title} - The Tool Guru` : 'The Tool Guru - Free Online Tools & Utilities',
       description: description || 'A collection of free online tools including base64 encoder/decoder, password generator, and more useful utilities for developers and professionals.',
-      images: [image || '/og-image.png'],
-      creator: '@onlinetools',
+      images: [image || '/Brand_Assets/Logo.jpg'],
+      creator: '@thetoolguru',
     },
     robots: {
       index: true,
@@ -68,7 +68,7 @@ export function generateStructuredData({ type, data }) {
         },
         author: {
           '@type': 'Organization',
-          name: 'Online Tools',
+          name: 'The Tool Guru',
         },
       }
     
@@ -99,12 +99,12 @@ export function generateStructuredData({ type, data }) {
     case 'Organization':
       return {
         ...baseStructuredData,
-        name: 'Online Tools',
-        url: 'https://onlinetools.com',
-        logo: 'https://onlinetools.com/logo.png',
+        name: 'The Tool Guru',
+        url: 'https://thetool.guru',
+        logo: 'https://thetool.guru/Brand_Assets/Logo.jpg',
         sameAs: [
-          'https://twitter.com/onlinetools',
-          'https://github.com/onlinetools',
+          'https://twitter.com/thetoolguru',
+          'https://github.com/thetoolguru',
         ],
       }
     

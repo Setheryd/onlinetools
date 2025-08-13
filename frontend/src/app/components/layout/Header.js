@@ -42,7 +42,12 @@ const Header = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center">
-              <span className="text-2xl font-bold" style={{ color: '#3A7BD5' }}>OnlineTools</span>
+              <img 
+                src="/Brand_Assets/Profile_Photo.png" 
+                alt="The Tool Guru" 
+                className="h-8 w-auto mr-2"
+              />
+              <span className="text-2xl font-bold" style={{ color: '#3A7BD5' }}>The Tool Guru</span>
             </Link>
           </div>
 

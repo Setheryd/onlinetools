@@ -21,9 +21,9 @@ const Hero = () => {
         <div className="text-center">
           {/* Main Heading */}
           <h1 className="text-4xl md:text-6xl font-bold text-white mb-6 leading-tight">
-            Free Online Tools for
+            Free Online Tools from
             <span className="block text-transparent bg-clip-text bg-gradient-to-r from-yellow-300 to-orange-300">
-              Everyone
+              The Tool Guru
             </span>
           </h1>
           
