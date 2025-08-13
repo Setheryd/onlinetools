@@ -6,9 +6,9 @@ import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
 
 export const metadata = {
-  title: 'Contact — OnlineTools',
-  description: 'Get in touch with the OnlineTools team. We\'d love to hear your feedback, suggestions, or questions.',
-  keywords: ['contact', 'support', 'feedback', 'help', 'online tools']
+  title: 'Contact — The Tool Guru',
+  description: 'Get in touch with The Tool Guru team. We\'d love to hear your feedback, suggestions, or questions.',
+  keywords: ['contact', 'support', 'feedback', 'help', 'online tools', 'the tool guru']
 };
 
 const ContactPage = () => {
@@ -110,7 +110,7 @@ const ContactPage = () => {
                     <div className="text-2xl">📧</div>
                     <div>
                       <h3 className="font-semibold text-gray-900">Email</h3>
-                      <p className="text-gray-600">hello@onlinetools.com</p>
+                      <p className="text-gray-600">info@thetool.guru</p>
                       <p className="text-sm text-gray-500">We typically respond within 24 hours</p>
                     </div>
                   </div>
@@ -119,7 +119,7 @@ const ContactPage = () => {
                     <div className="text-2xl">🌐</div>
                     <div>
                       <h3 className="font-semibold text-gray-900">Website</h3>
-                      <p className="text-gray-600">onlinetools.com</p>
+                      <p className="text-gray-600">thetool.guru</p>
                       <p className="text-sm text-gray-500">Visit our main site</p>
                     </div>
                   </div>

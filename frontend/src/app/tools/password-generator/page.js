@@ -5,11 +5,14 @@ import Body from '../../components/layout/Body';
 import PasswordGenerator from '../../components/tools/PasswordGenerator';
 
 export const metadata = {
-  title: 'Password Generator — OnlineTools',
-  description:
-    'Generate secure, random passwords with customizable length and character sets. 100% in-browser.',
-  keywords: ['password', 'generator', 'secure', 'random', 'security', 'strong password']
-};
+  title: 'Password Generator — The Tool Guru',
+  description: 'Generate strong, secure passwords with customizable options. Create random passwords with letters, numbers, and special characters.',
+  keywords: ['password generator', 'secure password', 'random password', 'online tool', 'the tool guru'],
+  openGraph: {
+    title: 'Password Generator — The Tool Guru',
+    description: 'Generate strong, secure passwords with customizable options.',
+  },
+}
 
 const PasswordGeneratorPage = () => {
   return (

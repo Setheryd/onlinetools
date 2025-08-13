@@ -5,9 +5,9 @@ import Body from '../components/layout/Body';
 import Card from '../components/ui/Card';
 
 export const metadata = {
-  title: 'About — OnlineTools',
-  description: 'Learn about OnlineTools, our mission to provide free, high-quality web utilities, and the team behind the platform.',
-  keywords: ['about', 'mission', 'team', 'online tools', 'web utilities']
+  title: 'About — The Tool Guru',
+  description: 'Learn about The Tool Guru, our mission to provide free, high-quality web utilities, and the team behind the platform.',
+  keywords: ['about', 'mission', 'team', 'online tools', 'web utilities', 'the tool guru']
 };
 
 const AboutPage = () => {
@@ -19,7 +19,7 @@ const AboutPage = () => {
           {/* Hero Section */}
           <div className="text-center mb-16">
             <h1 className="text-4xl font-bold text-gray-900 mb-6">
-              About OnlineTools
+              About The Tool Guru
             </h1>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">
               We're building the most comprehensive collection of free online utilities 

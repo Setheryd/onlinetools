@@ -5,11 +5,14 @@ import Body from '../../components/layout/Body';
 import RegexTesterTool from '../../components/tools/RegexTesterTool';
 
 export const metadata = {
-  title: 'Regex Tester — OnlineTools',
-  description:
-    'Test and debug regular expressions with real-time matching and highlighting. Perfect for developers and text processing.',
-  keywords: ['regex', 'regular expression', 'test', 'pattern', 'match', 'debug', 'developer']
-};
+  title: 'Regex Tester — The Tool Guru',
+  description: 'Test and debug regular expressions with real-time matching and highlighting. Free online regex tester tool.',
+  keywords: ['regex tester', 'regular expression', 'pattern matching', 'online tool', 'the tool guru'],
+  openGraph: {
+    title: 'Regex Tester — The Tool Guru',
+    description: 'Test and debug regular expressions with real-time matching and highlighting.',
+  },
+}
 
 const RegexTesterPage = () => {
   return (

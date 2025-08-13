@@ -5,11 +5,14 @@ import Body from '../../components/layout/Body';
 import TextCaseConverterTool from '../../components/tools/TextCaseConverterTool';
 
 export const metadata = {
-  title: 'Text Case Converter — OnlineTools',
-  description:
-    'Convert text between different cases: UPPERCASE, lowercase, Title Case, camelCase, and more. Perfect for formatting text and code.',
-  keywords: ['text', 'case', 'convert', 'uppercase', 'lowercase', 'title', 'camelcase', 'format']
-};
+  title: 'Text Case Converter — The Tool Guru',
+  description: 'Convert text between different cases: UPPERCASE, lowercase, Title Case, camelCase, and more. Free online text converter.',
+  keywords: ['text case converter', 'uppercase', 'lowercase', 'title case', 'camelcase', 'online tool', 'the tool guru'],
+  openGraph: {
+    title: 'Text Case Converter — The Tool Guru',
+    description: 'Convert text between different cases: UPPERCASE, lowercase, Title Case, camelCase, and more.',
+  },
+}
 
 const TextCaseConverterPage = () => {
   return (

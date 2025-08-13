@@ -2,7 +2,7 @@ import Link from 'next/link'
 import Button from './components/ui/Button'
 
 export const metadata = {
-  title: 'Page Not Found - Online Tools',
+  title: 'Page Not Found - The Tool Guru',
   description: 'The page you are looking for could not be found. Browse our collection of free online tools.',
   robots: {
     index: false,

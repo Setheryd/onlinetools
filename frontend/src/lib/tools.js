@@ -582,7 +582,7 @@ export function getRelatedTools(currentToolId, limit = 3) {
 
 export function getAllToolsForSitemap() {
   return tools.map(tool => ({
-    url: `https://onlinetools.com${tool.path}`,
+    url: `https://thetool.guru${tool.path}`,
     lastModified: new Date().toISOString(),
     changeFrequency: 'weekly',
     priority: tool.priority,
