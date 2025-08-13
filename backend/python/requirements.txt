@@ -5,7 +5,7 @@ selenium==4.15.2
 pytrends==4.9.2
 lxml==4.9.3
 
-# Google APIs
+# Google APIs (Optional - for advanced features)
 google-ads==22.1.0
 google-auth==2.23.4
 google-auth-oauthlib==1.1.0
