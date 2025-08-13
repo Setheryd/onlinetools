@@ -25,6 +25,14 @@ const Home = () => {
       icon: '🔐',
       category: 'Security Tools',
       url: '/tools/password-generator'
+    },
+    {
+      id: 'json-formatter',
+      name: 'JSON Formatter & Validator',
+      description: 'Format and validate JSON data with proper indentation and syntax highlighting.',
+      icon: '📋',
+      category: 'Developer Tools',
+      url: '/tools/json-formatter'
     }
   ];
 
@@ -155,7 +163,7 @@ const Home = () => {
         <section className="mb-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">2+</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">3+</div>
               <div className="text-gray-600">Free Tools</div>
             </div>
             <div className="text-center">
