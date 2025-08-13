@@ -197,3 +197,4 @@ This guide covers setting up a business entity and banking solution for an onlin
 ---
 
 **Note**: This guide is for informational purposes. Consider consulting with a business attorney or accountant for specific legal and tax advice for your situation.
+ 
