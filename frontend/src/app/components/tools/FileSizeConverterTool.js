@@ -58,6 +58,16 @@ const FileSizeConverterTool = () => {
         </div>
       </div>
 
+      {/* Examples */}
+      <div className="mb-4">
+        <label className="block text-sm font-medium text-gray-700 mb-2">Examples</label>
+        <div className="flex flex-wrap gap-2">
+          <Button variant="outline" size="sm" onClick={() => { setValue('1'); setUnit('GB'); }}>1 GB</Button>
+          <Button variant="outline" size="sm" onClick={() => { setValue('1024'); setUnit('KB'); }}>1024 KB</Button>
+          <Button variant="outline" size="sm" onClick={() => { setValue('0.5'); setUnit('TB'); }}>0.5 TB</Button>
+        </div>
+      </div>
+
       <div className="mb-6 grid grid-cols-1 sm:grid-cols-3 gap-3">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">Value</label>
