@@ -184,7 +184,7 @@ export const tools = [
     icon: '🎫',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   {
     id: 'regex-tester',
@@ -340,7 +340,7 @@ export const tools = [
     icon: '📧',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'ip-lookup',
@@ -400,7 +400,7 @@ export const tools = [
     icon: '🏷️',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'favicon-generator',

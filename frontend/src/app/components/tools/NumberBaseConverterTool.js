@@ -63,6 +63,34 @@ const NumberBaseConverterTool = () => {
         </div>
       </div>
 
+      {/* Examples */}
+      <div className="mb-4">
+        <label className="block text-sm font-medium text-gray-700 mb-2">Examples</label>
+        <div className="flex flex-wrap gap-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => { setInput('255'); setFromBase(10); setToBase(16); }}
+          >
+            255 (dec) → hex
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => { setInput('ff'); setFromBase(16); setToBase(2); }}
+          >
+            ff (hex) → bin
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => { setInput('101010'); setFromBase(2); setToBase(10); }}
+          >
+            101010 (bin) → dec
+          </Button>
+        </div>
+      </div>
+
       <div className="mb-6 grid grid-cols-1 md:grid-cols-3 gap-3">
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">Input</label>

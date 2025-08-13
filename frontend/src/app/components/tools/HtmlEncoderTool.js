@@ -74,6 +74,35 @@ const HtmlEncoderTool = () => {
         </div>
       </div>
 
+      {/* Examples */}
+      <div className="mb-4">
+        <label className="block text-sm font-medium text-gray-700 mb-2">Examples</label>
+        <div className="flex flex-wrap gap-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => {
+              setMode('encode');
+              setInput('<div class="note">Tom & Jerry</div>');
+              setOutput('');
+            }}
+          >
+            Encode HTML snippet
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => {
+              setMode('decode');
+              setInput('&lt;strong&gt;Hello&amp;Goodbye&lt;/strong&gt;');
+              setOutput('');
+            }}
+          >
+            Decode entities
+          </Button>
+        </div>
+      </div>
+
       <div className="mb-4">
         <label htmlFor="input" className="block text-sm font-medium text-gray-700 mb-2">
           {mode === 'encode' ? 'Text to encode' : 'HTML to decode'}

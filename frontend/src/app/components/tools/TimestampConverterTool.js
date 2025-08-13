@@ -99,6 +99,37 @@ const TimestampConverterTool = () => {
         </div>
       </div>
 
+      {/* Examples */}
+      <div className="mb-4">
+        <label className="block text-sm font-medium text-gray-700 mb-2">Examples</label>
+        <div className="flex flex-wrap gap-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => {
+              setMode('unix-to-date');
+              setInput('1704067200');
+              setOutput('');
+              setError('');
+            }}
+          >
+            1704067200 → ISO date
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => {
+              setMode('date-to-unix');
+              setInput('2024-01-01T00:00:00Z');
+              setOutput('');
+              setError('');
+            }}
+          >
+            2024-01-01T00:00:00Z → Unix
+          </Button>
+        </div>
+      </div>
+
       <div className="mb-4">
         <label htmlFor="input" className="block text-sm font-medium text-gray-700 mb-2">
           {mode === 'unix-to-date' ? 'Unix timestamp (in seconds)' : 'Date/time (ISO, e.g. 2024-01-01T00:00:00Z)'}

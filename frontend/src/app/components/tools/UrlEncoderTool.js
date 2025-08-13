@@ -75,6 +75,37 @@ const UrlEncoderTool = () => {
         </div>
       </div>
 
+      {/* Examples */}
+      <div className="mb-4">
+        <label className="block text-sm font-medium text-gray-700 mb-2">Examples</label>
+        <div className="flex flex-wrap gap-2">
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => {
+              setMode('encode');
+              setInput('https://example.com/search?q=hello world&lang=en-US');
+              setOutput('');
+              setError('');
+            }}
+          >
+            URL with spaces and params
+          </Button>
+          <Button
+            variant="outline"
+            size="sm"
+            onClick={() => {
+              setMode('decode');
+              setInput('q%3Dhello%2520world%26lang%3Den-US');
+              setOutput('');
+              setError('');
+            }}
+          >
+            Encoded query string
+          </Button>
+        </div>
+      </div>
+
       <div className="mb-4">
         <label htmlFor="input" className="block text-sm font-medium text-gray-700 mb-2">
           {mode === 'encode' ? 'Text or URL to encode' : 'URL-encoded text to decode'}
