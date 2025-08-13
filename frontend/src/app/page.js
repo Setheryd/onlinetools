@@ -41,6 +41,22 @@ const Home = () => {
       icon: '🔒',
       category: 'Security Tools',
       url: '/tools/hash-generator'
+    },
+    {
+      id: 'lorem-ipsum',
+      name: 'Lorem Ipsum Generator',
+      description: 'Generate professional placeholder text for design mockups.',
+      icon: '📝',
+      category: 'Content Tools',
+      url: '/tools/lorem-ipsum'
+    },
+    {
+      id: 'word-counter',
+      name: 'Word Counter',
+      description: 'Analyze text with comprehensive word counting and statistics.',
+      icon: '📊',
+      category: 'Content Tools',
+      url: '/tools/word-counter'
     }
   ];
 
@@ -171,7 +187,7 @@ const Home = () => {
         <section className="mb-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">6+</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">9+</div>
               <div className="text-gray-600">Free Tools</div>
             </div>
             <div className="text-center">
