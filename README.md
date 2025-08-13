@@ -80,5 +80,5 @@ pip install -r requirements.txt
 
 ## Cron Jobs
 
-Backend scripts are designed to run as cron jobs on virtual machines for automated data collection and content generation.
+Backend scripts are designed to run as cron jobs on virtual machines for automated data collection and content generation. 
   
