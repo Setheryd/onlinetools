@@ -5,41 +5,83 @@
     ├── project_tree_py.txt
     ├── tree.py
     ├── backend/
+        ├── README.md
         ├── data_warehouse/
+            ├── .gitkeep
         ├── python/
+            ├── SETUP_GUIDE.md
             ├── __init__.py
             ├── env.example
             ├── requirements.txt
+            ├── test_setup.py
             ├── config/
                 ├── __init__.py
                 ├── settings.py
             ├── content_generation/
+                ├── .gitkeep
             ├── data_collection/
                 ├── __init__.py
+                ├── data_warehouse_manager.py
+                ├── google_ads_collector.py
+                ├── google_trends_collector.py
                 ├── keyword_scraper.py
             ├── image_processing/
+                ├── .gitkeep
+            ├── scripts/
+                ├── __init__.py
+                ├── collect_keywords.py
+                ├── setup_google_ads.py
             ├── utils/
                 ├── __init__.py
                 ├── logger.py
-    ├── onlinetools/
+    ├── frontend/
         ├── .gitignore
+        ├── BLOG_INTEGRATION.md
         ├── README.md
+        ├── SEO_SETUP.md
         ├── jsconfig.json
         ├── next.config.mjs
         ├── package-lock.json
         ├── package.json
         ├── postcss.config.mjs
+        ├── tailwind.config.js
+        ├── test-navigation.js
         ├── public/
             ├── file.svg
             ├── globe.svg
+            ├── manifest.json
             ├── next.svg
+            ├── robots.txt
             ├── vercel.svg
             ├── window.svg
         ├── src/
             ├── app/
                 ├── favicon.ico
+                ├── globals.css
                 ├── layout.js
+                ├── not-found.js
+                ├── page.js
+                ├── sitemap.js
+                ├── about/
+                    ├── page.js
+                ├── api/
+                    ├── blog/
+                        ├── posts/
+                            ├── route.js
+                            ├── [slug]/
+                                ├── route.js
+                ├── blog/
+                    ├── page.js
+                    ├── [slug]/
+                        ├── page.js
                 ├── components/
+                    ├── analytics/
+                        ├── WebVitals.js
+                    ├── blog/
+                        ├── BlogCard.js
+                        ├── BlogHero.js
+                        ├── BlogPost.js
+                        ├── BlogSidebar.js
                     ├── layout/
                         ├── Body.js
                         ├── Footer.js
@@ -47,23 +89,44 @@
                         ├── Hero.js
                     ├── tools/
                         ├── Base64Tool.js
+                        ├── PasswordGenerator.js
                     ├── ui/
                         ├── Badge.js
+                        ├── Breadcrumb.js
                         ├── Button.js
                         ├── Card.js
+                        ├── Checkbox.js
                         ├── Input.js
+                ├── contact/
+                    ├── page.js
                 ├── hooks/
+                    ├── .gitkeep
                 ├── pages/
-                    ├── home.js
                     ├── blog/
+                        ├── .gitkeep
                     ├── tools/
+                        ├── .gitkeep
                 ├── styles/
                     ├── globals.css
                     ├── layout.css
                     ├── ui.css
+                ├── tools/
+                    ├── page.js
+                    ├── base64/
+                        ├── page.js
+                    ├── password-generator/
+                        ├── page.js
                 ├── types/
+                    ├── .gitkeep
                 ├── utils/
+                    ├── .gitkeep
+                    ├── blogService.js
+            ├── lib/
+                ├── tools.js
+            ├── utils/
+                ├── metadata.js
     ├── shared/
         ├── config/
+            ├── .gitkeep
         ├── constants/
             ├── tools.js

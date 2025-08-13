@@ -65,11 +65,7 @@ const nextConfig = {
   // Redirects for SEO
   async redirects() {
     return [
-      {
-        source: '/tools',
-        destination: '/',
-        permanent: true,
-      },
+      // Remove the tools redirect - we want /tools to go to the tools page
     ]
   },
   
