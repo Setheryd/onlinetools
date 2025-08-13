@@ -6,22 +6,16 @@ const Footer = () => {
 
   const footerLinks = {
     tools: [
-      { name: 'Text Tools', href: '/tools/text' },
-      { name: 'Document Tools', href: '/tools/document' },
-      { name: 'Image Tools', href: '/tools/image' },
-      { name: 'Developer Tools', href: '/tools/developer' }
+      { name: 'Base64 Encoder/Decoder', href: '/tools/base64' },
+      { name: 'Password Generator', href: '/tools/password-generator' },
+      { name: 'All Tools', href: '/tools' }
     ],
     company: [
       { name: 'About Us', href: '/about' },
-      { name: 'Contact', href: '/contact' },
-      { name: 'Privacy Policy', href: '/privacy' },
-      { name: 'Terms of Service', href: '/terms' }
+      { name: 'Contact', href: '/contact' }
     ],
     resources: [
-      { name: 'Blog', href: '/blog' },
-      { name: 'Help Center', href: '/help' },
-      { name: 'API Documentation', href: '/api' },
-      { name: 'Status', href: '/status' }
+      { name: 'Blog', href: '/blog' }
     ]
   };
 
@@ -118,24 +112,9 @@ const Footer = () => {
               © {currentYear} OnlineTools. All rights reserved.
             </p>
             <div className="flex space-x-6 mt-4 md:mt-0">
-              <Link
-                href="/privacy"
-                className="text-gray-400 hover:text-blue-400 text-sm transition-colors duration-200"
-              >
-                Privacy Policy
-              </Link>
-              <Link
-                href="/terms"
-                className="text-gray-400 hover:text-blue-400 text-sm transition-colors duration-200"
-              >
-                Terms of Service
-              </Link>
-              <Link
-                href="/cookies"
-                className="text-gray-400 hover:text-blue-400 text-sm transition-colors duration-200"
-              >
-                Cookie Policy
-              </Link>
+              <span className="text-gray-400 text-sm">
+                Privacy-focused tools
+              </span>
             </div>
           </div>
         </div>

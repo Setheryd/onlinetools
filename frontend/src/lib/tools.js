@@ -27,6 +27,31 @@ export const tools = [
     priority: 0.9,
     built: true,
   },
+  // Coming soon tools (for future development)
+  {
+    id: 'pdf-merger',
+    name: 'PDF Merger',
+    description: 'Combine multiple PDF files into a single document.',
+    path: '/tools/pdf-merger',
+    category: 'document',
+    keywords: 'pdf, merge, combine, document, files',
+    icon: '📄',
+    featured: false,
+    priority: 0.7,
+    built: false,
+  },
+  {
+    id: 'url-encoder',
+    name: 'URL Encoder/Decoder',
+    description: 'Encode or decode URLs to handle special characters.',
+    path: '/tools/url-encoder',
+    category: 'encoding',
+    keywords: 'url, encode, decode, web, link',
+    icon: '🔗',
+    featured: false,
+    priority: 0.7,
+    built: false,
+  },
   // Add new tools here - they will automatically be included in:
   // - Sitemap generation
   // - Navigation menus
@@ -44,6 +69,11 @@ export const categories = [
     id: 'security',
     name: 'Security Tools',
     description: 'Tools for password generation and security',
+  },
+  {
+    id: 'document',
+    name: 'Document Tools',
+    description: 'Tools for working with documents and files',
   },
   // Add new categories as needed
 ]

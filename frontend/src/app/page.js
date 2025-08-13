@@ -19,20 +19,12 @@ const Home = () => {
       url: '/tools/base64'
     },
     {
-      id: 'pdf-merger',
-      name: 'PDF Merger',
-      description: 'Combine multiple PDF files into a single document.',
-      icon: '📄',
-      category: 'Document Tools',
-      url: '/tools/pdf-merger'
-    },
-    {
-      id: 'url-encoder',
-      name: 'URL Encoder/Decoder',
-      description: 'Encode or decode URLs to handle special characters.',
-      icon: '🔗',
-      category: 'Text Tools',
-      url: '/tools/url-encoder'
+      id: 'password-generator',
+      name: 'Password Generator',
+      description: 'Generate strong, secure passwords with customizable options.',
+      icon: '🔐',
+      category: 'Security Tools',
+      url: '/tools/password-generator'
     }
   ];
 
@@ -163,7 +155,7 @@ const Home = () => {
         <section className="mb-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">50+</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">2+</div>
               <div className="text-gray-600">Free Tools</div>
             </div>
             <div className="text-center">
