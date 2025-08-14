@@ -27,4 +27,4 @@ if __name__ == "__main__":
     
     print(f"Generating directory tree for '{project_path}'...")
     generate_tree(project_path, output_filename)
-    print(f"Tree saved to '{output_filename}'")
+    print(f"Tree saved to '{output_filename}'") 
