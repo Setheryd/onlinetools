@@ -78,9 +78,9 @@ const Header = () => {
               </button>
 
               {isToolsOpen && (
-                <div className="dropdown-menu absolute left-0 top-full w-[520px] lg:w-[720px] bg-white border border-gray-200 rounded-lg shadow-xl z-50">
+                <div className="dropdown-menu absolute left-1/2 top-full -translate-x-1/2 transform w-[min(100vw-1rem,80rem)] max-w-[calc(100vw-1rem)] max-h-[70vh] overflow-auto bg-white border border-gray-200 rounded-lg shadow-xl z-50">
                   <div className="p-4">
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 xl:grid-cols-5 gap-4">
                       {Object.entries(categoriesInUse).map(([category, tools]) => (
                         <div key={category} className="">
                           <div className="text-xs uppercase tracking-wider text-gray-500 mb-2">{category}</div>
