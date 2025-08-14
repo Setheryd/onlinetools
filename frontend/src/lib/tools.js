@@ -546,7 +546,7 @@ export const tools = [
     icon: '💰',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   {
     id: 'tip-calculator',
@@ -570,7 +570,7 @@ export const tools = [
     icon: '⚖️',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   {
     id: 'age-calculator',
@@ -582,20 +582,9 @@ export const tools = [
     icon: '🎂',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
-  {
-    id: 'pregnancy-calculator',
-    name: 'Pregnancy Calculator',
-    description: 'Calculate due dates, pregnancy weeks, and important milestones.',
-    path: '/tools/pregnancy-calculator',
-    category: 'calculator',
-    keywords: ['pregnancy', 'due date', 'calculator', 'baby', 'gestation', 'weeks'],
-    icon: '👶',
-    featured: false,
-    priority: 0.5,
-    built: false,
-  },
+  
   {
     id: 'calorie-calculator',
     name: 'Calorie Calculator',
@@ -606,7 +595,7 @@ export const tools = [
     icon: '🍎',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   // ADVANCED ENCODING & CRYPTOGRAPHY
   {
