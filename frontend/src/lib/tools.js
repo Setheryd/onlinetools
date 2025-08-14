@@ -887,7 +887,7 @@ export const tools = [
     icon: '🖼️',
     featured: false,
     priority: 0.7,
-    built: false,
+    built: true,
   },
   {
     id: 'image-converter',
@@ -899,7 +899,7 @@ export const tools = [
     icon: '🔄',
     featured: false,
     priority: 0.7,
-    built: false,
+    built: true,
   },
   {
     id: 'image-watermarker',
@@ -911,7 +911,7 @@ export const tools = [
     icon: '💧',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   {
     id: 'image-cropper',
@@ -923,7 +923,7 @@ export const tools = [
     icon: '✂️',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   {
     id: 'image-filters',
@@ -935,7 +935,7 @@ export const tools = [
     icon: '🎨',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   {
     id: 'screenshot-tool',
