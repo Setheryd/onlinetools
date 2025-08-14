@@ -41,15 +41,28 @@ const Header = () => {
         <div className="flex justify-between items-center h-16">
           {/* Logo */}
           <div className="flex-shrink-0">
-            <Link href="/" className="flex items-center">
-              <img 
-                src="/Brand_Assets/Profile_Photo.png" 
-                alt="The Tool Guru logo" 
-                width="32"
-                height="32"
-                className="h-8 w-8 mr-2"
-              />
-              <span className="text-2xl font-bold" style={{ color: '#3A7BD5' }}>The Tool Guru</span>
+            <Link href="/" className="flex items-center group">
+              <span className="mr-2 rounded-xl p-[2px] bg-gradient-to-br from-indigo-500 via-sky-400 to-cyan-400 transition-transform duration-200 group-hover:scale-105">
+                <img 
+                  src="/Brand_Assets/Logo.webp" 
+                  alt="The Tool Guru logo" 
+                  width="32"
+                  height="32"
+                  className="h-8 w-8 rounded-lg bg-white"
+                />
+              </span>
+              <span 
+                className="text-2xl font-extrabold tracking-tight leading-none transition-opacity duration-200 group-hover:opacity-90"
+                style={{ 
+                  fontFamily: "'Sora', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial",
+                  background: 'linear-gradient(135deg, #4f46e5 0%, #0ea5e9 50%, #06b6d4 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}
+              >
+                The Tool Guru
+              </span>
             </Link>
           </div>
 

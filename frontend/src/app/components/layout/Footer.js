@@ -32,15 +32,28 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           {/* Company Info */}
           <div className="lg:col-span-2">
-            <Link href="/" className="flex items-center mb-4">
-              <img 
-                src="/Brand_Assets/Profile_Photo.png" 
-                alt="The Tool Guru logo" 
-                width="32"
-                height="32"
-                className="h-8 w-8 mr-2"
-              />
-              <span className="text-2xl font-bold" style={{ color: '#3A7BD5' }}>The Tool Guru</span>
+            <Link href="/" className="flex items-center mb-4 group">
+              <span className="mr-2 rounded-xl p-[2px] bg-gradient-to-br from-indigo-500 via-sky-400 to-cyan-400 transition-transform duration-200 group-hover:scale-105">
+                <img 
+                  src="/Brand_Assets/Logo.webp" 
+                  alt="The Tool Guru logo" 
+                  width="32"
+                  height="32"
+                  className="h-8 w-8 rounded-lg bg-white"
+                />
+              </span>
+              <span 
+                className="text-2xl font-extrabold tracking-tight leading-none"
+                style={{ 
+                  fontFamily: "'Sora', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, Helvetica, Arial",
+                  background: 'linear-gradient(135deg, #818cf8 0%, #7dd3fc 50%, #67e8f9 100%)',
+                  WebkitBackgroundClip: 'text',
+                  WebkitTextFillColor: 'transparent',
+                  backgroundClip: 'text'
+                }}
+              >
+                The Tool Guru
+              </span>
             </Link>
             <p className="text-gray-400 mb-6 max-w-md">
               Free online tools to help you with everyday tasks. Fast, secure, and completely free to use.

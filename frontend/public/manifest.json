@@ -9,19 +9,19 @@
   "orientation": "portrait-primary",
   "icons": [
     {
-      "src": "/Brand_Assets/Profile_Photo.png",
+      "src": "/Brand_Assets/Logo.webp",
       "sizes": "192x192",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/Brand_Assets/Profile_Photo.png",
+      "src": "/Brand_Assets/Logo.webp",
       "sizes": "512x512",
       "type": "image/png",
       "purpose": "any maskable"
     },
     {
-      "src": "/Brand_Assets/Profile_Photo.png",
+      "src": "/Brand_Assets/Logo.webp",
       "sizes": "any",
       "type": "image/jpeg",
       "purpose": "any"

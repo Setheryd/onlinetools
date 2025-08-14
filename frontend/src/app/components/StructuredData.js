@@ -18,7 +18,7 @@ export default function StructuredData({ type, data }) {
             "name": "The Tool Guru",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://thetool.guru/Brand_Assets/Profile_Photo.png",
+              "url": "https://thetool.guru/Brand_Assets/Logo.webp",
               "width": 512,
               "height": 512
             },
@@ -85,7 +85,7 @@ export default function StructuredData({ type, data }) {
             "name": "The Tool Guru",
             "logo": {
               "@type": "ImageObject",
-              "url": "https://thetool.guru/Brand_Assets/Profile_Photo.png",
+              "url": "https://thetool.guru/Brand_Assets/Logo.webp",
               "width": 512,
               "height": 512
             }
@@ -116,7 +116,7 @@ export default function StructuredData({ type, data }) {
           "url": "https://thetool.guru",
           "logo": {
             "@type": "ImageObject",
-            "url": "https://thetool.guru/Brand_Assets/Profile_Photo.png",
+            "url": "https://thetool.guru/Brand_Assets/Logo.webp",
             "width": 512,
             "height": 512
           },

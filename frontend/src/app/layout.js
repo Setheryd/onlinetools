@@ -29,7 +29,7 @@ export const metadata = {
     siteName: 'The Tool Guru',
     images: [
       {
-        url: '/Brand_Assets/Profile_Photo.png',
+        url: '/Brand_Assets/Logo.webp',
         width: 32,
         height: 32,
         alt: 'The Tool Guru - Free Online Tools & Utilities',
@@ -42,7 +42,7 @@ export const metadata = {
     card: 'summary_large_image',
     title: 'The Tool Guru - Free Online Tools & Utilities',
     description: 'A collection of free online tools including base64 encoder/decoder, password generator, and more useful utilities for developers and professionals.',
-    images: ['/Brand_Assets/Profile_Photo.png'],
+    images: ['/Brand_Assets/Logo.webp'],
     creator: '@thetoolguru',
     site: '@thetoolguru',
   },
@@ -215,6 +215,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <link rel="dns-prefetch" href="//www.googletagmanager.com" />
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+        <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
       </head>
       <body className="min-h-screen bg-gray-50" suppressHydrationWarning>
         {/* Google Tag Manager (noscript) */}
