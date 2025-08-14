@@ -42,7 +42,7 @@ const Header = () => {
           {/* Logo */}
           <div className="flex-shrink-0">
             <Link href="/" className="flex items-center group">
-              <span className="mr-2 rounded-xl p-[2px] bg-gradient-to-br from-indigo-500 via-sky-400 to-cyan-400 transition-transform duration-200 group-hover:scale-105">
+              <span className="mr-2 rounded-xl p-[2px] transition-transform duration-200 group-hover:scale-105">
                 <img 
                   src="/Brand_Assets/Logo.webp" 
                   alt="The Tool Guru logo" 
