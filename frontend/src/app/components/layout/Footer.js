@@ -35,8 +35,10 @@ const Footer = () => {
             <Link href="/" className="flex items-center mb-4">
               <img 
                 src="/Brand_Assets/Profile_Photo.png" 
-                alt="The Tool Guru" 
-                className="h-8 w-auto mr-2"
+                alt="The Tool Guru logo" 
+                width="32"
+                height="32"
+                className="h-8 w-8 mr-2"
               />
               <span className="text-2xl font-bold" style={{ color: '#3A7BD5' }}>The Tool Guru</span>
             </Link>

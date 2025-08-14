@@ -8,8 +8,8 @@ import Script from 'next/script'
 
 export const metadata = {
   title: 'The Tool Guru - Free Online Tools & Utilities',
-  description: 'A collection of free online tools including base64 encoder/decoder, password generator, and more useful utilities for developers and professionals.',
-  keywords: 'online tools, base64, password generator, web utilities, free tools, developer tools, encoder, decoder, the tool guru',
+  description: 'A comprehensive collection of free online tools including base64 encoder/decoder, password generator, image processors, calculators, and more useful utilities for developers and professionals. All tools are free to use with no registration required.',
+  keywords: 'online tools, base64, password generator, web utilities, free tools, developer tools, encoder, decoder, the tool guru, calculators, image processing, text tools',
   authors: [{ name: 'The Tool Guru' }],
   creator: 'The Tool Guru',
   publisher: 'The Tool Guru',
@@ -30,8 +30,8 @@ export const metadata = {
     images: [
       {
         url: '/Brand_Assets/Profile_Photo.png',
-        width: 1200,
-        height: 630,
+        width: 32,
+        height: 32,
         alt: 'The Tool Guru - Free Online Tools & Utilities',
       },
     ],
@@ -176,7 +176,8 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
           />
         </noscript>
 
-        {/* Microsoft Clarity */}
+        {/* Microsoft Clarity - Temporarily disabled until proper ID is configured */}
+        {/* 
         <Script id="clarity" strategy="afterInteractive">
           {`
             (function(c,l,a,r,i,t,y){
@@ -186,6 +187,7 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
             })(window, document, "clarity", "script", "YOUR_CLARITY_ID");
           `}
         </Script>
+        */}
 
         {/* Google AdSense */}
         <Script

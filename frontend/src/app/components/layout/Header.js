@@ -44,8 +44,10 @@ const Header = () => {
             <Link href="/" className="flex items-center">
               <img 
                 src="/Brand_Assets/Profile_Photo.png" 
-                alt="The Tool Guru" 
-                className="h-8 w-auto mr-2"
+                alt="The Tool Guru logo" 
+                width="32"
+                height="32"
+                className="h-8 w-8 mr-2"
               />
               <span className="text-2xl font-bold" style={{ color: '#3A7BD5' }}>The Tool Guru</span>
             </Link>
@@ -137,8 +139,11 @@ const Header = () => {
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="text-gray-700 hover:text-blue-600 focus:outline-none focus:text-blue-600"
+              aria-label="Toggle navigation menu"
+              aria-expanded={isMobileMenuOpen}
+              aria-controls="mobile-menu"
             >
-              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" aria-hidden="true">
                 {isMobileMenuOpen ? (
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
@@ -151,7 +156,7 @@ const Header = () => {
 
           {/* Mobile Navigation */}
         {isMobileMenuOpen && (
-          <div className="md:hidden">
+          <div className="md:hidden" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
             <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200">
                 {/* Mobile Tools collapsible */}
                 <button
