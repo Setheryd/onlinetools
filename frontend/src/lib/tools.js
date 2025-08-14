@@ -123,7 +123,7 @@ export const tools = [
     icon: '🎨',
     featured: true,
     priority: 0.7,
-    built: false,
+    built: true,
   },
   {
     id: 'hash-generator',

@@ -6,6 +6,7 @@ import Footer from './components/layout/Footer';
 import Body from './components/layout/Body';
 import Card from './components/ui/Card';
 import Badge from './components/ui/Badge';
+import { getBuiltTools } from '@/lib/tools';
 import Button from './components/ui/Button';
 
 const Home = () => {
@@ -83,6 +84,7 @@ const Home = () => {
     }
   ];
 
+  const toolsCount = getBuiltTools().length;
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -187,7 +189,7 @@ const Home = () => {
         <section className="mb-16">
           <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
             <div className="text-center">
-              <div className="text-4xl font-bold text-blue-600 mb-2">9+</div>
+              <div className="text-4xl font-bold text-blue-600 mb-2">{toolsCount}</div>
               <div className="text-gray-600">Free Tools</div>
             </div>
             <div className="text-center">
