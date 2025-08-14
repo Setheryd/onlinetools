@@ -304,7 +304,7 @@ export const tools = [
     icon: '🎨',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'js-minifier',
@@ -316,7 +316,7 @@ export const tools = [
     icon: '⚡',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'xml-formatter',
@@ -328,7 +328,7 @@ export const tools = [
     icon: '📋',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'sql-formatter',
@@ -436,7 +436,7 @@ export const tools = [
     icon: '🗺️',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'robots-txt-generator',
@@ -448,7 +448,7 @@ export const tools = [
     icon: '🤖',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'htaccess-generator',
@@ -460,7 +460,7 @@ export const tools = [
     icon: '⚙️',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'cron-job-generator',
@@ -472,7 +472,7 @@ export const tools = [
     icon: '⏰',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'gitignore-generator',
@@ -484,7 +484,7 @@ export const tools = [
     icon: '📁',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'dockerfile-generator',
