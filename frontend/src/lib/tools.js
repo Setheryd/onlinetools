@@ -1205,7 +1205,7 @@ export const tools = [
     icon: '🔒',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   {
     id: 'random-name-generator',
@@ -1229,7 +1229,7 @@ export const tools = [
     icon: '🎲',
     featured: false,
     priority: 0.4,
-    built: false,
+    built: true,
   },
   {
     id: 'coin-flipper',
@@ -1241,7 +1241,7 @@ export const tools = [
     icon: '🪙',
     featured: false,
     priority: 0.4,
-    built: false,
+    built: true,
   },
   {
     id: 'random-number-generator',
@@ -1253,7 +1253,7 @@ export const tools = [
     icon: '🎲',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'decision-maker',
@@ -1402,18 +1402,7 @@ export const tools = [
     priority: 0.7,
     built: true,
   },
-  {
-    id: 'currency-converter',
-    name: 'Currency Converter',
-    description: 'Convert between different currencies with real-time exchange rates.',
-    path: '/tools/currency-converter',
-    category: 'conversion',
-    keywords: ['currency', 'convert', 'exchange rate', 'money', 'forex', 'dollar'],
-    icon: '💱',
-    featured: true,
-    priority: 0.8,
-    built: false,
-  },
+  
   {
     id: 'temperature-converter',
     name: 'Temperature Converter',
@@ -1460,6 +1449,18 @@ export const tools = [
     icon: '📐',
     featured: false,
     priority: 0.5,
+    built: true,
+  },
+  {
+    id: 'unit-converter',
+    name: 'Unit Converter',
+    description: 'Convert between common units across categories like length, weight, temperature, and volume.',
+    path: '/tools/unit-converter',
+    category: 'conversion',
+    keywords: ['unit', 'converter', 'length', 'weight', 'temperature', 'volume'],
+    icon: '🧮',
+    featured: false,
+    priority: 0.6,
     built: true,
   },
   {
