@@ -5,6 +5,7 @@ import WebVitals from './components/analytics/WebVitals'
 import EnhancedAnalytics from './components/analytics/EnhancedAnalytics'
 import StructuredData from './components/StructuredData'
 import Script from 'next/script'
+import { Suspense } from 'react'
 
 export const metadata = {
   title: 'The Tool Guru - Free Online Tools & Utilities',
@@ -230,7 +231,9 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         {/* End Google Tag Manager (noscript) */}
         {children}
         <WebVitals />
-        <EnhancedAnalytics />
+        <Suspense fallback={null}>
+          <EnhancedAnalytics />
+        </Suspense>
         <StructuredData 
           type="website" 
           data={{
