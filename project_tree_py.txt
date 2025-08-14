@@ -45,6 +45,7 @@
         ├── AI_TRAINING_BOTS_GUIDE.md
         ├── ALT_TAGS_GUIDE.md
         ├── BLOG_INTEGRATION.md
+        ├── LIGHTHOUSE_FIXES_IMPLEMENTED.md
         ├── README.md
         ├── SEO_AUDIT_TOOLS_README.md
         ├── SEO_IMPLEMENTATION_GUIDE.md
@@ -76,12 +77,20 @@
             ├── trace
             ├── build/
                 ├── chunks/
+                    ├── 5700f_75abda29._.js
+                    ├── 5700f_75abda29._.js.map
                     ├── [root-of-the-server]__4b6f6259._.js
                     ├── [root-of-the-server]__4b6f6259._.js.map
+                    ├── [root-of-the-server]__5e27e134._.js
+                    ├── [root-of-the-server]__5e27e134._.js.map
+                    ├── [root-of-the-server]__72600d77._.js
+                    ├── [root-of-the-server]__72600d77._.js.map
                     ├── [root-of-the-server]__9abb3e35._.js
                     ├── [root-of-the-server]__9abb3e35._.js.map
                     ├── [turbopack-node]_transforms_postcss_ts_fe296651._.js
                     ├── [turbopack-node]_transforms_postcss_ts_fe296651._.js.map
+                    ├── [turbopack-node]_transforms_postcss_ts_ff5f3df5._.js
+                    ├── [turbopack-node]_transforms_postcss_ts_ff5f3df5._.js.map
                     ├── [turbopack]_runtime.js
                     ├── [turbopack]_runtime.js.map
                     ├── node_modules_b5d1def4._.js
@@ -257,8 +266,16 @@
                         ├── server-reference-manifest.json
                     ├── sitemap.xml/
                         ├── route.js
+                        ├── route.js.map
                         ├── route.js.nft.json
                         ├── route_client-reference-manifest.js
+                        ├── route/
+                            ├── app-build-manifest.json
+                            ├── app-paths-manifest.json
+                            ├── build-manifest.json
+                            ├── next-font-manifest.json
+                            ├── react-loadable-manifest.json
+                            ├── server-reference-manifest.json
                     ├── tools/
                         ├── base64.html
                         ├── base64.meta
@@ -492,6 +509,8 @@
                     ├── [root-of-the-server]__2ceba2b6._.js.map
                     ├── [root-of-the-server]__80bb4c51._.js
                     ├── [root-of-the-server]__80bb4c51._.js.map
+                    ├── [root-of-the-server]__904ef27c._.js
+                    ├── [root-of-the-server]__904ef27c._.js.map
                     ├── [turbopack]_runtime.js
                     ├── [turbopack]_runtime.js.map
                     ├── node_modules_d3684e85._.js
@@ -500,7 +519,51 @@
                     ├── node_modules_next_11760126._.js.map
                     ├── node_modules_next_3322ab76._.js
                     ├── node_modules_next_3322ab76._.js.map
+                    ├── node_modules_next_cf8a30de._.js
+                    ├── node_modules_next_cf8a30de._.js.map
                     ├── ssr/
+                        ├── 5700f_@swc_helpers_cjs_2b949046._.js
+                        ├── 5700f_@swc_helpers_cjs_2b949046._.js.map
+                        ├── 5700f_a90fec59._.js
+                        ├── 5700f_a90fec59._.js.map
+                        ├── 5700f_c35d6c3e._.js
+                        ├── 5700f_c35d6c3e._.js.map
+                        ├── 5700f_next_dist_26b98784._.js
+                        ├── 5700f_next_dist_26b98784._.js.map
+                        ├── 5700f_next_dist_3ee88f51._.js
+                        ├── 5700f_next_dist_3ee88f51._.js.map
+                        ├── 5700f_next_dist_5afd52a3._.js
+                        ├── 5700f_next_dist_5afd52a3._.js.map
+                        ├── 5700f_next_dist_a103f5dd._.js
+                        ├── 5700f_next_dist_a103f5dd._.js.map
+                        ├── 5700f_next_dist_ba0c8553._.js
+                        ├── 5700f_next_dist_ba0c8553._.js.map
+                        ├── 5700f_next_dist_client_components_811cef64._.js
+                        ├── 5700f_next_dist_client_components_811cef64._.js.map
+                        ├── 5700f_next_dist_client_components_a069c90f._.js
+                        ├── 5700f_next_dist_client_components_a069c90f._.js.map
+                        ├── 5700f_next_dist_client_components_builtin_global-error_17f3707c.js
+                        ├── 5700f_next_dist_client_components_builtin_global-error_17f3707c.js.map
+                        ├── 5700f_next_dist_client_components_builtin_unauthorized_b36a828a.js
+                        ├── 5700f_next_dist_client_components_builtin_unauthorized_b36a828a.js.map
+                        ├── 5700f_next_dist_compiled_next-devtools_index_cd5288f8.js
+                        ├── 5700f_next_dist_compiled_next-devtools_index_cd5288f8.js.map
+                        ├── 5700f_next_dist_esm_b3f2320d._.js
+                        ├── 5700f_next_dist_esm_b3f2320d._.js.map
+                        ├── 5700f_web-vitals_dist_web-vitals_55dd4e08.js
+                        ├── 5700f_web-vitals_dist_web-vitals_55dd4e08.js.map
+                        ├── 5700f_web-vitals_dist_web-vitals_dce022f6.js
+                        ├── 5700f_web-vitals_dist_web-vitals_dce022f6.js.map
+                        ├── Git Repository_onlinetools_frontend_90f1535d._.js
+                        ├── Git Repository_onlinetools_frontend_90f1535d._.js.map
+                        ├── Git Repository_onlinetools_frontend_e9184276._.js
+                        ├── Git Repository_onlinetools_frontend_e9184276._.js.map
+                        ├── Git Repository_onlinetools_frontend_src_7cd987ec._.js
+                        ├── Git Repository_onlinetools_frontend_src_7cd987ec._.js.map
+                        ├── Git Repository_onlinetools_frontend_src_83040dfd._.js
+                        ├── Git Repository_onlinetools_frontend_src_83040dfd._.js.map
+                        ├── Git Repository_onlinetools_frontend_src_b2771e78._.js
+                        ├── Git Repository_onlinetools_frontend_src_b2771e78._.js.map
                         ├── [externals]_next_dist_shared_lib_no-fallback-error_external_d7a8835d.js
                         ├── [externals]_next_dist_shared_lib_no-fallback-error_external_d7a8835d.js.map
                         ├── [root-of-the-server]__01e77b3b._.js
@@ -527,6 +590,8 @@
                         ├── [root-of-the-server]__271bc6f7._.js.map
                         ├── [root-of-the-server]__2bbb3fcb._.js
                         ├── [root-of-the-server]__2bbb3fcb._.js.map
+                        ├── [root-of-the-server]__2e42fabb._.js
+                        ├── [root-of-the-server]__2e42fabb._.js.map
                         ├── [root-of-the-server]__2ec8400a._.js
                         ├── [root-of-the-server]__2ec8400a._.js.map
                         ├── [root-of-the-server]__33bab4b8._.js
@@ -581,6 +646,8 @@
                         ├── [root-of-the-server]__a872aefe._.js.map
                         ├── [root-of-the-server]__a90c2a4d._.js
                         ├── [root-of-the-server]__a90c2a4d._.js.map
+                        ├── [root-of-the-server]__ab8a7c76._.js
+                        ├── [root-of-the-server]__ab8a7c76._.js.map
                         ├── [root-of-the-server]__ade18e2c._.js
                         ├── [root-of-the-server]__ade18e2c._.js.map
                         ├── [root-of-the-server]__b38cf467._.js
@@ -593,6 +660,8 @@
                         ├── [root-of-the-server]__b93d3b0f._.js.map
                         ├── [root-of-the-server]__bd39f7b3._.js
                         ├── [root-of-the-server]__bd39f7b3._.js.map
+                        ├── [root-of-the-server]__bd5d3f90._.js
+                        ├── [root-of-the-server]__bd5d3f90._.js.map
                         ├── [root-of-the-server]__be6f5ac2._.js
                         ├── [root-of-the-server]__be6f5ac2._.js.map
                         ├── [root-of-the-server]__bec6a922._.js
@@ -631,6 +700,8 @@
                         ├── [root-of-the-server]__f771dc5e._.js.map
                         ├── [root-of-the-server]__fd4284d6._.js
                         ├── [root-of-the-server]__fd4284d6._.js.map
+                        ├── [root-of-the-server]__feb1592c._.js
+                        ├── [root-of-the-server]__feb1592c._.js.map
                         ├── [root-of-the-server]__ff9fa956._.js
                         ├── [root-of-the-server]__ff9fa956._.js.map
                         ├── [turbopack]_browser_dev_hmr-client_hmr-client_ts_4b71871f._.js
@@ -892,13 +963,62 @@
             ├── static/
                 ├── chunks/
                     ├── 341.716d46e6e5cb6bdc.js
+                    ├── 369a0_onlinetools_frontend_src_app_tools_password-generator_page_1852f1b3.js
                     ├── 429-f8ecb5eeac10ce44.js
                     ├── 472.a3826d29d6854395.js
                     ├── 4bd1b696-cf72ae8a39fa05aa.js
+                    ├── 5700f_321322a0._.js
+                    ├── 5700f_321322a0._.js.map
+                    ├── 5700f_@swc_helpers_cjs_1f18f4a6._.js
+                    ├── 5700f_@swc_helpers_cjs_1f18f4a6._.js.map
+                    ├── 5700f_next_dist_123f95b5._.js
+                    ├── 5700f_next_dist_123f95b5._.js.map
+                    ├── 5700f_next_dist_3696d6ce._.js
+                    ├── 5700f_next_dist_3696d6ce._.js.map
+                    ├── 5700f_next_dist_5449420e._.js
+                    ├── 5700f_next_dist_5449420e._.js.map
+                    ├── 5700f_next_dist_843aba3b._.js
+                    ├── 5700f_next_dist_843aba3b._.js.map
+                    ├── 5700f_next_dist_build_polyfills_polyfill-nomodule.js
+                    ├── 5700f_next_dist_client_38649069._.js
+                    ├── 5700f_next_dist_client_38649069._.js.map
+                    ├── 5700f_next_dist_client_components_builtin_global-error_1852f1b3.js
+                    ├── 5700f_next_dist_compiled_0059faa2._.js
+                    ├── 5700f_next_dist_compiled_0059faa2._.js.map
+                    ├── 5700f_next_dist_compiled_next-devtools_index_70bbe90a.js
+                    ├── 5700f_next_dist_compiled_next-devtools_index_70bbe90a.js.map
+                    ├── 5700f_next_dist_compiled_react-dom_1218cd54._.js
+                    ├── 5700f_next_dist_compiled_react-dom_1218cd54._.js.map
+                    ├── 5700f_web-vitals_dist_web-vitals_428c7ea5.js
+                    ├── 5700f_web-vitals_dist_web-vitals_f7579424.js
+                    ├── 5700f_web-vitals_dist_web-vitals_f7579424.js.map
                     ├── 63.6728ec5c9847dc1d.js
                     ├── 822-c357f438edc36ca4.js
                     ├── 874-437a265a67d6cfee.js
                     ├── 964-7a34cadcb7695cec.js
+                    ├── Git Repository_onlinetools_frontend_466d7499._.js
+                    ├── Git Repository_onlinetools_frontend_466d7499._.js.map
+                    ├── Git Repository_onlinetools_frontend_e69f0d32._.js
+                    ├── Git Repository_onlinetools_frontend_src_24b2b075._.js
+                    ├── Git Repository_onlinetools_frontend_src_24b2b075._.js.map
+                    ├── Git Repository_onlinetools_frontend_src_660739da._.js
+                    ├── Git Repository_onlinetools_frontend_src_660739da._.js.map
+                    ├── Git Repository_onlinetools_frontend_src_922f7b4f._.js
+                    ├── Git Repository_onlinetools_frontend_src_922f7b4f._.js.map
+                    ├── Git Repository_onlinetools_frontend_src_app_components_da0e62c3._.js
+                    ├── Git Repository_onlinetools_frontend_src_app_components_da0e62c3._.js.map
+                    ├── Git Repository_onlinetools_frontend_src_app_layout_54d5731c.js
+                    ├── Git Repository_onlinetools_frontend_src_app_not-found_1852f1b3.js
+                    ├── Git Repository_onlinetools_frontend_src_app_page_1852f1b3.js
+                    ├── Git Repository_onlinetools_frontend_src_app_styles_7e7456d9._.css
+                    ├── Git Repository_onlinetools_frontend_src_app_styles_7e7456d9._.css.map
+                    ├── Git Repository_onlinetools_frontend_src_app_styles_globals_css_e59ae46c._.single.css
+                    ├── Git Repository_onlinetools_frontend_src_app_styles_globals_css_e59ae46c._.single.css.map
+                    ├── Git Repository_onlinetools_frontend_src_app_styles_layout_css_e59ae46c._.single.css
+                    ├── Git Repository_onlinetools_frontend_src_app_styles_layout_css_e59ae46c._.single.css.map
+                    ├── Git Repository_onlinetools_frontend_src_app_styles_ui_css_e59ae46c._.single.css
+                    ├── Git Repository_onlinetools_frontend_src_app_styles_ui_css_e59ae46c._.single.css.map
+                    ├── Git Repository_onlinetools_frontend_src_app_tools_hash-generator_page_1852f1b3.js
                     ├── [next]_entry_page-loader_ts_8ccf5f86._.js
                     ├── [next]_entry_page-loader_ts_8ccf5f86._.js.map
                     ├── [next]_entry_page-loader_ts_f9f6e84e._.js
@@ -907,6 +1027,9 @@
                     ├── [root-of-the-server]__010dee56._.js.map
                     ├── [root-of-the-server]__95ff7225._.js
                     ├── [root-of-the-server]__95ff7225._.js.map
+                    ├── [turbopack]_browser_dev_hmr-client_hmr-client_ts_2a6c3f7d._.js
+                    ├── [turbopack]_browser_dev_hmr-client_hmr-client_ts_2a6c3f7d._.js.map
+                    ├── [turbopack]_browser_dev_hmr-client_hmr-client_ts_503a1116._.js
                     ├── [turbopack]_browser_dev_hmr-client_hmr-client_ts_5af4a3bc._.js
                     ├── [turbopack]_browser_dev_hmr-client_hmr-client_ts_61dcf9ba._.js
                     ├── [turbopack]_browser_dev_hmr-client_hmr-client_ts_61dcf9ba._.js.map
@@ -1129,6 +1252,7 @@
                     ├── src_app_tools_page_4aa1689a.js
                     ├── src_app_tools_page_da64194e.js
                     ├── src_app_tools_password-generator_page_2a21f1e6.js
+                    ├── src_app_tools_password-generator_page_2a5c3130.js
                     ├── src_app_tools_password-generator_page_4aa1689a.js
                     ├── src_app_tools_password-generator_page_da64194e.js
                     ├── src_app_tools_qr-code-generator_page_2a21f1e6.js
@@ -1213,6 +1337,7 @@
                             ├── page.ts
                         ├── password-generator/
                             ├── page.ts
+        ├── Lighthouse Report/
         ├── public/
             ├── browserconfig.xml
             ├── favicon.ico
@@ -1228,7 +1353,10 @@
                 ├── security.txt
             ├── Brand_Assets/
                 ├── Logo.jpg
+                ├── Logo.webp
                 ├── Profile_Photo.png
+                ├── Profile_Photo_Transparent.png
+                ├── Profile_Photo_Transparent.webp
         ├── src/
             ├── app/
                 ├── layout.js
