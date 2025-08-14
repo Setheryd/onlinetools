@@ -99,7 +99,7 @@ export const tools = [
     icon: '🖼️',
     featured: true,
     priority: 0.8,
-    built: false,
+    built: true,
   },
   {
     id: 'pdf-merger',
