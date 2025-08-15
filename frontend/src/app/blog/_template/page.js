@@ -9,7 +9,7 @@ import BlogSidebar from '../../components/blog/BlogSidebar';
 
 import { blogService } from '../../utils/blogService';
 
-const BlogPostPage = () => {
+const BlogPostTemplate = () => {
   const params = useParams();
   const { slug } = params;
   const [post, setPost] = useState(null);
@@ -24,7 +24,7 @@ const BlogPostPage = () => {
         setLoading(true);
         const [postData, postsData, categoriesData] = await Promise.all([
           blogService.getPostBySlug(slug),
-          blogService.getAllPosts(),
+          blogService.getPosts(),
           blogService.getCategories()
         ]);
         
@@ -113,4 +113,4 @@ const BlogPostPage = () => {
   );
 };
 
-export default BlogPostPage;
+export default BlogPostTemplate;

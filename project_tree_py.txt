@@ -226,6 +226,17 @@
                                 ├── next-font-manifest.json
                                 ├── react-loadable-manifest.json
                                 ├── server-reference-manifest.json
+                        ├── ultimate-guide-to-javascript-minification/
+                            ├── page.js
+                            ├── page.js.map
+                            ├── page_client-reference-manifest.js
+                            ├── page/
+                                ├── app-build-manifest.json
+                                ├── app-paths-manifest.json
+                                ├── build-manifest.json
+                                ├── next-font-manifest.json
+                                ├── react-loadable-manifest.json
+                                ├── server-reference-manifest.json
                         ├── [slug]/
                             ├── page.js
                             ├── page.js.map
@@ -366,6 +377,17 @@
                                 ├── react-loadable-manifest.json
                                 ├── server-reference-manifest.json
                         ├── html-encoder/
+                            ├── page.js
+                            ├── page.js.map
+                            ├── page_client-reference-manifest.js
+                            ├── page/
+                                ├── app-build-manifest.json
+                                ├── app-paths-manifest.json
+                                ├── build-manifest.json
+                                ├── next-font-manifest.json
+                                ├── react-loadable-manifest.json
+                                ├── server-reference-manifest.json
+                        ├── js-minifier/
                             ├── page.js
                             ├── page.js.map
                             ├── page_client-reference-manifest.js
@@ -632,6 +654,8 @@
                         ├── [root-of-the-server]__86e7898f._.js.map
                         ├── [root-of-the-server]__89d6fa1d._.js
                         ├── [root-of-the-server]__89d6fa1d._.js.map
+                        ├── [root-of-the-server]__95ffeccf._.js
+                        ├── [root-of-the-server]__95ffeccf._.js.map
                         ├── [root-of-the-server]__965906bf._.js
                         ├── [root-of-the-server]__965906bf._.js.map
                         ├── [root-of-the-server]__a5b7fcc6._.js
@@ -692,6 +716,8 @@
                         ├── [root-of-the-server]__e92a79c6._.js.map
                         ├── [root-of-the-server]__ee7b2f81._.js
                         ├── [root-of-the-server]__ee7b2f81._.js.map
+                        ├── [root-of-the-server]__efb60242._.js
+                        ├── [root-of-the-server]__efb60242._.js.map
                         ├── [root-of-the-server]__f12b90d1._.js
                         ├── [root-of-the-server]__f12b90d1._.js.map
                         ├── [root-of-the-server]__f5130e82._.js
@@ -800,6 +826,8 @@
                         ├── node_modules_next_dist_3a9f8461._.js.map
                         ├── node_modules_next_dist_3c63971b._.js
                         ├── node_modules_next_dist_3c63971b._.js.map
+                        ├── node_modules_next_dist_3c9ee1f1._.js
+                        ├── node_modules_next_dist_3c9ee1f1._.js.map
                         ├── node_modules_next_dist_3e8fbe8a._.js
                         ├── node_modules_next_dist_3e8fbe8a._.js.map
                         ├── node_modules_next_dist_41cef891._.js
@@ -870,6 +898,8 @@
                         ├── node_modules_next_dist_e1b9cb29._.js.map
                         ├── node_modules_next_dist_e9c76c6e._.js
                         ├── node_modules_next_dist_e9c76c6e._.js.map
+                        ├── node_modules_next_dist_e9e16097._.js
+                        ├── node_modules_next_dist_e9e16097._.js.map
                         ├── node_modules_next_dist_esm_b72f3b11._.js
                         ├── node_modules_next_dist_esm_b72f3b11._.js.map
                         ├── node_modules_next_dist_f17482eb._.js
@@ -934,6 +964,10 @@
                         ├── src_dcd0bf57._.js.map
                         ├── src_e804e831._.js
                         ├── src_e804e831._.js.map
+                        ├── src_eadee4b1._.js
+                        ├── src_eadee4b1._.js.map
+                        ├── src_ec5b5af1._.js
+                        ├── src_ec5b5af1._.js.map
                 ├── pages/
                     ├── 404.html
                     ├── 500.html
@@ -1177,6 +1211,10 @@
                     ├── src_6184567b._.js.map
                     ├── src_634aeb53._.js
                     ├── src_634aeb53._.js.map
+                    ├── src_6e42bf41._.js
+                    ├── src_6e42bf41._.js.map
+                    ├── src_6f7aac3f._.js
+                    ├── src_6f7aac3f._.js.map
                     ├── src_777d8684._.js
                     ├── src_777d8684._.js.map
                     ├── src_902ed4fd._.js
@@ -1196,13 +1234,17 @@
                     ├── src_app_blog_[slug]_page_4aa1689a.js
                     ├── src_app_blog_[slug]_page_da64194e.js
                     ├── src_app_blog_complete-guide-to-qr-code-generation_page_2a21f1e6.js
+                    ├── src_app_blog_complete-guide-to-qr-code-generation_page_2a5c3130.js
                     ├── src_app_blog_mastering-scientific-calculators_page_2a21f1e6.js
+                    ├── src_app_blog_mastering-scientific-calculators_page_2a5c3130.js
                     ├── src_app_blog_page_2a21f1e6.js
                     ├── src_app_blog_page_2a5c3130.js
                     ├── src_app_blog_page_3508c359.js
                     ├── src_app_blog_page_4aa1689a.js
                     ├── src_app_blog_page_da64194e.js
                     ├── src_app_blog_ultimate-guide-to-gitignore-files_page_2a21f1e6.js
+                    ├── src_app_blog_ultimate-guide-to-gitignore-files_page_2a5c3130.js
+                    ├── src_app_blog_ultimate-guide-to-javascript-minification_page_2a5c3130.js
                     ├── src_app_components_analytics_WebVitals_198798b0.js
                     ├── src_app_components_analytics_WebVitals_198798b0.js.map
                     ├── src_app_components_analytics_c433e869._.js
@@ -1242,6 +1284,7 @@
                     ├── src_app_tools_gitignore-generator_page_2a21f1e6.js
                     ├── src_app_tools_hash-generator_page_2a21f1e6.js
                     ├── src_app_tools_html-encoder_page_2a21f1e6.js
+                    ├── src_app_tools_js-minifier_page_2a5c3130.js
                     ├── src_app_tools_json-formatter_page_2a21f1e6.js
                     ├── src_app_tools_length-converter_page_2a21f1e6.js
                     ├── src_app_tools_meta-tag-generator_page_2a21f1e6.js
@@ -1337,7 +1380,6 @@
                             ├── page.ts
                         ├── password-generator/
                             ├── page.ts
-        ├── Lighthouse Report/
         ├── public/
             ├── browserconfig.xml
             ├── favicon.ico
@@ -1388,11 +1430,6 @@
                         ├── route.js
                     ├── whois/
                         ├── route.js
-                ├── app/
-                    ├── api/
-                        ├── image/
-                            ├── process/
-                                ├── route.js
                 ├── blog/
                     ├── page.js
                     ├── complete-guide-to-qr-code-generation/
@@ -1400,6 +1437,8 @@
                     ├── mastering-scientific-calculators/
                         ├── page.js
                     ├── ultimate-guide-to-gitignore-files/
+                        ├── page.js
+                    ├── ultimate-guide-to-javascript-minification/
                         ├── page.js
                     ├── [slug]/
                         ├── page.js
@@ -1498,13 +1537,6 @@
                         ├── Input.js
                 ├── contact/
                     ├── page.js
-                ├── hooks/
-                    ├── .gitkeep
-                ├── pages/
-                    ├── blog/
-                        ├── .gitkeep
-                    ├── tools/
-                        ├── .gitkeep
                 ├── styles/
                     ├── globals.css
                     ├── layout.css
@@ -1649,8 +1681,6 @@
                         ├── page.js
                     ├── xml-formatter/
                         ├── page.js
-                ├── types/
-                    ├── .gitkeep
                 ├── utils/
                     ├── .gitkeep
                     ├── blogService.js
@@ -1658,8 +1688,3 @@
                 ├── tools.js
             ├── utils/
                 ├── metadata.js
-    ├── shared/
-        ├── config/
-            ├── .gitkeep
-        ├── constants/
-            ├── tools.js
