@@ -111,7 +111,7 @@ export const tools = [
     icon: '📄',
     featured: true,
     priority: 0.7,
-    built: false,
+    built: true,
   },
   {
     id: 'color-converter',
@@ -1674,7 +1674,7 @@ export const tools = [
   // IMAGE PROCESSING TOOLS
   {
     id: 'background-remover',
-    name: 'Background Remover',
+    name: 'AI Background Remover',
     description: 'Remove backgrounds from images automatically using AI.',
     path: '/tools/background-remover',
     category: 'image',
