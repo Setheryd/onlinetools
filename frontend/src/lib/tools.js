@@ -753,20 +753,9 @@ export const tools = [
     icon: '📊',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
-  {
-    id: 'language-detector',
-    name: 'Language Detector',
-    description: 'Detect the language of text using advanced algorithms.',
-    path: '/tools/language-detector',
-    category: 'text',
-    keywords: ['language', 'detect', 'identify', 'text', 'multilingual'],
-    icon: '🌍',
-    featured: false,
-    priority: 0.6,
-    built: false,
-  },
+
   {
     id: 'text-summarizer',
     name: 'Text Summarizer',
@@ -777,7 +766,7 @@ export const tools = [
     icon: '📝',
     featured: false,
     priority: 0.7,
-    built: false,
+    built: true,
   },
   {
     id: 'plagiarism-checker',
@@ -837,7 +826,7 @@ export const tools = [
     icon: '🔤',
     featured: false,
     priority: 0.4,
-    built: false,
+    built: true,
   },
   // ADVANCED WEB & NETWORK TOOLS
   
@@ -1217,7 +1206,7 @@ export const tools = [
     icon: '🎲',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'dice-roller',
@@ -1265,7 +1254,7 @@ export const tools = [
     icon: '🎯',
     featured: false,
     priority: 0.4,
-    built: false,
+    built: true,
   },
   // BUSINESS & PRODUCTIVITY TOOLS
   {
