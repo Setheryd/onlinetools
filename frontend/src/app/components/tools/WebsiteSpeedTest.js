@@ -25,7 +25,11 @@ const RealTimeSpeedChart = ({ dataPoints = [], isActive = false, testPhase = '' 
   const createSmoothPath = (data, key) => {
     if (data.length < 2) return '';
     
-    const points = data.map(point => ({
+    // Filter data points that have valid values for this metric
+    const validData = data.filter(point => point[key] !== null && point[key] !== undefined);
+    if (validData.length < 2) return '';
+    
+    const points = validData.map(point => ({
       x: padding + (point.time / timeRange) * chartAreaWidth,
       y: chartHeight - padding - ((point[key] || 0) / (key === 'ping' ? pingRange : speedRange)) * chartAreaHeight
     }));
@@ -42,11 +46,19 @@ const RealTimeSpeedChart = ({ dataPoints = [], isActive = false, testPhase = '' 
       const next = points[i + 1];
       
       if (next) {
-        // Create smooth curve using quadratic bezier
-        const cp1x = prev.x + (curr.x - prev.x) * 0.5;
-        const cp1y = prev.y;
-        const cp2x = curr.x - (next.x - curr.x) * 0.5;
-        const cp2y = curr.y;
+        // Calculate control points for smoother curves
+        const dx1 = curr.x - prev.x;
+        const dy1 = curr.y - prev.y;
+        const dx2 = next.x - curr.x;
+        const dy2 = next.y - curr.y;
+        
+        // Use smaller control point distances for smoother curves
+        const tension = 0.3; // Reduce tension for smoother curves
+        
+        const cp1x = prev.x + dx1 * tension;
+        const cp1y = prev.y + dy1 * tension;
+        const cp2x = curr.x - dx2 * tension;
+        const cp2y = curr.y - dy2 * tension;
         
         path += ` C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${curr.x} ${curr.y}`;
       } else {
@@ -222,8 +234,8 @@ const RealTimeSpeedChart = ({ dataPoints = [], isActive = false, testPhase = '' 
           
           return (
             <g key={index}>
-              {/* Download point */}
-              {point.download && (
+              {/* Download point - only show if download value exists */}
+              {point.download !== null && point.download !== undefined && point.download > 0 && (
                 <circle
                   cx={x}
                   cy={downloadY}
@@ -237,8 +249,8 @@ const RealTimeSpeedChart = ({ dataPoints = [], isActive = false, testPhase = '' 
                   }}
                 />
               )}
-              {/* Upload point */}
-              {point.upload && (
+              {/* Upload point - only show if upload value exists */}
+              {point.upload !== null && point.upload !== undefined && point.upload > 0 && (
                 <circle
                   cx={x}
                   cy={uploadY}
@@ -252,8 +264,8 @@ const RealTimeSpeedChart = ({ dataPoints = [], isActive = false, testPhase = '' 
                   }}
                 />
               )}
-              {/* Ping point */}
-              {point.ping && (
+              {/* Ping point - only show if ping value exists */}
+              {point.ping !== null && point.ping !== undefined && point.ping > 0 && (
                 <circle
                   cx={x}
                   cy={pingY}
@@ -332,6 +344,7 @@ const WebsiteSpeedTest = () => {
   const [testPhase, setTestPhase] = useState('');
   const abortControllerRef = useRef(null);
   const dataIntervalRef = useRef(null);
+  const testStartTimeRef = useRef(null); // Global test start time reference
 
   // Better test servers for actual speed testing
   const testServers = [
@@ -359,6 +372,26 @@ const WebsiteSpeedTest = () => {
     'https://speed.cloudflare.com/__down?bytes=50000000', // 50MB
   ];
 
+  // Helper function to get elapsed time since test start
+  const getElapsedTime = () => {
+    if (!testStartTimeRef.current) return 0;
+    return (performance.now() - testStartTimeRef.current) / 1000;
+  };
+
+  // Helper function to add data point with consistent timing
+  const addDataPoint = (download = null, upload = null, ping = null) => {
+    const elapsedTime = getElapsedTime();
+    setRealTimeData(prev => {
+      const lastPoint = prev.length > 0 ? prev[prev.length - 1] : { download: 0, upload: 0, ping: 0 };
+      return [...prev, {
+        time: elapsedTime,
+        download: download !== null ? download : lastPoint.download,
+        upload: upload !== null ? upload : lastPoint.upload,
+        ping: ping !== null ? ping : lastPoint.ping
+      }];
+    });
+  };
+
   const measurePing = async (serverUrl) => {
     const startTime = performance.now();
     try {
@@ -370,13 +403,8 @@ const WebsiteSpeedTest = () => {
       const endTime = performance.now();
       const ping = Math.round(endTime - startTime);
       
-      // Add ping data point to real-time chart
-      setRealTimeData(prev => [...prev, {
-        time: (endTime - startTime) / 1000,
-        download: prev.length > 0 ? prev[prev.length - 1].download : 0,
-        upload: prev.length > 0 ? prev[prev.length - 1].upload : 0,
-        ping: ping
-      }]);
+      // Add ping data point with consistent timing
+      addDataPoint(null, null, ping);
       
       return ping;
     } catch (error) {
@@ -389,7 +417,6 @@ const WebsiteSpeedTest = () => {
     const startTime = performance.now();
     let totalBytes = 0;
     let lastUpdate = startTime;
-    let lastDataPoint = startTime;
 
     try {
       const response = await fetch(testUrl, {
@@ -421,13 +448,8 @@ const WebsiteSpeedTest = () => {
             percentage: expectedBytes ? (totalBytes / expectedBytes) * 100 : 0
           });
 
-          // Add real-time data point
-          setRealTimeData(prev => [...prev, {
-            time: elapsed,
-            download: Math.round(currentSpeed * 100) / 100,
-            upload: prev.length > 0 ? prev[prev.length - 1].upload : 0,
-            ping: prev.length > 0 ? prev[prev.length - 1].ping : 0
-          }]);
+          // Add real-time data point with consistent timing
+          addDataPoint(Math.round(currentSpeed * 100) / 100, null, null);
 
           lastUpdate = now;
         }
@@ -483,13 +505,8 @@ const WebsiteSpeedTest = () => {
               percentage: 0
             });
 
-            // Add real-time data point
-            setRealTimeData(prev => [...prev, {
-              time: elapsed,
-              download: prev.length > 0 ? prev[prev.length - 1].download : 0,
-              upload: Math.round(currentSpeed * 100) / 100,
-              ping: prev.length > 0 ? prev[prev.length - 1].ping : 0
-            }]);
+            // Add real-time data point with consistent timing
+            addDataPoint(null, Math.round(currentSpeed * 100) / 100, null);
 
             lastUpdate = now;
           }
@@ -548,6 +565,9 @@ const WebsiteSpeedTest = () => {
     setTestProgress({ current: 'Initializing test...', percentage: 0 });
     setRealTimeData([]); // Clear previous data
     setTestPhase('Initializing...');
+    
+    // Set global test start time
+    testStartTimeRef.current = performance.now();
     
     // Create abort controller for the test
     abortControllerRef.current = new AbortController();
@@ -640,6 +660,7 @@ const WebsiteSpeedTest = () => {
       setTestProgress({ current: '', percentage: 0 });
       setTestPhase('');
       abortControllerRef.current = null;
+      testStartTimeRef.current = null; // Reset test start time
     }
   }, [url]);
 
