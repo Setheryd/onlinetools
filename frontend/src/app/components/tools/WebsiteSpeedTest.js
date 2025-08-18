@@ -1,6 +1,322 @@
 "use client";
-import React, { useState, useCallback, useRef } from 'react';
+import React, { useState, useCallback, useRef, useEffect } from 'react';
 import Button from '../ui/Button';
+
+// Real-time Speed Chart Component
+const RealTimeSpeedChart = ({ dataPoints = [], isActive = false, testPhase = '' }) => {
+  const chartHeight = 300;
+  const chartWidth = 600;
+  const padding = 50;
+  const maxSpeed = Math.max(...dataPoints.map(d => Math.max(d.download || 0, d.upload || 0)), 100);
+  const maxPing = Math.max(...dataPoints.map(d => d.ping || 0), 200);
+
+  // Calculate chart dimensions
+  const chartAreaWidth = chartWidth - padding * 2;
+  const chartAreaHeight = chartHeight - padding * 2;
+  const timeRange = 8; // 15 seconds
+  const speedRange = maxSpeed;
+  const pingRange = maxPing;
+
+  // Generate grid lines for speed
+  const speedGridLines = [0, 25, 50, 75, 100, 150, 200, 250, 300, 400, 500].filter(speed => speed <= maxSpeed);
+  const pingGridLines = [0, 50, 100, 150, 200, 300, 400, 500].filter(ping => ping <= maxPing);
+
+  // Smooth curve interpolation function
+  const createSmoothPath = (data, key) => {
+    if (data.length < 2) return '';
+    
+    const points = data.map(point => ({
+      x: padding + (point.time / timeRange) * chartAreaWidth,
+      y: chartHeight - padding - ((point[key] || 0) / (key === 'ping' ? pingRange : speedRange)) * chartAreaHeight
+    }));
+
+    if (points.length === 2) {
+      return `M ${points[0].x} ${points[0].y} L ${points[1].x} ${points[1].y}`;
+    }
+
+    let path = `M ${points[0].x} ${points[0].y}`;
+    
+    for (let i = 1; i < points.length; i++) {
+      const prev = points[i - 1];
+      const curr = points[i];
+      const next = points[i + 1];
+      
+      if (next) {
+        // Create smooth curve using quadratic bezier
+        const cp1x = prev.x + (curr.x - prev.x) * 0.5;
+        const cp1y = prev.y;
+        const cp2x = curr.x - (next.x - curr.x) * 0.5;
+        const cp2y = curr.y;
+        
+        path += ` C ${cp1x} ${cp1y}, ${cp2x} ${cp2y}, ${curr.x} ${curr.y}`;
+      } else {
+        // Last point - use line
+        path += ` L ${curr.x} ${curr.y}`;
+      }
+    }
+    
+    return path;
+  };
+
+  // Convert data points to SVG coordinates with smoothing
+  const getSpeedPath = (data, key) => {
+    if (data.length < 2) return '';
+    return createSmoothPath(data, key);
+  };
+
+  const getPingPath = (data) => {
+    if (data.length < 2) return '';
+    return createSmoothPath(data, 'ping');
+  };
+
+  return (
+    <div className="bg-white border border-gray-200 rounded-lg p-6">
+      <div className="flex items-center justify-between mb-4">
+        <h3 className="text-lg font-semibold text-gray-800">Real-Time Speed Test</h3>
+        <div className="flex items-center gap-2">
+          <div className="flex items-center gap-1">
+            <div className="w-3 h-3 bg-blue-500 rounded-full"></div>
+            <span className="text-sm text-gray-600">Download</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <div className="w-3 h-3 bg-green-500 rounded-full"></div>
+            <span className="text-sm text-gray-600">Upload</span>
+          </div>
+          <div className="flex items-center gap-1">
+            <div className="w-3 h-3 bg-purple-500 rounded-full"></div>
+            <span className="text-sm text-gray-600">Ping</span>
+          </div>
+        </div>
+      </div>
+
+      {isActive && (
+        <div className="mb-3 p-2 bg-blue-50 border border-blue-200 rounded-md">
+          <p className="text-sm text-blue-700 font-medium">
+            🚀 {testPhase} - {dataPoints.length > 0 ? `${dataPoints[dataPoints.length - 1].time.toFixed(1)}s` : '0s'} / 15s
+          </p>
+        </div>
+      )}
+
+      <svg width={chartWidth} height={chartHeight} className="mx-auto">
+        {/* Background */}
+        <rect width={chartWidth} height={chartHeight} fill="#fafafa" rx="8" />
+        
+        {/* Speed Grid Lines */}
+        {speedGridLines.map((speed) => {
+          const y = chartHeight - padding - (speed / speedRange) * chartAreaHeight;
+          return (
+            <g key={`speed-${speed}`}>
+              <line
+                x1={padding}
+                y1={y}
+                x2={chartWidth - padding}
+                y2={y}
+                stroke="#e5e7eb"
+                strokeWidth="1"
+                strokeDasharray="2,2"
+              />
+              <text x={padding - 5} y={y + 3} textAnchor="end" fontSize="10" fill="#6b7280">
+                {speed} Mbps
+              </text>
+            </g>
+          );
+        })}
+
+        {/* Ping Grid Lines */}
+        {pingGridLines.map((ping) => {
+          const y = chartHeight - padding - (ping / pingRange) * chartAreaHeight;
+          return (
+            <g key={`ping-${ping}`}>
+              <line
+                x1={padding}
+                y1={y}
+                x2={chartWidth - padding}
+                y2={y}
+                stroke="#f3e8ff"
+                strokeWidth="1"
+                strokeDasharray="1,3"
+              />
+              <text x={chartWidth - padding + 5} y={y + 3} textAnchor="start" fontSize="10" fill="#8b5cf6">
+                {ping}ms
+              </text>
+            </g>
+          );
+        })}
+
+        {/* Time Grid Lines */}
+        {[0, 3, 6, 9, 12, 15].map((time) => {
+          const x = padding + (time / timeRange) * chartAreaWidth;
+          return (
+            <g key={`time-${time}`}>
+              <line
+                x1={x}
+                y1={padding}
+                x2={x}
+                y2={chartHeight - padding}
+                stroke="#e5e7eb"
+                strokeWidth="1"
+              />
+              <text x={x} y={chartHeight - padding + 15} textAnchor="middle" fontSize="10" fill="#6b7280">
+                {time}s
+              </text>
+            </g>
+          );
+        })}
+
+        {/* Download Speed Line with gradient */}
+        {dataPoints.length > 1 && (
+          <defs>
+            <linearGradient id="downloadGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+              <stop offset="0%" stopColor="#3b82f6" stopOpacity="0.8" />
+              <stop offset="100%" stopColor="#3b82f6" stopOpacity="0.2" />
+            </linearGradient>
+          </defs>
+        )}
+
+        {/* Download Speed Line */}
+        {dataPoints.length > 1 && (
+          <path
+            d={getSpeedPath(dataPoints, 'download')}
+            stroke="#3b82f6"
+            strokeWidth="3"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{ filter: 'drop-shadow(0 2px 4px rgba(59, 130, 246, 0.3))' }}
+          />
+        )}
+
+        {/* Upload Speed Line */}
+        {dataPoints.length > 1 && (
+          <path
+            d={getSpeedPath(dataPoints, 'upload')}
+            stroke="#10b981"
+            strokeWidth="3"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            style={{ filter: 'drop-shadow(0 2px 4px rgba(16, 185, 129, 0.3))' }}
+          />
+        )}
+
+        {/* Ping Line */}
+        {dataPoints.length > 1 && (
+          <path
+            d={getPingPath(dataPoints)}
+            stroke="#8b5cf6"
+            strokeWidth="2"
+            fill="none"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeDasharray="4,2"
+            style={{ filter: 'drop-shadow(0 1px 2px rgba(139, 92, 246, 0.3))' }}
+          />
+        )}
+
+        {/* Data Points with smooth animations */}
+        {dataPoints.map((point, index) => {
+          const x = padding + (point.time / timeRange) * chartAreaWidth;
+          const downloadY = chartHeight - padding - ((point.download || 0) / speedRange) * chartAreaHeight;
+          const uploadY = chartHeight - padding - ((point.upload || 0) / speedRange) * chartAreaHeight;
+          const pingY = chartHeight - padding - ((point.ping || 0) / pingRange) * chartAreaHeight;
+          
+          return (
+            <g key={index}>
+              {/* Download point */}
+              {point.download && (
+                <circle
+                  cx={x}
+                  cy={downloadY}
+                  r="4"
+                  fill="#3b82f6"
+                  stroke="white"
+                  strokeWidth="2"
+                  style={{ 
+                    filter: 'drop-shadow(0 1px 2px rgba(59, 130, 246, 0.5))',
+                    animation: isActive ? 'pulse 2s infinite' : 'none'
+                  }}
+                />
+              )}
+              {/* Upload point */}
+              {point.upload && (
+                <circle
+                  cx={x}
+                  cy={uploadY}
+                  r="4"
+                  fill="#10b981"
+                  stroke="white"
+                  strokeWidth="2"
+                  style={{ 
+                    filter: 'drop-shadow(0 1px 2px rgba(16, 185, 129, 0.5))',
+                    animation: isActive ? 'pulse 2s infinite' : 'none'
+                  }}
+                />
+              )}
+              {/* Ping point */}
+              {point.ping && (
+                <circle
+                  cx={x}
+                  cy={pingY}
+                  r="3"
+                  fill="#8b5cf6"
+                  stroke="white"
+                  strokeWidth="2"
+                  style={{ 
+                    filter: 'drop-shadow(0 1px 2px rgba(139, 92, 246, 0.5))',
+                    animation: isActive ? 'pulse 2s infinite' : 'none'
+                  }}
+                />
+              )}
+            </g>
+          );
+        })}
+
+        {/* Current values display with improved styling */}
+        {dataPoints.length > 0 && (
+          <g>
+            <rect
+              x={chartWidth - 120}
+              y={10}
+              width="110"
+              height="80"
+              fill="rgba(255,255,255,0.95)"
+              stroke="#e5e7eb"
+              strokeWidth="1"
+              rx="6"
+              style={{ filter: 'drop-shadow(0 2px 4px rgba(0,0,0,0.1))' }}
+            />
+            <text x={chartWidth - 115} y={25} fontSize="10" fill="#374151" fontWeight="bold">
+              Current Values:
+            </text>
+            <text x={chartWidth - 115} y={40} fontSize="9" fill="#3b82f6" fontWeight="500">
+              ↓ {(dataPoints[dataPoints.length - 1].download || 0).toFixed(1)} Mbps
+            </text>
+            <text x={chartWidth - 115} y={55} fontSize="9" fill="#10b981" fontWeight="500">
+              ↑ {(dataPoints[dataPoints.length - 1].upload || 0).toFixed(1)} Mbps
+            </text>
+            <text x={chartWidth - 115} y={70} fontSize="9" fill="#8b5cf6" fontWeight="500">
+              ⚡ {(dataPoints[dataPoints.length - 1].ping || 0).toFixed(0)}ms
+            </text>
+          </g>
+        )}
+      </svg>
+
+      {/* CSS for smooth animations */}
+      <style jsx>{`
+        @keyframes pulse {
+          0%, 100% { opacity: 1; }
+          50% { opacity: 0.7; }
+        }
+      `}</style>
+
+      {!isActive && dataPoints.length === 0 && (
+        <div className="text-center py-8 text-gray-500">
+          <p>Start a speed test to see real-time measurements</p>
+        </div>
+      )}
+    </div>
+  );
+};
 
 const WebsiteSpeedTest = () => {
   const [url, setUrl] = useState('');
@@ -11,7 +327,11 @@ const WebsiteSpeedTest = () => {
   const [testProgress, setTestProgress] = useState({ current: '', percentage: 0 });
   const [showTips, setShowTips] = useState(false);
   const [showTroubleshooting, setShowTroubleshooting] = useState(false);
+  const [showChart, setShowChart] = useState(true);
+  const [realTimeData, setRealTimeData] = useState([]);
+  const [testPhase, setTestPhase] = useState('');
   const abortControllerRef = useRef(null);
+  const dataIntervalRef = useRef(null);
 
   // Better test servers for actual speed testing
   const testServers = [
@@ -48,7 +368,17 @@ const WebsiteSpeedTest = () => {
         signal: abortControllerRef.current?.signal 
       });
       const endTime = performance.now();
-      return Math.round(endTime - startTime);
+      const ping = Math.round(endTime - startTime);
+      
+      // Add ping data point to real-time chart
+      setRealTimeData(prev => [...prev, {
+        time: (endTime - startTime) / 1000,
+        download: prev.length > 0 ? prev[prev.length - 1].download : 0,
+        upload: prev.length > 0 ? prev[prev.length - 1].upload : 0,
+        ping: ping
+      }]);
+      
+      return ping;
     } catch (error) {
       if (error.name === 'AbortError') throw error;
       return null;
@@ -59,6 +389,7 @@ const WebsiteSpeedTest = () => {
     const startTime = performance.now();
     let totalBytes = 0;
     let lastUpdate = startTime;
+    let lastDataPoint = startTime;
 
     try {
       const response = await fetch(testUrl, {
@@ -79,15 +410,25 @@ const WebsiteSpeedTest = () => {
         
         totalBytes += value.length;
         
-        // Update progress every 500ms
+        // Update progress and real-time data every 500ms
         const now = performance.now();
         if (now - lastUpdate > 500) {
           const elapsed = (now - startTime) / 1000;
           const currentSpeed = (totalBytes * 8) / (1024 * 1024 * elapsed);
+          
           setTestProgress({
             current: `Downloading... ${formatBytes(totalBytes)} at ${formatSpeed(currentSpeed)}`,
             percentage: expectedBytes ? (totalBytes / expectedBytes) * 100 : 0
           });
+
+          // Add real-time data point
+          setRealTimeData(prev => [...prev, {
+            time: elapsed,
+            download: Math.round(currentSpeed * 100) / 100,
+            upload: prev.length > 0 ? prev[prev.length - 1].upload : 0,
+            ping: prev.length > 0 ? prev[prev.length - 1].ping : 0
+          }]);
+
           lastUpdate = now;
         }
       }
@@ -131,15 +472,25 @@ const WebsiteSpeedTest = () => {
         if (response.ok) {
           totalBytes += chunkSize;
           
-          // Update progress
+          // Update progress and real-time data
           const now = performance.now();
           if (now - lastUpdate > 500) {
             const elapsed = (now - startTime) / 1000;
             const currentSpeed = (totalBytes * 8) / (1024 * 1024 * elapsed);
+            
             setTestProgress({
               current: `Uploading... ${formatBytes(totalBytes)} at ${formatSpeed(currentSpeed)}`,
               percentage: 0
             });
+
+            // Add real-time data point
+            setRealTimeData(prev => [...prev, {
+              time: elapsed,
+              download: prev.length > 0 ? prev[prev.length - 1].download : 0,
+              upload: Math.round(currentSpeed * 100) / 100,
+              ping: prev.length > 0 ? prev[prev.length - 1].ping : 0
+            }]);
+
             lastUpdate = now;
           }
         }
@@ -195,6 +546,8 @@ const WebsiteSpeedTest = () => {
     setError('');
     setResults(null);
     setTestProgress({ current: 'Initializing test...', percentage: 0 });
+    setRealTimeData([]); // Clear previous data
+    setTestPhase('Initializing...');
     
     // Create abort controller for the test
     abortControllerRef.current = new AbortController();
@@ -204,7 +557,7 @@ const WebsiteSpeedTest = () => {
       const connectionInfo = getConnectionInfo();
       
       // Step 1: Measure ping to multiple servers
-      setTestProgress({ current: 'Testing ping...', percentage: 10 });
+      setTestPhase('Ping Test');
       const pingResults = [];
       for (const server of testServers) {
         const ping = await measurePing(server.pingUrl);
@@ -218,7 +571,7 @@ const WebsiteSpeedTest = () => {
         : null;
 
       // Step 2: Measure download speed using multiple file sizes
-      setTestProgress({ current: 'Testing download speed...', percentage: 30 });
+      setTestPhase('Download Speed Test');
       let downloadResult = null;
       let bestSpeed = 0;
 
@@ -235,7 +588,7 @@ const WebsiteSpeedTest = () => {
       }
 
       // Step 3: Measure upload speed (simulated for now)
-      setTestProgress({ current: 'Testing upload speed...', percentage: 70 });
+      setTestPhase('Upload Speed Test');
       let uploadResult = null;
       
       // Try to measure actual upload speed
@@ -256,6 +609,7 @@ const WebsiteSpeedTest = () => {
       const totalDuration = testEndTime - testStartTime;
 
       setTestProgress({ current: 'Completing test...', percentage: 100 });
+      setTestPhase('Test Complete');
 
       const result = {
         timestamp: new Date().toISOString(),
@@ -284,6 +638,7 @@ const WebsiteSpeedTest = () => {
     } finally {
       setIsLoading(false);
       setTestProgress({ current: '', percentage: 0 });
+      setTestPhase('');
       abortControllerRef.current = null;
     }
   }, [url]);
@@ -343,6 +698,8 @@ const WebsiteSpeedTest = () => {
     return tips;
   };
 
+
+
   return (
     <div className="max-w-6xl mx-auto p-6 bg-white rounded-xl shadow-md border border-gray-200">
       <div className="mb-6">
@@ -392,13 +749,22 @@ const WebsiteSpeedTest = () => {
             🔧 Troubleshooting
           </Button>
           {results && (
-            <Button 
-              variant="outline"
-              onClick={() => window.print()}
-              className="flex items-center gap-2"
-            >
-              📄 Print Results
-            </Button>
+            <>
+              <Button 
+                variant="outline"
+                onClick={() => setShowChart(!showChart)}
+                className="flex items-center gap-2"
+              >
+                {showChart ? '📊 Hide Chart' : '📊 Show Chart'}
+              </Button>
+              <Button 
+                variant="outline"
+                onClick={() => window.print()}
+                className="flex items-center gap-2"
+              >
+                📄 Print Results
+              </Button>
+            </>
           )}
         </div>
       </div>
@@ -501,12 +867,30 @@ const WebsiteSpeedTest = () => {
         </div>
       )}
 
+      {/* Real-time Chart during test */}
+      {showChart && (isLoading || realTimeData.length > 0) && (
+        <div className="mb-6">
+          <RealTimeSpeedChart 
+            dataPoints={realTimeData} 
+            isActive={isLoading} 
+            testPhase={testPhase}
+          />
+        </div>
+      )}
+
       {/* Results */}
       {results && (
         <div className="mb-6">
           <div className="flex items-center justify-between mb-4">
             <h2 className="text-xl font-semibold text-gray-900">Test Results</h2>
             <div className="flex gap-2">
+              <Button 
+                variant="outline" 
+                size="sm"
+                onClick={() => setShowChart(!showChart)}
+              >
+                {showChart ? '📊 Hide Chart' : '📊 Show Chart'}
+              </Button>
               <Button 
                 variant="outline" 
                 size="sm"
@@ -578,6 +962,10 @@ const WebsiteSpeedTest = () => {
               </p>
             </div>
           </div>
+
+
+
+
 
           {/* Troubleshooting Tips for Results */}
           <div className="mb-6 p-4 bg-orange-50 border border-orange-200 rounded-lg">
