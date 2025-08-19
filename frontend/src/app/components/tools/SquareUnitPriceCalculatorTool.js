@@ -132,10 +132,10 @@ const LINEAR_UNITS = [
 
 const SquareUnitPriceCalculatorTool = () => {
   const [calculationType, setCalculationType] = useState('area');
-  const [dimensions, setDimensions] = useState([
-    { value: '', unit: 'ft', label: 'Length' },
-    { value: '', unit: 'ft', label: 'Width' }
-  ]);
+           const [dimensions, setDimensions] = useState([
+           { value: '', unit: 'in', label: 'Length' },
+           { value: '', unit: 'in', label: 'Width' }
+         ]);
   const [pricePerUnit, setPricePerUnit] = useState('');
   const [priceUnit, setPriceUnit] = useState('per_sqft');
   const [precision, setPrecision] = useState(2);
@@ -159,9 +159,9 @@ const SquareUnitPriceCalculatorTool = () => {
     return price !== null ? price.toFixed(precision) : null;
   }, [dimensions, pricePerUnit, priceUnit, calculationType, precision]);
 
-  const addDimension = () => {
-    setDimensions([...dimensions, { value: '', unit: 'ft', label: `Dimension ${dimensions.length + 1}` }]);
-  };
+           const addDimension = () => {
+           setDimensions([...dimensions, { value: '', unit: 'in', label: `Dimension ${dimensions.length + 1}` }]);
+         };
 
   const removeDimension = (index) => {
     if (dimensions.length > 1) {
@@ -182,11 +182,11 @@ const SquareUnitPriceCalculatorTool = () => {
     } catch {}
   };
 
-  const clearAll = () => {
-    setDimensions([{ value: '', unit: 'ft', label: 'Length' }, { value: '', unit: 'ft', label: 'Width' }]);
-    setPricePerUnit('');
-    setPriceUnit('per_sqft');
-  };
+           const clearAll = () => {
+           setDimensions([{ value: '', unit: 'in', label: 'Length' }, { value: '', unit: 'in', label: 'Width' }]);
+           setPricePerUnit('');
+           setPriceUnit('per_sqft');
+         };
 
   const loadExample = (type, dims, price, priceUnitId) => {
     setCalculationType(type);
