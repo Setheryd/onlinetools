@@ -597,6 +597,18 @@ export const tools = [
     built: true,
   },
   {
+    id: 'square-unit-price-calculator',
+    name: 'Square Unit Price Calculator',
+    description: 'Calculate total price based on area or volume measurements and price per unit. Supports various units for area and volume calculations.',
+    path: '/tools/square-unit-price-calculator',
+    category: 'calculator',
+    keywords: ['square unit', 'price calculator', 'area price', 'volume price', 'cost calculation', 'per square foot', 'per square meter'],
+    icon: '💰',
+    featured: false,
+    priority: 0.7,
+    built: true,
+  },
+  {
     id: 'compound-interest-calculator',
     name: 'Compound Interest Calculator',
     description: 'Calculate compound interest, future value, and investment growth.',
