@@ -15,7 +15,7 @@ export default function sitemap() {
     {
       url: `${baseUrl}/tools`,
       lastModified: currentDate,
-      changeFrequency: 'weekly',
+      changeFrequency: 'daily',
       priority: 0.9,
     },
     {
@@ -73,6 +73,12 @@ export default function sitemap() {
     },
     {
       url: `${baseUrl}/robots.txt`,
+      lastModified: currentDate,
+      changeFrequency: 'monthly',
+      priority: 0.1,
+    },
+    {
+      url: `${baseUrl}/ads.txt`,
       lastModified: currentDate,
       changeFrequency: 'monthly',
       priority: 0.1,

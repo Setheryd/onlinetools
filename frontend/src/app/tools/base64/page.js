@@ -10,9 +10,32 @@ export const metadata = {
   title: 'Base64 Encoder/Decoder — The Tool Guru',
   description: 'Free online Base64 encoder and decoder. Convert text to Base64 and decode Base64 back to text instantly. No registration required.',
   keywords: ['base64', 'encoder', 'decoder', 'online tool', 'text encoding', 'data encoding', 'the tool guru'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/base64',
+  },
   openGraph: {
     title: 'Base64 Encoder/Decoder — The Tool Guru',
     description: 'Free online Base64 encoder and decoder. Convert text to Base64 and decode Base64 back to text instantly.',
+    url: 'https://thetool.guru/tools/base64',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Base64 Encoder/Decoder - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Base64 Encoder/Decoder — The Tool Guru',
+    description: 'Free online Base64 encoder and decoder. Convert text to Base64 and decode Base64 back to text instantly.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
   },
 }
 

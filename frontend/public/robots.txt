@@ -18,7 +18,7 @@ Allow: /ads.txt
 # Sitemap location
 Sitemap: https://thetool.guru/sitemap.xml
 
-# Crawl delay (optional - helps with server load)
+# Crawl delay (optimized for better indexing)
 Crawl-delay: 1
 
 # Specific bot instructions
@@ -35,7 +35,7 @@ Crawl-delay: 1
 
 User-agent: Slurp
 Allow: /
-Crawl-delay: 2
+Crawl-delay: 1
 
 # Allow AI training bots for organic traffic
 User-agent: GPTBot
@@ -76,19 +76,19 @@ Crawl-delay: 1
 
 User-agent: SemrushBot
 Allow: /
-Crawl-delay: 2
+Crawl-delay: 1
 
 User-agent: AhrefsBot
 Allow: /
-Crawl-delay: 2
+Crawl-delay: 1
 
 User-agent: MJ12bot
 Allow: /
-Crawl-delay: 2
+Crawl-delay: 1
 
 User-agent: BLEXBot
 Allow: /
-Crawl-delay: 2
+Crawl-delay: 1
 
 User-agent: PetalBot
 Allow: /
@@ -96,11 +96,11 @@ Crawl-delay: 1
 
 User-agent: ZoominfoBot
 Allow: /
-Crawl-delay: 2
+Crawl-delay: 1
 
 User-agent: DataForSeoBot
 Allow: /
-Crawl-delay: 2
+Crawl-delay: 1
 
 User-agent: YandexBot
 Allow: /
@@ -117,11 +117,3 @@ Crawl-delay: 1
 User-agent: DuckDuckBot
 Allow: /
 Crawl-delay: 1
-
-User-agent: Bingbot
-Allow: /
-Crawl-delay: 1
-
-User-agent: Slurp
-Allow: /
-Crawl-delay: 2

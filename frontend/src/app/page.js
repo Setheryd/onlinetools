@@ -9,6 +9,39 @@ import Badge from './components/ui/Badge';
 import { getBuiltTools } from '@/lib/tools';
 import Button from './components/ui/Button';
 
+export const metadata = {
+  title: 'The Tool Guru - Free Online Tools & Utilities',
+  description: 'A comprehensive collection of free online tools including base64 encoder/decoder, password generator, image processors, calculators, and more useful utilities for developers and professionals. All tools are free to use with no registration required.',
+  keywords: 'online tools, base64, password generator, web utilities, free tools, developer tools, encoder, decoder, the tool guru, calculators, image processing, text tools',
+  alternates: {
+    canonical: 'https://thetool.guru',
+  },
+  openGraph: {
+    title: 'The Tool Guru - Free Online Tools & Utilities',
+    description: 'A comprehensive collection of free online tools including base64 encoder/decoder, password generator, image processors, calculators, and more useful utilities for developers and professionals.',
+    url: 'https://thetool.guru',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'The Tool Guru - Free Online Tools & Utilities',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'The Tool Guru - Free Online Tools & Utilities',
+    description: 'A comprehensive collection of free online tools including base64 encoder/decoder, password generator, image processors, calculators, and more useful utilities for developers and professionals.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+};
+
 const Home = () => {
   const featuredTools = [
     {

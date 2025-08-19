@@ -1,0 +1,4 @@
+# The Tool Guru - Ads.txt
+# This file is used for programmatic advertising
+# Currently no ad networks configured
+# Placeholder for future ad network integrations

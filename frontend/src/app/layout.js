@@ -20,9 +20,6 @@ export const metadata = {
     telephone: false,
   },
   metadataBase: new URL('https://thetool.guru'),
-  alternates: {
-    canonical: '/',
-  },
   openGraph: {
     title: 'The Tool Guru - Free Online Tools & Utilities',
     description: 'A collection of free online tools including base64 encoder/decoder, password generator, and more useful utilities for developers and professionals.',
@@ -31,8 +28,8 @@ export const metadata = {
     images: [
       {
         url: '/Brand_Assets/Logo.webp',
-        width: 32,
-        height: 32,
+        width: 512,
+        height: 512,
         alt: 'The Tool Guru - Free Online Tools & Utilities',
       },
     ],
