@@ -55,7 +55,7 @@ function convertVolume(value, fromId, toId) {
   return cubicft / to.toCubicft;
 }
 
-function calculatePrice(dimensions, pricePerUnit, priceUnitId, calculationType) {
+function calculatePrice(dimensions, pricePerUnit, priceUnitId, calculationType, shape) {
   if (!dimensions || dimensions.length === 0 || !pricePerUnit || !priceUnitId) return null;
   
   const priceUnit = PRICE_UNITS.find(u => u.id === priceUnitId);
@@ -65,43 +65,13 @@ function calculatePrice(dimensions, pricePerUnit, priceUnitId, calculationType) 
   let totalVolume = 1;
 
   if (calculationType === 'area') {
-    // For area calculations, multiply all dimensions
-    totalArea = dimensions.reduce((acc, dim) => {
+    // Convert all dimensions to feet for calculation
+    const feetDimensions = dimensions.map(dim => {
       if (dim.unit.startsWith('sq')) {
-        // Already an area unit
-        return acc * convertArea(dim.value, dim.unit, priceUnit.baseUnit);
+        // Already an area unit, convert to square feet
+        return convertArea(dim.value, dim.unit, 'sqft');
       } else {
-        // Linear unit, convert to area
-        const linearValue = dim.value;
-        const linearUnit = dim.unit;
-        // Convert to feet first, then square it
-        let feetValue;
-        if (linearUnit === 'ft') feetValue = linearValue;
-        else if (linearUnit === 'm') feetValue = linearValue * 3.28084;
-        else if (linearUnit === 'in') feetValue = linearValue / 12;
-        else if (linearUnit === 'yd') feetValue = linearValue * 3;
-        else if (linearUnit === 'cm') feetValue = linearValue * 0.0328084;
-        else if (linearUnit === 'mm') feetValue = linearValue * 0.00328084;
-        else feetValue = linearValue; // Default to feet
-        
-        return acc * feetValue;
-      }
-    }, 1);
-    
-    // Convert to the price unit's base unit
-    totalArea = convertArea(totalArea, 'sqft', priceUnit.baseUnit);
-    return totalArea * pricePerUnit;
-  } else {
-    // For volume calculations, multiply all dimensions
-    totalVolume = dimensions.reduce((acc, dim) => {
-      if (dim.unit.startsWith('cubic')) {
-        // Already a volume unit
-        return acc * convertVolume(dim.value, dim.unit, priceUnit.baseUnit);
-      } else if (dim.unit.startsWith('sq')) {
-        // Area unit, treat as height = 1
-        return acc * convertArea(dim.value, dim.unit, 'sqft');
-      } else {
-        // Linear unit, convert to cubic feet
+        // Linear unit, convert to feet
         let feetValue;
         if (dim.unit === 'ft') feetValue = dim.value;
         else if (dim.unit === 'm') feetValue = dim.value * 3.28084;
@@ -111,9 +81,93 @@ function calculatePrice(dimensions, pricePerUnit, priceUnitId, calculationType) 
         else if (dim.unit === 'mm') feetValue = dim.value * 0.00328084;
         else feetValue = dim.value; // Default to feet
         
-        return acc * feetValue;
+        return feetValue;
       }
-    }, 1);
+    });
+
+    // Calculate area based on shape
+    switch (shape) {
+      case 'square':
+      case 'rectangle':
+        totalArea = feetDimensions[0] * feetDimensions[1];
+        break;
+      case 'triangle':
+        totalArea = 0.5 * feetDimensions[0] * feetDimensions[1];
+        break;
+      case 'circle':
+        totalArea = Math.PI * Math.pow(feetDimensions[0] / 2, 2);
+        break;
+      case 'trapezoid':
+        totalArea = 0.5 * (feetDimensions[0] + feetDimensions[1]) * feetDimensions[2];
+        break;
+      case 'parallelogram':
+        totalArea = feetDimensions[0] * feetDimensions[1];
+        break;
+      case 'rhombus':
+        totalArea = 0.5 * feetDimensions[0] * feetDimensions[1];
+        break;
+      case 'ellipse':
+        totalArea = Math.PI * (feetDimensions[0] / 2) * (feetDimensions[1] / 2);
+        break;
+      default:
+        // For custom shapes, multiply all dimensions
+        totalArea = feetDimensions.reduce((acc, val) => acc * val, 1);
+    }
+    
+    // Convert to the price unit's base unit
+    totalArea = convertArea(totalArea, 'sqft', priceUnit.baseUnit);
+    return totalArea * pricePerUnit;
+  } else {
+    // Convert all dimensions to feet for calculation
+    const feetDimensions = dimensions.map(dim => {
+      if (dim.unit.startsWith('cubic')) {
+        // Already a volume unit, convert to cubic feet
+        return convertVolume(dim.value, dim.unit, 'cubicft');
+      } else if (dim.unit.startsWith('sq')) {
+        // Area unit, treat as height = 1
+        return convertArea(dim.value, dim.unit, 'sqft');
+      } else {
+        // Linear unit, convert to feet
+        let feetValue;
+        if (dim.unit === 'ft') feetValue = dim.value;
+        else if (dim.unit === 'm') feetValue = dim.value * 3.28084;
+        else if (dim.unit === 'in') feetValue = dim.value / 12;
+        else if (dim.unit === 'yd') feetValue = dim.value * 3;
+        else if (dim.unit === 'cm') feetValue = dim.value * 0.0328084;
+        else if (dim.unit === 'mm') feetValue = dim.value * 0.00328084;
+        else feetValue = dim.value; // Default to feet
+        
+        return feetValue;
+      }
+    });
+
+    // Calculate volume based on shape
+    switch (shape) {
+      case 'cube':
+      case 'box':
+        totalVolume = feetDimensions[0] * feetDimensions[1] * feetDimensions[2];
+        break;
+      case 'cylinder':
+        totalVolume = Math.PI * Math.pow(feetDimensions[0] / 2, 2) * feetDimensions[1];
+        break;
+      case 'sphere':
+        totalVolume = (4/3) * Math.PI * Math.pow(feetDimensions[0] / 2, 3);
+        break;
+      case 'cone':
+        totalVolume = (1/3) * Math.PI * Math.pow(feetDimensions[0] / 2, 2) * feetDimensions[1];
+        break;
+      case 'pyramid':
+        totalVolume = (1/3) * feetDimensions[0] * feetDimensions[1] * feetDimensions[2];
+        break;
+      case 'prism':
+        // Base area * height
+        const baseArea = feetDimensions[0] * feetDimensions[1];
+        totalVolume = baseArea * feetDimensions[2];
+        break;
+      default:
+        // For custom shapes, multiply all dimensions
+        totalVolume = feetDimensions.reduce((acc, val) => acc * val, 1);
+    }
     
     // Convert to the price unit's base unit
     totalVolume = convertVolume(totalVolume, 'cubicft', priceUnit.baseUnit);
@@ -132,10 +186,11 @@ const LINEAR_UNITS = [
 
 const SquareUnitPriceCalculatorTool = () => {
   const [calculationType, setCalculationType] = useState('area');
-           const [dimensions, setDimensions] = useState([
-           { value: '', unit: 'in', label: 'Length' },
-           { value: '', unit: 'in', label: 'Width' }
-         ]);
+  const [shape, setShape] = useState('square');
+  const [dimensions, setDimensions] = useState([
+    { value: '', unit: 'in', label: 'Length' },
+    { value: '', unit: 'in', label: 'Width' }
+  ]);
   const [pricePerUnit, setPricePerUnit] = useState('');
   const [priceUnit, setPriceUnit] = useState('per_sqft');
   const [precision, setPrecision] = useState(2);
@@ -153,15 +208,137 @@ const SquareUnitPriceCalculatorTool = () => {
       validDimensions.map(d => ({ ...d, value: Number(d.value) })),
       Number(pricePerUnit),
       priceUnit,
-      calculationType
+      calculationType,
+      shape
     );
     
     return price !== null ? price.toFixed(precision) : null;
-  }, [dimensions, pricePerUnit, priceUnit, calculationType, precision]);
+  }, [dimensions, pricePerUnit, priceUnit, calculationType, shape, precision]);
 
-           const addDimension = () => {
-           setDimensions([...dimensions, { value: '', unit: 'in', label: `Dimension ${dimensions.length + 1}` }]);
-         };
+             const addDimension = () => {
+    setDimensions([...dimensions, { value: '', unit: 'in', label: `Dimension ${dimensions.length + 1}` }]);
+  };
+
+  const updateDimensionsForShape = (newShape) => {
+    setShape(newShape);
+    
+    // Update dimensions based on shape requirements
+    let newDimensions = [];
+    
+    if (calculationType === 'area') {
+      switch (newShape) {
+        case 'square':
+          newDimensions = [
+            { value: '', unit: 'in', label: 'Side Length' },
+            { value: '', unit: 'in', label: 'Side Length' }
+          ];
+          break;
+        case 'rectangle':
+          newDimensions = [
+            { value: '', unit: 'in', label: 'Length' },
+            { value: '', unit: 'in', label: 'Width' }
+          ];
+          break;
+        case 'triangle':
+          newDimensions = [
+            { value: '', unit: 'in', label: 'Base' },
+            { value: '', unit: 'in', label: 'Height' }
+          ];
+          break;
+        case 'circle':
+          newDimensions = [
+            { value: '', unit: 'in', label: 'Diameter' }
+          ];
+          break;
+        case 'trapezoid':
+          newDimensions = [
+            { value: '', unit: 'in', label: 'Base 1' },
+            { value: '', unit: 'in', label: 'Base 2' },
+            { value: '', unit: 'in', label: 'Height' }
+          ];
+          break;
+        case 'parallelogram':
+          newDimensions = [
+            { value: '', unit: 'in', label: 'Base' },
+            { value: '', unit: 'in', label: 'Height' }
+          ];
+          break;
+        case 'rhombus':
+          newDimensions = [
+            { value: '', unit: 'in', label: 'Diagonal 1' },
+            { value: '', unit: 'in', label: 'Diagonal 2' }
+          ];
+          break;
+        case 'ellipse':
+          newDimensions = [
+            { value: '', unit: 'in', label: 'Major Axis' },
+            { value: '', unit: 'in', label: 'Minor Axis' }
+          ];
+          break;
+        default:
+          newDimensions = [
+            { value: '', unit: 'in', label: 'Length' },
+            { value: '', unit: 'in', label: 'Width' }
+          ];
+      }
+    } else {
+      switch (newShape) {
+        case 'cube':
+          newDimensions = [
+            { value: '', unit: 'in', label: 'Side Length' },
+            { value: '', unit: 'in', label: 'Side Length' },
+            { value: '', unit: 'in', label: 'Side Length' }
+          ];
+          break;
+        case 'box':
+          newDimensions = [
+            { value: '', unit: 'in', label: 'Length' },
+            { value: '', unit: 'in', label: 'Width' },
+            { value: '', unit: 'in', label: 'Height' }
+          ];
+          break;
+        case 'cylinder':
+          newDimensions = [
+            { value: '', unit: 'in', label: 'Diameter' },
+            { value: '', unit: 'in', label: 'Height' }
+          ];
+          break;
+        case 'sphere':
+          newDimensions = [
+            { value: '', unit: 'in', label: 'Diameter' }
+          ];
+          break;
+        case 'cone':
+          newDimensions = [
+            { value: '', unit: 'in', label: 'Base Diameter' },
+            { value: '', unit: 'in', label: 'Height' }
+          ];
+          break;
+        case 'pyramid':
+          newDimensions = [
+            { value: '', unit: 'in', label: 'Base Length' },
+            { value: '', unit: 'in', label: 'Base Width' },
+            { value: '', unit: 'in', label: 'Height' }
+          ];
+          break;
+        case 'prism':
+          newDimensions = [
+            { value: '', unit: 'in', label: 'Base Length' },
+            { value: '', unit: 'in', label: 'Base Width' },
+            { value: '', unit: 'in', label: 'Height' }
+          ];
+          break;
+        default:
+          newDimensions = [
+            { value: '', unit: 'in', label: 'Length' },
+            { value: '', unit: 'in', label: 'Width' },
+            { value: '', unit: 'in', label: 'Height' }
+          ];
+      }
+    }
+    
+    setDimensions(newDimensions);
+  };
 
   const removeDimension = (index) => {
     if (dimensions.length > 1) {
@@ -182,14 +359,16 @@ const SquareUnitPriceCalculatorTool = () => {
     } catch {}
   };
 
-           const clearAll = () => {
-           setDimensions([{ value: '', unit: 'in', label: 'Length' }, { value: '', unit: 'in', label: 'Width' }]);
-           setPricePerUnit('');
-           setPriceUnit('per_sqft');
-         };
+             const clearAll = () => {
+    setShape('square');
+    setDimensions([{ value: '', unit: 'in', label: 'Side Length' }, { value: '', unit: 'in', label: 'Side Length' }]);
+    setPricePerUnit('');
+    setPriceUnit('per_sqft');
+  };
 
-  const loadExample = (type, dims, price, priceUnitId) => {
+  const loadExample = (type, dims, price, priceUnitId, shapeType = 'square') => {
     setCalculationType(type);
+    setShape(shapeType);
     setDimensions(dims);
     setPricePerUnit(String(price));
     setPriceUnit(priceUnitId);
@@ -209,50 +388,226 @@ const SquareUnitPriceCalculatorTool = () => {
         </div>
       </div>
 
-      <div className="mb-4">
-        <label className="block text-sm font-medium text-gray-700 mb-2">Examples</label>
-        <div className="flex flex-wrap gap-2">
-          <Button variant="outline" size="sm" onClick={() => loadExample('area', [
-            { value: '120', unit: 'in', label: 'Length' },
-            { value: '36', unit: 'in', label: 'Width' }
-          ], 15, 'per_sqft')}>120" × 36" @ $15/ft²</Button>
-          <Button variant="outline" size="sm" onClick={() => loadExample('area', [
-            { value: '10', unit: 'm', label: 'Length' },
-            { value: '5', unit: 'm', label: 'Width' }
-          ], 25, 'per_sqm')}>10m × 5m @ $25/m²</Button>
-          <Button variant="outline" size="sm" onClick={() => loadExample('volume', [
-            { value: '8', unit: 'ft', label: 'Length' },
-            { value: '6', unit: 'ft', label: 'Width' },
-            { value: '4', unit: 'ft', label: 'Height' }
-          ], 2.50, 'per_cubicft')}>8' × 6' × 4' @ $2.50/ft³</Button>
-        </div>
-      </div>
+             <div className="mb-4">
+         <label className="block text-sm font-medium text-gray-700 mb-2">Examples</label>
+         <div className="flex flex-wrap gap-2">
+           <Button variant="outline" size="sm" onClick={() => loadExample('area', [
+             { value: '120', unit: 'in', label: 'Side Length' },
+             { value: '120', unit: 'in', label: 'Side Length' }
+           ], 15, 'per_sqft', 'square')}>Square 120" @ $15/ft²</Button>
+           <Button variant="outline" size="sm" onClick={() => loadExample('area', [
+             { value: '10', unit: 'm', label: 'Length' },
+             { value: '5', unit: 'm', label: 'Width' }
+           ], 25, 'per_sqm', 'rectangle')}>Rectangle 10m × 5m @ $25/m²</Button>
+           <Button variant="outline" size="sm" onClick={() => loadExample('area', [
+             { value: '24', unit: 'in', label: 'Diameter' }
+           ], 12, 'per_sqft', 'circle')}>Circle 24" diameter @ $12/ft²</Button>
+           <Button variant="outline" size="sm" onClick={() => loadExample('volume', [
+             { value: '8', unit: 'ft', label: 'Side Length' },
+             { value: '8', unit: 'ft', label: 'Side Length' },
+             { value: '8', unit: 'ft', label: 'Side Length' }
+           ], 2.50, 'per_cubicft', 'cube')}>Cube 8' @ $2.50/ft³</Button>
+           <Button variant="outline" size="sm" onClick={() => loadExample('volume', [
+             { value: '12', unit: 'in', label: 'Diameter' },
+             { value: '36', unit: 'in', label: 'Height' }
+           ], 1.75, 'per_cubicft', 'cylinder')}>Cylinder 12" × 36" @ $1.75/ft³</Button>
+         </div>
+       </div>
 
-      <div className="mb-6">
-        <label className="block text-sm font-medium text-gray-700 mb-2">Calculation Type</label>
-        <div className="flex gap-4">
-          <label className="flex items-center">
-            <input
-              type="radio"
-              value="area"
-              checked={calculationType === 'area'}
-              onChange={(e) => setCalculationType(e.target.value)}
-              className="mr-2"
-            />
-            Area Calculation
-          </label>
-          <label className="flex items-center">
-            <input
-              type="radio"
-              value="volume"
-              checked={calculationType === 'volume'}
-              onChange={(e) => setCalculationType(e.target.value)}
-              className="mr-2"
-            />
-            Volume Calculation
-          </label>
-        </div>
-      </div>
+             <div className="mb-6">
+         <label className="block text-sm font-medium text-gray-700 mb-2">Calculation Type</label>
+         <div className="flex gap-4">
+           <label className="flex items-center">
+             <input
+               type="radio"
+               value="area"
+               checked={calculationType === 'area'}
+               onChange={(e) => {
+                 setCalculationType(e.target.value);
+                 updateDimensionsForShape(shape);
+               }}
+               className="mr-2"
+             />
+             Area Calculation
+           </label>
+           <label className="flex items-center">
+             <input
+               type="radio"
+               value="volume"
+               checked={calculationType === 'volume'}
+               onChange={(e) => {
+                 setCalculationType(e.target.value);
+                 updateDimensionsForShape(shape);
+               }}
+               className="mr-2"
+             />
+             Volume Calculation
+           </label>
+         </div>
+       </div>
+
+       <div className="mb-6">
+         <label className="block text-sm font-medium text-gray-700 mb-2">Shape</label>
+         <div className="grid grid-cols-2 md:grid-cols-4 gap-3">
+           {calculationType === 'area' ? (
+             <>
+               <label className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                 <input
+                   type="radio"
+                   value="square"
+                   checked={shape === 'square'}
+                   onChange={(e) => updateDimensionsForShape(e.target.value)}
+                   className="mr-2"
+                 />
+                 <span>Square</span>
+               </label>
+               <label className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                 <input
+                   type="radio"
+                   value="rectangle"
+                   checked={shape === 'rectangle'}
+                   onChange={(e) => updateDimensionsForShape(e.target.value)}
+                   className="mr-2"
+                 />
+                 <span>Rectangle</span>
+               </label>
+               <label className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                 <input
+                   type="radio"
+                   value="triangle"
+                   checked={shape === 'triangle'}
+                   onChange={(e) => updateDimensionsForShape(e.target.value)}
+                   className="mr-2"
+                 />
+                 <span>Triangle</span>
+               </label>
+               <label className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                 <input
+                   type="radio"
+                   value="circle"
+                   checked={shape === 'circle'}
+                   onChange={(e) => updateDimensionsForShape(e.target.value)}
+                   className="mr-2"
+                 />
+                 <span>Circle</span>
+               </label>
+               <label className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                 <input
+                   type="radio"
+                   value="trapezoid"
+                   checked={shape === 'trapezoid'}
+                   onChange={(e) => updateDimensionsForShape(e.target.value)}
+                   className="mr-2"
+                 />
+                 <span>Trapezoid</span>
+               </label>
+               <label className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                 <input
+                   type="radio"
+                   value="parallelogram"
+                   checked={shape === 'parallelogram'}
+                   onChange={(e) => updateDimensionsForShape(e.target.value)}
+                   className="mr-2"
+                 />
+                 <span>Parallelogram</span>
+               </label>
+               <label className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                 <input
+                   type="radio"
+                   value="rhombus"
+                   checked={shape === 'rhombus'}
+                   onChange={(e) => updateDimensionsForShape(e.target.value)}
+                   className="mr-2"
+                 />
+                 <span>Rhombus</span>
+               </label>
+               <label className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                 <input
+                   type="radio"
+                   value="ellipse"
+                   checked={shape === 'ellipse'}
+                   onChange={(e) => updateDimensionsForShape(e.target.value)}
+                   className="mr-2"
+                 />
+                 <span>Ellipse</span>
+               </label>
+             </>
+           ) : (
+             <>
+               <label className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                 <input
+                   type="radio"
+                   value="cube"
+                   checked={shape === 'cube'}
+                   onChange={(e) => updateDimensionsForShape(e.target.value)}
+                   className="mr-2"
+                 />
+                 <span>Cube</span>
+               </label>
+               <label className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                 <input
+                   type="radio"
+                   value="box"
+                   checked={shape === 'box'}
+                   onChange={(e) => updateDimensionsForShape(e.target.value)}
+                   className="mr-2"
+                 />
+                 <span>Box</span>
+               </label>
+               <label className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                 <input
+                   type="radio"
+                   value="cylinder"
+                   checked={shape === 'cylinder'}
+                   onChange={(e) => updateDimensionsForShape(e.target.value)}
+                   className="mr-2"
+                 />
+                 <span>Cylinder</span>
+               </label>
+               <label className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                 <input
+                   type="radio"
+                   value="sphere"
+                   checked={shape === 'sphere'}
+                   onChange={(e) => updateDimensionsForShape(e.target.value)}
+                   className="mr-2"
+                 />
+                 <span>Sphere</span>
+               </label>
+               <label className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                 <input
+                   type="radio"
+                   value="cone"
+                   checked={shape === 'cone'}
+                   onChange={(e) => updateDimensionsForShape(e.target.value)}
+                   className="mr-2"
+                 />
+                 <span>Cone</span>
+               </label>
+               <label className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                 <input
+                   type="radio"
+                   value="pyramid"
+                   checked={shape === 'pyramid'}
+                   onChange={(e) => updateDimensionsForShape(e.target.value)}
+                   className="mr-2"
+                 />
+                 <span>Pyramid</span>
+               </label>
+               <label className="flex items-center p-3 border rounded-lg cursor-pointer hover:bg-gray-50">
+                 <input
+                   type="radio"
+                   value="prism"
+                   checked={shape === 'prism'}
+                   onChange={(e) => updateDimensionsForShape(e.target.value)}
+                   className="mr-2"
+                 />
+                 <span>Prism</span>
+               </label>
+             </>
+           )}
+         </div>
+       </div>
 
       <div className="mb-6">
         <div className="flex justify-between items-center mb-2">
@@ -370,10 +725,12 @@ const SquareUnitPriceCalculatorTool = () => {
         </div>
       )}
 
-      <div className="text-sm text-gray-600">
-        <p><strong>Note:</strong> This calculator supports both area and volume calculations. For area calculations, multiply all dimensions. For volume calculations, multiply all dimensions to get the total volume.</p>
-        <p className="mt-2">All results are displayed in US dollars ($).</p>
-      </div>
+             <div className="text-sm text-gray-600">
+         <p><strong>Note:</strong> This calculator supports various shapes for area and volume calculations. Each shape uses the appropriate mathematical formula to calculate the area or volume.</p>
+         <p className="mt-2"><strong>Area Shapes:</strong> Square, Rectangle, Triangle, Circle, Trapezoid, Parallelogram, Rhombus, Ellipse</p>
+         <p className="mt-2"><strong>Volume Shapes:</strong> Cube, Box, Cylinder, Sphere, Cone, Pyramid, Prism</p>
+         <p className="mt-2">All results are displayed in US dollars ($).</p>
+       </div>
     </div>
   );
 };

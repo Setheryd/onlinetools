@@ -66,7 +66,7 @@ function convertLinear(value, fromUnit, toUnit) {
   return feet / LINEAR_UNITS[toUnit];
 }
 
-function calculatePrice(dimensions, pricePerUnit, priceUnitId, calculationType) {
+function calculatePrice(dimensions, pricePerUnit, priceUnitId, calculationType, shape = 'square') {
   if (!dimensions || dimensions.length === 0 || !pricePerUnit || !priceUnitId) {
     return { error: 'Missing required parameters' };
   }
@@ -80,47 +80,104 @@ function calculatePrice(dimensions, pricePerUnit, priceUnitId, calculationType) 
     let totalValue = 1;
 
     if (calculationType === 'area') {
-      // For area calculations, multiply all dimensions
-      totalValue = dimensions.reduce((acc, dim) => {
+      // Convert all dimensions to feet for calculation
+      const feetDimensions = dimensions.map(dim => {
         if (dim.unit.startsWith('sq')) {
-          // Already an area unit
-          const converted = convertArea(dim.value, dim.unit, priceUnit.baseUnit);
+          // Already an area unit, convert to square feet
+          const converted = convertArea(dim.value, dim.unit, 'sqft');
           if (converted === null) throw new Error(`Invalid area unit: ${dim.unit}`);
-          return acc * converted;
+          return converted;
         } else if (LINEAR_UNITS[dim.unit]) {
-          // Linear unit, convert to feet first, then square it
+          // Linear unit, convert to feet
           const feetValue = convertLinear(dim.value, dim.unit, 'ft');
           if (feetValue === null) throw new Error(`Invalid linear unit: ${dim.unit}`);
-          return acc * feetValue;
+          return feetValue;
         } else {
           throw new Error(`Invalid unit for area calculation: ${dim.unit}`);
         }
-      }, 1);
+      });
+
+      // Calculate area based on shape
+      switch (shape) {
+        case 'square':
+        case 'rectangle':
+          totalValue = feetDimensions[0] * feetDimensions[1];
+          break;
+        case 'triangle':
+          totalValue = 0.5 * feetDimensions[0] * feetDimensions[1];
+          break;
+        case 'circle':
+          totalValue = Math.PI * Math.pow(feetDimensions[0] / 2, 2);
+          break;
+        case 'trapezoid':
+          totalValue = 0.5 * (feetDimensions[0] + feetDimensions[1]) * feetDimensions[2];
+          break;
+        case 'parallelogram':
+          totalValue = feetDimensions[0] * feetDimensions[1];
+          break;
+        case 'rhombus':
+          totalValue = 0.5 * feetDimensions[0] * feetDimensions[1];
+          break;
+        case 'ellipse':
+          totalValue = Math.PI * (feetDimensions[0] / 2) * (feetDimensions[1] / 2);
+          break;
+        default:
+          // For custom shapes, multiply all dimensions
+          totalValue = feetDimensions.reduce((acc, val) => acc * val, 1);
+      }
       
       // Convert to the price unit's base unit
       totalValue = convertArea(totalValue, 'sqft', priceUnit.baseUnit);
     } else {
-      // For volume calculations, multiply all dimensions
-      totalValue = dimensions.reduce((acc, dim) => {
+      // Convert all dimensions to feet for calculation
+      const feetDimensions = dimensions.map(dim => {
         if (dim.unit.startsWith('cubic')) {
-          // Already a volume unit
-          const converted = convertVolume(dim.value, dim.unit, priceUnit.baseUnit);
+          // Already a volume unit, convert to cubic feet
+          const converted = convertVolume(dim.value, dim.unit, 'cubicft');
           if (converted === null) throw new Error(`Invalid volume unit: ${dim.unit}`);
-          return acc * converted;
+          return converted;
         } else if (dim.unit.startsWith('sq')) {
           // Area unit, treat as height = 1
           const converted = convertArea(dim.value, dim.unit, 'sqft');
           if (converted === null) throw new Error(`Invalid area unit: ${dim.unit}`);
-          return acc * converted;
+          return converted;
         } else if (LINEAR_UNITS[dim.unit]) {
-          // Linear unit, convert to cubic feet
+          // Linear unit, convert to feet
           const feetValue = convertLinear(dim.value, dim.unit, 'ft');
           if (feetValue === null) throw new Error(`Invalid linear unit: ${dim.unit}`);
-          return acc * feetValue;
+          return feetValue;
         } else {
           throw new Error(`Invalid unit for volume calculation: ${dim.unit}`);
         }
-      }, 1);
+      });
+
+      // Calculate volume based on shape
+      switch (shape) {
+        case 'cube':
+        case 'box':
+          totalValue = feetDimensions[0] * feetDimensions[1] * feetDimensions[2];
+          break;
+        case 'cylinder':
+          totalValue = Math.PI * Math.pow(feetDimensions[0] / 2, 2) * feetDimensions[1];
+          break;
+        case 'sphere':
+          totalValue = (4/3) * Math.PI * Math.pow(feetDimensions[0] / 2, 3);
+          break;
+        case 'cone':
+          totalValue = (1/3) * Math.PI * Math.pow(feetDimensions[0] / 2, 2) * feetDimensions[1];
+          break;
+        case 'pyramid':
+          totalValue = (1/3) * feetDimensions[0] * feetDimensions[1] * feetDimensions[2];
+          break;
+        case 'prism':
+          // Base area * height
+          const baseArea = feetDimensions[0] * feetDimensions[1];
+          totalValue = baseArea * feetDimensions[2];
+          break;
+        default:
+          // For custom shapes, multiply all dimensions
+          totalValue = feetDimensions.reduce((acc, val) => acc * val, 1);
+      }
       
       // Convert to the price unit's base unit
       totalValue = convertVolume(totalValue, 'cubicft', priceUnit.baseUnit);
@@ -134,6 +191,7 @@ function calculatePrice(dimensions, pricePerUnit, priceUnitId, calculationType) 
       pricePerUnit,
       priceUnit: priceUnitId,
       calculationType,
+      shape,
       dimensions: dimensions.map(d => ({
         ...d,
         value: parseFloat(d.value)
@@ -147,7 +205,7 @@ function calculatePrice(dimensions, pricePerUnit, priceUnitId, calculationType) 
 export async function POST(req) {
   try {
     const body = await req.json();
-    const { dimensions, pricePerUnit, priceUnit, calculationType } = body;
+    const { dimensions, pricePerUnit, priceUnit, calculationType, shape = 'square' } = body;
 
     // Validate input
     if (!dimensions || !Array.isArray(dimensions) || dimensions.length === 0) {
@@ -176,7 +234,7 @@ export async function POST(req) {
       }
     }
 
-    const result = calculatePrice(dimensions, Number(pricePerUnit), priceUnit, calculationType);
+    const result = calculatePrice(dimensions, Number(pricePerUnit), priceUnit, calculationType, shape);
     
     if (result.error) {
       return NextResponse.json({ error: result.error }, { status: 400 });
@@ -198,24 +256,64 @@ export async function GET(req) {
   const pricePerUnit = searchParams.get('price');
   const priceUnit = searchParams.get('unit') || 'per_sqft';
   const calculationType = searchParams.get('type') || 'area';
+  const shape = searchParams.get('shape') || 'square';
 
-  if (!length || !width || !pricePerUnit) {
+  if (!length || !pricePerUnit) {
     return NextResponse.json({ 
-      error: 'Missing required parameters. Use: ?length=10&width=5&price=15&unit=per_sqft&type=area',
-      example: '/api/tools/square-unit-price-calculator?length=120&width=36&price=15&unit=per_sqft&type=area'
+      error: 'Missing required parameters. Use: ?length=10&price=15&unit=per_sqft&type=area&shape=square',
+      example: '/api/tools/square-unit-price-calculator?length=120&price=15&unit=per_sqft&type=area&shape=square'
     }, { status: 400 });
   }
 
-  const dimensions = [
-    { value: Number(length), unit: 'in', label: 'Length' },
-    { value: Number(width), unit: 'in', label: 'Width' }
-  ];
-
-  if (height && calculationType === 'volume') {
-    dimensions.push({ value: Number(height), unit: 'in', label: 'Height' });
+  let dimensions = [];
+  
+  if (shape === 'circle' || shape === 'sphere') {
+    dimensions = [{ value: Number(length), unit: 'in', label: 'Diameter' }];
+  } else if (shape === 'triangle' || shape === 'parallelogram') {
+    dimensions = [
+      { value: Number(length), unit: 'in', label: 'Base' },
+      { value: Number(width || length), unit: 'in', label: 'Height' }
+    ];
+  } else if (shape === 'trapezoid') {
+    dimensions = [
+      { value: Number(length), unit: 'in', label: 'Base 1' },
+      { value: Number(width || length), unit: 'in', label: 'Base 2' },
+      { value: Number(height || length), unit: 'in', label: 'Height' }
+    ];
+  } else if (shape === 'rhombus') {
+    dimensions = [
+      { value: Number(length), unit: 'in', label: 'Diagonal 1' },
+      { value: Number(width || length), unit: 'in', label: 'Diagonal 2' }
+    ];
+  } else if (shape === 'ellipse') {
+    dimensions = [
+      { value: Number(length), unit: 'in', label: 'Major Axis' },
+      { value: Number(width || length), unit: 'in', label: 'Minor Axis' }
+    ];
+  } else if (shape === 'cylinder' || shape === 'cone') {
+    dimensions = [
+      { value: Number(length), unit: 'in', label: 'Diameter' },
+      { value: Number(height || length), unit: 'in', label: 'Height' }
+    ];
+  } else if (shape === 'pyramid' || shape === 'prism') {
+    dimensions = [
+      { value: Number(length), unit: 'in', label: 'Base Length' },
+      { value: Number(width || length), unit: 'in', label: 'Base Width' },
+      { value: Number(height || length), unit: 'in', label: 'Height' }
+    ];
+  } else {
+    // Default for square, rectangle, cube, box
+    dimensions = [
+      { value: Number(length), unit: 'in', label: 'Length' },
+      { value: Number(width || length), unit: 'in', label: 'Width' }
+    ];
+    
+    if (height && (calculationType === 'volume' || shape === 'box')) {
+      dimensions.push({ value: Number(height), unit: 'in', label: 'Height' });
+    }
   }
 
-  const result = calculatePrice(dimensions, Number(pricePerUnit), priceUnit, calculationType);
+  const result = calculatePrice(dimensions, Number(pricePerUnit), priceUnit, calculationType, shape);
   
   if (result.error) {
     return NextResponse.json({ error: result.error }, { status: 400 });
