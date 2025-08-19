@@ -10,9 +10,32 @@ export const metadata = {
   title: 'JSON Formatter & Validator — The Tool Guru',
   description: 'Format and validate JSON data with proper indentation and syntax highlighting. Free online JSON tool.',
   keywords: ['json formatter', 'json validator', 'json beautifier', 'online tool', 'the tool guru'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/json-formatter',
+  },
   openGraph: {
     title: 'JSON Formatter & Validator — The Tool Guru',
     description: 'Format and validate JSON data with proper indentation and syntax highlighting.',
+    url: 'https://thetool.guru/tools/json-formatter',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'JSON Formatter & Validator - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'JSON Formatter & Validator — The Tool Guru',
+    description: 'Format and validate JSON data with proper indentation and syntax highlighting.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
   },
 }
 

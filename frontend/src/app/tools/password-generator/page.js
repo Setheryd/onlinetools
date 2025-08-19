@@ -10,9 +10,32 @@ export const metadata = {
   title: 'Password Generator — The Tool Guru',
   description: 'Generate strong, secure passwords with customizable options. Create random passwords with letters, numbers, and special characters.',
   keywords: ['password generator', 'secure password', 'random password', 'online tool', 'the tool guru'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/password-generator',
+  },
   openGraph: {
     title: 'Password Generator — The Tool Guru',
     description: 'Generate strong, secure passwords with customizable options.',
+    url: 'https://thetool.guru/tools/password-generator',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Password Generator - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Password Generator — The Tool Guru',
+    description: 'Generate strong, secure passwords with customizable options.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
   },
 }
 
