@@ -1024,7 +1024,7 @@ export const tools = [
     icon: '📄',
     featured: false,
     priority: 0.7,
-    built: true,
+    built: false,
   },
   {
     id: 'pdf-to-word',
