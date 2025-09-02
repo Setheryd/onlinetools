@@ -101,6 +101,9 @@ const BlogPageClient = () => {
         selectedCategory={selectedCategory}
         onCategoryChange={setSelectedCategory}
         categories={categories}
+        totalArticles={posts.length}
+        totalCategories={new Set(posts.map(p => p.category)).size}
+        totalAuthors={new Set(posts.map(p => p.author?.name)).size}
       />
       
       {/* Main Content Area */}

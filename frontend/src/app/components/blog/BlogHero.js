@@ -3,7 +3,7 @@ import Card from '../ui/Card';
 import Input from '../ui/Input';
 import Button from '../ui/Button';
 
-const BlogHero = ({ searchQuery = '', onSearchChange, selectedCategory = '', onCategoryChange, categories = [] }) => {
+const BlogHero = ({ searchQuery = '', onSearchChange, selectedCategory = '', onCategoryChange, categories = [], totalArticles = 0, totalCategories = 0, totalAuthors = 0 }) => {
   return (
     <div className="relative bg-gradient-to-br from-blue-600 via-purple-600 to-indigo-700 text-white py-16 overflow-hidden w-full">
       {/* Background Pattern */}
@@ -92,15 +92,15 @@ const BlogHero = ({ searchQuery = '', onSearchChange, selectedCategory = '', onC
         {/* Enhanced Stats */}
         <div className="mt-12 grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-            <div className="text-4xl font-bold mb-2">9</div>
+            <div className="text-4xl font-bold mb-2">{totalArticles}</div>
             <div className="text-blue-100 font-medium">Articles Published</div>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-            <div className="text-4xl font-bold mb-2">5</div>
+            <div className="text-4xl font-bold mb-2">{totalCategories}</div>
             <div className="text-blue-100 font-medium">Categories</div>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">
-            <div className="text-4xl font-bold mb-2">8</div>
+            <div className="text-4xl font-bold mb-2">{totalAuthors}</div>
             <div className="text-blue-100 font-medium">Expert Authors</div>
           </div>
           <div className="bg-white/10 backdrop-blur-sm rounded-xl p-6 border border-white/20">

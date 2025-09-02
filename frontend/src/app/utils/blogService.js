@@ -17,7 +17,7 @@ const mockPosts = [
         <p>This is a comprehensive guide to .gitignore files and best practices for maintaining clean repositories.</p>
       </div>
     `,
-    featuredImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    featuredImage: 'https://images.pexels.com/photos/3184454/pexels-photo-3184454.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Development',
     tags: ['Git', 'Development', 'Best Practices', 'Repository Management'],
     publishedAt: '2024-01-26T10:00:00Z',
@@ -53,7 +53,7 @@ const mockPosts = [
         <p>This comprehensive guide covers everything from basic functions to advanced graphing capabilities.</p>
       </div>
     `,
-    featuredImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    featuredImage: 'https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Technology',
     tags: ['Scientific Calculator', 'Mathematics', 'Engineering', 'Graphing'],
     publishedAt: '2024-01-25T10:00:00Z',
@@ -89,7 +89,7 @@ const mockPosts = [
         <p>This comprehensive guide covers QR code technology, applications, and best practices.</p>
       </div>
     `,
-    featuredImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    featuredImage: 'https://images.pexels.com/photos/3861962/pexels-photo-3861962.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Technology',
     tags: ['QR Codes', 'Digital Marketing', 'Mobile Technology', 'Business Tools'],
     publishedAt: '2024-01-24T10:00:00Z',
@@ -125,7 +125,7 @@ const mockPosts = [
         <p>This comprehensive guide covers password security, best practices, and how to use password generators effectively.</p>
       </div>
     `,
-    featuredImage: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    featuredImage: 'https://images.pexels.com/photos/3182778/pexels-photo-3182778.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Security',
     tags: ['Password Generator', 'Security', 'Cybersecurity', 'Online Safety'],
     publishedAt: '2024-01-23T10:00:00Z',
@@ -161,7 +161,7 @@ const mockPosts = [
         <p>This comprehensive guide covers JSON formatting, validation, and best practices for developers.</p>
       </div>
     `,
-    featuredImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    featuredImage: 'https://images.pexels.com/photos/3862377/pexels-photo-3862377.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Development',
     tags: ['JSON', 'Development', 'Data Validation', 'Web Development'],
     publishedAt: '2024-01-22T10:00:00Z',
@@ -197,7 +197,7 @@ const mockPosts = [
         <p>This comprehensive guide covers Base64 encoding, use cases, and implementation examples.</p>
       </div>
     `,
-    featuredImage: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    featuredImage: 'https://images.pexels.com/photos/3184635/pexels-photo-3184635.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Tutorial',
     tags: ['Base64', 'Encoding', 'Web Development', 'JavaScript'],
     publishedAt: '2024-01-21T10:00:00Z',
@@ -233,7 +233,7 @@ const mockPosts = [
         <p>This comprehensive guide covers the top productivity tools that every developer should have in their toolkit.</p>
       </div>
     `,
-    featuredImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    featuredImage: 'https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Productivity',
     tags: ['Productivity', 'Development', 'Tools', 'Workflow'],
     publishedAt: '2024-01-20T10:00:00Z',
@@ -269,7 +269,7 @@ const mockPosts = [
         <p>This comprehensive guide covers URL encoding fundamentals, implementation, and best practices.</p>
       </div>
     `,
-    featuredImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    featuredImage: 'https://images.pexels.com/photos/3862383/pexels-photo-3862383.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Tutorial',
     tags: ['URL Encoding', 'Web Development', 'JavaScript', 'HTTP'],
     publishedAt: '2024-01-19T10:00:00Z',
@@ -516,7 +516,7 @@ const LazyComponent = lazy(() => import('./Component'));<br/>
         <p class="text-gray-700 mb-6">Whether you're using our online JavaScript minifier or integrating minification into your build process, the benefits are clear: faster websites, happier users, and better search engine rankings. Start optimizing your JavaScript today and experience the difference that proper minification can make.</p>
       </div>
     `,
-    featuredImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    featuredImage: 'https://images.pexels.com/photos/3862380/pexels-photo-3862380.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Development',
     tags: ['JavaScript', 'Minification', 'Performance', 'Web Optimization', 'Front-end Development'],
     publishedAt: '2024-01-28T10:00:00Z',
@@ -552,7 +552,7 @@ const LazyComponent = lazy(() => import('./Component'));<br/>
         <p>This comprehensive guide covers Base64 encoding principles, applications, and best practices for developers and system administrators.</p>
       </div>
     `,
-    featuredImage: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    featuredImage: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Development',
     tags: ['Base64 Encoding', 'Data Encoding', 'Web Development', 'Binary Data', 'Data Transfer', 'Encoding Schemes'],
     publishedAt: '2025-01-25T10:00:00Z',
@@ -588,7 +588,7 @@ const LazyComponent = lazy(() => import('./Component'));<br/>
         <p>This comprehensive guide covers JSON formatting, validation, and best practices for modern web development.</p>
       </div>
     `,
-    featuredImage: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    featuredImage: 'https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Development',
     tags: ['JSON Formatting', 'JSON Validation', 'Web Development', 'API Development', 'Data Exchange', 'JSON Best Practices'],
     publishedAt: '2025-01-25T10:00:00Z',
@@ -624,7 +624,7 @@ const LazyComponent = lazy(() => import('./Component'));<br/>
         <p>This comprehensive guide covers hash functions, security applications, and best practices for cybersecurity professionals.</p>
       </div>
     `,
-    featuredImage: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    featuredImage: 'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Security',
     tags: ['Hash Generators', 'Cryptography', 'Digital Security', 'Data Integrity', 'Password Security', 'Blockchain'],
     publishedAt: '2025-01-25T10:00:00Z',
@@ -660,7 +660,7 @@ const LazyComponent = lazy(() => import('./Component'));<br/>
         <p>This comprehensive guide covers image compression techniques, web performance optimization, and best practices for developers and designers.</p>
       </div>
     `,
-    featuredImage: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    featuredImage: 'https://images.pexels.com/photos/1181425/pexels-photo-1181425.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Web Development',
     tags: ['Image Compression', 'Web Performance', 'Image Optimization', 'Web Development', 'SEO', 'User Experience'],
     publishedAt: '2025-01-25T10:00:00Z',
@@ -696,7 +696,7 @@ const LazyComponent = lazy(() => import('./Component'));<br/>
         <p>This comprehensive guide covers password security principles, best practices, and how to use password generators effectively.</p>
       </div>
     `,
-    featuredImage: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    featuredImage: 'https://images.pexels.com/photos/4065158/pexels-photo-4065158.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Security',
     tags: ['Password Generators', 'Cybersecurity', 'Digital Security', 'Password Security', 'Online Safety', 'Identity Protection'],
     publishedAt: '2025-01-25T10:00:00Z',
@@ -732,7 +732,7 @@ const LazyComponent = lazy(() => import('./Component'));<br/>
         <p>This comprehensive guide covers PDF merging principles, best practices, and advanced techniques for professionals and beginners alike.</p>
       </div>
     `,
-    featuredImage: 'https://images.pexels.com/photos/5905709/pexels-photo-5905709.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    featuredImage: 'https://images.pexels.com/photos/4974912/pexels-photo-4974912.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Document Tools',
     tags: ['PDF Merging', 'Document Management', 'File Organization', 'PDF Tools', 'Document Workflow', 'Professional Tools'],
     publishedAt: '2025-01-25T11:00:00Z',
@@ -768,7 +768,7 @@ const LazyComponent = lazy(() => import('./Component'));<br/>
         <p>This comprehensive guide covers color conversion principles, practical applications, and advanced techniques for designers and developers.</p>
       </div>
     `,
-    featuredImage: 'https://images.pexels.com/photos/1029243/pexels-photo-1029243.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    featuredImage: 'https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Design Tools',
     tags: ['Color Conversion', 'Color Theory', 'Design Tools', 'HEX Colors', 'RGB Colors', 'HSL Colors', 'Color Management'],
     publishedAt: '2025-01-25T12:00:00Z',
@@ -804,7 +804,7 @@ const LazyComponent = lazy(() => import('./Component'));<br/>
         <p>This comprehensive guide covers UUID generation principles, implementation strategies, and best practices for developers and system architects.</p>
       </div>
     `,
-    featuredImage: 'https://images.pexels.com/photos/1181467/pexels-photo-1181467.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    featuredImage: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Developer Tools',
     tags: ['UUID Generation', 'Unique Identifiers', 'GUID', 'Database Design', 'API Development', 'System Architecture', 'Unique Keys'],
     publishedAt: '2025-01-25T13:00:00Z',
