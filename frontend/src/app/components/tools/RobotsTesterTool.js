@@ -6,7 +6,7 @@ import Input from '../ui/Input';
 function isValidSite(u) { try { const x = new URL(u); return x.protocol==='http:'||x.protocol==='https:'; } catch { return false; } }
 
 const RobotsTesterTool = () => {
-  const [site, setSite] = useState('https://example.com');
+  const [site, setSite] = useState('https://thetoolguru.com');
   const [path, setPath] = useState('/');
   const [ua, setUa] = useState('*');
   const [loading, setLoading] = useState(false);
@@ -38,7 +38,7 @@ const RobotsTesterTool = () => {
       <h1 className="text-3xl font-bold text-gray-900 mb-4">Robots.txt & Sitemap Tester</h1>
       <p className="text-gray-600 mb-6">Check if a specific path is allowed for a given user-agent. Fetch and display the robots.txt.</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
-        <Input label="Site" value={site} onChange={e=>setSite(e.target.value)} placeholder="https://example.com" />
+        <Input label="Site" value={site} onChange={e=>setSite(e.target.value)} placeholder="https://thetoolguru.com" />
         <Input label="Path" value={path} onChange={e=>setPath(e.target.value)} placeholder="/blog" />
         <Input label="User-Agent" value={ua} onChange={e=>setUa(e.target.value)} placeholder="*" />
       </div>

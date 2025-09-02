@@ -12,7 +12,7 @@ const HttpHeadersTool = ({
   description = 'Inspect response headers and follow redirects to see each hop.',
   mode = 'headers'
 }) => {
-  const [url, setUrl] = useState('https://example.com');
+  const [url, setUrl] = useState('https://thetoolguru.com');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [data, setData] = useState(null);
@@ -46,7 +46,7 @@ const HttpHeadersTool = ({
       <h1 className="text-3xl font-bold text-gray-900 mb-4">{title}</h1>
       <p className="text-gray-600 mb-6">{description}</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
-        <Input label="URL" value={url} onChange={e=>setUrl(e.target.value)} placeholder="https://example.com" />
+        <Input label="URL" value={url} onChange={e=>setUrl(e.target.value)} placeholder="https://thetoolguru.com" />
         <div className="flex items-end">
           <Button onClick={run} disabled={!canSubmit || loading}>{loading ? 'Fetching…' : 'Fetch'}</Button>
         </div>

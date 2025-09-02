@@ -28,7 +28,7 @@ const EmailValidatorTool = () => {
       <div className="mb-4">
         <label className="block text-sm font-medium text-gray-700 mb-2">Examples</label>
         <div className="flex flex-wrap gap-2">
-          <Button variant="outline" size="sm" onClick={() => setEmail('name@example.com')}>Valid</Button>
+          <Button variant="outline" size="sm" onClick={() => setEmail('name@thetoolguru.com')}>Valid</Button>
           <Button variant="outline" size="sm" onClick={() => setEmail('invalid@')}>Missing domain</Button>
           <Button variant="outline" size="sm" onClick={() => setEmail('first.last@sub.example.co')}>Subdomain</Button>
         </div>
@@ -42,7 +42,7 @@ const EmailValidatorTool = () => {
           value={email}
           onChange={(e) => setEmail(e.target.value)}
           className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm text-gray-900"
-          placeholder="name@example.com"
+          placeholder="name@thetoolguru.com"
         />
       </div>
 
