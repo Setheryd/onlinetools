@@ -3308,6 +3308,7 @@ export const tools = [
     featured: true,
     priority: 0.8,
     built: false,
+
   },
   // WEB BUILDER VALIDATION TOOLS - Production Configuration Validation
   {

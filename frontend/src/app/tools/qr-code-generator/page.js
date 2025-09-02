@@ -5,6 +5,7 @@ import Body from '../../components/layout/Body';
 import QrCodeGeneratorTool from '../../components/tools/QrCodeGeneratorTool';
 import ToolBlogPost from '../../components/blog/ToolBlogPost';
 import { blogService } from '../../utils/blogService';
+import CommentSection from '../../../components/tools/CommentSection';
 
 export const metadata = {
   title: 'QR Code Generator — The Tool Guru',
@@ -42,6 +43,12 @@ const QrCodeGeneratorPage = async () => {
             toolPath="/tools/qr-code-generator"
           />
         </div>
+
+        {/* Comment Section */}
+        <CommentSection 
+          toolId="qr-code-generator"
+          toolName="QR Code Generator"
+        />
       </Body>
       <Footer />
     </div>
