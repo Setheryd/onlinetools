@@ -20,7 +20,7 @@ function buildSitemap({ baseUrl, paths, changefreq, priority }) {
 }
 
 const SitemapGeneratorTool = () => {
-  const [baseUrl, setBaseUrl] = useState('https://thetoolguru.com');
+  const [baseUrl, setBaseUrl] = useState('https://thetool.guru');
   const [paths, setPaths] = useState(['/','/about','/contact']);
   const [changefreq, setChangefreq] = useState('weekly');
   const [priority, setPriority] = useState('0.7');

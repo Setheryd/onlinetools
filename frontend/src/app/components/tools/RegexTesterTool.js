@@ -252,7 +252,7 @@ const RegexTesterTool = () => {
         <Button variant="outline" onClick={handleClear}>
           Clear All
         </Button>
-                 <Button variant="outline" onClick={() => setTestText('Contact us at john.doe@thetoolguru.com or call (555) 123-4567 or +1-555-123-4567. Visit https://thetoolguru.com for more info. Meeting on 2024-01-15 (ISO), 01/15/2024 (US), or 15-01-2024 (EU) at 192.168.1.1. Phone: 555.123.4567')}>
+                 <Button variant="outline" onClick={() => setTestText('Contact us at john.doe@thetool.guru or call (555) 123-4567 or +1-555-123-4567. Visit https://thetool.guru for more info. Meeting on 2024-01-15 (ISO), 01/15/2024 (US), or 15-01-2024 (EU) at 192.168.1.1. Phone: 555.123.4567')}>
            Load Sample Text
          </Button>
         <Button onClick={testRegex} disabled={!regex.trim() || !testText.trim()}>

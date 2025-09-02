@@ -13,7 +13,7 @@ const JsonFormatterTool = () => {
   // Sample JSON examples
   const sampleJsons = {
     'Simple Object': '{"name": "John", "age": 30, "city": "New York"}',
-    'Nested Object': '{"user": {"id": 1, "profile": {"name": "John", "email": "john@thetoolguru.com"}}, "settings": {"theme": "dark", "notifications": true}}',
+    'Nested Object': '{"user": {"id": 1, "profile": {"name": "John", "email": "john@thetool.guru"}}, "settings": {"theme": "dark", "notifications": true}}',
     'Array Example': '[{"id": 1, "name": "Alice"}, {"id": 2, "name": "Bob"}, {"id": 3, "name": "Charlie"}]',
     'API Response': '{"status": "success", "data": {"users": [{"id": 1, "name": "John"}, {"id": 2, "name": "Jane"}]}, "message": "Users retrieved successfully"}'
   };

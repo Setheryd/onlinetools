@@ -69,7 +69,7 @@ const MetaTagGeneratorTool = () => {
         </div>
         <div>
           <label className="block text-sm font-medium text-gray-700 mb-2">URL</label>
-          <input value={url} onChange={(e) => setUrl(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm text-gray-900" placeholder="https://thetoolguru.com/page" />
+          <input value={url} onChange={(e) => setUrl(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm text-gray-900" placeholder="https://thetool.guru/page" />
         </div>
         <div className="md:col-span-2">
           <label className="block text-sm font-medium text-gray-700 mb-2">Description</label>
@@ -77,7 +77,7 @@ const MetaTagGeneratorTool = () => {
         </div>
         <div className="md:col-span-2">
           <label className="block text-sm font-medium text-gray-700 mb-2">Image URL</label>
-          <input value={image} onChange={(e) => setImage(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm text-gray-900" placeholder="https://thetoolguru.com/og-image.jpg" />
+          <input value={image} onChange={(e) => setImage(e.target.value)} className="w-full px-3 py-2 border border-gray-300 rounded-md text-sm text-gray-900" placeholder="https://thetool.guru/og-image.jpg" />
         </div>
       </div>
 

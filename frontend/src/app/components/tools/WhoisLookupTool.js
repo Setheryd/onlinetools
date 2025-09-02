@@ -9,7 +9,7 @@ function isLikelyDomain(value) {
 }
 
 const WhoisLookupTool = () => {
-  const [domain, setDomain] = useState('thetoolguru.com');
+  const [domain, setDomain] = useState('thetool.guru');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [data, setData] = useState(null);
@@ -38,7 +38,7 @@ const WhoisLookupTool = () => {
       <h1 className="text-3xl font-bold text-gray-900 mb-4">WHOIS Lookup</h1>
       <p className="text-gray-600 mb-6">Query domain registration and expiry information via WHOIS.</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
-        <Input label="Domain" value={domain} onChange={e=>setDomain(e.target.value)} placeholder="thetoolguru.com" />
+        <Input label="Domain" value={domain} onChange={e=>setDomain(e.target.value)} placeholder="thetool.guru" />
         <div className="flex items-end gap-2">
           <Button onClick={run} disabled={!canSubmit || loading}>{loading ? 'Looking up…' : 'Lookup'}</Button>
           {data && <Button variant="outline" onClick={()=>setShowRaw(v=>!v)}>{showRaw ? 'Hide raw' : 'Show raw'}</Button>}

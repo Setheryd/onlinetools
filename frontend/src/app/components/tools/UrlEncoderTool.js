@@ -84,7 +84,7 @@ const UrlEncoderTool = () => {
             size="sm"
             onClick={() => {
               setMode('encode');
-              setInput('https://thetoolguru.com/search?q=hello world&lang=en-US');
+              setInput('https://thetool.guru/search?q=hello world&lang=en-US');
               setOutput('');
               setError('');
             }}
@@ -114,7 +114,7 @@ const UrlEncoderTool = () => {
           id="input"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder={mode === 'encode' ? 'e.g. https://thetoolguru.com/?q=hello world' : 'e.g. https%3A%2F%2Fthetoolguru.com%2F%3Fq%3Dhello%20world'}
+          placeholder={mode === 'encode' ? 'e.g. https://thetool.guru/?q=hello world' : 'e.g. https%3A%2F%2Fthetool.guru%2F%3Fq%3Dhello%20world'}
           className="w-full h-32 px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-600 focus:border-blue-600 resize-y text-gray-900 placeholder-gray-500"
         />
       </div>
