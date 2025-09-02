@@ -428,6 +428,53 @@ const PDFMergerPage = () => {
             </Card>
           )}
 
+          {/* Blog Section */}
+          <div className="mt-16">
+            <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
+              Learn More About PDF Merging
+            </h2>
+            <div className="bg-gradient-to-r from-blue-50 to-indigo-50 rounded-xl p-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div>
+                  <h3 className="text-xl font-bold text-gray-900 mb-4">
+                    Complete Guide to PDF Merging: Combine Documents Like a Pro
+                  </h3>
+                  <p className="text-gray-700 mb-4">
+                    Learn everything about PDF merging, from basic concepts to advanced techniques. Discover how to combine multiple PDF files efficiently and professionally.
+                  </p>
+                  <div className="flex flex-wrap gap-2 mb-4">
+                    <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+                      PDF Merging
+                    </span>
+                    <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+                      Document Management
+                    </span>
+                    <span className="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm font-medium">
+                      File Organization
+                    </span>
+                  </div>
+                  <a
+                    href="/blog/complete-guide-to-pdf-merging"
+                    className="inline-flex items-center px-6 py-3 bg-blue-600 text-white font-semibold rounded-lg hover:bg-blue-700 transition-colors"
+                  >
+                    Read Full Article
+                    <svg className="ml-2 w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                    </svg>
+                  </a>
+                </div>
+                <div className="relative">
+                  <img
+                    src="https://images.pexels.com/photos/5905709/pexels-photo-5905709.jpeg?auto=compress&cs=tinysrgb&w=1000"
+                    alt="PDF Merging Guide"
+                    className="rounded-lg shadow-lg w-full h-64 object-cover"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg" />
+                </div>
+              </div>
+            </div>
+          </div>
+
           {/* Features Section */}
           <div className="mt-16">
             <h2 className="text-2xl font-bold text-gray-900 text-center mb-8">
