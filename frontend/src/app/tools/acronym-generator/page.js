@@ -510,6 +510,51 @@ const AcronymGenerator = () => {
             </div>
           )}
 
+          {/* Blog Section */}
+          <Card className="mt-8 bg-gradient-to-r from-blue-50 to-indigo-50">
+            <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">
+              <span>📖</span>
+              Related Articles
+            </h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                <div className="flex items-start gap-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-lg flex items-center justify-center text-white text-2xl font-bold">
+                    🔤
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-gray-900 mb-2">Getting Started with Base64 Encoding</h4>
+                    <p className="text-sm text-gray-600 mb-3">Learn everything about Base64 encoding, from basic concepts to advanced applications. Discover how this essential encoding scheme powers modern web technologies.</p>
+                    <a 
+                      href="/blog/getting-started-with-base64-encoding" 
+                      className="text-blue-600 hover:text-blue-800 text-sm font-medium inline-flex items-center gap-1"
+                    >
+                      Read More →
+                    </a>
+                  </div>
+                </div>
+              </div>
+              
+              <div className="bg-white p-6 rounded-lg border border-gray-200 hover:shadow-md transition-shadow">
+                <div className="flex items-start gap-4">
+                  <div className="w-16 h-16 bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg flex items-center justify-center text-white text-2xl font-bold">
+                    📋
+                  </div>
+                  <div className="flex-1">
+                    <h4 className="font-semibold text-gray-900 mb-2">Mastering JSON Formatting and Validation</h4>
+                    <p className="text-sm text-gray-600 mb-3">Learn why proper JSON formatting matters, how to validate JSON data, and discover best practices for working with JSON in modern development.</p>
+                    <a 
+                      href="/blog/mastering-json-formatting-and-validation" 
+                      className="text-blue-600 hover:text-blue-800 text-sm font-medium inline-flex items-center gap-1"
+                    >
+                      Read More →
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </Card>
+
           {/* Tips Section */}
           <Card className="mt-8 bg-gradient-to-r from-purple-50 to-blue-50">
             <h3 className="text-xl font-semibold text-gray-900 mb-4 flex items-center gap-2">

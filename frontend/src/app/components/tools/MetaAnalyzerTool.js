@@ -6,7 +6,7 @@ import Input from '../ui/Input';
 function isValidUrl(u) { try { const x = new URL(u); return x.protocol==='http:'||x.protocol==='https:'; } catch { return false; } }
 
 const MetaAnalyzerTool = () => {
-  const [url, setUrl] = useState('https://example.com');
+  const [url, setUrl] = useState('https://thetool.guru');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [data, setData] = useState(null);
@@ -47,7 +47,7 @@ const MetaAnalyzerTool = () => {
       <h1 className="text-3xl font-bold text-gray-900 mb-4">Meta Tags & Open Graph Analyzer</h1>
       <p className="text-gray-600 mb-6">Extract and validate SEO meta tags, Open Graph, Twitter card, and canonical link.</p>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
-        <Input label="URL" value={url} onChange={e=>setUrl(e.target.value)} placeholder="https://example.com/page" />
+        <Input label="URL" value={url} onChange={e=>setUrl(e.target.value)} placeholder="https://thetool.guru/page" />
         <div className="flex items-end">
           <Button onClick={run} disabled={!canSubmit || loading}>{loading ? 'Analyzing…' : 'Analyze'}</Button>
         </div>

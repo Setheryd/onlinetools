@@ -9,7 +9,7 @@ function isLikelyHost(value) {
 }
 
 const SslCheckerTool = () => {
-  const [host, setHost] = useState('example.com');
+  const [host, setHost] = useState('thetool.guru');
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [data, setData] = useState(null);
@@ -38,7 +38,7 @@ const SslCheckerTool = () => {
       <p className="text-gray-600 mb-6">Inspect certificate details, issuer, SANs, and expiry.</p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-3 mb-4">
-        <Input label="Hostname" value={host} onChange={e=>setHost(e.target.value)} placeholder="example.com" />
+        <Input label="Hostname" value={host} onChange={e=>setHost(e.target.value)} placeholder="thetool.guru" />
         <div className="flex items-end">
           <Button onClick={onCheck} disabled={!canSubmit || loading}>{loading ? 'Checking…' : 'Check'}</Button>
         </div>

@@ -1,11 +1,11 @@
-import { getAllToolsForSitemap } from '../lib/tools'
+import { getAllToolsForSitemap, tools } from '../lib/tools'
 
 export default function sitemap() {
   const baseUrl = 'https://thetool.guru'
   const currentDate = new Date().toISOString()
   
-  // Static pages with high priority
-  const staticPages = [
+  // TIER 1: Critical pages (highest priority)
+  const criticalPages = [
     {
       url: baseUrl,
       lastModified: currentDate,
@@ -24,6 +24,10 @@ export default function sitemap() {
       changeFrequency: 'weekly',
       priority: 0.8,
     },
+  ]
+  
+  // TIER 2: Important static pages
+  const importantPages = [
     {
       url: `${baseUrl}/about`,
       lastModified: currentDate,
@@ -38,10 +42,7 @@ export default function sitemap() {
     },
   ]
   
-  // Get all tools from the dynamic configuration
-  const toolPages = getAllToolsForSitemap()
-  
-  // Blog pages (you can expand this as you add more blog posts)
+  // TIER 3: Blog posts (high value content)
   const blogPages = [
     {
       url: `${baseUrl}/blog/complete-guide-to-qr-code-generation`,
@@ -63,7 +64,15 @@ export default function sitemap() {
     },
   ]
   
-  // Important utility pages
+  // TIER 4: Featured tools only (reduce crawl burden)
+  const featuredTools = getAllToolsForSitemap().filter(tool => {
+    // Only include tools with priority >= 0.7 (high-value tools)
+    const toolId = tool.url.split('/').pop()
+    const toolData = tools.find(t => t.id === toolId)
+    return toolData && (toolData.priority >= 0.7 || toolData.featured)
+  })
+  
+  // TIER 5: Utility pages
   const utilityPages = [
     {
       url: `${baseUrl}/sitemap.xml`,
@@ -85,6 +94,6 @@ export default function sitemap() {
     },
   ]
   
-  // Combine all pages
-  return [...staticPages, ...toolPages, ...blogPages, ...utilityPages]
+  // Combine all pages in priority order
+  return [...criticalPages, ...importantPages, ...blogPages, ...featuredTools, ...utilityPages]
 }

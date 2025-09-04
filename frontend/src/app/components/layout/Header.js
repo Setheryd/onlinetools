@@ -170,17 +170,17 @@ const Header = () => {
           {/* Mobile Navigation */}
         {isMobileMenuOpen && (
           <div className="md:hidden" id="mobile-menu" role="navigation" aria-label="Mobile navigation">
-            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200">
+            <div className="px-2 pt-2 pb-3 space-y-1 sm:px-3 border-t border-gray-200 max-h-[calc(100vh-4rem)] overflow-y-auto overscroll-contain">
                 {/* Mobile Tools collapsible */}
                 <button
-                  className="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md"
+                  className="w-full flex items-center justify-between px-3 py-2 text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 rounded-md transition-colors"
                   onClick={() => setIsMobileToolsOpen(prev => !prev)}
                 >
                   <span>Tools</span>
-                  <span className={`transition-transform ${isMobileToolsOpen ? 'rotate-180' : ''}`}>▾</span>
+                  <span className={`transition-transform duration-200 ${isMobileToolsOpen ? 'rotate-180' : ''}`}>▾</span>
                 </button>
                 {isMobileToolsOpen && (
-                  <div className="pl-3">
+                  <div className="pl-3 pb-4">
                     {Object.entries(categoriesInUse).map(([category, tools]) => (
                       <div key={category} className="mt-2">
                         <div className="text-xs uppercase tracking-wider text-gray-500 mb-1">{category}</div>

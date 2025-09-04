@@ -17,7 +17,7 @@ const mockPosts = [
         <p>This is a comprehensive guide to .gitignore files and best practices for maintaining clean repositories.</p>
       </div>
     `,
-    featuredImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    featuredImage: 'https://images.pexels.com/photos/3184454/pexels-photo-3184454.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Development',
     tags: ['Git', 'Development', 'Best Practices', 'Repository Management'],
     publishedAt: '2024-01-26T10:00:00Z',
@@ -53,7 +53,7 @@ const mockPosts = [
         <p>This comprehensive guide covers everything from basic functions to advanced graphing capabilities.</p>
       </div>
     `,
-    featuredImage: 'https://images.unsplash.com/photo-1635070041078-e363dbe005cb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    featuredImage: 'https://images.pexels.com/photos/3861964/pexels-photo-3861964.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Technology',
     tags: ['Scientific Calculator', 'Mathematics', 'Engineering', 'Graphing'],
     publishedAt: '2024-01-25T10:00:00Z',
@@ -89,7 +89,7 @@ const mockPosts = [
         <p>This comprehensive guide covers QR code technology, applications, and best practices.</p>
       </div>
     `,
-    featuredImage: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    featuredImage: 'https://images.pexels.com/photos/3861962/pexels-photo-3861962.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Technology',
     tags: ['QR Codes', 'Digital Marketing', 'Mobile Technology', 'Business Tools'],
     publishedAt: '2024-01-24T10:00:00Z',
@@ -125,7 +125,7 @@ const mockPosts = [
         <p>This comprehensive guide covers password security, best practices, and how to use password generators effectively.</p>
       </div>
     `,
-    featuredImage: 'https://images.unsplash.com/photo-1555949963-ff9fe0c870eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    featuredImage: 'https://images.pexels.com/photos/3182778/pexels-photo-3182778.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Security',
     tags: ['Password Generator', 'Security', 'Cybersecurity', 'Online Safety'],
     publishedAt: '2024-01-23T10:00:00Z',
@@ -161,7 +161,7 @@ const mockPosts = [
         <p>This comprehensive guide covers JSON formatting, validation, and best practices for developers.</p>
       </div>
     `,
-    featuredImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    featuredImage: 'https://images.pexels.com/photos/3862377/pexels-photo-3862377.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Development',
     tags: ['JSON', 'Development', 'Data Validation', 'Web Development'],
     publishedAt: '2024-01-22T10:00:00Z',
@@ -197,7 +197,7 @@ const mockPosts = [
         <p>This comprehensive guide covers Base64 encoding, use cases, and implementation examples.</p>
       </div>
     `,
-    featuredImage: 'https://images.unsplash.com/photo-1517077304055-6e89abbf09b0?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    featuredImage: 'https://images.pexels.com/photos/3184635/pexels-photo-3184635.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Tutorial',
     tags: ['Base64', 'Encoding', 'Web Development', 'JavaScript'],
     publishedAt: '2024-01-21T10:00:00Z',
@@ -233,7 +233,7 @@ const mockPosts = [
         <p>This comprehensive guide covers the top productivity tools that every developer should have in their toolkit.</p>
       </div>
     `,
-    featuredImage: 'https://images.unsplash.com/photo-1461749280684-dccba630e2f6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    featuredImage: 'https://images.pexels.com/photos/3184611/pexels-photo-3184611.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Productivity',
     tags: ['Productivity', 'Development', 'Tools', 'Workflow'],
     publishedAt: '2024-01-20T10:00:00Z',
@@ -269,7 +269,7 @@ const mockPosts = [
         <p>This comprehensive guide covers URL encoding fundamentals, implementation, and best practices.</p>
       </div>
     `,
-    featuredImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    featuredImage: 'https://images.pexels.com/photos/3862383/pexels-photo-3862383.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Tutorial',
     tags: ['URL Encoding', 'Web Development', 'JavaScript', 'HTTP'],
     publishedAt: '2024-01-19T10:00:00Z',
@@ -516,7 +516,7 @@ const LazyComponent = lazy(() => import('./Component'));<br/>
         <p class="text-gray-700 mb-6">Whether you're using our online JavaScript minifier or integrating minification into your build process, the benefits are clear: faster websites, happier users, and better search engine rankings. Start optimizing your JavaScript today and experience the difference that proper minification can make.</p>
       </div>
     `,
-    featuredImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80',
+    featuredImage: 'https://images.pexels.com/photos/3862380/pexels-photo-3862380.jpeg?auto=compress&cs=tinysrgb&w=1000',
     category: 'Development',
     tags: ['JavaScript', 'Minification', 'Performance', 'Web Optimization', 'Front-end Development'],
     publishedAt: '2024-01-28T10:00:00Z',
@@ -537,16 +537,308 @@ const LazyComponent = lazy(() => import('./Component'));<br/>
         featuredImage: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80'
       }
     ]
+  },
+  {
+    id: 10,
+    slug: 'getting-started-with-base64-encoding',
+    title: 'Getting Started with Base64 Encoding: A Complete Guide',
+    excerpt: 'Learn everything about Base64 encoding, from basic concepts to advanced applications. Discover how this essential encoding scheme powers modern web technologies.',
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">What Is Base64 Encoding and Why It Matters in Modern Computing</h2>
+          <p class="text-lg text-gray-700 leading-relaxed">Base64 encoding is a fundamental encoding scheme that converts binary data into ASCII text format, making it safe for transmission across text-based protocols. This encoding method is essential for modern web development, email systems, and data storage, allowing binary files and data to be safely transmitted and stored in text-only environments.</p>
+        </div>
+        <p>This comprehensive guide covers Base64 encoding principles, applications, and best practices for developers and system administrators.</p>
+      </div>
+    `,
+    featuredImage: 'https://images.pexels.com/photos/1181671/pexels-photo-1181671.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    category: 'Development',
+    tags: ['Base64 Encoding', 'Data Encoding', 'Web Development', 'Binary Data', 'Data Transfer', 'Encoding Schemes'],
+    publishedAt: '2025-01-25T10:00:00Z',
+    featured: true,
+    author: {
+      name: 'Development Expert',
+      bio: 'Senior software engineer and web development consultant with 12+ years of experience in data encoding, web technologies, and system architecture.',
+      social: {
+        twitter: 'https://twitter.com/developmentexpert',
+        linkedin: 'https://linkedin.com/in/developmentexpert'
+      }
+    },
+    relatedPosts: [
+      {
+        slug: 'mastering-json-formatting-and-validation',
+        title: 'Mastering JSON Formatting and Validation: A Developer\'s Essential Guide',
+        excerpt: 'Learn why proper JSON formatting matters, how to validate JSON data, and discover best practices for working with JSON in modern development.',
+        featuredImage: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1000'
+      }
+    ]
+  },
+  {
+    id: 11,
+    slug: 'mastering-json-formatting-and-validation',
+    title: 'Mastering JSON Formatting and Validation: A Developer\'s Essential Guide',
+    excerpt: 'Learn why proper JSON formatting matters, how to validate JSON data, and discover best practices for working with JSON in modern development.',
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <div class="bg-gradient-to-r from-green-50 to-emerald-50 p-8 rounded-xl mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">What Is JSON and Why Proper Formatting Matters in Modern Development</h2>
+          <p class="text-lg text-gray-700 leading-relaxed">JSON (JavaScript Object Notation) has become the de facto standard for data exchange in modern web applications. Proper JSON formatting and validation are crucial for ensuring data integrity, improving readability, and preventing errors that can break applications.</p>
+        </div>
+        <p>This comprehensive guide covers JSON formatting, validation, and best practices for modern web development.</p>
+      </div>
+    `,
+    featuredImage: 'https://images.pexels.com/photos/1181354/pexels-photo-1181354.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    category: 'Development',
+    tags: ['JSON Formatting', 'JSON Validation', 'Web Development', 'API Development', 'Data Exchange', 'JSON Best Practices'],
+    publishedAt: '2025-01-25T10:00:00Z',
+    featured: true,
+    author: {
+      name: 'Development Expert',
+      bio: 'Senior software engineer and API development consultant with 10+ years of experience in JSON processing, web services, and data validation.',
+      social: {
+        twitter: 'https://twitter.com/developmentexpert',
+        linkedin: 'https://linkedin.com/in/developmentexpert'
+      }
+    },
+    relatedPosts: [
+      {
+        slug: 'getting-started-with-base64-encoding',
+        title: 'Getting Started with Base64 Encoding: A Complete Guide',
+        excerpt: 'Learn everything about Base64 encoding, from basic concepts to advanced applications. Discover how this essential encoding scheme powers modern web technologies.',
+        featuredImage: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1000'
+      }
+    ]
+  },
+  {
+    id: 12,
+    slug: 'complete-guide-to-hash-generators',
+    title: 'The Complete Guide to Hash Generators: Understanding Digital Fingerprints',
+    excerpt: 'Learn how hash generators create unique digital fingerprints for data verification, integrity checking, and security applications.',
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <div class="bg-gradient-to-r from-purple-50 to-violet-50 p-8 rounded-xl mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">What Are Hash Generators and Why They Matter in Digital Security</h2>
+          <p class="text-lg text-gray-700 leading-relaxed">Hash generators are cryptographic tools that create unique digital fingerprints (hashes) from any input data. These one-way mathematical functions are essential for data integrity verification, password security, digital signatures, and blockchain technology.</p>
+        </div>
+        <p>This comprehensive guide covers hash functions, security applications, and best practices for cybersecurity professionals.</p>
+      </div>
+    `,
+    featuredImage: 'https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    category: 'Security',
+    tags: ['Hash Generators', 'Cryptography', 'Digital Security', 'Data Integrity', 'Password Security', 'Blockchain'],
+    publishedAt: '2025-01-25T10:00:00Z',
+    featured: true,
+    author: {
+      name: 'Security Expert',
+      bio: 'Cryptography specialist and digital security consultant with 15+ years of experience in hash functions, cryptographic systems, and blockchain technology.',
+      social: {
+        twitter: 'https://twitter.com/securityexpert',
+        linkedin: 'https://linkedin.com/in/securityexpert'
+      }
+    },
+    relatedPosts: [
+      {
+        slug: 'ultimate-guide-to-password-generators',
+        title: 'The Ultimate Guide to Password Generators: Why You Need Strong Passwords',
+        excerpt: 'Discover why strong passwords are crucial in today\'s digital world and how password generators can protect your online accounts from cyber threats.',
+        featuredImage: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1000'
+      }
+    ]
+  },
+  {
+    id: 13,
+    slug: 'complete-guide-to-image-compression',
+    title: 'The Complete Guide to Image Compression: Optimize Your Visual Content',
+    excerpt: 'Learn everything about image compression, from basic concepts to advanced techniques. Discover how to reduce file sizes while maintaining quality for better web performance.',
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <div class="bg-gradient-to-r from-orange-50 to-red-50 p-8 rounded-xl mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">What Is Image Compression and Why It Matters in Modern Web Design</h2>
+          <p class="text-lg text-gray-700 leading-relaxed">Image compression is the process of reducing file sizes while maintaining acceptable visual quality. In today\'s fast-paced digital world, where users expect instant loading times and mobile devices dominate web traffic, image compression has become essential for web performance, user experience, and SEO success.</p>
+        </div>
+        <p>This comprehensive guide covers image compression techniques, web performance optimization, and best practices for developers and designers.</p>
+      </div>
+    `,
+    featuredImage: 'https://images.pexels.com/photos/1181425/pexels-photo-1181425.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    category: 'Web Development',
+    tags: ['Image Compression', 'Web Performance', 'Image Optimization', 'Web Development', 'SEO', 'User Experience'],
+    publishedAt: '2025-01-25T10:00:00Z',
+    featured: true,
+    author: {
+      name: 'Web Performance Expert',
+      bio: 'Web performance consultant and image optimization specialist with 12+ years of experience in web development, Core Web Vitals, and user experience optimization.',
+      social: {
+        twitter: 'https://twitter.com/webperformanceexpert',
+        linkedin: 'https://linkedin.com/in/webperformanceexpert'
+      }
+    },
+    relatedPosts: [
+      {
+        slug: 'getting-started-with-base64-encoding',
+        title: 'Getting Started with Base64 Encoding: A Complete Guide',
+        excerpt: 'Learn everything about Base64 encoding, from basic concepts to advanced applications. Discover how this essential encoding scheme powers modern web technologies.',
+        featuredImage: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1000'
+      }
+    ]
+  },
+  {
+    id: 14,
+    slug: 'ultimate-guide-to-password-generators',
+    title: 'The Ultimate Guide to Password Generators: Why You Need Strong Passwords',
+    excerpt: 'Discover why strong passwords are crucial in today\'s digital world and how password generators can protect your online accounts from cyber threats.',
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <div class="bg-gradient-to-r from-red-50 to-pink-50 p-8 rounded-xl mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">What Are Password Generators and Why Strong Passwords Matter in Cybersecurity</h2>
+          <p class="text-lg text-gray-700 leading-relaxed">Password generators are essential tools that create strong, random passwords to protect your digital accounts from cyber attacks. In today\'s interconnected world, where data breaches and identity theft are increasingly common, using strong passwords generated by reliable tools is no longer optional—it\'s a critical security requirement.</p>
+        </div>
+        <p>This comprehensive guide covers password security principles, best practices, and how to use password generators effectively.</p>
+      </div>
+    `,
+    featuredImage: 'https://images.pexels.com/photos/4065158/pexels-photo-4065158.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    category: 'Security',
+    tags: ['Password Generators', 'Cybersecurity', 'Digital Security', 'Password Security', 'Online Safety', 'Identity Protection'],
+    publishedAt: '2025-01-25T10:00:00Z',
+    featured: true,
+    author: {
+      name: 'Cybersecurity Expert',
+      bio: 'Digital security consultant and cybersecurity specialist with 15+ years of experience in password security, identity protection, and online safety.',
+      social: {
+        twitter: 'https://twitter.com/cybersecurityexpert',
+        linkedin: 'https://linkedin.com/in/cybersecurityexpert'
+      }
+    },
+    relatedPosts: [
+      {
+        slug: 'complete-guide-to-hash-generators',
+        title: 'The Complete Guide to Hash Generators: Understanding Digital Fingerprints',
+        excerpt: 'Learn how hash generators create unique digital fingerprints for data verification, integrity checking, and security applications.',
+        featuredImage: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1000'
+      }
+    ]
+  },
+  {
+    id: 15,
+    slug: 'complete-guide-to-pdf-merging',
+    title: 'Complete Guide to PDF Merging: Combine Documents Like a Pro',
+    excerpt: 'Learn everything about PDF merging, from basic concepts to advanced techniques. Discover how to combine multiple PDF files efficiently and professionally.',
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <div class="bg-gradient-to-r from-blue-50 to-indigo-50 p-8 rounded-xl mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">What Is PDF Merging and Why It's Essential for Document Management</h2>
+          <p class="text-lg text-gray-700 leading-relaxed">PDF merging is the process of combining multiple PDF documents into a single, cohesive file. This essential document management technique is used by professionals across industries to streamline workflows, create comprehensive reports, and organize information efficiently. Whether you're a business professional, student, or creative worker, mastering PDF merging can significantly improve your productivity and document organization.</p>
+        </div>
+        <p>This comprehensive guide covers PDF merging principles, best practices, and advanced techniques for professionals and beginners alike.</p>
+      </div>
+    `,
+    featuredImage: 'https://images.pexels.com/photos/4974912/pexels-photo-4974912.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    category: 'Document Tools',
+    tags: ['PDF Merging', 'Document Management', 'File Organization', 'PDF Tools', 'Document Workflow', 'Professional Tools'],
+    publishedAt: '2025-01-25T11:00:00Z',
+    featured: true,
+    author: {
+      name: 'Document Management Expert',
+      bio: 'Senior document management consultant with 15+ years of experience in PDF workflows, enterprise document systems, and digital transformation.',
+      social: {
+        twitter: 'https://twitter.com/docmanagementexpert',
+        linkedin: 'https://linkedin.com/in/docmanagementexpert'
+      }
+    },
+    relatedPosts: [
+      {
+        slug: 'getting-started-with-base64-encoding',
+        title: 'Getting Started with Base64 Encoding: A Complete Guide',
+        excerpt: 'Learn everything about Base64 encoding, from basic concepts to advanced applications.',
+        featuredImage: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1000'
+      }
+    ]
+  },
+  {
+    id: 16,
+    slug: 'mastering-color-conversion-and-design',
+    title: 'Mastering Color Conversion and Design: A Complete Guide',
+    excerpt: 'Learn everything about color conversion, from basic color theory to advanced design applications. Discover how to work with different color formats effectively.',
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <div class="bg-gradient-to-r from-purple-50 to-pink-50 p-8 rounded-xl mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">What Is Color Conversion and Why It's Essential for Modern Design</h2>
+          <p class="text-lg text-gray-700 leading-relaxed">Color conversion is the process of transforming colors between different formats and color spaces, enabling designers and developers to work seamlessly across various platforms and applications. This fundamental skill is crucial for creating consistent, accessible, and visually appealing designs that work across different devices, browsers, and media types.</p>
+        </div>
+        <p>This comprehensive guide covers color conversion principles, practical applications, and advanced techniques for designers and developers.</p>
+      </div>
+    `,
+    featuredImage: 'https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    category: 'Design Tools',
+    tags: ['Color Conversion', 'Color Theory', 'Design Tools', 'HEX Colors', 'RGB Colors', 'HSL Colors', 'Color Management'],
+    publishedAt: '2025-01-25T12:00:00Z',
+    featured: true,
+    author: {
+      name: 'Design & Color Expert',
+      bio: 'Senior design consultant and color theory specialist with 18+ years of experience in digital design, color management, and brand development.',
+      social: {
+        twitter: 'https://twitter.com/designcolorexpert',
+        linkedin: 'https://linkedin.com/in/designcolorexpert'
+      }
+    },
+    relatedPosts: [
+      {
+        slug: 'complete-guide-to-image-compression',
+        title: 'Complete Guide to Image Compression: Optimize Your Visual Content',
+        excerpt: 'Learn how to optimize your images for web and mobile applications.',
+        featuredImage: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1000'
+      }
+    ]
+  },
+  {
+    id: 17,
+    slug: 'complete-guide-to-uuid-generation',
+    title: 'Complete Guide to UUID Generation: Understanding Unique Identifiers',
+    excerpt: 'Learn everything about UUID generation, from basic concepts to advanced applications. Discover how to create and manage unique identifiers for your projects.',
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <div class="bg-gradient-to-r from-indigo-50 to-purple-50 p-8 rounded-xl mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">What Are UUIDs and Why They're Essential for Modern Development</h2>
+          <p class="text-lg text-gray-700 leading-relaxed">UUIDs (Universally Unique Identifiers) are 128-bit identifiers that are designed to be globally unique across time and space. These powerful identifiers are essential for modern software development, enabling distributed systems, databases, and APIs to generate unique keys without coordination. Understanding UUID generation is crucial for building scalable, reliable applications.</p>
+        </div>
+        <p>This comprehensive guide covers UUID generation principles, implementation strategies, and best practices for developers and system architects.</p>
+      </div>
+    `,
+    featuredImage: 'https://images.pexels.com/photos/546819/pexels-photo-546819.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    category: 'Developer Tools',
+    tags: ['UUID Generation', 'Unique Identifiers', 'GUID', 'Database Design', 'API Development', 'System Architecture', 'Unique Keys'],
+    publishedAt: '2025-01-25T13:00:00Z',
+    featured: true,
+    author: {
+      name: 'System Architecture Expert',
+      bio: 'Senior software architect and system design consultant with 20+ years of experience in distributed systems, database design, and scalable application architecture.',
+      social: {
+        twitter: 'https://twitter.com/systemarchitectureexpert',
+        linkedin: 'https://linkedin.com/in/systemarchitectureexpert'
+      }
+    },
+    relatedPosts: [
+      {
+        slug: 'mastering-json-formatting-and-validation',
+        title: 'Mastering JSON Formatting and Validation: A Developer\'s Essential Guide',
+        excerpt: 'Learn why proper JSON formatting matters and how to validate your data.',
+        featuredImage: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1000'
+      }
+    ]
   }
 ];
 
 const mockCategories = [
-  { slug: 'security', name: 'Security', count: 1 },
+  { slug: 'security', name: 'Security', count: 3 },
   { slug: 'tutorial', name: 'Tutorial', count: 2 },
-  { slug: 'development', name: 'Development', count: 3 },
+  { slug: 'development', name: 'Development', count: 6 },
   { slug: 'productivity', name: 'Productivity', count: 1 },
   { slug: 'technology', name: 'Technology', count: 2 },
-  { slug: 'tips', name: 'Tips & Tricks', count: 0 }
+  { slug: 'web-development', name: 'Web Development', count: 1 },
+  { slug: 'tips', name: 'Tips & Tricks', count: 0 },
+  { slug: 'document-tools', name: 'Document Tools', count: 1 },
+  { slug: 'design-tools', name: 'Design Tools', count: 1 },
+  { slug: 'developer-tools', name: 'Developer Tools', count: 1 }
 ];
 
 // Blog service class

@@ -15,105 +15,114 @@ Allow: /favicon.ico
 Allow: /robots.txt
 Allow: /ads.txt
 
-# Sitemap location
-Sitemap: https://thetool.guru/sitemap.xml
+# Sitemap index (recommended for large sites)
+Sitemap: https://thetool.guru/sitemap-index.xml
 
-# Crawl delay (optimized for better indexing)
-Crawl-delay: 1
+# Optimized crawl delay for high-volume sites (230+ pages)
+Crawl-delay: 0.5
 
-# Specific bot instructions
+# Google-specific instructions (most important)
 User-agent: Googlebot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
+
+User-agent: Googlebot-Image
+Allow: /
+Crawl-delay: 0.5
+
+User-agent: Googlebot-Mobile
+Allow: /
+Crawl-delay: 0.5
 
 User-agent: Mediapartners-Google
 Allow: /
 
+# Other search engines
 User-agent: Bingbot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 User-agent: Slurp
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
-# Allow AI training bots for organic traffic
+# AI training bots (reduced delay for better indexing)
 User-agent: GPTBot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 User-agent: ChatGPT-User
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 User-agent: CCBot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 User-agent: anthropic-ai
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 User-agent: Claude-Web
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 User-agent: Omgilibot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 User-agent: Applebot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 User-agent: Bytespider
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 User-agent: DotBot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 User-agent: SemrushBot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 User-agent: AhrefsBot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 User-agent: MJ12bot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 User-agent: BLEXBot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 User-agent: PetalBot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 User-agent: ZoominfoBot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 User-agent: DataForSeoBot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 User-agent: YandexBot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 User-agent: Baiduspider
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 User-agent: Sogou
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5
 
 User-agent: DuckDuckBot
 Allow: /
-Crawl-delay: 1
+Crawl-delay: 0.5

@@ -6,7 +6,7 @@ const RobotsTxtGeneratorTool = () => {
   const [userAgent, setUserAgent] = useState('*');
   const [disallows, setDisallows] = useState(['/admin']);
   const [allows, setAllows] = useState(['/']);
-  const [sitemaps, setSitemaps] = useState(['https://example.com/sitemap.xml']);
+  const [sitemaps, setSitemaps] = useState(['https://thetool.guru/sitemap.xml']);
 
   const robots = useMemo(() => {
     const lines = [];
@@ -35,7 +35,7 @@ const RobotsTxtGeneratorTool = () => {
           </div>
           <ListField label="Disallow" values={disallows} setValues={setDisallows} placeholder="/private" />
           <ListField label="Allow" values={allows} setValues={setAllows} placeholder="/public" />
-          <ListField label="Sitemap URLs" values={sitemaps} setValues={setSitemaps} placeholder="https://example.com/sitemap.xml" />
+          <ListField label="Sitemap URLs" values={sitemaps} setValues={setSitemaps} placeholder="https://thetool.guru/sitemap.xml" />
         </div>
         <div>
           <div className="flex items-center justify-between mb-2">
