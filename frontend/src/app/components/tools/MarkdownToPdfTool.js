@@ -270,17 +270,13 @@ This Markdown to PDF converter makes it easy to create professional documents fr
         throw new Error('Failed to generate PDF');
       }
 
-      const blob = await response.blob();
-      const url = window.URL.createObjectURL(blob);
-      const a = document.createElement('a');
-      a.href = url;
-      a.download = 'document.pdf';
-      document.body.appendChild(a);
-      a.click();
-      window.URL.revokeObjectURL(url);
-      document.body.removeChild(a);
+      // Open the HTML response in a new window for printing
+      const htmlContent = await response.text();
+      const newWindow = window.open('', '_blank');
+      newWindow.document.write(htmlContent);
+      newWindow.document.close();
 
-      setSuccess('PDF generated successfully!');
+      setSuccess('Print view opened! Use Ctrl+P to save as PDF.');
     } catch (err) {
       setError(err.message || 'Failed to generate PDF');
     } finally {
@@ -439,7 +435,7 @@ API_PORT=3000
                   disabled={isGenerating || !markdownContent.trim()}
                   className="flex-1"
                 >
-                  {isGenerating ? 'Generating PDF...' : 'Generate PDF'}
+                  {isGenerating ? 'Opening Print View...' : 'Generate PDF'}
                 </Button>
               </div>
               

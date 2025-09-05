@@ -1,4 +1,3 @@
-import puppeteer from 'puppeteer';
 import { marked } from 'marked';
 
 // Configure marked options
@@ -31,6 +30,25 @@ export async function POST(request) {
         <meta charset="UTF-8">
         <title>Markdown Document</title>
         <style>
+          @media print {
+            body { margin: 0; }
+            .no-print { display: none; }
+          }
+          .print-button {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: #007acc;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            z-index: 1000;
+          }
+          .print-button:hover {
+            background: #005a9e;
+          }
           body { 
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif; 
             line-height: 1.6; 
@@ -189,56 +207,16 @@ export async function POST(request) {
         </style>
       </head>
       <body>
+        <button class="print-button no-print" onclick="window.print()">Print PDF</button>
         ${htmlContent}
       </body>
       </html>
     `;
 
-    // Launch Puppeteer
-    const browser = await puppeteer.launch({
-      headless: true,
-      args: [
-        '--no-sandbox',
-        '--disable-setuid-sandbox',
-        '--disable-dev-shm-usage',
-        '--disable-accelerated-2d-canvas',
-        '--no-first-run',
-        '--no-zygote',
-        '--disable-gpu'
-      ]
-    });
-
-    const page = await browser.newPage();
-
-    // Set content and wait for it to load
-    await page.setContent(html, { waitUntil: 'networkidle0' });
-
-    // Default PDF options
-    const pdfOptions = {
-      format: 'A4',
-      printBackground: true,
-      margin: {
-        top: '20mm',
-        right: '20mm',
-        bottom: '20mm',
-        left: '20mm'
-      },
-      displayHeaderFooter: false,
-      ...options
-    };
-
-    // Generate PDF
-    const pdfBuffer = await page.pdf(pdfOptions);
-
-    await browser.close();
-
-    // Return PDF as response
-    return new Response(pdfBuffer, {
+    return new Response(html, {
       status: 200,
       headers: {
-        'Content-Type': 'application/pdf',
-        'Content-Disposition': 'attachment; filename="document.pdf"',
-        'Content-Length': pdfBuffer.length.toString(),
+        'Content-Type': 'text/html',
       },
     });
 
