@@ -114,6 +114,18 @@ export const tools = [
     built: true,
   },
   {
+    id: 'pdf-editor',
+    name: 'PDF Editor',
+    description: 'Edit PDF documents in your browser. Add text, annotations, images, and more. No external APIs required.',
+    path: '/tools/pdf-editor',
+    category: 'document',
+    keywords: ['pdf', 'edit', 'annotate', 'text', 'images', 'document', 'editor'],
+    icon: '✏️',
+    featured: true,
+    priority: 0.8,
+    built: true,
+  },
+  {
     id: 'color-converter',
     name: 'Color Converter',
     description: 'Convert between different color formats: HEX, RGB, HSL, and more.',
