@@ -51,8 +51,8 @@ console.log(greet('World'));
 
 ### Links and Images
 
-- [Visit our website](https://example.com)
-- [GitHub Repository](https://github.com/example)
+- [Visit our website](#) - Sample link
+- [GitHub Repository](#) - Sample repository
 
 ![Sample Image](https://via.placeholder.com/300x200?text=Sample+Image)
 
@@ -82,7 +82,7 @@ This Markdown to PDF converter makes it easy to create professional documents fr
 
 ---
 
-*Generated with The Tool Guru's Markdown to PDF Converter*`);
+*Generated with our Markdown to PDF Converter*`);
   
   const [isGenerating, setIsGenerating] = useState(false);
   const [error, setError] = useState('');
@@ -271,9 +271,9 @@ This Markdown to PDF converter makes it easy to create professional documents fr
       }
 
       // Open the HTML response in a new window for printing
-      const htmlContent = await response.text();
+      const htmlResponse = await response.text();
       const newWindow = window.open('', '_blank');
-      newWindow.document.write(htmlContent);
+      newWindow.document.write(htmlResponse);
       newWindow.document.close();
 
       setSuccess('Print view opened! Use Ctrl+P to save as PDF.');
@@ -373,8 +373,8 @@ API_PORT=3000
 ### Getting Help
 
 - 📧 Email: support@example.com
-- 💬 Discord: [Join our server](https://discord.gg/example)
-- 📖 Documentation: [Read the docs](https://docs.example.com)
+- 💬 Discord: [Join our server](#) - Sample Discord link
+- 📖 Documentation: [Read the docs](#) - Sample documentation link
 
 ---
 

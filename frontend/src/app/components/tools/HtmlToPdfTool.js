@@ -56,7 +56,7 @@ const HtmlToPdfTool = () => {
         </tr>
     </table>
     
-    <a href="#" class="button">Sample Button</a>
+    <button class="button" onclick="alert('This is a sample button!')">Sample Button</button>
     
     <h2>Contact Information</h2>
     <p>Email: contact@example.com<br>
@@ -114,9 +114,9 @@ const HtmlToPdfTool = () => {
       }
 
       // Open the HTML response in a new window for printing
-      const htmlContent = await response.text();
+      const htmlResponse = await response.text();
       const newWindow = window.open('', '_blank');
-      newWindow.document.write(htmlContent);
+      newWindow.document.write(htmlResponse);
       newWindow.document.close();
 
       setSuccess('Print view opened! Use Ctrl+P to save as PDF.');
@@ -166,7 +166,7 @@ const HtmlToPdfTool = () => {
                 <li>Industry insights and tips</li>
             </ul>
             
-            <a href="#" class="button">Learn More</a>
+            <button class="button" onclick="alert('Learn more about our features!')">Learn More</button>
             
             <p>Best regards,<br>The Team</p>
         </div>
