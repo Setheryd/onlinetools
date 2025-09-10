@@ -2015,14 +2015,14 @@ export const tools = [
   {
     id: 'website-screenshot',
     name: 'Website Screenshot Tool',
-    description: 'Take screenshots of entire websites and web pages.',
+    description: 'Capture full-page screenshots of websites in high resolution. Choose from multiple formats (PNG, JPG, WebP) and customize viewport width for perfect screenshots.',
     path: '/tools/website-screenshot',
     category: 'web',
-    keywords: ['website', 'screenshot', 'capture', 'page', 'full page'],
+    keywords: ['website', 'screenshot', 'capture', 'page', 'full page', 'png', 'jpg', 'webp', '4k', 'high resolution'],
     icon: '🌐',
-    featured: false,
-    priority: 0.6,
-    built: false,
+    featured: true,
+    priority: 0.8,
+    built: true,
   },
   // DESIGN & CREATIVE TOOLS
   {
