@@ -6,10 +6,10 @@ import errorCapture from '../../../utils/errorCapture';
 const WebsiteScreenshotTool = () => {
   const [url, setUrl] = useState('https://thetool.guru');
   const [format, setFormat] = useState('png');
-  const [width, setWidth] = useState(3840); // 4K width default
+  const [width, setWidth] = useState(1920); // Full HD width default (more stable)
   const [quality, setQuality] = useState(90);
   const [fullPage, setFullPage] = useState(true);
-  const [delay, setDelay] = useState(2); // Delay in seconds
+  const [delay, setDelay] = useState(1); // Reduced delay for production stability
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState('');
   const [screenshotUrl, setScreenshotUrl] = useState('');
@@ -70,11 +70,11 @@ const WebsiteScreenshotTool = () => {
 
   const widthPresets = [
     { value: 1920, label: '1920px (Full HD)', description: 'Standard desktop resolution' },
-    { value: 2560, label: '2560px (2K)', description: 'High resolution desktop' },
-    { value: 3840, label: '3840px (4K)', description: 'Ultra high resolution' },
     { value: 1366, label: '1366px (Laptop)', description: 'Common laptop resolution' },
     { value: 1024, label: '1024px (Tablet)', description: 'Tablet landscape view' },
-    { value: 375, label: '375px (Mobile)', description: 'Mobile portrait view' }
+    { value: 768, label: '768px (Small Tablet)', description: 'Small tablet view' },
+    { value: 375, label: '375px (Mobile)', description: 'Mobile portrait view' },
+    { value: 320, label: '320px (Small Mobile)', description: 'Small mobile view' }
   ];
 
   const validateUrl = (inputUrl) => {
@@ -297,11 +297,11 @@ const WebsiteScreenshotTool = () => {
                 value={width}
                 onChange={(e) => setWidth(parseInt(e.target.value) || 1920)}
                 min="320"
-                max="7680"
+                max="1920"
                 className="w-32 px-3 py-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-blue-500 focus:border-transparent"
                 disabled={loading}
               />
-              <span className="ml-2 text-sm text-gray-500">px (320-7680)</span>
+              <span className="ml-2 text-sm text-gray-500">px (320-1920)</span>
             </div>
           </div>
 
@@ -352,7 +352,7 @@ const WebsiteScreenshotTool = () => {
               type="range"
               id="delay"
               min="0"
-              max="10"
+              max="3"
               step="0.5"
               value={delay}
               onChange={(e) => setDelay(parseFloat(e.target.value))}

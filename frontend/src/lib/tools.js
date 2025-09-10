@@ -1070,9 +1070,9 @@ export const tools = [
     category: 'document',
     keywords: ['pdf compressor', 'compress pdf', 'reduce pdf size', 'pdf optimization', 'pdf compression', 'smaller pdf files'],
     icon: '📄',
-    featured: true,
+    featured: false,
     priority: 0.8,
-    built: true,
+    built: false,
   },
   {
     id: 'pdf-to-word',
@@ -2020,9 +2020,9 @@ export const tools = [
     category: 'web',
     keywords: ['website', 'screenshot', 'capture', 'page', 'full page', 'png', 'jpg', 'webp', '4k', 'high resolution'],
     icon: '🌐',
-    featured: true,
+    featured: false,
     priority: 0.8,
-    built: true,
+    built: false,
   },
   // DESIGN & CREATIVE TOOLS
   {
