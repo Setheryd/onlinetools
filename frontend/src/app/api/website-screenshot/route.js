@@ -1,10 +1,19 @@
 import { NextResponse } from 'next/server';
 import puppeteer from 'puppeteer';
 
+// Configure runtime for Vercel
+export const runtime = 'nodejs';
+export const maxDuration = 30;
+
 export async function GET(request) {
   let browser = null;
   const startTime = Date.now();
   const requestId = Math.random().toString(36).substr(2, 9);
+  
+  // Set timeout for the entire operation (Vercel has 10s limit for hobby plan)
+  const timeoutPromise = new Promise((_, reject) => {
+    setTimeout(() => reject(new Error('Request timeout - operation took too long')), 8000);
+  });
   
   // Extract parameters first so they're available in error handling
   const { searchParams } = new URL(request.url);
@@ -31,6 +40,7 @@ export async function GET(request) {
         width: width,
         quality: quality,
         fullPage: fullPage,
+        delay: delay,
         ...context
       },
       duration: Date.now() - startTime,
@@ -43,7 +53,69 @@ export async function GET(request) {
   };
   
   try {
+    // Race between the main operation and timeout
+    const result = await Promise.race([
+      performScreenshot(),
+      timeoutPromise
+    ]);
+    
+    return result;
+  } catch (error) {
+    const errorLog = logError(error);
+    
+    // Safely close browser
+    if (browser) {
+      try {
+        if (browser.isConnected()) {
+          await browser.close();
+          console.log('Browser closed after error');
+        } else {
+          console.log('Browser already disconnected');
+        }
+      } catch (closeError) {
+        console.error('Error closing browser:', closeError.message);
+      }
+    }
 
+    // Handle specific errors
+    if (error.message.includes('Request timeout')) {
+      return NextResponse.json({ error: 'Screenshot operation timed out. Please try again with a simpler website.' }, { status: 408 });
+    }
+
+    if (error.message.includes('net::ERR_NAME_NOT_RESOLVED')) {
+      return NextResponse.json({ error: 'Website not found. Please check the URL and try again.' }, { status: 400 });
+    }
+    
+    if (error.message.includes('TimeoutError') || error.message.includes('Navigation timeout')) {
+      return NextResponse.json({ error: 'Website took too long to load. Please try again.' }, { status: 408 });
+    }
+
+    if (error.message.includes('Navigating frame was detached') || error.message.includes('LifecycleWatcher disposed')) {
+      return NextResponse.json({ error: 'Website failed to load properly. Please try again or check if the URL is accessible.' }, { status: 500 });
+    }
+
+    if (error.message.includes('Attempted to use detached Frame') || error.message.includes('Session closed')) {
+      return NextResponse.json({ error: 'Browser session was interrupted. Please try again.' }, { status: 500 });
+    }
+
+    if (error.message.includes('Page was closed')) {
+      return NextResponse.json({ error: 'Page navigation was interrupted. Please try again.' }, { status: 500 });
+    }
+
+    if (error.message.includes('net::ERR_CONNECTION_REFUSED')) {
+      return NextResponse.json({ error: 'Connection refused. The website may be down or blocking requests.' }, { status: 400 });
+    }
+
+    if (error.message.includes('net::ERR_SSL_PROTOCOL_ERROR')) {
+      return NextResponse.json({ error: 'SSL error. Please try using http:// instead of https:// or check the website security.' }, { status: 400 });
+    }
+
+    return NextResponse.json({ 
+      error: 'Failed to capture screenshot. Please check the URL and try again.' 
+    }, { status: 500 });
+  }
+
+  async function performScreenshot() {
     // Validate URL
     if (!url) {
       return NextResponse.json({ error: 'URL parameter is required' }, { status: 400 });
@@ -59,7 +131,7 @@ export async function GET(request) {
       return NextResponse.json({ error: 'Width must be between 320 and 7680 pixels' }, { status: 400 });
     }
 
-    // Launch browser with alternative configuration
+    // Launch browser with Vercel-optimized configuration
     browser = await puppeteer.launch({
       headless: true,
       args: [
@@ -76,7 +148,25 @@ export async function GET(request) {
         '--disable-ipc-flooding-protection',
         '--disable-background-timer-throttling',
         '--disable-backgrounding-occluded-windows',
-        '--disable-renderer-backgrounding'
+        '--disable-renderer-backgrounding',
+        '--single-process',
+        '--no-zygote',
+        '--disable-background-networking',
+        '--disable-default-apps',
+        '--disable-sync',
+        '--disable-translate',
+        '--hide-scrollbars',
+        '--metrics-recording-only',
+        '--mute-audio',
+        '--safebrowsing-disable-auto-update',
+        '--disable-client-side-phishing-detection',
+        '--disable-hang-monitor',
+        '--disable-popup-blocking',
+        '--disable-prompt-on-repost',
+        '--disable-domain-reliability',
+        '--disable-features=TranslateUI,BlinkGenPropertyTrees',
+        '--disable-component-extensions-with-background-pages',
+        '--disable-features=VizDisplayCompositor'
       ]
     });
 
@@ -99,7 +189,7 @@ export async function GET(request) {
       // Use basic navigation with minimal waiting
       await page.goto(url, {
         waitUntil: 'load',
-        timeout: 15000
+        timeout: 10000
       });
       console.log('Navigation successful');
     } catch (navError) {
@@ -202,55 +292,5 @@ export async function GET(request) {
         'X-Screenshot-Height': dimensions.height.toString(),
       },
     });
-
-  } catch (error) {
-    const errorLog = logError(error);
-    
-    // Safely close browser
-    if (browser) {
-      try {
-        if (browser.isConnected()) {
-          await browser.close();
-          console.log('Browser closed after error');
-        } else {
-          console.log('Browser already disconnected');
-        }
-      } catch (closeError) {
-        console.error('Error closing browser:', closeError.message);
-      }
-    }
-
-    // Handle specific errors
-    if (error.message.includes('net::ERR_NAME_NOT_RESOLVED')) {
-      return NextResponse.json({ error: 'Website not found. Please check the URL and try again.' }, { status: 400 });
-    }
-    
-    if (error.message.includes('TimeoutError') || error.message.includes('Navigation timeout')) {
-      return NextResponse.json({ error: 'Website took too long to load. Please try again.' }, { status: 408 });
-    }
-
-    if (error.message.includes('Navigating frame was detached') || error.message.includes('LifecycleWatcher disposed')) {
-      return NextResponse.json({ error: 'Website failed to load properly. Please try again or check if the URL is accessible.' }, { status: 500 });
-    }
-
-    if (error.message.includes('Attempted to use detached Frame') || error.message.includes('Session closed')) {
-      return NextResponse.json({ error: 'Browser session was interrupted. Please try again.' }, { status: 500 });
-    }
-
-    if (error.message.includes('Page was closed')) {
-      return NextResponse.json({ error: 'Page navigation was interrupted. Please try again.' }, { status: 500 });
-    }
-
-    if (error.message.includes('net::ERR_CONNECTION_REFUSED')) {
-      return NextResponse.json({ error: 'Connection refused. The website may be down or blocking requests.' }, { status: 400 });
-    }
-
-    if (error.message.includes('net::ERR_SSL_PROTOCOL_ERROR')) {
-      return NextResponse.json({ error: 'SSL error. Please try using http:// instead of https:// or check the website security.' }, { status: 400 });
-    }
-
-    return NextResponse.json({ 
-      error: 'Failed to capture screenshot. Please check the URL and try again.' 
-    }, { status: 500 });
   }
 }
