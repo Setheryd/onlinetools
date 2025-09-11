@@ -2343,7 +2343,7 @@ export const tools = [
     icon: '🌐',
     featured: false,
     priority: 0.7,
-    built: false,
+    built: true,
   },
   {
     id: 'wget-tool',
