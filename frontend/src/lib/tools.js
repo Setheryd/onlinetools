@@ -1120,7 +1120,7 @@ export const tools = [
     icon: '🖼️',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   {
     id: 'pdf-to-image',
