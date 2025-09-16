@@ -98,7 +98,7 @@ const Base64Tool = () => {
   const [urlSafe, setUrlSafe] = useState(false);
   const [includePadding, setIncludePadding] = useState(true);
   const [wrapLines, setWrapLines] = useState(false);
-  const [decodeAsText, setDecodeAsText] = useState(true);
+  const [decodeAsText, setDecodeAsText] = useState(false);
   const [decodedBlobUrl, setDecodedBlobUrl] = useState('');
   const [decodedFilename, setDecodedFilename] = useState('decoded.bin');
   const [filenameTouched, setFilenameTouched] = useState(false);
