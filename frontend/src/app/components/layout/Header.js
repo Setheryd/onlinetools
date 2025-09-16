@@ -143,6 +143,7 @@ const Header = () => {
                 }`}
                 aria-haspopup="true"
                 aria-expanded={isToolsOpen}
+                onClick={() => window.open('https://thetool.guru/tools', '_blank')}
               >
                 Tools
                 <span className={`ml-1 inline-block transition-transform ${isToolsOpen ? 'rotate-180' : ''}`}>
