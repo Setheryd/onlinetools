@@ -3,6 +3,7 @@ import Header from '../../components/layout/Header';
 import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import HashGeneratorTool from '../../components/tools/HashGeneratorTool';
+import ToolContentSection from '../../components/tools/ToolContentSection';
 
 export const metadata = {
   title: 'Hash Generator — The Tool Guru',
@@ -20,6 +21,68 @@ const HashGeneratorPage = () => {
       <Header />
       <Body>
         <HashGeneratorTool />
+        <div className="max-w-4xl mx-auto px-4">
+          <ToolContentSection
+            toolName="Hash Generator"
+            description="Generate cryptographic hash values for text and data using various hash algorithms. Our hash generator supports MD5, SHA1, SHA256, SHA512, and other popular hash functions. Hashes are one-way functions that create unique digital fingerprints of data, making them essential for data integrity verification, password storage, digital signatures, and security applications."
+            features={[
+              "Generate MD5, SHA1, SHA256, SHA512, and SHA3 hashes",
+              "Support for multiple hash algorithms in one tool",
+              "Instant hash generation as you type",
+              "Copy hash values to clipboard with one click",
+              "Hexadecimal and base64 output formats",
+              "Process text of any length",
+              "Works entirely in your browser for privacy",
+              "No data sent to servers - all processing is local"
+            ]}
+            howToUse={[
+              "Enter or paste the text you want to hash into the input field",
+              "Select the hash algorithm you want to use (MD5, SHA1, SHA256, etc.)",
+              "The hash value will be generated automatically",
+              "View the hash in hexadecimal format",
+              "Use the copy button to copy the hash to your clipboard",
+              "Switch between different algorithms to compare hash outputs",
+              "Hash multiple texts to verify they produce different hash values"
+            ]}
+            useCases={[
+              "Verify file integrity by comparing hash values",
+              "Generate checksums for data validation",
+              "Create hash values for password verification (with proper salting)",
+              "Generate unique identifiers from text data",
+              "Verify data hasn't been tampered with during transmission",
+              "Create digital signatures and authentication tokens",
+              "Hash sensitive data before storage or transmission",
+              "Compare hash values to detect duplicate content"
+            ]}
+            tips={[
+              "Use SHA256 or SHA512 for modern security applications (MD5 and SHA1 are deprecated)",
+              "Remember that hashing is one-way - you cannot reverse a hash to get the original data",
+              "For password storage, always use proper salting and key derivation functions (like bcrypt)",
+              "Hash values are deterministic - the same input always produces the same hash",
+              "Use longer hash algorithms (SHA512) for better security",
+              "Verify file integrity by comparing hashes before and after transfer",
+              "Never use MD5 or SHA1 for security-critical applications"
+            ]}
+            faq={[
+              {
+                question: "What's the difference between MD5, SHA1, and SHA256?",
+                answer: "MD5 produces 128-bit hashes, SHA1 produces 160-bit hashes, and SHA256 produces 256-bit hashes. SHA256 is more secure and recommended for modern applications, while MD5 and SHA1 are considered cryptographically broken."
+              },
+              {
+                question: "Can I reverse a hash to get the original text?",
+                answer: "No, hash functions are one-way. You cannot reverse a hash to recover the original data. However, you can hash new data and compare the hashes to see if they match."
+              },
+              {
+                question: "Are hash values unique?",
+                answer: "While collisions (two different inputs producing the same hash) are theoretically possible, they're extremely rare with modern hash algorithms. Each unique input should produce a unique hash."
+              },
+              {
+                question: "Should I use hashes for password storage?",
+                answer: "Hashes alone are not sufficient for password storage. Use proper password hashing functions like bcrypt, Argon2, or PBKDF2 which include salting and key stretching for security."
+              }
+            ]}
+          />
+        </div>
 
         {/* Blog Post Section */}
         <div className="max-w-4xl mx-auto mt-16 px-4">

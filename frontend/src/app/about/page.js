@@ -3,6 +3,7 @@ import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import Body from '../components/layout/Body';
 import Card from '../components/ui/Card';
+import { getBuiltTools, getUnbuiltTools } from '@/lib/tools';
 
 export const metadata = {
   title: 'About — The Tool Guru',
@@ -11,6 +12,11 @@ export const metadata = {
 };
 
 const AboutPage = () => {
+  const builtTools = getBuiltTools();
+  const unbuiltTools = getUnbuiltTools();
+  const toolsCount = builtTools.length;
+  const comingSoonCount = unbuiltTools.length;
+
   return (
     <div className="min-h-screen bg-gray-50">
       <Header />
@@ -29,14 +35,28 @@ const AboutPage = () => {
 
           {/* Mission Section */}
           <section className="mb-16">
-            <Card>
-              <div className="text-center">
+            <Card className="p-8">
+              <div className="text-center mb-8">
                 <div className="text-4xl mb-4">🎯</div>
                 <h2 className="text-2xl font-bold text-gray-900 mb-4">Our Mission</h2>
-                <p className="text-gray-600 text-lg leading-relaxed">
+              </div>
+              <div className="prose prose-lg max-w-none text-gray-700">
+                <p className="text-lg leading-relaxed mb-4">
                   To provide high-quality, free online tools that make everyday tasks easier. 
                   We believe that powerful utilities should be accessible to everyone, 
                   regardless of their technical background or budget.
+                </p>
+                <p className="text-lg leading-relaxed mb-4">
+                  The Tool Guru was founded on the principle that productivity tools shouldn't come with barriers. 
+                  We've eliminated registration requirements, subscription fees, and data collection practices that 
+                  often plague online tool platforms. Our commitment is to deliver professional-grade utilities 
+                  that work seamlessly, respect your privacy, and help you accomplish your goals faster.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  Whether you're a developer encoding data for an API, a designer optimizing images for a website, 
+                  a student formatting documents, or a professional managing PDF files, we're here to provide 
+                  the tools you need without the hassle. Every tool in our collection is carefully crafted, 
+                  regularly updated, and optimized for performance across all devices.
                 </p>
               </div>
             </Card>
@@ -80,11 +100,11 @@ const AboutPage = () => {
             <Card>
               <div className="grid grid-cols-1 md:grid-cols-4 gap-8 text-center">
                 <div>
-                  <div className="text-4xl font-bold text-blue-600 mb-2">2+</div>
+                  <div className="text-4xl font-bold text-blue-600 mb-2">{toolsCount}+</div>
                   <div className="text-gray-600">Active Tools</div>
                 </div>
                 <div>
-                  <div className="text-4xl font-bold text-blue-600 mb-2">10+</div>
+                  <div className="text-4xl font-bold text-blue-600 mb-2">{comingSoonCount > 0 ? `${comingSoonCount}+` : '0'}</div>
                   <div className="text-gray-600">Coming Soon</div>
                 </div>
                 <div>

@@ -192,6 +192,31 @@ const Home = () => {
           </div>
         </section>
 
+        {/* About Section */}
+        <section className="mb-16">
+          <Card className="p-8">
+            <div className="max-w-4xl mx-auto">
+              <h2 className="text-3xl font-bold text-gray-900 mb-6 text-center">
+                About The Tool Guru
+              </h2>
+              <div className="prose prose-lg max-w-none text-gray-700">
+                <p className="text-lg leading-relaxed mb-4">
+                  The Tool Guru is your comprehensive destination for free, high-quality online utilities designed to make your work easier and more efficient. We've built a collection of over {toolsCount} professional-grade tools that cover everything from text processing and data encoding to image manipulation, PDF handling, and web development utilities.
+                </p>
+                <p className="text-lg leading-relaxed mb-4">
+                  Our mission is simple: provide powerful, reliable tools that anyone can use without barriers. Whether you're a developer working on a project, a designer creating mockups, a student writing an essay, or a professional managing documents, our tools are designed to help you accomplish your tasks quickly and effectively.
+                </p>
+                <p className="text-lg leading-relaxed mb-4">
+                  What sets us apart is our commitment to privacy, performance, and user experience. All our tools run entirely in your browser, meaning your data never leaves your device. We don't collect personal information, require registration, or store your files. Every tool is optimized for speed and designed with a clean, intuitive interface that works seamlessly on desktop, tablet, and mobile devices.
+                </p>
+                <p className="text-lg leading-relaxed">
+                  We're constantly expanding our collection based on user feedback and emerging needs. From basic utilities like text case converters and word counters to advanced tools like PDF processors and image optimizers, we're building the most comprehensive free tool collection on the web. Join thousands of satisfied users who rely on The Tool Guru for their daily tasks.
+                </p>
+              </div>
+            </div>
+          </Card>
+        </section>
+
         {/* CTA Section */}
         <section className="mb-16">
           <Card className="bg-gradient-to-r from-blue-600 to-purple-600 text-white text-center">
