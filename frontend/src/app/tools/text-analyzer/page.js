@@ -8,6 +8,7 @@ import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import Input from '../../components/ui/Input';
 import Badge from '../../components/ui/Badge';
+import ToolContentSection from '../../components/tools/ToolContentSection';
 
 const TextAnalyzer = () => {
   const [text, setText] = useState('');
@@ -578,6 +579,69 @@ const TextAnalyzer = () => {
               </div>
             </div>
           </Card>
+        </div>
+        <div className="max-w-4xl mx-auto px-4">
+          <ToolContentSection
+            toolName="Text Analyzer"
+            description="Analyze your text for readability, sentiment, and linguistic features with comprehensive insights. Our text analyzer provides detailed statistics including word count, character count, sentence analysis, readability scores (Flesch-Kincaid, Gunning Fog, Coleman-Liau), sentiment analysis, and word frequency. Perfect for writers, content creators, students, and professionals who want to understand their writing better, improve readability, analyze sentiment, or optimize content for specific audiences."
+            features={[
+              "Comprehensive text statistics (words, characters, sentences, paragraphs)",
+              "Readability analysis with multiple scoring algorithms",
+              "Sentiment analysis (positive, negative, neutral)",
+              "Word frequency analysis and keyword extraction",
+              "Average word, sentence, and paragraph length calculations",
+              "Real-time analysis as you type",
+              "Copy analysis summary to clipboard",
+              "Works entirely in your browser for privacy"
+            ]}
+            howToUse={[
+              "Paste or type your text into the input field",
+              "Click 'Analyze Text' to process your content",
+              "Review basic statistics (words, characters, sentences)",
+              "Check readability scores and grade levels",
+              "View sentiment analysis results",
+              "Review most frequent words",
+              "Use insights to improve your writing",
+              "Copy the analysis summary if needed"
+            ]}
+            useCases={[
+              "Improve content readability for target audiences",
+              "Analyze sentiment in customer feedback or reviews",
+              "Optimize content for SEO and engagement",
+              "Check writing quality and complexity",
+              "Analyze competitor content and writing style",
+              "Track writing improvements over time",
+              "Ensure content meets readability requirements",
+              "Understand linguistic features of your writing"
+            ]}
+            tips={[
+              "Aim for Flesch-Kincaid scores above 60 for general audiences",
+              "Shorter sentences improve readability scores",
+              "Use sentiment analysis to balance positive and negative content",
+              "Word frequency helps identify key themes and topics",
+              "Lower grade levels indicate easier-to-read content",
+              "Vary sentence length for better engagement",
+              "Review readability scores to match your target audience"
+            ]}
+            faq={[
+              {
+                question: "What is the Flesch-Kincaid score?",
+                answer: "The Flesch-Kincaid score measures readability on a scale of 0-100. Higher scores indicate easier-to-read text. Scores above 60 are considered easily readable for general audiences."
+              },
+              {
+                question: "How accurate is sentiment analysis?",
+                answer: "Sentiment analysis uses word-based detection. It's useful for general sentiment but may not capture context or sarcasm. For critical applications, human review is recommended."
+              },
+              {
+                question: "What do readability scores mean?",
+                answer: "Readability scores indicate the education level needed to understand the text. Lower scores mean easier reading. For example, a score of 60-70 is readable by 13-15 year olds."
+              },
+              {
+                question: "Can I analyze code or technical content?",
+                answer: "Yes, the tool analyzes any text. However, readability scores are designed for natural language and may not be as meaningful for code or highly technical terminology."
+              }
+            ]}
+          />
         </div>
       </Body>
       <Footer />

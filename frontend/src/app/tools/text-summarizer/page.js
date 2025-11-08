@@ -7,6 +7,7 @@ import Body from '../../components/layout/Body';
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import Badge from '../../components/ui/Badge';
+import ToolContentSection from '../../components/tools/ToolContentSection';
 
 const TextSummarizer = () => {
   const [text, setText] = useState('');
@@ -661,6 +662,69 @@ const TextSummarizer = () => {
               ))}
             </div>
           </Card>
+        </div>
+        <div className="max-w-4xl mx-auto px-4">
+          <ToolContentSection
+            toolName="Text Summarizer"
+            description="Transform long text into concise, meaningful summaries using advanced algorithms. Our text summarizer offers multiple summarization methods including extractive (selecting key sentences), abstractive (creating new summaries), keyword-based, and frequency-based approaches. Perfect for condensing articles, research papers, reports, or any lengthy content into shorter, digestible summaries. Customize summary length and method to get the perfect summary for your needs."
+            features={[
+              "Multiple summarization methods (extractive, abstractive, keyword-based, frequency-based)",
+              "Customizable summary length (short, medium, long)",
+              "Keyword-focused summarization",
+              "Compression ratio tracking",
+              "Summary history for multiple attempts",
+              "Key terms and concepts extraction",
+              "Real-time summary generation",
+              "Works entirely in your browser for privacy"
+            ]}
+            howToUse={[
+              "Enter or paste your long text into the input field",
+              "Select summarization method (extractive, abstractive, etc.)",
+              "Choose summary length (short, medium, or long)",
+              "Add focus keywords if using keyword-based method",
+              "Click 'Generate Summary' to create the summary",
+              "Review the generated summary and statistics",
+              "Copy the summary or regenerate with different settings",
+              "Use summary history to compare different approaches"
+            ]}
+            useCases={[
+              "Condense long articles and blog posts",
+              "Summarize research papers and academic content",
+              "Create executive summaries from reports",
+              "Extract key points from lengthy documents",
+              "Generate quick overviews of content",
+              "Create abstracts and synopses",
+              "Summarize meeting notes and transcripts",
+              "Condense news articles and stories"
+            ]}
+            tips={[
+              "Use extractive method for factual content and news articles",
+              "Use abstractive method for creative writing and stories",
+              "Keyword-based works well for research and technical documents",
+              "Adjust summary length based on your needs",
+              "Review and refine summaries for best results",
+              "Use focus keywords to guide summarization",
+              "Compare different methods to find what works best"
+            ]}
+            faq={[
+              {
+                question: "What's the difference between extractive and abstractive summarization?",
+                answer: "Extractive summarization selects the most important sentences from the original text. Abstractive summarization creates new sentences that capture the main ideas, potentially rephrasing content."
+              },
+              {
+                question: "How long should my input text be?",
+                answer: "The tool works with texts of various lengths. Longer texts (500+ words) typically produce better summaries. Very short texts may not benefit much from summarization."
+              },
+              {
+                question: "Can I customize the summary length?",
+                answer: "Yes, you can choose from short (2-3 sentences), medium (4-6 sentences), or long (7-10 sentences) summary lengths. The tool adjusts the compression accordingly."
+              },
+              {
+                question: "Will the summary preserve all important information?",
+                answer: "Summaries aim to capture the most important information, but some details may be condensed or omitted. Review the summary to ensure it meets your needs, and regenerate if necessary."
+              }
+            ]}
+          />
         </div>
       </Body>
       <Footer />

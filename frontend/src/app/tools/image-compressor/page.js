@@ -3,6 +3,7 @@ import Header from '../../components/layout/Header';
 import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import ImageCompressorTool from '../../components/tools/ImageCompressorTool';
+import ToolContentSection from '../../components/tools/ToolContentSection';
 
 export const metadata = {
   title: 'Image Compressor & Converter — The Tool Guru',
@@ -19,34 +20,68 @@ const ImageCompressorPage = () => (
     <Header />
     <Body>
       <ImageCompressorTool />
-      <div className="mt-8 p-6 bg-white rounded-xl shadow-md border border-gray-200">
-        <h2 className="text-2xl font-semibold text-gray-900 mb-3">About this Image Compressor & Converter</h2>
-        <p className="text-gray-700 mb-3">
-          Optimize your images with professional-grade quality. This tool uses state-of-the-art encoders to convert
-          and compress images to modern formats like AVIF and WebP while preserving clarity. Resize precisely by
-          width/height, choose the fitting mode (cover, contain, inside, outside, fill), and set a focal position
-          (center, edges, or smart entropy/attention) for beautiful crops. Strip EXIF metadata for privacy and smaller
-          files, and preview your results side-by-side with savings and dimensions shown.
-        </p>
-        <h3 className="text-xl font-semibold text-gray-900 mb-2">Key features</h3>
-        <ul className="list-disc list-inside text-gray-700 space-y-1">
-          <li>High-quality conversion to AVIF, WebP, JPEG, and PNG</li>
-          <li>Precise resizing with fit modes and focal position control</li>
-          <li>Metadata stripping (EXIF) for privacy and smaller outputs</li>
-          <li>Instant, in-browser previews and one-click download</li>
-          <li>Clear savings and dimensions to guide your optimization</li>
-        </ul>
-        <h3 className="text-xl font-semibold text-gray-900 mt-4 mb-2">Popular use cases</h3>
-        <ul className="list-disc list-inside text-gray-700 space-y-1">
-          <li>Convert PNG and JPG assets to AVIF/WebP for faster websites</li>
-          <li>Generate responsive images with exact dimensions and crops</li>
-          <li>Remove EXIF data before sharing photos online</li>
-          <li>Prepare thumbnails and social images with minimal effort</li>
-        </ul>
-        <p className="text-gray-700 mt-3">
-          Whether you’re a developer speeding up page loads or a designer preparing assets, this tool delivers
-          modern compression with excellent visual fidelity.
-        </p>
+      <div className="max-w-4xl mx-auto px-4">
+        <ToolContentSection
+          toolName="Image Compressor & Converter"
+          description="Resize, compress, and convert images to WebP, AVIF, PNG, and JPEG with high quality. Our image compressor uses state-of-the-art encoders to optimize images while preserving visual clarity. Resize precisely with multiple fit modes (cover, contain, inside, outside, fill) and set focal positions (center, edges, or smart entropy/attention) for beautiful crops. Strip EXIF metadata for privacy and smaller files. Perfect for web optimization, mobile apps, social media, or any scenario where image size and quality matter."
+          features={[
+            "High-quality conversion to AVIF, WebP, JPEG, and PNG",
+            "Precise resizing with width/height control",
+            "Multiple fit modes (cover, contain, inside, outside, fill)",
+            "Focal position control (center, edges, smart entropy/attention)",
+            "EXIF metadata stripping for privacy",
+            "Side-by-side preview with savings and dimensions",
+            "Instant in-browser processing",
+            "Works entirely in your browser - no uploads to servers"
+          ]}
+          howToUse={[
+            "Upload your image using the file input or drag-and-drop",
+            "Select target format (AVIF, WebP, JPEG, or PNG)",
+            "Set resize dimensions if needed",
+            "Choose fit mode for resizing",
+            "Set focal position for cropping",
+            "Enable EXIF stripping if desired",
+            "Preview the compressed result",
+            "Download the optimized image"
+          ]}
+          useCases={[
+            "Convert PNG and JPG to AVIF/WebP for faster websites",
+            "Generate responsive images with exact dimensions",
+            "Remove EXIF data before sharing photos online",
+            "Prepare thumbnails and social media images",
+            "Optimize images for mobile applications",
+            "Reduce image file sizes for email attachments",
+            "Create optimized images for web performance",
+            "Prepare images for CDN distribution"
+          ]}
+          tips={[
+            "AVIF and WebP offer better compression than JPEG/PNG",
+            "Use appropriate fit modes for different use cases",
+            "Strip EXIF data for privacy and smaller files",
+            "Preview before downloading to ensure quality",
+            "Test different formats to find best compression",
+            "Use smart focal position for better automatic crops",
+            "Keep original images as backups"
+          ]}
+          faq={[
+            {
+              question: "Which format should I use?",
+              answer: "AVIF offers the best compression but limited browser support. WebP provides excellent compression with wide support. JPEG is universal but larger. PNG is lossless but largest. Choose based on your needs and browser support requirements."
+            },
+            {
+              question: "Will compression reduce image quality?",
+              answer: "Compression may reduce quality slightly, but our tool uses high-quality encoders to minimize quality loss. You can preview results before downloading to ensure quality meets your needs."
+            },
+            {
+              question: "What is EXIF metadata?",
+              answer: "EXIF metadata includes information like camera settings, location data, and timestamps embedded in images. Stripping it reduces file size and protects privacy."
+            },
+            {
+              question: "Can I resize and convert at the same time?",
+              answer: "Yes, you can resize images while converting formats. Set your desired dimensions and select the target format, and the tool will process both operations together."
+            }
+          ]}
+        />
       </div>
 
       {/* Blog Post Section */}
