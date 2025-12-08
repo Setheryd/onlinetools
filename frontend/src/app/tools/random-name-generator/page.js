@@ -7,6 +7,7 @@ import Body from '../../components/layout/Body';
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import Badge from '../../components/ui/Badge';
+import ToolContentSection from '../../components/tools/ToolContentSection';
 
 const RandomNameGenerator = () => {
   const [generatedNames, setGeneratedNames] = useState([]);
@@ -430,6 +431,69 @@ const RandomNameGenerator = () => {
               ))}
             </div>
           </Card>
+        </div>
+        <div className="max-w-4xl mx-auto px-4">
+          <ToolContentSection
+            toolName="Random Name Generator"
+            description="Generate random names from various categories including fantasy, sci-fi, modern, historical, and more. Our random name generator creates unique names with options for gender, category, and quantity. Perfect for character creation, gaming, writing, naming projects, or any scenario requiring creative names. The tool supports multiple categories and generates names that fit different styles and themes."
+            features={[
+              "Generate random names from multiple categories",
+              "Support for fantasy, sci-fi, modern, historical, and more",
+              "Gender-specific name generation (male, female, neutral)",
+              "Generate multiple names at once",
+              "Favorite names tracking",
+              "Copy individual or all names",
+              "Category-specific name styles",
+              "Works entirely in your browser for privacy"
+            ]}
+            howToUse={[
+              "Select a name category (fantasy, sci-fi, modern, etc.)",
+              "Choose gender preference (male, female, any)",
+              "Set how many names to generate",
+              "Click 'Generate Names' to create names",
+              "Review generated names",
+              "Mark favorite names for later",
+              "Copy names for use",
+              "Generate new sets as needed"
+            ]}
+            useCases={[
+              "Create character names for stories and games",
+              "Generate names for fictional worlds",
+              "Name projects, products, or brands",
+              "Create usernames or handles",
+              "Generate names for role-playing games",
+              "Find inspiration for naming",
+              "Create unique identifiers",
+              "Generate names for creative projects"
+            ]}
+            tips={[
+              "Try different categories for varied name styles",
+              "Generate multiple names to find the perfect one",
+              "Save favorite names for later reference",
+              "Combine names from different categories",
+              "Use for character development and world-building",
+              "Experiment with different gender options",
+              "Generate names that fit your project's theme"
+            ]}
+            faq={[
+              {
+                question: "What name categories are available?",
+                answer: "The tool supports multiple categories including fantasy, sci-fi, modern, historical, nature-based, and more. Each category has its own style and naming conventions."
+              },
+              {
+                question: "Can I generate names for specific genders?",
+                answer: "Yes, you can select male, female, or any gender. The tool generates names appropriate for your selection."
+              },
+              {
+                question: "Are the names unique?",
+                answer: "The tool generates names from predefined lists and algorithms. While names may repeat across generations, each generation creates a new random selection."
+              },
+              {
+                question: "Can I use these names commercially?",
+                answer: "Generated names are for inspiration. Always verify name availability and check for trademark conflicts before using names commercially."
+              }
+            ]}
+          />
         </div>
       </Body>
       <Footer />

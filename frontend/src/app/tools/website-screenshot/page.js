@@ -4,6 +4,7 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import WebsiteScreenshotTool from '../../components/tools/WebsiteScreenshotTool';
 import ToolBlogPost from '../../components/blog/ToolBlogPost';
+import ToolContentSection from '../../components/tools/ToolContentSection';
 import { blogService } from '../../utils/blogService';
 import CommentSection from '../../../components/tools/CommentSection';
 
@@ -39,6 +40,68 @@ const WebsiteScreenshotPage = async () => {
       <Header />
       <Body>
         <WebsiteScreenshotTool />
+        <div className="max-w-4xl mx-auto px-4">
+          <ToolContentSection
+            toolName="Website Screenshot Tool"
+            description="Capture full-page screenshots of websites in high resolution. Our website screenshot tool allows you to take screenshots of entire web pages, not just the visible viewport. Choose from multiple formats (PNG, JPG, WebP) and customize viewport width for perfect screenshots. Perfect for documentation, design references, website portfolios, competitive analysis, or archiving web content. All screenshots are generated server-side for accurate rendering."
+            features={[
+              "Capture full-page screenshots of websites",
+              "Customize viewport width for different device sizes",
+              "Support for PNG, JPG, and WebP formats",
+              "High-resolution output up to 4K",
+              "Handle dynamic content and JavaScript",
+              "Capture entire pages including below-the-fold content",
+              "Fast screenshot generation",
+              "Download screenshots instantly"
+            ]}
+            howToUse={[
+              "Enter the website URL you want to screenshot",
+              "Select the viewport width (desktop, tablet, or mobile)",
+              "Choose output format (PNG, JPG, or WebP)",
+              "Set resolution/quality if available",
+              "Click 'Capture Screenshot' to generate",
+              "Wait for the screenshot to be generated",
+              "Download the screenshot when ready"
+            ]}
+            useCases={[
+              "Create documentation screenshots for websites",
+              "Capture website designs for portfolios",
+              "Generate screenshots for presentations",
+              "Archive web content as images",
+              "Create visual references for design projects",
+              "Capture website states for comparison",
+              "Generate thumbnails for website galleries",
+              "Create screenshots for social media sharing"
+            ]}
+            tips={[
+              "Use desktop viewport for full-width screenshots",
+              "PNG format preserves quality best for screenshots",
+              "JPG format reduces file size for large screenshots",
+              "Wait for pages to fully load before capturing",
+              "Some dynamic content may require JavaScript to render",
+              "Use appropriate viewport sizes for your use case",
+              "Test screenshots to ensure they capture what you need"
+            ]}
+            faq={[
+              {
+                question: "Can I screenshot password-protected pages?",
+                answer: "The tool can screenshot publicly accessible pages. Password-protected or login-required pages typically cannot be screenshotted unless you provide authentication credentials."
+              },
+              {
+                question: "Will JavaScript and dynamic content be captured?",
+                answer: "The tool waits for pages to load and renders JavaScript, but some highly dynamic content may not be fully captured. Static content is always captured accurately."
+              },
+              {
+                question: "What's the maximum resolution?",
+                answer: "The tool supports high-resolution screenshots up to 4K. Resolution depends on the viewport width and format selected."
+              },
+              {
+                question: "Can I screenshot localhost or private websites?",
+                answer: "The tool can only screenshot publicly accessible websites. Localhost and private networks are not accessible from the server."
+              }
+            ]}
+          />
+        </div>
         
         {/* Blog Post Section - only show if blog post exists */}
         {blogPost && (

@@ -8,6 +8,7 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
+import ToolContentSection from '../../components/tools/ToolContentSection';
 import { FiUpload, FiTrash2, FiDownload, FiFile, FiAlertCircle, FiCheckCircle } from 'react-icons/fi';
 
 const PDFMergerPage = () => {
@@ -510,6 +511,69 @@ const PDFMergerPage = () => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="max-w-4xl mx-auto px-4">
+          <ToolContentSection
+            toolName="PDF Merger"
+            description="Merge multiple PDF files into one document with drag-and-drop organization. Our PDF merger allows you to combine multiple PDFs in any order, arrange pages, and create a single unified document. Perfect for combining reports, merging documents, creating compilations, or organizing PDF files. The tool preserves all content, formatting, and quality while creating a seamless merged document."
+            features={[
+              "Merge multiple PDF files into one document",
+              "Drag and drop interface for easy organization",
+              "Reorder PDFs before merging",
+              "View page counts for each PDF",
+              "Remove files before merging",
+              "Progress tracking during merge",
+              "Download merged PDF instantly",
+              "Works entirely in your browser - no uploads to servers"
+            ]}
+            howToUse={[
+              "Upload PDF files using drag-and-drop or file picker",
+              "Arrange PDFs in desired order by dragging",
+              "Review page counts and file information",
+              "Remove any unwanted files if needed",
+              "Click 'Merge PDFs' to combine files",
+              "Wait for merge process to complete",
+              "Download the merged PDF file",
+              "Process additional merges as needed"
+            ]}
+            useCases={[
+              "Combine multiple reports into one document",
+              "Merge chapters or sections from different PDFs",
+              "Create document compilations",
+              "Combine scanned documents",
+              "Merge invoices or receipts",
+              "Create comprehensive PDF packages",
+              "Organize related PDFs into single files",
+              "Combine forms and documents"
+            ]}
+            tips={[
+              "Arrange PDFs in logical order before merging",
+              "Check page counts to verify all pages are included",
+              "Keep original PDFs as backups",
+              "Test merged PDF to ensure all content is correct",
+              "Use for organizing related documents",
+              "Merge PDFs with similar page sizes for best results",
+              "Remove unnecessary files before merging"
+            ]}
+            faq={[
+              {
+                question: "Can I merge password-protected PDFs?",
+                answer: "Password-protected PDFs require the password to be entered before merging. Once unlocked, they can be merged like any other PDF."
+              },
+              {
+                question: "Will merging affect PDF quality?",
+                answer: "No, merging PDFs doesn't affect the quality of individual pages. The tool combines PDFs without re-encoding or compressing them."
+              },
+              {
+                question: "How many PDFs can I merge at once?",
+                answer: "You can merge multiple PDFs simultaneously. The exact limit depends on file sizes and browser memory, but the tool handles reasonably large merges."
+              },
+              {
+                question: "Can I reorder pages after merging?",
+                answer: "After merging, pages are in the order of the merged PDFs. To reorder individual pages, use a PDF organizer or editor tool."
+              }
+            ]}
+          />
         </div>
       </Body>
       <Footer />

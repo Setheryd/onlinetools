@@ -7,6 +7,7 @@ import Body from '../../components/layout/Body';
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import Badge from '../../components/ui/Badge';
+import ToolContentSection from '../../components/tools/ToolContentSection';
 
 const DecisionMaker = () => {
   const [options, setOptions] = useState(['']);
@@ -584,6 +585,69 @@ const DecisionMaker = () => {
               ))}
             </div>
           </Card>
+        </div>
+        <div className="max-w-4xl mx-auto px-4">
+          <ToolContentSection
+            toolName="Decision Maker"
+            description="Make decisions by randomly selecting from options with multiple decision modes. Our decision maker helps you choose between options using random selection, weighted choices, or elimination methods. Perfect for making difficult decisions, choosing between options, breaking ties, or adding fun to decision-making. The tool supports various decision algorithms to help you make choices fairly and efficiently."
+            features={[
+              "Random selection from multiple options",
+              "Weighted decision mode with custom probabilities",
+              "Elimination mode for step-by-step narrowing",
+              "Decision history tracking",
+              "Multiple decision algorithms",
+              "Visual decision process",
+              "Save and reuse decision configurations",
+              "Works entirely in your browser for privacy"
+            ]}
+            howToUse={[
+              "Enter your options (one per line or separated)",
+              "Select decision mode (random, weighted, elimination)",
+              "Configure weights if using weighted mode",
+              "Click 'Make Decision' to get a result",
+              "View the selected option",
+              "Review decision history",
+              "Make new decisions as needed",
+              "Use for any decision-making scenario"
+            ]}
+            useCases={[
+              "Make difficult personal decisions",
+              "Choose between multiple options",
+              "Break ties in voting or selection",
+              "Select random winners or participants",
+              "Make fun decisions with friends",
+              "Choose what to eat, watch, or do",
+              "Select from product or service options",
+              "Make unbiased random selections"
+            ]}
+            tips={[
+              "Use random mode for equal probability choices",
+              "Use weighted mode when some options are preferred",
+              "Use elimination mode to narrow down gradually",
+              "Add all relevant options for best results",
+              "Review decision history to see patterns",
+              "Use for fun and serious decisions alike",
+              "Trust the process for unbiased selections"
+            ]}
+            faq={[
+              {
+                question: "How does random decision mode work?",
+                answer: "Random mode gives each option an equal probability of being selected. It's fair and unbiased, perfect for when all options are equally valid."
+              },
+              {
+                question: "What is weighted decision mode?",
+                answer: "Weighted mode allows you to assign different probabilities to options. Options with higher weights are more likely to be selected, useful when some choices are preferred."
+              },
+              {
+                question: "How does elimination mode work?",
+                answer: "Elimination mode narrows down options step by step, removing options until one remains. It's useful for making decisions through a process of elimination."
+              },
+              {
+                question: "Can I save my decision configurations?",
+                answer: "Some versions may support saving configurations. Check the tool interface for save/load functionality. Decision history is typically maintained during your session."
+              }
+            ]}
+          />
         </div>
       </Body>
       <Footer />

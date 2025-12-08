@@ -7,6 +7,7 @@ import Body from '../../components/layout/Body';
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import Badge from '../../components/ui/Badge';
+import ToolContentSection from '../../components/tools/ToolContentSection';
 
 const AcronymGenerator = () => {
   const [phrase, setPhrase] = useState('');
@@ -613,6 +614,68 @@ const AcronymGenerator = () => {
               ))}
             </div>
           </Card>
+        </div>
+        <div className="max-w-4xl mx-auto px-4">
+          <ToolContentSection
+            toolName="Acronym Generator"
+            description="Generate creative acronyms and abbreviations from your phrases with multiple generation styles. Our acronym generator creates meaningful abbreviations using various methods including first letters, first two letters, consonants only, vowels only, and smart selection. Perfect for creating memorable acronyms for projects, organizations, products, or any phrase. The tool provides quality scores for each generated acronym, helping you choose the best option."
+            features={[
+              "Multiple generation styles (first letter, first two letters, consonants, vowels, smart)",
+              "Quality scoring for each generated acronym",
+              "Maximum length filtering",
+              "Favorite acronyms tracking",
+              "Copy individual or all acronyms",
+              "Sorted results by quality score",
+              "Support for phrases of any length",
+              "Works entirely in your browser for privacy"
+            ]}
+            howToUse={[
+              "Enter your phrase in the input field",
+              "Select a generation style (first letter, consonants, etc.)",
+              "Set maximum length for acronyms",
+              "Click 'Generate Acronyms' to create options",
+              "Review quality scores and select favorites",
+              "Copy your preferred acronyms",
+              "Try different styles to find the best acronym"
+            ]}
+            useCases={[
+              "Create memorable acronyms for projects and products",
+              "Generate abbreviations for organizations and teams",
+              "Create catchy names for businesses or brands",
+              "Develop acronyms for technical terms and concepts",
+              "Generate abbreviations for presentations and documents",
+              "Create memorable codes for events or campaigns",
+              "Develop acronyms for educational purposes",
+              "Create abbreviations for social media and marketing"
+            ]}
+            tips={[
+              "Use phrases with 3-8 words for best results",
+              "Try different generation styles to find the best acronym",
+              "Look for acronyms with vowels for better pronounceability",
+              "Aim for 3-6 character acronyms for memorability",
+              "Check quality scores to identify the best options",
+              "Save favorite acronyms for later reference",
+              "Combine different styles for creative results"
+            ]}
+            faq={[
+              {
+                question: "What makes a good acronym?",
+                answer: "A good acronym is pronounceable (includes vowels), has an appropriate length (3-6 characters), is memorable, and represents the original phrase well. Quality scores help identify the best options."
+              },
+              {
+                question: "Can I generate acronyms from any phrase?",
+                answer: "Yes, you can generate acronyms from phrases of any length. However, phrases with 3-8 words typically produce the best results."
+              },
+              {
+                question: "What's the difference between generation styles?",
+                answer: "First letter uses the first letter of each word. First two letters uses the first two letters. Consonants/vowels only use those letter types. Smart selection intelligently chooses letters for better acronyms."
+              },
+              {
+                question: "How is the quality score calculated?",
+                answer: "Quality scores consider length (prefer 3-6 characters), pronounceability (presence of vowels), and other factors. Higher scores indicate better acronyms."
+              }
+            ]}
+          />
         </div>
       </Body>
       <Footer />
