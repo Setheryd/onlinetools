@@ -187,6 +187,8 @@ The project is deployed on Vercel with automatic deployments from the main branc
 ### **Environment Variables**
 - `NEXT_PUBLIC_GA_ID`: Google Analytics ID
 - `NEXT_PUBLIC_GTM_ID`: Google Tag Manager ID
+- **Store (Stripe + Printful):** `NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY`, `STRIPE_SECRET_KEY`, `STRIPE_WEBHOOK_SECRET`, `PRINTFUL_API_KEY`
+- **Production:** Set `NEXT_PUBLIC_SITE_URL=https://thetool.guru` (or your live URL) in Vercel so checkout success/cancel URLs are correct.
 
 ## 📞 **Support**
 
