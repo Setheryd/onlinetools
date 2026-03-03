@@ -271,7 +271,8 @@ Full list is in `frontend/src/lib/tools.js` (search for `built: false`). Below i
 
 | ID | Name | Notes |
 |----|------|--------|
-| pdf-compressor | PDF Compressor | priority 0.8; high demand |
+| pdf-compressor | PDF Compressor | **Built.** priority 0.8; API fixed (options JSON, base64 response), WebApplication JSON-LD, built: true. |
+| code-beautifier | Code Beautifier | **Built.** priority 0.7; client-only (JSON, JS, HTML, CSS, XML), full page + ToolContentSection + FAQ. |
 | pdf-to-word | PDF to Word Converter | priority 0.7; high demand |
 | video-converter | Video Converter | priority 0.7; needs backend or Web APIs |
 | plagiarism-checker | Plagiarism Checker | priority 0.7; likely needs API |
@@ -316,7 +317,7 @@ Full list is in `frontend/src/lib/tools.js` (search for `built: false`). Below i
 
 ### Implementation notes
 
-- **Client-only (no backend):** markdown-editor, sql-formatter, box-shadow-generator, border-radius-generator, font-pairing-generator, color-palette-generator, favicon-generator, code-beautifier, code-minifier. Add `page.js`, component, set `built: true`.
+- **Client-only (no backend):** markdown-editor, sql-formatter, box-shadow-generator, border-radius-generator, font-pairing-generator, color-palette-generator, favicon-generator, code-beautifier *(done)*, code-minifier. Add `page.js`, component, set `built: true`.
 - **Needs API/backend:** text-to-speech, speech-to-text, plagiarism-checker, grammar-checker, broken-link-checker, website-uptime-monitor, ip-lookup. Define API or use third-party; then build UI.
 - **Heavy (conversion):** pdf-to-word, word-to-pdf, excel-to-pdf, video-converter, audio-converter. Evaluate browser libraries vs server-side; scope as larger projects.
 

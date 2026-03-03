@@ -40,7 +40,8 @@ export const metadata = {
   },
 }
 
-const GradientMakerPage = () => {
+export default async function GradientMakerPage() {
+  const gradientBlogPost = await blogService.getPostBySlug('complete-guide-to-css-gradients');
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -146,6 +147,4 @@ const GradientMakerPage = () => {
       <Footer />
     </div>
   );
-};
-
-export default GradientMakerPage;
+}

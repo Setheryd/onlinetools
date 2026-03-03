@@ -39,8 +39,36 @@ export const metadata = {
 };
 
 const PdfCompressorPage = () => {
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'PDF Compressor',
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'Any',
+    url: 'https://thetool.guru/tools/pdf-compressor',
+    description: 'Compress PDF files to reduce file size while maintaining quality. Optimize images, remove metadata, and compress text. No signup required.',
+    browserRequirements: 'Requires JavaScript. Works in modern browsers.',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    featureList: [
+      'Compress PDF to reduce file size',
+      'Optimize embedded images',
+      'Remove metadata',
+      'Compress text and structure',
+      'Adjust image quality',
+      'Download compressed PDF',
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <Header />
       <Body>
         <PdfCompressorTool />

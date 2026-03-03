@@ -76,14 +76,15 @@ const PdfCompressorTool = () => {
 
     try {
       setCompressionProgress(20);
-      
-      // Use the API route for better compression
+
       const formData = new FormData();
       formData.append('file', file.file);
-      formData.append('imageQuality', imageQuality.toString());
-      formData.append('removeMetadata', removeMetadata.toString());
-      formData.append('optimizeImages', optimizeImages.toString());
-      formData.append('compressText', compressText.toString());
+      formData.append('options', JSON.stringify({
+        removeMetadata,
+        optimizeImages,
+        compressText,
+        imageQuality: Number(imageQuality) || 60
+      }));
 
       const response = await fetch('/api/pdf/compress', {
         method: 'POST',
@@ -92,42 +93,49 @@ const PdfCompressorTool = () => {
 
       setCompressionProgress(60);
 
-      if (response.ok) {
-        const compressedBlob = await response.blob();
-        
-        if (compressedBlob.size < file.size) {
-          const compressedFileObj = {
-            id: Math.random().toString(36).substr(2, 9),
-            file: compressedBlob,
-            name: file.name.replace('.pdf', '_compressed.pdf'),
-            size: compressedBlob.size,
-            preview: URL.createObjectURL(compressedBlob)
-          };
-          
-          setCompressedFile(compressedFileObj);
-          setOriginalInfo({
-            name: file.name,
-            size: file.size,
-            formattedSize: formatFileSize(file.size)
-          });
-          setCompressedInfo({
-            name: compressedFileObj.name,
-            size: compressedFileObj.size,
-            formattedSize: formatFileSize(compressedFileObj.size),
-            compressionRatio: calculateCompressionRatio(file.size, compressedFileObj.size)
-          });
-        } else {
-          setError('Unable to compress this PDF further. The file may already be optimized.');
-        }
-      } else {
-        const errorData = await response.json();
-        setError(errorData.error || 'Compression failed. Please try again.');
+      const data = await response.json().catch(() => ({}));
+
+      if (!response.ok) {
+        setError(data.error || 'Compression failed. Please try again.');
+        return;
       }
-      
+
+      if (data.success && data.compressedData) {
+        const binary = atob(data.compressedData);
+        const bytes = new Uint8Array(binary.length);
+        for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+        const compressedBlob = new Blob([bytes], { type: 'application/pdf' });
+
+        const compressedFileObj = {
+          id: Math.random().toString(36).substr(2, 9),
+          file: compressedBlob,
+          name: data.fileName || file.name.replace('.pdf', '_compressed.pdf'),
+          size: compressedBlob.size,
+          preview: URL.createObjectURL(compressedBlob)
+        };
+
+        setCompressedFile(compressedFileObj);
+        setOriginalInfo({
+          name: file.name,
+          size: file.size,
+          formattedSize: formatFileSize(file.size)
+        });
+        setCompressedInfo({
+          name: compressedFileObj.name,
+          size: compressedBlob.size,
+          formattedSize: formatFileSize(compressedBlob.size),
+          compressionRatio: data.compressionRatio != null ? String(data.compressionRatio) : calculateCompressionRatio(file.size, compressedBlob.size)
+        });
+      } else {
+        setError(data.error || 'Unable to compress this PDF further. The file may already be optimized.');
+      }
+
       setCompressionProgress(100);
     } catch (err) {
       console.error('Compression error:', err);
-      setError('An error occurred during compression. Please try again with a different file.');
+      setError(err?.message === 'Failed to fetch'
+        ? 'Network error. Check your connection and try again.'
+        : 'An error occurred during compression. Please try again with a different file.');
     } finally {
       setIsCompressing(false);
       setCompressionProgress(0);

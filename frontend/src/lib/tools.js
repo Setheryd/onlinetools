@@ -1072,7 +1072,7 @@ export const tools = [
     icon: '📄',
     featured: false,
     priority: 0.8,
-    built: false,
+    built: true,
   },
   {
     id: 'pdf-to-word',
@@ -1157,7 +1157,7 @@ export const tools = [
     icon: '💻',
     featured: false,
     priority: 0.7,
-    built: false,
+    built: true,
   },
   {
     id: 'code-minifier',
