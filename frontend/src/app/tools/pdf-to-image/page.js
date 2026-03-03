@@ -4,7 +4,7 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import PdfToImageTool from '../../components/tools/PdfToImageTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'PDF to Image Converter - Convert PDF Pages to Images',
   description: 'Convert PDF pages to high-quality images in PNG, JPEG, or WebP formats. Choose your preferred quality, scale, and DPI settings.',
@@ -106,6 +106,8 @@ const PdfToImagePage = () => {
             ]}
           />
         </div>
+      <RelatedToolsSection toolId="pdf-to-image" />
+
       </Body>
       <Footer />
     </div>

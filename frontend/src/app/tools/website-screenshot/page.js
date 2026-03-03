@@ -5,25 +5,41 @@ import Body from '../../components/layout/Body';
 import WebsiteScreenshotTool from '../../components/tools/WebsiteScreenshotTool';
 import ToolBlogPost from '../../components/blog/ToolBlogPost';
 import ToolContentSection from '../../components/tools/ToolContentSection';
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 import { blogService } from '../../utils/blogService';
 import CommentSection from '../../../components/tools/CommentSection';
-
 export const metadata = {
   title: 'Website Screenshot Tool — The Tool Guru',
   description: 'Capture full-page screenshots of websites in high resolution. Choose from multiple formats (PNG, JPG, WebP) and customize viewport width for perfect screenshots.',
   keywords: ['website screenshot', 'webpage capture', 'full page screenshot', 'png', 'jpg', 'webp', '4k resolution', 'the tool guru'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/website-screenshot',
+  },
   openGraph: {
     title: 'Website Screenshot Tool — The Tool Guru',
-    description: 'Capture full-page screenshots of websites in high resolution. Choose from multiple formats and customize viewport width.',
-    type: 'website',
+    description: 'Capture full-page screenshots of websites in high resolution. Choose from multiple formats (PNG, JPG, WebP) and customize viewport width for perfect screenshots.',
     url: 'https://thetool.guru/tools/website-screenshot',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Website Screenshot Tool — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Website Screenshot Tool — The Tool Guru',
-    description: 'Capture full-page screenshots of websites in high resolution.',
+    description: 'Capture full-page screenshots of websites in high resolution. Choose from multiple formats (PNG, JPG, WebP) and customize viewport width for perfect screenshots.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
   },
-};
+}
 
 const WebsiteScreenshotPage = async () => {
   // Try to get a related blog post (you can create one later)
@@ -127,6 +143,8 @@ const WebsiteScreenshotPage = async () => {
           toolId="website-screenshot"
           toolName="Website Screenshot Tool"
         />
+      <RelatedToolsSection toolId="website-screenshot" />
+
       </Body>
       <Footer />
     </div>

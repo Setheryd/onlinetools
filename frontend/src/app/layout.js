@@ -61,13 +61,8 @@ export const metadata = {
       follow: true,
     }
   },
-  verification: {
-    google: 'your-google-verification-code',
-    yandex: 'your-yandex-verification-code',
-    yahoo: 'your-yahoo-verification-code',
-    bing: 'your-bing-verification-code',
-    facebook: 'your-facebook-verification-code',
-  },
+  // Add verification when you have real codes from each service (Google Search Console, Bing, etc.):
+  // verification: { google: '...', bing: '...', yandex: '...', ... },
   other: {
     // Schema.org structured data
     'application-name': 'The Tool Guru',
@@ -90,10 +85,7 @@ export const metadata = {
     'og:locale': 'en_US',
     'og:type': 'website',
     
-    // Additional verification codes
-    'google-site-verification': 'your-google-verification-code',
-    'msvalidate.01': 'your-bing-verification-code',
-    'yandex-verification': 'your-yandex-verification-code',
+    // Add verification meta when you have real codes: 'google-site-verification', 'msvalidate.01', 'yandex-verification'
     
     // Content security policy
     'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com;"

@@ -4,7 +4,7 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import CurlTool from '../../components/tools/CurlTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'cURL Tool - HTTP Request Builder & API Tester',
   description: 'Make HTTP requests, test APIs, and generate cURL commands with an intuitive interface designed for developers. Support for all HTTP methods, authentication, and advanced options.',
@@ -107,6 +107,8 @@ const CurlToolPage = () => {
             ]}
           />
         </div>
+      <RelatedToolsSection toolId="curl-tool" />
+
       </Body>
       <Footer />
     </>

@@ -5,18 +5,18 @@ import Body from '../../components/layout/Body';
 import Base64Tool from '../../components/tools/Base64Tool';
 import ToolBlogPost from '../../components/blog/ToolBlogPost';
 import ToolContentSection from '../../components/tools/ToolContentSection';
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 import { blogService } from '../../utils/blogService';
-
 export const metadata = {
-  title: 'Base64 Encoder/Decoder — The Tool Guru',
-  description: 'Free online Base64 encoder and decoder. Convert text to Base64 and decode Base64 back to text instantly. No registration required.',
-  keywords: ['base64', 'encoder', 'decoder', 'online tool', 'text encoding', 'data encoding', 'the tool guru'],
+  title: 'Base64 Encoder & Decoder — Free Online | The Tool Guru',
+  description: 'Free base64 encoder and decoder. Encode text to Base64 and decode Base64 to text instantly in your browser. No signup required.',
+  keywords: ['base64 encoder', 'base64 decoder', 'encode base64', 'decode base64', 'online tool', 'the tool guru'],
   alternates: {
     canonical: 'https://thetool.guru/tools/base64',
   },
   openGraph: {
-    title: 'Base64 Encoder/Decoder — The Tool Guru',
-    description: 'Free online Base64 encoder and decoder. Convert text to Base64 and decode Base64 back to text instantly.',
+    title: 'Base64 Encoder & Decoder — Free Online | The Tool Guru',
+    description: 'Free base64 encoder and decoder. Encode text to Base64 and decode Base64 to text instantly. No signup.',
     url: 'https://thetool.guru/tools/base64',
     siteName: 'The Tool Guru',
     images: [
@@ -32,8 +32,8 @@ export const metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Base64 Encoder/Decoder — The Tool Guru',
-    description: 'Free online Base64 encoder and decoder. Convert text to Base64 and decode Base64 back to text instantly.',
+    title: 'Base64 Encoder & Decoder — Free Online | The Tool Guru',
+    description: 'Free base64 encoder and decoder. Encode and decode Base64 instantly. No signup.',
     images: ['/Brand_Assets/Logo.webp'],
     creator: '@thetoolguru',
     site: '@thetoolguru',
@@ -111,22 +111,24 @@ const Base64Page = async () => {
           />
         </div>
         
-        {/* Blog Post Section */}
-        <div className="max-w-4xl mx-auto mt-16 px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Learn More About Base64 Encoding
-            </h2>
-            <p className="text-lg text-gray-600">
-              Discover how Base64 encoding works and when to use it in your projects
-            </p>
+        {base64BlogPost && (
+          <div className="max-w-4xl mx-auto mt-16 px-4">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Learn More About Base64 Encoding
+              </h2>
+              <p className="text-lg text-gray-600">
+                Discover how Base64 encoding works and when to use it in your projects
+              </p>
+            </div>
+            <ToolBlogPost 
+              post={base64BlogPost} 
+              toolPath="/tools/base64"
+            />
           </div>
-          
-          <ToolBlogPost 
-            post={base64BlogPost} 
-            toolPath="/tools/base64"
-          />
-        </div>
+        )}
+      <RelatedToolsSection toolId="base64" />
+
       </Body>
       <Footer />
     </div>

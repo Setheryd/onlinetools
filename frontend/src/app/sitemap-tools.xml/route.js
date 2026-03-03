@@ -1,7 +1,15 @@
-import { getAllToolsForSitemap } from '../../lib/tools'
+import { getBuiltTools } from '../../lib/tools'
+
+const BASE_URL = 'https://thetool.guru'
 
 export async function GET() {
-  const tools = getAllToolsForSitemap()
+  // Only include built tools so Google does not discover 404 URLs (unbuilt "coming soon" tools)
+  const tools = getBuiltTools().map(tool => ({
+    url: `${BASE_URL}${tool.path}`,
+    lastModified: new Date().toISOString(),
+    changeFrequency: 'weekly',
+    priority: tool.priority ?? 0.5,
+  }))
   
   // Create XML sitemap
   const xml = `<?xml version="1.0" encoding="UTF-8"?>

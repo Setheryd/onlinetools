@@ -4,16 +4,39 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import RobotsTxtGeneratorTool from '../../components/tools/RobotsTxtGeneratorTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'robots.txt Generator — The Tool Guru',
   description: 'Create robots.txt with allow/disallow rules and sitemap links.',
   keywords: ['robots.txt', 'generator', 'seo'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/robots-txt-generator',
+  },
   openGraph: {
     title: 'robots.txt Generator — The Tool Guru',
-    description: 'Generate robots.txt for your site.',
+    description: 'Create robots.txt with allow/disallow rules and sitemap links.',
+    url: 'https://thetool.guru/tools/robots-txt-generator',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'robots.txt Generator — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'robots.txt Generator — The Tool Guru',
+    description: 'Create robots.txt with allow/disallow rules and sitemap links.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const RobotsTxtGeneratorPage = () => (
   <div className="min-h-screen bg-gray-50">
@@ -83,6 +106,8 @@ const RobotsTxtGeneratorPage = () => (
           ]}
         />
       </div>
+    <RelatedToolsSection toolId="robots-txt-generator" />
+
     </Body>
     <Footer />
   </div>

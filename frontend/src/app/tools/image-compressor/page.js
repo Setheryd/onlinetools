@@ -4,16 +4,39 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import ImageCompressorTool from '../../components/tools/ImageCompressorTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Image Compressor & Converter — The Tool Guru',
   description: 'Resize, compress, and convert images to WebP/AVIF/PNG/JPEG with high quality.',
   keywords: ['image compressor', 'image converter', 'webp', 'avif', 'jpeg', 'png'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/image-compressor',
+  },
   openGraph: {
     title: 'Image Compressor & Converter — The Tool Guru',
-    description: 'Modern, high-quality image processing.',
+    description: 'Resize, compress, and convert images to WebP/AVIF/PNG/JPEG with high quality.',
+    url: 'https://thetool.guru/tools/image-compressor',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Image Compressor & Converter — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Image Compressor & Converter — The Tool Guru',
+    description: 'Resize, compress, and convert images to WebP/AVIF/PNG/JPEG with high quality.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const ImageCompressorPage = () => (
   <div className="min-h-screen bg-gray-50">
@@ -120,6 +143,8 @@ const ImageCompressorPage = () => (
           </div>
         </div>
       </div>
+    <RelatedToolsSection toolId="image-compressor" />
+
     </Body>
     <Footer />
   </div>

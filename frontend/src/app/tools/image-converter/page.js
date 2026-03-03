@@ -4,16 +4,39 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import ImageConverterTool from '../../components/tools/ImageConverterTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Image Format Converter — The Tool Guru',
   description: 'Convert images between WebP, AVIF, JPEG, and PNG formats.',
   keywords: ['image converter', 'convert image', 'webp', 'avif', 'jpeg', 'png'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/image-converter',
+  },
   openGraph: {
     title: 'Image Format Converter — The Tool Guru',
-    description: 'Fast image format conversion.',
+    description: 'Convert images between WebP, AVIF, JPEG, and PNG formats.',
+    url: 'https://thetool.guru/tools/image-converter',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Image Format Converter — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Image Format Converter — The Tool Guru',
+    description: 'Convert images between WebP, AVIF, JPEG, and PNG formats.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const Page = () => (
   <div className="min-h-screen bg-gray-50">
@@ -82,6 +105,8 @@ const Page = () => (
           ]}
         />
       </div>
+    <RelatedToolsSection toolId="image-converter" />
+
     </Body>
     <Footer />
   </div>

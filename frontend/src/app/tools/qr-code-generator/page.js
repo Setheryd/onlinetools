@@ -5,18 +5,41 @@ import Body from '../../components/layout/Body';
 import QrCodeGeneratorTool from '../../components/tools/QrCodeGeneratorTool';
 import ToolBlogPost from '../../components/blog/ToolBlogPost';
 import ToolContentSection from '../../components/tools/ToolContentSection';
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 import { blogService } from '../../utils/blogService';
 import CommentSection from '../../../components/tools/CommentSection';
-
 export const metadata = {
   title: 'QR Code Generator — The Tool Guru',
   description: 'Generate QR codes for URLs, text, and more. Free online QR code generator with PNG and SVG output.',
   keywords: ['qr code', 'qr generator', 'barcode', 'png', 'svg', 'the tool guru'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/qr-code-generator',
+  },
   openGraph: {
     title: 'QR Code Generator — The Tool Guru',
-    description: 'Generate QR codes for URLs, text, and more.',
+    description: 'Generate QR codes for URLs, text, and more. Free online QR code generator with PNG and SVG output.',
+    url: 'https://thetool.guru/tools/qr-code-generator',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'QR Code Generator — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'QR Code Generator — The Tool Guru',
+    description: 'Generate QR codes for URLs, text, and more. Free online QR code generator with PNG and SVG output.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const QrCodeGeneratorPage = async () => {
   // Get the QR code generator blog post from the service
@@ -90,28 +113,30 @@ const QrCodeGeneratorPage = async () => {
           />
         </div>
         
-        {/* Blog Post Section */}
-        <div className="max-w-4xl mx-auto mt-16 px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Learn More About QR Code Technology
-            </h2>
-            <p className="text-lg text-gray-600">
-              Discover the power of QR codes and how to create professional QR codes for your business
-            </p>
+        {qrCodeBlogPost && (
+          <div className="max-w-4xl mx-auto mt-16 px-4">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Learn More About QR Code Technology
+              </h2>
+              <p className="text-lg text-gray-600">
+                Discover the power of QR codes and how to create professional QR codes for your business
+              </p>
+            </div>
+            <ToolBlogPost
+              post={qrCodeBlogPost}
+              toolPath="/tools/qr-code-generator"
+            />
           </div>
-          
-          <ToolBlogPost 
-            post={qrCodeBlogPost} 
-            toolPath="/tools/qr-code-generator"
-          />
-        </div>
+        )}
 
         {/* Comment Section */}
         <CommentSection 
           toolId="qr-code-generator"
           toolName="QR Code Generator"
         />
+      <RelatedToolsSection toolId="qr-code-generator" />
+
       </Body>
       <Footer />
     </div>

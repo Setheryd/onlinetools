@@ -4,13 +4,38 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import TextDiffTool from '../../components/tools/TextDiffTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Text Diff Checker — OnlineTools',
-  description:
-    'Compare two texts and see the differences highlighted. Perfect for code reviews, document comparisons, and content analysis.',
-  keywords: ['text diff', 'difference checker', 'compare text', 'code review', 'document comparison']
-};
+  description: 'Compare two texts and see the differences highlighted. Perfect for code reviews, document comparisons, and content analysis.',
+  alternates: {
+    canonical: 'https://thetool.guru/tools/text-diff',
+  },
+  openGraph: {
+    title: 'Text Diff Checker — OnlineTools',
+    description: 'Compare two texts and see the differences highlighted. Perfect for code reviews, document comparisons, and content analysis.',
+    url: 'https://thetool.guru/tools/text-diff',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Text Diff Checker — OnlineTools - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Text Diff Checker — OnlineTools',
+    description: 'Compare two texts and see the differences highlighted. Perfect for code reviews, document comparisons, and content analysis.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const TextDiffPage = () => {
   return (
@@ -80,6 +105,8 @@ const TextDiffPage = () => {
             ]}
           />
         </div>
+      <RelatedToolsSection toolId="text-diff" />
+
       </Body>
       <Footer />
     </div>

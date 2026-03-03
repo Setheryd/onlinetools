@@ -4,16 +4,39 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import ImageResizerTool from '../../components/tools/ImageResizerTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Image Resizer — The Tool Guru',
   description: 'Resize images to exact dimensions with high quality output.',
   keywords: ['image resizer', 'resize image', 'crop', 'scale', 'webp', 'avif', 'jpeg', 'png'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/image-resizer',
+  },
   openGraph: {
     title: 'Image Resizer — The Tool Guru',
-    description: 'High-quality image resizing and conversion.',
+    description: 'Resize images to exact dimensions with high quality output.',
+    url: 'https://thetool.guru/tools/image-resizer',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Image Resizer — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Image Resizer — The Tool Guru',
+    description: 'Resize images to exact dimensions with high quality output.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const Page = () => (
   <div className="min-h-screen bg-gray-50">
@@ -82,6 +105,8 @@ const Page = () => (
           ]}
         />
       </div>
+    <RelatedToolsSection toolId="image-resizer" />
+
     </Body>
     <Footer />
   </div>

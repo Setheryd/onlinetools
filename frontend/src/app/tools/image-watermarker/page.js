@@ -4,16 +4,39 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import ImageWatermarkerTool from '../../components/tools/ImageWatermarkerTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Image Watermarker — The Tool Guru',
   description: 'Add text watermarks to your images with adjustable position and style.',
   keywords: ['image watermark', 'watermark', 'text watermark', 'branding', 'copyright'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/image-watermarker',
+  },
   openGraph: {
     title: 'Image Watermarker — The Tool Guru',
-    description: 'Add watermarks to images quickly.',
+    description: 'Add text watermarks to your images with adjustable position and style.',
+    url: 'https://thetool.guru/tools/image-watermarker',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Image Watermarker — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Image Watermarker — The Tool Guru',
+    description: 'Add text watermarks to your images with adjustable position and style.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const Page = () => (
   <div className="min-h-screen bg-gray-50">
@@ -82,6 +105,8 @@ const Page = () => (
           ]}
         />
       </div>
+    <RelatedToolsSection toolId="image-watermarker" />
+
     </Body>
     <Footer />
   </div>

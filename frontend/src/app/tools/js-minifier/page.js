@@ -5,17 +5,40 @@ import Body from '../../components/layout/Body';
 import JsMinifierTool from '../../components/tools/JsMinifierTool';
 import ToolBlogPost from '../../components/blog/ToolBlogPost';
 import ToolContentSection from '../../components/tools/ToolContentSection';
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 import { blogService } from '../../utils/blogService';
-
 export const metadata = {
   title: 'JavaScript Minifier — The Tool Guru',
   description: 'Minify JavaScript by removing comments and whitespace in your browser.',
   keywords: ['js minifier', 'minify javascript', 'compress js'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/js-minifier',
+  },
   openGraph: {
     title: 'JavaScript Minifier — The Tool Guru',
-    description: 'Minify JS instantly in your browser.',
+    description: 'Minify JavaScript by removing comments and whitespace in your browser.',
+    url: 'https://thetool.guru/tools/js-minifier',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'JavaScript Minifier — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'JavaScript Minifier — The Tool Guru',
+    description: 'Minify JavaScript by removing comments and whitespace in your browser.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const JsMinifierPage = async () => {
   // Get the JavaScript minification blog post from the service
@@ -89,22 +112,24 @@ const JsMinifierPage = async () => {
           />
         </div>
         
-        {/* Blog Post Section */}
-        <div className="max-w-4xl mx-auto mt-16 px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Learn More About JavaScript Minification
-            </h2>
-            <p className="text-lg text-gray-600">
-              Master JavaScript minification techniques to optimize your code for production
-            </p>
+        {jsMinificationBlogPost && (
+          <div className="max-w-4xl mx-auto mt-16 px-4">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Learn More About JavaScript Minification
+              </h2>
+              <p className="text-lg text-gray-600">
+                Master JavaScript minification techniques to optimize your code for production
+              </p>
+            </div>
+            <ToolBlogPost
+              post={jsMinificationBlogPost}
+              toolPath="/tools/js-minifier"
+            />
           </div>
-          
-          <ToolBlogPost 
-            post={jsMinificationBlogPost} 
-            toolPath="/tools/js-minifier"
-          />
-        </div>
+        )}
+      <RelatedToolsSection toolId="js-minifier" />
+
       </Body>
       <Footer />
     </div>

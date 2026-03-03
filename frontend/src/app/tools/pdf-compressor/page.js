@@ -4,7 +4,7 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import PdfCompressorTool from '../../components/tools/PdfCompressorTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'PDF Compressor - Compress PDF Files to Reduce File Size',
   description: 'Compress PDF files to reduce file size while maintaining quality. Optimize images, remove metadata, and compress text for smaller file sizes.',
@@ -106,6 +106,8 @@ const PdfCompressorPage = () => {
             ]}
           />
         </div>
+      <RelatedToolsSection toolId="pdf-compressor" />
+
       </Body>
       <Footer />
     </div>

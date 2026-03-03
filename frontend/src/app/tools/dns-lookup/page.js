@@ -4,13 +4,31 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import DnsLookupTool from '../../components/tools/DnsLookupTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'DNS Lookup — The Tool Guru',
   description: 'Resolve DNS records (A, AAAA, CNAME, MX, NS, TXT, SOA, SRV, PTR) for any domain.',
+  alternates: {
+    canonical: 'https://thetool.guru/tools/dns-lookup',
+  },
   openGraph: {
     title: 'DNS Lookup — The Tool Guru',
     description: 'Resolve DNS records (A, AAAA, CNAME, MX, NS, TXT, SOA, SRV, PTR) for any domain.',
+    url: 'https://thetool.guru/tools/dns-lookup',
+    siteName: 'The Tool Guru',
+    images: [
+      { url: '/Brand_Assets/Logo.webp', width: 512, height: 512, alt: 'DNS Lookup - The Tool Guru' },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'DNS Lookup — The Tool Guru',
+    description: 'Resolve DNS records (A, AAAA, CNAME, MX, NS, TXT, SOA, SRV, PTR) for any domain.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
   },
 }
 
@@ -81,6 +99,8 @@ const Page = () => (
           ]}
         />
       </div>
+    <RelatedToolsSection toolId="dns-lookup" />
+
     </Body>
     <Footer />
   </div>

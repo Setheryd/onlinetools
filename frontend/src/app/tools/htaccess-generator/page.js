@@ -4,16 +4,39 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import HtaccessGeneratorTool from '../../components/tools/HtaccessGeneratorTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: '.htaccess Generator — The Tool Guru',
   description: 'Generate .htaccess rules for Apache (HTTPS, host redirects, caching).',
   keywords: ['htaccess', 'apache', 'generator', 'redirects', 'rewrite'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/htaccess-generator',
+  },
   openGraph: {
     title: '.htaccess Generator — The Tool Guru',
-    description: 'Create .htaccess snippets easily.',
+    description: 'Generate .htaccess rules for Apache (HTTPS, host redirects, caching).',
+    url: 'https://thetool.guru/tools/htaccess-generator',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: '.htaccess Generator — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: '.htaccess Generator — The Tool Guru',
+    description: 'Generate .htaccess rules for Apache (HTTPS, host redirects, caching).',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const HtaccessGeneratorPage = () => (
   <div className="min-h-screen bg-gray-50">
@@ -83,6 +106,8 @@ const HtaccessGeneratorPage = () => (
           ]}
         />
       </div>
+    <RelatedToolsSection toolId="htaccess-generator" />
+
     </Body>
     <Footer />
   </div>

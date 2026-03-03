@@ -4,16 +4,39 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import CronJobGeneratorTool from '../../components/tools/CronJobGeneratorTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Cron Job Generator — The Tool Guru',
   description: 'Create cron expressions with presets and human-readable summaries.',
   keywords: ['cron', 'cronjob', 'schedule', 'generator'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/cron-job-generator',
+  },
   openGraph: {
     title: 'Cron Job Generator — The Tool Guru',
-    description: 'Build cron expressions easily.',
+    description: 'Create cron expressions with presets and human-readable summaries.',
+    url: 'https://thetool.guru/tools/cron-job-generator',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Cron Job Generator — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Cron Job Generator — The Tool Guru',
+    description: 'Create cron expressions with presets and human-readable summaries.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const CronJobGeneratorPage = () => (
   <div className="min-h-screen bg-gray-50">
@@ -83,6 +106,8 @@ const CronJobGeneratorPage = () => (
           ]}
         />
       </div>
+    <RelatedToolsSection toolId="cron-job-generator" />
+
     </Body>
     <Footer />
   </div>

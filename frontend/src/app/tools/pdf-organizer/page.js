@@ -4,7 +4,7 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import PdfOrganizerTool from '../../components/tools/PdfOrganizerTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'PDF Organizer - Organize PDF Files with Drag & Drop',
   description: 'Organize PDF files with drag & drop interface. Reorder, merge, and manage multiple PDFs.',
@@ -106,6 +106,8 @@ const PdfOrganizerPage = () => {
             ]}
           />
         </div>
+      <RelatedToolsSection toolId="pdf-organizer" />
+
       </Body>
       <Footer />
     </div>

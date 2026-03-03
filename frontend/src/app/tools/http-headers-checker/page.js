@@ -4,13 +4,36 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import HttpHeadersTool from '../../components/tools/HttpHeadersTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'HTTP Headers Checker — The Tool Guru',
   description: 'Inspect HTTP response headers and the full redirect chain for any URL.',
+  alternates: {
+    canonical: 'https://thetool.guru/tools/http-headers-checker',
+  },
   openGraph: {
     title: 'HTTP Headers Checker — The Tool Guru',
     description: 'Inspect HTTP response headers and the full redirect chain for any URL.',
+    url: 'https://thetool.guru/tools/http-headers-checker',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'HTTP Headers Checker - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HTTP Headers Checker — The Tool Guru',
+    description: 'Inspect HTTP response headers and the full redirect chain for any URL.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
   },
 }
 
@@ -82,6 +105,8 @@ const Page = () => (
           ]}
         />
       </div>
+    <RelatedToolsSection toolId="http-headers-checker" />
+
     </Body>
     <Footer />
   </div>

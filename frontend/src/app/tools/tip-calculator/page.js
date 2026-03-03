@@ -4,16 +4,39 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import TipCalculatorTool from '../../components/tools/TipCalculatorTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Tip Calculator — The Tool Guru',
   description: 'Compute tip amounts, split bills easily, and apply rounding options.',
   keywords: ['tip calculator', 'bill split', 'gratuity', 'restaurant'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/tip-calculator',
+  },
   openGraph: {
     title: 'Tip Calculator — The Tool Guru',
-    description: 'Tip and bill-splitting calculator with rounding.',
+    description: 'Compute tip amounts, split bills easily, and apply rounding options.',
+    url: 'https://thetool.guru/tools/tip-calculator',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Tip Calculator — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Tip Calculator — The Tool Guru',
+    description: 'Compute tip amounts, split bills easily, and apply rounding options.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const TipCalculatorPage = () => {
   return (
@@ -84,6 +107,8 @@ const TipCalculatorPage = () => {
             ]}
           />
         </div>
+      <RelatedToolsSection toolId="tip-calculator" />
+
       </Body>
       <Footer />
     </div>

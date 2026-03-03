@@ -6,8 +6,8 @@ import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
 import Input from '../components/ui/Input';
 
-const ToolsPageClient = ({ builtTools, unbuiltTools, categories }) => {
-  const [searchQuery, setSearchQuery] = useState('');
+const ToolsPageClient = ({ builtTools, unbuiltTools, categories, initialSearch = '' }) => {
+  const [searchQuery, setSearchQuery] = useState(initialSearch);
   const [selectedCategories, setSelectedCategories] = useState([]);
 
   const matchesFilters = (tool) => {

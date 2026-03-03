@@ -4,16 +4,39 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import ImageCropperTool from '../../components/tools/ImageCropperTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Image Cropper — The Tool Guru',
   description: 'Crop images to precise coordinates and sizes.',
   keywords: ['image cropper', 'crop image', 'trim', 'cut', 'resize'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/image-cropper',
+  },
   openGraph: {
     title: 'Image Cropper — The Tool Guru',
-    description: 'Crop images precisely and quickly.',
+    description: 'Crop images to precise coordinates and sizes.',
+    url: 'https://thetool.guru/tools/image-cropper',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Image Cropper — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Image Cropper — The Tool Guru',
+    description: 'Crop images to precise coordinates and sizes.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const Page = () => (
   <div className="min-h-screen bg-gray-50">
@@ -82,6 +105,8 @@ const Page = () => (
           ]}
         />
       </div>
+    <RelatedToolsSection toolId="image-cropper" />
+
     </Body>
     <Footer />
   </div>

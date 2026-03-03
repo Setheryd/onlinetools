@@ -4,13 +4,31 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import SslCheckerTool from '../../components/tools/SslCheckerTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'SSL Certificate Checker — The Tool Guru',
   description: 'Check SSL certificate details, SANs, issuer, and expiry for any host.',
+  alternates: {
+    canonical: 'https://thetool.guru/tools/ssl-checker',
+  },
   openGraph: {
     title: 'SSL Certificate Checker — The Tool Guru',
     description: 'Check SSL certificate details, SANs, issuer, and expiry for any host.',
+    url: 'https://thetool.guru/tools/ssl-checker',
+    siteName: 'The Tool Guru',
+    images: [
+      { url: '/Brand_Assets/Logo.webp', width: 512, height: 512, alt: 'SSL Certificate Checker - The Tool Guru' },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'SSL Certificate Checker — The Tool Guru',
+    description: 'Check SSL certificate details, SANs, issuer, and expiry for any host.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
   },
 }
 
@@ -82,6 +100,8 @@ const Page = () => (
           ]}
         />
       </div>
+    <RelatedToolsSection toolId="ssl-checker" />
+
     </Body>
     <Footer />
   </div>

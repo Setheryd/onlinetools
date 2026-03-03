@@ -25,16 +25,19 @@ export default function NotFound() {
         </div>
         
         <div className="space-y-4">
-          <Link href="/">
+          <Link href="/tools">
             <Button className="w-full">
+              Browse all tools
+            </Button>
+          </Link>
+          <Link href="/">
+            <Button variant="outline" className="w-full">
               Go to Homepage
             </Button>
           </Link>
-          
           <div className="text-sm text-gray-500">
-            Or try one of our popular tools:
+            Or try a popular tool:
           </div>
-          
           <div className="grid grid-cols-1 gap-2">
             <Link href="/tools/base64">
               <Button variant="outline" className="w-full">

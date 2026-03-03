@@ -41,9 +41,11 @@ export const metadata = {
   },
 };
 
-const ToolsIndexPage = () => {
+const ToolsIndexPage = async ({ searchParams }) => {
   const builtTools = getBuiltTools();
   const unbuiltTools = getUnbuiltTools();
+  const params = await searchParams;
+  const initialSearch = typeof params?.search === 'string' ? params.search : '';
 
   return (
     <div className="min-h-screen bg-gray-50">
@@ -52,6 +54,7 @@ const ToolsIndexPage = () => {
         builtTools={builtTools}
         unbuiltTools={unbuiltTools}
         categories={categories}
+        initialSearch={initialSearch}
       />
       <Footer />
     </div>

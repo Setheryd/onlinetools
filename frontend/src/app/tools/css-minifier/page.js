@@ -4,16 +4,39 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import CssMinifierTool from '../../components/tools/CssMinifierTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'CSS Minifier — The Tool Guru',
   description: 'Minify CSS by removing comments and whitespace. Fast and privacy-friendly.',
   keywords: ['css minifier', 'minify css', 'compress css'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/css-minifier',
+  },
   openGraph: {
     title: 'CSS Minifier — The Tool Guru',
-    description: 'Minify CSS instantly in your browser.',
+    description: 'Minify CSS by removing comments and whitespace. Fast and privacy-friendly.',
+    url: 'https://thetool.guru/tools/css-minifier',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'CSS Minifier — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'CSS Minifier — The Tool Guru',
+    description: 'Minify CSS by removing comments and whitespace. Fast and privacy-friendly.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const CssMinifierPage = () => (
   <div className="min-h-screen bg-gray-50">
@@ -82,6 +105,8 @@ const CssMinifierPage = () => (
           ]}
         />
       </div>
+    <RelatedToolsSection toolId="css-minifier" />
+
     </Body>
     <Footer />
   </div>

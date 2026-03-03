@@ -4,16 +4,39 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import XmlFormatterTool from '../../components/tools/XmlFormatterTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'XML Formatter — The Tool Guru',
   description: 'Format and validate XML documents in your browser.',
   keywords: ['xml formatter', 'format xml', 'pretty print xml'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/xml-formatter',
+  },
   openGraph: {
     title: 'XML Formatter — The Tool Guru',
-    description: 'Validate and pretty-print XML instantly.',
+    description: 'Format and validate XML documents in your browser.',
+    url: 'https://thetool.guru/tools/xml-formatter',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'XML Formatter — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'XML Formatter — The Tool Guru',
+    description: 'Format and validate XML documents in your browser.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const XmlFormatterPage = () => (
   <div className="min-h-screen bg-gray-50">
@@ -82,6 +105,8 @@ const XmlFormatterPage = () => (
           ]}
         />
       </div>
+    <RelatedToolsSection toolId="xml-formatter" />
+
     </Body>
     <Footer />
   </div>

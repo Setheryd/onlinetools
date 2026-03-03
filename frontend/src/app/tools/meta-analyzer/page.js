@@ -4,13 +4,36 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import MetaAnalyzerTool from '../../components/tools/MetaAnalyzerTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Meta Tag & Open Graph Analyzer — The Tool Guru',
   description: 'Audit meta tags, Open Graph, Twitter card, and canonical link for any URL.',
+  alternates: {
+    canonical: 'https://thetool.guru/tools/meta-analyzer',
+  },
   openGraph: {
     title: 'Meta Tag & Open Graph Analyzer — The Tool Guru',
     description: 'Audit meta tags, Open Graph, Twitter card, and canonical link for any URL.',
+    url: 'https://thetool.guru/tools/meta-analyzer',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Meta Tag & Open Graph Analyzer - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Meta Tag & Open Graph Analyzer — The Tool Guru',
+    description: 'Audit meta tags, Open Graph, Twitter card, and canonical link for any URL.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
   },
 }
 
@@ -82,6 +105,8 @@ const Page = () => (
           ]}
         />
       </div>
+    <RelatedToolsSection toolId="meta-analyzer" />
+
     </Body>
     <Footer />
   </div>

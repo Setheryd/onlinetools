@@ -1,4 +1,4 @@
-import { getAllToolsForSitemap, tools } from '../lib/tools'
+import { getBuiltTools } from '../lib/tools'
 
 export default function sitemap() {
   const baseUrl = 'https://thetool.guru'
@@ -64,14 +64,14 @@ export default function sitemap() {
     },
   ]
   
-  // TIER 4: Featured tools only (reduce crawl burden)
-  const featuredTools = getAllToolsForSitemap().filter(tool => {
-    // Only include tools with priority >= 0.7 (high-value tools)
-    const toolId = tool.url.split('/').pop()
-    const toolData = tools.find(t => t.id === toolId)
-    return toolData && (toolData.priority >= 0.7 || toolData.featured)
-  })
-  
+  // TIER 4: All built tools (SEO: include every live tool)
+  const builtTools = getBuiltTools().map(tool => ({
+    url: `${baseUrl}${tool.path}`,
+    lastModified: currentDate,
+    changeFrequency: 'weekly',
+    priority: tool.priority ?? 0.5,
+  }))
+
   // TIER 5: Utility pages
   const utilityPages = [
     {
@@ -95,5 +95,5 @@ export default function sitemap() {
   ]
   
   // Combine all pages in priority order
-  return [...criticalPages, ...importantPages, ...blogPages, ...featuredTools, ...utilityPages]
+  return [...criticalPages, ...importantPages, ...blogPages, ...builtTools, ...utilityPages]
 }

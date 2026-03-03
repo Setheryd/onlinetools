@@ -9,6 +9,7 @@ import Button from '../../components/ui/Button';
 import Input from '../../components/ui/Input';
 import Badge from '../../components/ui/Badge';
 import ToolContentSection from '../../components/tools/ToolContentSection';
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 
 const TextAnalyzer = () => {
   const [text, setText] = useState('');
@@ -643,6 +644,8 @@ const TextAnalyzer = () => {
             ]}
           />
         </div>
+      <RelatedToolsSection toolId="text-analyzer" />
+
       </Body>
       <Footer />
     </div>

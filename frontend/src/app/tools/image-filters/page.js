@@ -4,16 +4,39 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import ImageFiltersTool from '../../components/tools/ImageFiltersTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Image Filters — The Tool Guru',
   description: 'Apply filters and adjustments like blur, sharpen, brightness, saturation, and more.',
   keywords: ['image filters', 'effects', 'grayscale', 'invert', 'blur', 'sharpen', 'tint'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/image-filters',
+  },
   openGraph: {
     title: 'Image Filters — The Tool Guru',
-    description: 'Enhance images with filters.',
+    description: 'Apply filters and adjustments like blur, sharpen, brightness, saturation, and more.',
+    url: 'https://thetool.guru/tools/image-filters',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Image Filters — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Image Filters — The Tool Guru',
+    description: 'Apply filters and adjustments like blur, sharpen, brightness, saturation, and more.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const Page = () => (
   <div className="min-h-screen bg-gray-50">
@@ -82,6 +105,8 @@ const Page = () => (
           ]}
         />
       </div>
+    <RelatedToolsSection toolId="image-filters" />
+
     </Body>
     <Footer />
   </div>

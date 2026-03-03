@@ -5,8 +5,8 @@ import Body from '../../components/layout/Body';
 import PasswordGenerator from '../../components/tools/PasswordGenerator';
 import ToolBlogPost from '../../components/blog/ToolBlogPost';
 import ToolContentSection from '../../components/tools/ToolContentSection';
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 import { blogService } from '../../utils/blogService';
-
 export const metadata = {
   title: 'Password Generator — The Tool Guru',
   description: 'Generate strong, secure passwords with customizable options. Create random passwords with letters, numbers, and special characters.',
@@ -113,22 +113,24 @@ const PasswordGeneratorPage = async () => {
           />
         </div>
         
-        {/* Blog Post Section */}
-        <div className="max-w-4xl mx-auto mt-16 px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Learn More About Password Security
-            </h2>
-            <p className="text-lg text-gray-600">
-              Discover why strong passwords are essential and how to protect your online accounts
-            </p>
+        {passwordBlogPost && (
+          <div className="max-w-4xl mx-auto mt-16 px-4">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Learn More About Password Security
+              </h2>
+              <p className="text-lg text-gray-600">
+                Discover why strong passwords are essential and how to protect your online accounts
+              </p>
+            </div>
+            <ToolBlogPost 
+              post={passwordBlogPost} 
+              toolPath="/tools/password-generator"
+            />
           </div>
-          
-          <ToolBlogPost 
-            post={passwordBlogPost} 
-            toolPath="/tools/password-generator"
-          />
-        </div>
+        )}
+      <RelatedToolsSection toolId="password-generator" />
+
       </Body>
       <Footer />
     </div>

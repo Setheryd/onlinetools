@@ -4,16 +4,39 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import MortgageCalculatorTool from '../../components/tools/MortgageCalculatorTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Mortgage Calculator — The Tool Guru',
   description: 'Calculate monthly mortgage payments and view an amortization schedule with optional extra payments.',
   keywords: ['mortgage calculator', 'loan', 'amortization', 'payment', 'interest'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/mortgage-calculator',
+  },
   openGraph: {
     title: 'Mortgage Calculator — The Tool Guru',
-    description: 'Mortgage payment and amortization schedule.',
+    description: 'Calculate monthly mortgage payments and view an amortization schedule with optional extra payments.',
+    url: 'https://thetool.guru/tools/mortgage-calculator',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Mortgage Calculator — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Mortgage Calculator — The Tool Guru',
+    description: 'Calculate monthly mortgage payments and view an amortization schedule with optional extra payments.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const MortgageCalculatorPage = () => {
   return (
@@ -84,6 +107,8 @@ const MortgageCalculatorPage = () => {
             ]}
           />
         </div>
+      <RelatedToolsSection toolId="mortgage-calculator" />
+
       </Body>
       <Footer />
     </div>

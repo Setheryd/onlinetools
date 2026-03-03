@@ -4,14 +4,37 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import CoinFlipperTool from '../../components/tools/CoinFlipperTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Coin Flipper — The Tool Guru',
   description: 'Flip a virtual coin with history and simple stats.',
   keywords: ['coin', 'flip', 'heads', 'tails', 'random', 'the tool guru'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/coin-flipper',
+  },
   openGraph: {
     title: 'Coin Flipper — The Tool Guru',
     description: 'Flip a virtual coin with history and simple stats.',
+    url: 'https://thetool.guru/tools/coin-flipper',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Coin Flipper - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Coin Flipper — The Tool Guru',
+    description: 'Flip a virtual coin with history and simple stats.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
   },
 }
 
@@ -83,6 +106,7 @@ const CoinFlipperPage = () => {
               }
             ]}
           />
+          <RelatedToolsSection toolId="coin-flipper" />
         </div>
       </Body>
       <Footer />

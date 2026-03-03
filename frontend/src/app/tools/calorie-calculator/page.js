@@ -4,16 +4,39 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import CalorieCalculatorTool from '../../components/tools/CalorieCalculatorTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Calorie Calculator — The Tool Guru',
   description: 'Estimate daily calories (BMR/TDEE) with activity levels.',
   keywords: ['calorie calculator', 'BMR', 'TDEE', 'nutrition'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/calorie-calculator',
+  },
   openGraph: {
     title: 'Calorie Calculator — The Tool Guru',
-    description: 'Daily calorie estimator (BMR/TDEE).',
+    description: 'Estimate daily calories (BMR/TDEE) with activity levels.',
+    url: 'https://thetool.guru/tools/calorie-calculator',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Calorie Calculator — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Calorie Calculator — The Tool Guru',
+    description: 'Estimate daily calories (BMR/TDEE) with activity levels.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const CalorieCalculatorPage = () => (
   <div className="min-h-screen bg-gray-50">
@@ -83,6 +106,8 @@ const CalorieCalculatorPage = () => (
           ]}
         />
       </div>
+    <RelatedToolsSection toolId="calorie-calculator" />
+
     </Body>
     <Footer />
   </div>

@@ -8,6 +8,7 @@ import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import Badge from '../../components/ui/Badge';
 import ToolContentSection from '../../components/tools/ToolContentSection';
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 
 const RandomNameGenerator = () => {
   const [generatedNames, setGeneratedNames] = useState([]);
@@ -495,6 +496,8 @@ const RandomNameGenerator = () => {
             ]}
           />
         </div>
+      <RelatedToolsSection toolId="random-name-generator" />
+
       </Body>
       <Footer />
     </div>

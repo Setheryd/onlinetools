@@ -4,13 +4,31 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import RedirectCheckerTool from '../../components/tools/RedirectCheckerTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Redirect Checker — The Tool Guru',
   description: 'Follow and analyze URL redirects and chains with status codes and headers.',
+  alternates: {
+    canonical: 'https://thetool.guru/tools/redirect-checker',
+  },
   openGraph: {
     title: 'Redirect Checker — The Tool Guru',
     description: 'Follow and analyze URL redirects and chains with status codes and headers.',
+    url: 'https://thetool.guru/tools/redirect-checker',
+    siteName: 'The Tool Guru',
+    images: [
+      { url: '/Brand_Assets/Logo.webp', width: 512, height: 512, alt: 'Redirect Checker - The Tool Guru' },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Redirect Checker — The Tool Guru',
+    description: 'Follow and analyze URL redirects and chains with status codes and headers.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
   },
 }
 
@@ -82,6 +100,8 @@ const Page = () => (
           ]}
         />
       </div>
+    <RelatedToolsSection toolId="redirect-checker" />
+
     </Body>
     <Footer />
   </div>

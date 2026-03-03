@@ -4,16 +4,39 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import AgeCalculatorTool from '../../components/tools/AgeCalculatorTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Age Calculator — The Tool Guru',
   description: 'Calculate exact age and time to the next birthday.',
   keywords: ['age calculator', 'date', 'birthday'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/age-calculator',
+  },
   openGraph: {
     title: 'Age Calculator — The Tool Guru',
-    description: 'Exact age and next birthday timing.',
+    description: 'Calculate exact age and time to the next birthday.',
+    url: 'https://thetool.guru/tools/age-calculator',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Age Calculator — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Age Calculator — The Tool Guru',
+    description: 'Calculate exact age and time to the next birthday.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const AgeCalculatorPage = () => (
   <div className="min-h-screen bg-gray-50">
@@ -82,6 +105,8 @@ const AgeCalculatorPage = () => (
           ]}
         />
       </div>
+    <RelatedToolsSection toolId="age-calculator" />
+
     </Body>
     <Footer />
   </div>

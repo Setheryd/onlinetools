@@ -4,7 +4,7 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import PdfSplitterTool from '../../components/tools/PdfSplitterTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'PDF Splitter - Split PDF Files into Multiple Documents',
   description: 'Split PDF files into multiple smaller documents by page ranges, every N pages, or custom page selection.',
@@ -105,6 +105,8 @@ const PdfSplitterPage = () => {
             ]}
           />
         </div>
+      <RelatedToolsSection toolId="pdf-splitter" />
+
       </Body>
       <Footer />
     </div>

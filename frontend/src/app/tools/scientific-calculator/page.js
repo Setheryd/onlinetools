@@ -5,17 +5,40 @@ import Body from '../../components/layout/Body';
 import ScientificCalculatorTool from '../../components/tools/ScientificCalculatorTool';
 import ToolBlogPost from '../../components/blog/ToolBlogPost';
 import ToolContentSection from '../../components/tools/ToolContentSection';
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 import { blogService } from '../../utils/blogService';
-
 export const metadata = {
   title: 'Scientific Calculator — The Tool Guru',
   description: 'An advanced scientific calculator with history, variables, DEG/RAD, and graphing.',
   keywords: ['scientific calculator', 'graphing calculator', 'math', 'trigonometry', 'algebra'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/scientific-calculator',
+  },
   openGraph: {
     title: 'Scientific Calculator — The Tool Guru',
-    description: 'Powerful calculator for complex math with graphing support.',
+    description: 'An advanced scientific calculator with history, variables, DEG/RAD, and graphing.',
+    url: 'https://thetool.guru/tools/scientific-calculator',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Scientific Calculator — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Scientific Calculator — The Tool Guru',
+    description: 'An advanced scientific calculator with history, variables, DEG/RAD, and graphing.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const ScientificCalculatorPage = async () => {
   // Get the scientific calculator blog post from the service
@@ -90,22 +113,24 @@ const ScientificCalculatorPage = async () => {
           />
         </div>
         
-        {/* Blog Post Section */}
-        <div className="max-w-4xl mx-auto mt-16 px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Learn More About Scientific Calculators
-            </h2>
-            <p className="text-lg text-gray-600">
-              Discover the power of advanced mathematical functions and graphing capabilities
-            </p>
+        {scientificCalculatorBlogPost && (
+          <div className="max-w-4xl mx-auto mt-16 px-4">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Learn More About Scientific Calculators
+              </h2>
+              <p className="text-lg text-gray-600">
+                Discover the power of advanced mathematical functions and graphing capabilities
+              </p>
+            </div>
+            <ToolBlogPost
+              post={scientificCalculatorBlogPost}
+              toolPath="/tools/scientific-calculator"
+            />
           </div>
-          
-          <ToolBlogPost 
-            post={scientificCalculatorBlogPost} 
-            toolPath="/tools/scientific-calculator"
-          />
-        </div>
+        )}
+      <RelatedToolsSection toolId="scientific-calculator" />
+
       </Body>
       <Footer />
     </div>

@@ -137,19 +137,19 @@ const Header = () => {
                 closeTimerRef.current = setTimeout(() => setIsToolsOpen(false), 200);
               }}
             >
-              <button
-                className={`px-3 py-2 text-sm font-medium transition-all duration-200 rounded-md ${
+              <Link
+                href="/tools"
+                className={`px-3 py-2 text-sm font-medium transition-all duration-200 rounded-md inline-flex items-center ${
                   isToolsOpen ? 'text-blue-600 bg-blue-50' : 'text-gray-700 hover:text-blue-600 hover:bg-gray-50'
                 }`}
                 aria-haspopup="true"
                 aria-expanded={isToolsOpen}
-                onClick={() => window.open('https://thetool.guru/tools', '_blank')}
               >
                 Tools
                 <span className={`ml-1 inline-block transition-transform ${isToolsOpen ? 'rotate-180' : ''}`}>
                   ▾
                 </span>
-              </button>
+              </Link>
 
               {isToolsOpen && (
                 <div className="dropdown-menu absolute left-1/2 top-full -translate-x-1/2 transform w-[min(100vw-1rem,80rem)] max-w-[calc(100vw-1rem)] max-h-[70vh] overflow-auto bg-white border border-gray-200 rounded-lg shadow-xl z-50">

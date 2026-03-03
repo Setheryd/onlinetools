@@ -5,17 +5,40 @@ import Body from '../../components/layout/Body';
 import HtmlToPdfTool from '../../components/tools/HtmlToPdfTool';
 import ToolBlogPost from '../../components/blog/ToolBlogPost';
 import ToolContentSection from '../../components/tools/ToolContentSection';
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 import { blogService } from '../../utils/blogService';
-
 export const metadata = {
   title: 'HTML to PDF Converter — The Tool Guru',
   description: 'Convert HTML to PDF with live preview. Perfect for email templates, reports, and documents. Free online HTML to PDF converter.',
   keywords: ['html to pdf', 'html converter', 'pdf generator', 'email template', 'document converter', 'the tool guru'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/html-to-pdf',
+  },
   openGraph: {
     title: 'HTML to PDF Converter — The Tool Guru',
-    description: 'Convert HTML to PDF with live preview. Perfect for email templates, reports, and documents.',
+    description: 'Convert HTML to PDF with live preview. Perfect for email templates, reports, and documents. Free online HTML to PDF converter.',
+    url: 'https://thetool.guru/tools/html-to-pdf',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'HTML to PDF Converter — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'HTML to PDF Converter — The Tool Guru',
+    description: 'Convert HTML to PDF with live preview. Perfect for email templates, reports, and documents. Free online HTML to PDF converter.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const HtmlToPdfPage = async () => {
   // Get the HTML to PDF blog post from the service
@@ -89,22 +112,24 @@ const HtmlToPdfPage = async () => {
           />
         </div>
         
-        {/* Blog Post Section */}
-        <div className="max-w-4xl mx-auto mt-16 px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Learn More About HTML to PDF Conversion
-            </h2>
-            <p className="text-lg text-gray-600">
-              Discover best practices for converting HTML to PDF and creating professional documents
-            </p>
+        {htmlToPdfBlogPost && (
+          <div className="max-w-4xl mx-auto mt-16 px-4">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Learn More About HTML to PDF Conversion
+              </h2>
+              <p className="text-lg text-gray-600">
+                Discover best practices for converting HTML to PDF and creating professional documents
+              </p>
+            </div>
+            <ToolBlogPost
+              post={htmlToPdfBlogPost}
+              toolPath="/tools/html-to-pdf"
+            />
           </div>
-          
-          <ToolBlogPost 
-            post={htmlToPdfBlogPost} 
-            toolPath="/tools/html-to-pdf"
-          />
-        </div>
+        )}
+      <RelatedToolsSection toolId="html-to-pdf" />
+
       </Body>
       <Footer />
     </div>

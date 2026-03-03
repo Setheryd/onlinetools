@@ -4,16 +4,39 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import GradientMakerTool from '../../components/tools/GradientMakerTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Gradient Maker — The Tool Guru',
   description: 'Create beautiful CSS gradients with our comprehensive gradient maker. Generate linear, radial, conic gradients and export as PNG, SVG, JPEG or CSS.',
   keywords: ['gradient maker', 'css gradient', 'linear gradient', 'radial gradient', 'conic gradient', 'color gradient', 'background generator', 'the tool guru'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/gradient-generator',
+  },
   openGraph: {
     title: 'Gradient Maker — The Tool Guru',
-    description: 'Create beautiful CSS gradients with our comprehensive gradient maker.',
+    description: 'Create beautiful CSS gradients with our comprehensive gradient maker. Generate linear, radial, conic gradients and export as PNG, SVG, JPEG or CSS.',
+    url: 'https://thetool.guru/tools/gradient-generator',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Gradient Maker — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Gradient Maker — The Tool Guru',
+    description: 'Create beautiful CSS gradients with our comprehensive gradient maker. Generate linear, radial, conic gradients and export as PNG, SVG, JPEG or CSS.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const GradientMakerPage = () => {
   return (
@@ -84,6 +107,8 @@ const GradientMakerPage = () => {
             ]}
           />
         </div>
+      <RelatedToolsSection toolId="gradient-generator" />
+
       </Body>
       <Footer />
     </div>

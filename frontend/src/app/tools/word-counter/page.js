@@ -4,13 +4,38 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import WordCounterTool from '../../components/tools/WordCounterTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Word Counter — OnlineTools',
-  description:
-    'Count words, characters, sentences, and paragraphs in your text. Get detailed statistics and analysis for writing projects.',
-  keywords: ['word counter', 'character count', 'text analysis', 'writing', 'statistics', 'content']
-};
+  description: 'Count words, characters, sentences, and paragraphs in your text. Get detailed statistics and analysis for writing projects.',
+  alternates: {
+    canonical: 'https://thetool.guru/tools/word-counter',
+  },
+  openGraph: {
+    title: 'Word Counter — OnlineTools',
+    description: 'Count words, characters, sentences, and paragraphs in your text. Get detailed statistics and analysis for writing projects.',
+    url: 'https://thetool.guru/tools/word-counter',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Word Counter — OnlineTools - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Word Counter — OnlineTools',
+    description: 'Count words, characters, sentences, and paragraphs in your text. Get detailed statistics and analysis for writing projects.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const WordCounterPage = () => {
   return (
@@ -79,6 +104,8 @@ const WordCounterPage = () => {
             ]}
           />
         </div>
+      <RelatedToolsSection toolId="word-counter" />
+
       </Body>
       <Footer />
     </div>

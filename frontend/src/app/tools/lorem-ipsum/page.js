@@ -4,13 +4,38 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import LoremIpsumTool from '../../components/tools/LoremIpsumTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Lorem Ipsum Generator — OnlineTools',
-  description:
-    'Generate Lorem Ipsum placeholder text with customizable paragraphs, sentences, and words. Perfect for design mockups and content planning.',
-  keywords: ['lorem ipsum', 'placeholder text', 'generator', 'design', 'mockup', 'content']
-};
+  description: 'Generate Lorem Ipsum placeholder text with customizable paragraphs, sentences, and words. Perfect for design mockups and content planning.',
+  alternates: {
+    canonical: 'https://thetool.guru/tools/lorem-ipsum',
+  },
+  openGraph: {
+    title: 'Lorem Ipsum Generator — OnlineTools',
+    description: 'Generate Lorem Ipsum placeholder text with customizable paragraphs, sentences, and words. Perfect for design mockups and content planning.',
+    url: 'https://thetool.guru/tools/lorem-ipsum',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Lorem Ipsum Generator — OnlineTools - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Lorem Ipsum Generator — OnlineTools',
+    description: 'Generate Lorem Ipsum placeholder text with customizable paragraphs, sentences, and words. Perfect for design mockups and content planning.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const LoremIpsumPage = () => {
   return (
@@ -81,6 +106,8 @@ const LoremIpsumPage = () => {
             ]}
           />
         </div>
+      <RelatedToolsSection toolId="lorem-ipsum" />
+
       </Body>
       <Footer />
     </div>

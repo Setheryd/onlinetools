@@ -4,7 +4,7 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import ImageToPdfTool from '../../components/tools/ImageToPdfTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Image to PDF Converter - Convert Images to PDF Documents',
   description: 'Convert images to PDF documents with customizable page settings, layout options, and batch processing. Supports JPG, PNG, WebP, GIF, and BMP formats.',
@@ -106,6 +106,8 @@ const ImageToPdfPage = () => {
             ]}
           />
         </div>
+      <RelatedToolsSection toolId="image-to-pdf" />
+
       </Body>
       <Footer />
     </>

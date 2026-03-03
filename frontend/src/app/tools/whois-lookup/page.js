@@ -4,13 +4,31 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import WhoisLookupTool from '../../components/tools/WhoisLookupTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'WHOIS Lookup — The Tool Guru',
   description: 'Get domain registration and expiry information via WHOIS.',
+  alternates: {
+    canonical: 'https://thetool.guru/tools/whois-lookup',
+  },
   openGraph: {
     title: 'WHOIS Lookup — The Tool Guru',
     description: 'Get domain registration and expiry information via WHOIS.',
+    url: 'https://thetool.guru/tools/whois-lookup',
+    siteName: 'The Tool Guru',
+    images: [
+      { url: '/Brand_Assets/Logo.webp', width: 512, height: 512, alt: 'WHOIS Lookup - The Tool Guru' },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'WHOIS Lookup — The Tool Guru',
+    description: 'Get domain registration and expiry information via WHOIS.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
   },
 }
 
@@ -81,6 +99,8 @@ const Page = () => (
           ]}
         />
       </div>
+    <RelatedToolsSection toolId="whois-lookup" />
+
     </Body>
     <Footer />
   </div>

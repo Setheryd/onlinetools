@@ -4,16 +4,39 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import ColorConverterTool from '../../components/tools/ColorConverterTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Color Converter — The Tool Guru',
   description: 'Pick a color and convert between HEX, RGB, HSL, HSV, and CMYK. Supports alpha.',
   keywords: ['color converter', 'hex', 'rgb', 'hsl', 'hsv', 'cmyk', 'picker'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/color-converter',
+  },
   openGraph: {
     title: 'Color Converter — The Tool Guru',
-    description: 'Convert colors between popular formats with a modern color picker.',
+    description: 'Pick a color and convert between HEX, RGB, HSL, HSV, and CMYK. Supports alpha.',
+    url: 'https://thetool.guru/tools/color-converter',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Color Converter — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Color Converter — The Tool Guru',
+    description: 'Pick a color and convert between HEX, RGB, HSL, HSV, and CMYK. Supports alpha.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const ColorConverterPage = () => {
   return (
@@ -83,6 +106,8 @@ const ColorConverterPage = () => {
             ]}
           />
         </div>
+      <RelatedToolsSection toolId="color-converter" />
+
       </Body>
       <Footer />
     </div>

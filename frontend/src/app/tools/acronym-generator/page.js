@@ -8,6 +8,7 @@ import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import Badge from '../../components/ui/Badge';
 import ToolContentSection from '../../components/tools/ToolContentSection';
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 
 const AcronymGenerator = () => {
   const [phrase, setPhrase] = useState('');
@@ -677,6 +678,8 @@ const AcronymGenerator = () => {
             ]}
           />
         </div>
+      <RelatedToolsSection toolId="acronym-generator" />
+
       </Body>
       <Footer />
     </div>

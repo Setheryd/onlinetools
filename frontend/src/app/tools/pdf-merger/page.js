@@ -9,6 +9,7 @@ import Body from '../../components/layout/Body';
 import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import ToolContentSection from '../../components/tools/ToolContentSection';
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 import { FiUpload, FiTrash2, FiDownload, FiFile, FiAlertCircle, FiCheckCircle } from 'react-icons/fi';
 
 const PDFMergerPage = () => {
@@ -575,6 +576,8 @@ const PDFMergerPage = () => {
             ]}
           />
         </div>
+      <RelatedToolsSection toolId="pdf-merger" />
+
       </Body>
       <Footer />
     </div>

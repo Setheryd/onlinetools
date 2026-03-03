@@ -4,16 +4,39 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import BmiCalculatorTool from '../../components/tools/BmiCalculatorTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'BMI Calculator — The Tool Guru',
   description: 'Calculate Body Mass Index and view your category.',
   keywords: ['bmi', 'body mass index', 'health', 'weight', 'height'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/bmi-calculator',
+  },
   openGraph: {
     title: 'BMI Calculator — The Tool Guru',
-    description: 'BMI calculator with unit switching.',
+    description: 'Calculate Body Mass Index and view your category.',
+    url: 'https://thetool.guru/tools/bmi-calculator',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'BMI Calculator — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'BMI Calculator — The Tool Guru',
+    description: 'Calculate Body Mass Index and view your category.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const BmiCalculatorPage = () => {
   return (
@@ -83,6 +106,8 @@ const BmiCalculatorPage = () => {
             ]}
           />
         </div>
+      <RelatedToolsSection toolId="bmi-calculator" />
+
       </Body>
       <Footer />
     </div>

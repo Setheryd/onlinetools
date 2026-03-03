@@ -5,17 +5,40 @@ import Body from '../../components/layout/Body';
 import GitignoreGeneratorTool from '../../components/tools/GitignoreGeneratorTool';
 import ToolBlogPost from '../../components/blog/ToolBlogPost';
 import ToolContentSection from '../../components/tools/ToolContentSection';
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 import { blogService } from '../../utils/blogService';
-
 export const metadata = {
   title: '.gitignore Generator — The Tool Guru',
   description: 'Compose .gitignore files from popular templates and custom entries.',
   keywords: ['gitignore', 'generator', 'git', 'templates'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/gitignore-generator',
+  },
   openGraph: {
     title: '.gitignore Generator — The Tool Guru',
-    description: 'Generate .gitignore easily.',
+    description: 'Compose .gitignore files from popular templates and custom entries.',
+    url: 'https://thetool.guru/tools/gitignore-generator',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: '.gitignore Generator — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: '.gitignore Generator — The Tool Guru',
+    description: 'Compose .gitignore files from popular templates and custom entries.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const GitignoreGeneratorPage = async () => {
   // Get the gitignore generator blog post from the service
@@ -90,22 +113,24 @@ const GitignoreGeneratorPage = async () => {
           />
         </div>
         
-        {/* Blog Post Section */}
-        <div className="max-w-4xl mx-auto mt-16 px-4">
-          <div className="text-center mb-8">
-            <h2 className="text-3xl font-bold text-gray-900 mb-4">
-              Learn More About .gitignore Files
-            </h2>
-            <p className="text-lg text-gray-600">
-              Master the art of creating clean, secure, and professional Git repositories
-            </p>
+        {gitignoreBlogPost && (
+          <div className="max-w-4xl mx-auto mt-16 px-4">
+            <div className="text-center mb-8">
+              <h2 className="text-3xl font-bold text-gray-900 mb-4">
+                Learn More About .gitignore Files
+              </h2>
+              <p className="text-lg text-gray-600">
+                Master the art of creating clean, secure, and professional Git repositories
+              </p>
+            </div>
+            <ToolBlogPost
+              post={gitignoreBlogPost}
+              toolPath="/tools/gitignore-generator"
+            />
           </div>
-          
-          <ToolBlogPost 
-            post={gitignoreBlogPost} 
-            toolPath="/tools/gitignore-generator"
-          />
-        </div>
+        )}
+      <RelatedToolsSection toolId="gitignore-generator" />
+
       </Body>
       <Footer />
     </div>

@@ -8,6 +8,7 @@ import Card from '../../components/ui/Card';
 import Button from '../../components/ui/Button';
 import Badge from '../../components/ui/Badge';
 import ToolContentSection from '../../components/tools/ToolContentSection';
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 
 const DecisionMaker = () => {
   const [options, setOptions] = useState(['']);
@@ -649,6 +650,8 @@ const DecisionMaker = () => {
             ]}
           />
         </div>
+      <RelatedToolsSection toolId="decision-maker" />
+
       </Body>
       <Footer />
     </div>

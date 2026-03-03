@@ -4,16 +4,39 @@ import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import SitemapGeneratorTool from '../../components/tools/SitemapGeneratorTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
-
+import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
 export const metadata = {
   title: 'Sitemap Generator — The Tool Guru',
   description: 'Generate XML sitemaps for your site with changefreq and priority.',
   keywords: ['sitemap generator', 'xml sitemap', 'seo'],
+  alternates: {
+    canonical: 'https://thetool.guru/tools/sitemap-generator',
+  },
   openGraph: {
     title: 'Sitemap Generator — The Tool Guru',
-    description: 'Create a sitemap.xml file easily.',
+    description: 'Generate XML sitemaps for your site with changefreq and priority.',
+    url: 'https://thetool.guru/tools/sitemap-generator',
+    siteName: 'The Tool Guru',
+    images: [
+      {
+        url: '/Brand_Assets/Logo.webp',
+        width: 512,
+        height: 512,
+        alt: 'Sitemap Generator — The Tool Guru - The Tool Guru',
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
   },
-};
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Sitemap Generator — The Tool Guru',
+    description: 'Generate XML sitemaps for your site with changefreq and priority.',
+    images: ['/Brand_Assets/Logo.webp'],
+    creator: '@thetoolguru',
+    site: '@thetoolguru',
+  },
+}
 
 const SitemapGeneratorPage = () => (
   <div className="min-h-screen bg-gray-50">
@@ -83,6 +106,8 @@ const SitemapGeneratorPage = () => (
           ]}
         />
       </div>
+    <RelatedToolsSection toolId="sitemap-generator" />
+
     </Body>
     <Footer />
   </div>
