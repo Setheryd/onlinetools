@@ -85,6 +85,10 @@ const HashGeneratorPage = () => (
             {
               question: 'Is my data sent to a server?',
               answer: 'No. Hashing is done entirely in your browser using the Web Crypto API. Your text never leaves your device.'
+            },
+            {
+              question: 'What is MD5 and should I use it?',
+              answer: 'MD5 is an older hash function that is not secure for passwords or signatures (vulnerable to collisions). Use SHA-256 or SHA-512 for security. MD5 is still sometimes used for non-security checksums.'
             }
           ]}
         />

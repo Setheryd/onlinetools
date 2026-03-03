@@ -38,6 +38,31 @@ export const metadata = {
   },
 }
 
+const TimestampConverterPage = () => (
+  <div className="min-h-screen bg-gray-50">
+    <Header />
+    <Body>
+      <TimestampConverterTool />
+      <div className="max-w-4xl mx-auto px-4">
+        <ToolContentSection
+          toolName="Timestamp Converter"
+          description="Convert between Unix timestamps and human-readable dates. Supports seconds and milliseconds. Essential for developers and APIs. All processing in your browser."
+          features={["Timestamp to date", "Date to timestamp", "Seconds and milliseconds", "Copy result", "Works in browser"]}
+          howToUse={["Enter timestamp or pick date", "Choose seconds or ms", "View result and copy"]}
+          useCases={["Debug APIs", "Convert in code/configs", "Log analysis"]}
+          tips={["10 digits = seconds, 13 = milliseconds. Epoch is 1970-01-01 UTC."]}
+          faq={[
+            { question: "What is a Unix timestamp?", answer: "Seconds or milliseconds since 1970-01-01 00:00:00 UTC." },
+            { question: "Seconds or milliseconds?", answer: "Many APIs use milliseconds (13 digits). Unix often uses seconds (10 digits)." }
+          ]}
+        />
+      </div>
+      <RelatedToolsSection toolId="timestamp-converter" />
+    </Body>
+    <Footer />
+  </div>
+);
+
 export default TimestampConverterPage;
 
 

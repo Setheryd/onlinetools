@@ -38,4 +38,29 @@ export const metadata = {
   },
 }
 
+const TextCaseConverterPage = () => (
+  <div className="min-h-screen bg-gray-50">
+    <Header />
+    <Body>
+      <TextCaseConverterTool />
+      <div className="max-w-4xl mx-auto px-4">
+        <ToolContentSection
+          toolName="Text Case Converter"
+          description="Convert text between UPPERCASE, lowercase, Title Case, camelCase, snake_case, and more. Fix caps, format for code or headings, or normalize text. Instant conversion in your browser."
+          features={["UPPERCASE, lowercase, Title Case", "camelCase, snake_case, kebab-case", "Sentence case", "Copy result", "Works in browser"]}
+          howToUse={["Paste or type text", "Choose target case", "Copy the result"]}
+          useCases={["Code (variables, constants)", "Headings and titles", "Normalize data", "Fix CAPS LOCK text"]}
+          tips={["Title Case capitalizes major words. Sentence case capitalizes first word only."]}
+          faq={[
+            { question: "What is camelCase?", answer: "Words joined, first word lowercase, rest capitalized: myVariableName." },
+            { question: "What is snake_case?", answer: "Words separated by underscores, usually lowercase: my_variable_name." }
+          ]}
+        />
+      </div>
+      <RelatedToolsSection toolId="text-case-converter" />
+    </Body>
+    <Footer />
+  </div>
+);
+
 export default TextCaseConverterPage;

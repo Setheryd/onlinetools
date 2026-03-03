@@ -38,6 +38,48 @@ export const metadata = {
   },
 }
 
+const HexEncoderPage = () => (
+  <div className="min-h-screen bg-gray-50">
+    <Header />
+    <Body>
+      <HexEncoderTool />
+      <div className="max-w-4xl mx-auto px-4">
+        <ToolContentSection
+          toolName="Hex Encoder/Decoder"
+          description="Convert text to hexadecimal and decode hex back to text. Uses UTF-8. Common in programming and debugging. All processing runs in your browser."
+          features={[
+            "Encode text to hex (UTF-8)",
+            "Decode hex back to text",
+            "Unicode support",
+            "Copy result to clipboard",
+            "Works in your browser"
+          ]}
+          howToUse={[
+            "Enter text to encode or hex to decode",
+            "Click Encode or Decode",
+            "Copy the result as needed"
+          ]}
+          useCases={[
+            "Debug string encoding",
+            "Encode/decode hex from logs or APIs",
+            "Work with color codes",
+            "Teach or learn hexadecimal"
+          ]}
+          tips={[
+            "Two hex digits = one byte. UTF-8 may use multiple bytes per character.",
+            "Spaces in hex input are often ignored when decoding."
+          ]}
+          faq={[
+            { question: "What encoding is used?", answer: "UTF-8. Each character is converted to its UTF-8 bytes, then each byte is shown as two hex digits." },
+            { question: "How is this different from Base64?", answer: "Hex uses 0-9 and A-F; two chars per byte. Base64 is more compact. Hex is easier for debugging." },
+            { question: "Can I decode any hex string?", answer: "Use an even number of hex digits (each byte = 2 digits) and valid UTF-8 for correct text output." }
+          ]}
+        />
+      </div>
+      <RelatedToolsSection toolId="hex-encoder" />
+    </Body>
+    <Footer />
+  </div>
+);
+
 export default HexEncoderPage;
-
-

@@ -38,6 +38,48 @@ export const metadata = {
   },
 }
 
+const UrlEncoderPage = () => (
+  <div className="min-h-screen bg-gray-50">
+    <Header />
+    <Body>
+      <UrlEncoderTool />
+      <div className="max-w-4xl mx-auto px-4">
+        <ToolContentSection
+          toolName="URL Encoder/Decoder"
+          description="Encode or decode URL components with percent-encoding (e.g. space to %20). Essential for query strings, form data, and APIs. All processing in your browser."
+          features={[
+            "Encode text for URLs",
+            "Decode percent-encoded URLs",
+            "Handle spaces, symbols, Unicode",
+            "Copy result",
+            "Works in your browser"
+          ]}
+          howToUse={[
+            "Enter text to encode or URL/string to decode",
+            "Click Encode or Decode",
+            "Copy result into your URL or code"
+          ]}
+          useCases={[
+            "Build query strings",
+            "Encode form data",
+            "Decode URLs from logs or APIs",
+            "OAuth or API parameters"
+          ]}
+          tips={[
+            "Spaces: %20 or + in query strings. Encode only the parts that need it.",
+            "Decoding twice is usually safe; encoding twice can over-encode."
+          ]}
+          faq={[
+            { question: "What is percent-encoding?", answer: "Unsafe characters are replaced with % plus two hex digits (e.g. space becomes %20)." },
+            { question: "When should I encode?", answer: "When building URLs with user input, query parameters, or non-ASCII. Decode when reading URLs to get original text." },
+            { question: "%20 or + for space?", answer: "In query strings both are valid. + is common in form encoding. In path segments use %20." }
+          ]}
+        />
+      </div>
+      <RelatedToolsSection toolId="url-encoder" />
+    </Body>
+    <Footer />
+  </div>
+);
+
 export default UrlEncoderPage;
-
-

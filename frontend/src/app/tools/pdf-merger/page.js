@@ -567,7 +567,7 @@ const PDFMergerPage = () => {
               },
               {
                 question: "How many PDFs can I merge at once?",
-                answer: "You can merge multiple PDFs simultaneously. The exact limit depends on file sizes and browser memory, but the tool handles reasonably large merges."
+                answer: "You can merge up to 20 PDF files at once. Each file can be up to 15MB. For larger batches, merge in groups and then merge the results."
               },
               {
                 question: "Can I reorder pages after merging?",

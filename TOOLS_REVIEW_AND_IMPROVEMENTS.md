@@ -217,6 +217,12 @@ For tools that are **not** in the top 15 by GA views (or have 0 clicks in Search
 
 **Audit:** For each built tool page, check presence of canonical, full OG/twitter, ToolContentSection (with FAQ), related tools, and conditional blog block. Log gaps in a spreadsheet or in this doc and fix in batches.
 
+**Audit done (batch 1):** number-base-converter, file-size-converter, and binary-encoder were missing their page component body (only metadata + default export). Added full page with ToolContentSection (features, howToUse, useCases, tips, faq) and RelatedToolsSection. hash-generator: added 4th FAQ (MD5). pdf-merger: updated FAQ to state limit of 20 PDFs and 15MB per file. json-formatter, pdf-merger, redirect-checker, robots-tester already had rich ToolContentSection + FAQ.
+
+**Audit done (batch 2):** Same fix (full page + ToolContentSection + FAQ) applied to: uuid-generator, rot13-encoder, hex-encoder, url-encoder, csv-to-json, dice-roller, timestamp-converter, html-encoder, jwt-decoder, random-number-generator, text-case-converter.
+
+**Still to do (metadata-only, no page body):** email-validator, energy-converter, length-converter, meta-tag-generator, password-strength-checker, percentage-calculator, power-converter, pressure-converter, regex-tester, speed-converter, square-unit-price-calculator, temperature-converter, time-zone-converter, unit-converter, volume-converter, website-speed-test, weight-converter. Add the same page structure + ToolContentSection + FAQ for each.
+
 ---
 
 ## 7. Make the best tools even better

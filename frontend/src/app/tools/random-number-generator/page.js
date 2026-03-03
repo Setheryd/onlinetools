@@ -38,6 +38,31 @@ export const metadata = {
   },
 }
 
+const RandomNumberGeneratorPage = () => (
+  <div className="min-h-screen bg-gray-50">
+    <Header />
+    <Body>
+      <RandomNumberGeneratorTool />
+      <div className="max-w-4xl mx-auto px-4">
+        <ToolContentSection
+          toolName="Random Number Generator"
+          description="Generate random numbers within a range. Choose min/max, how many numbers, and whether they should be unique. Uses strong randomness. Perfect for giveaways, sampling, or any use that needs unbiased random numbers. All in your browser."
+          features={["Set min and max range", "Generate one or many numbers", "Optional unique-only", "Strong randomness", "Copy results", "Works in browser"]}
+          howToUse={["Set min and max", "Choose count and unique option", "Click Generate", "Copy or use the numbers"]}
+          useCases={["Giveaways and draws", "Sampling", "Games", "Testing", "Simulations"]}
+          tips={["Unique = no repeats. For a range smaller than count, not all can be unique."]}
+          faq={[
+            { question: "Are the numbers truly random?", answer: "The tool uses cryptographically strong randomness where available, so outcomes are unbiased and unpredictable." },
+            { question: "What does unique mean?", answer: "When unique is enabled, each number in the result is different (no duplicates)." }
+          ]}
+        />
+      </div>
+      <RelatedToolsSection toolId="random-number-generator" />
+    </Body>
+    <Footer />
+  </div>
+);
+
 export default RandomNumberGeneratorPage;
 
 
