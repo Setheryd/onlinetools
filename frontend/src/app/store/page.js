@@ -2,14 +2,17 @@
 
 import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import Header from '../components/layout/Header';
 import Footer from '../components/layout/Footer';
 import Body from '../components/layout/Body';
 import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
-import { STORE_PRODUCTS } from '@/lib/store-products';
+import { STORE_PRODUCTS, getProductById } from '@/lib/store-products';
 
 const StorePage = () => {
+  const searchParams = useSearchParams();
   const [products, setProducts] = useState(STORE_PRODUCTS);
   const [cart, setCart] = useState([]);
   const [catalogLoading, setCatalogLoading] = useState(true);
@@ -24,6 +27,44 @@ const StorePage = () => {
       .catch(() => {})
       .finally(() => setCatalogLoading(false));
   }, []);
+
+  useEffect(() => {
+    const addId = searchParams.get('add');
+    if (!addId) return;
+    const product = getProductById(addId) || products.find((p) => p.id === addId);
+    if (product) {
+      setCart((prev) => {
+        const existing = prev.find((i) => i.id === product.id);
+        if (existing) {
+          return prev.map((i) =>
+            i.id === product.id ? { ...i, quantity: i.quantity + 1 } : i
+          );
+        }
+        return [...prev, { ...product, quantity: 1 }];
+      });
+      window.history.replaceState({}, '', '/store');
+      return;
+    }
+    fetch('/api/store/catalog')
+      .then((res) => res.json())
+      .then((data) => {
+        const found = data.products?.find((p) => p.id === addId);
+        if (found) {
+          setProducts((prev) => (prev.some((p) => p.id === found.id) ? prev : [...prev, found]));
+          setCart((prev) => {
+            const existing = prev.find((i) => i.id === found.id);
+            if (existing) {
+              return prev.map((i) =>
+                i.id === found.id ? { ...i, quantity: i.quantity + 1 } : i
+              );
+            }
+            return [...prev, { ...found, quantity: 1 }];
+          });
+          window.history.replaceState({}, '', '/store');
+        }
+      })
+      .catch(() => {});
+  }, [searchParams]);
 
   const addToCart = (product, quantity = 1) => {
     setCart((prev) => {
@@ -104,28 +145,29 @@ const StorePage = () => {
           {catalogLoading && (
             <p className="text-center text-gray-500 mb-8">Loading products…</p>
           )}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-6 mb-12">
             {products.map((product) => (
-              <Card key={product.id} className="overflow-hidden flex flex-col">
-                <div className="aspect-square relative bg-gray-100">
-                  <Image
-                    src={product.image}
-                    alt={product.name}
-                    fill
-                    className="object-contain p-4"
-                    sizes="(max-width: 768px) 100vw, 33vw"
-                  />
-                </div>
-                <div className="p-6 flex-1 flex flex-col">
-                  <h2 className="text-xl font-semibold text-gray-900 mb-2">
-                    {product.name}
-                  </h2>
-                  <p className="text-gray-600 text-sm mb-4 flex-1">
-                    {product.description}
-                  </p>
-                  <p className="text-lg font-bold text-gray-900 mb-4">
-                    ${(product.priceCents / 100).toFixed(2)}
-                  </p>
+              <Card key={product.id} className="overflow-hidden flex flex-col group">
+                <Link href={`/store/${encodeURIComponent(product.id)}`} className="block flex-1 flex flex-col">
+                  <div className="aspect-square relative bg-gray-100">
+                    <Image
+                      src={product.image}
+                      alt={product.name}
+                      fill
+                      className="object-contain p-4 group-hover:opacity-95 transition-opacity"
+                      sizes="(max-width: 640px) 50vw, (max-width: 768px) 33vw, 25vw"
+                    />
+                  </div>
+                  <div className="p-4 flex flex-col flex-1">
+                    <h2 className="text-base font-semibold text-gray-900 mb-1 line-clamp-2">
+                      {product.name}
+                    </h2>
+                    <p className="text-lg font-bold text-gray-900 mt-auto">
+                      ${(product.priceCents / 100).toFixed(2)}
+                    </p>
+                  </div>
+                </Link>
+                <div className="p-4 pt-0">
                   <Button
                     variant="primary"
                     onClick={() => addToCart(product)}

@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "test:preview": "node scripts/smoke-test-preview.js",
     "postinstall": "node scripts/copyPdfWorker.js && next telemetry disable"
   },
   "dependencies": {
