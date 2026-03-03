@@ -183,7 +183,7 @@ export const tools = [
     icon: '✍️',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   {
     id: 'html-to-pdf',
@@ -376,7 +376,7 @@ export const tools = [
     icon: '🗄️',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'email-validator',
@@ -716,7 +716,7 @@ export const tools = [
     icon: '🔐',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   {
     id: 'bcrypt-generator',
@@ -917,6 +917,18 @@ export const tools = [
     built: false,
   },
   {
+    id: 'route-optimizer',
+    name: 'Route Optimizer',
+    description: 'Optimize delivery or travel routes for multiple stops. Turn-by-turn order and distance/time savings. (API coming soon.)',
+    path: '/tools/route-optimizer',
+    category: 'web',
+    keywords: ['route optimizer', 'delivery routes', 'traveling salesman', 'multi-stop', 'route planning', 'logistics'],
+    icon: '🗺️',
+    featured: false,
+    priority: 0.6,
+    built: false,
+  },
+  {
     id: 'email-header-analyzer',
     name: 'Email Header Analyzer',
     description: 'Analyze email headers for routing and security information.',
@@ -1004,14 +1016,14 @@ export const tools = [
   {
     id: 'screenshot-tool',
     name: 'Screenshot Tool',
-    description: 'Take screenshots of web pages and capture screen content.',
+    description: 'Take screenshots of web pages and capture screen content. Same as Website Screenshot Tool.',
     path: '/tools/screenshot-tool',
     category: 'image',
     keywords: ['screenshot', 'capture', 'screen', 'webpage', 'image'],
     icon: '📸',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
   {
     id: 'video-converter',
@@ -1205,7 +1217,7 @@ export const tools = [
     icon: '🌫️',
     featured: false,
     priority: 0.5,
-    built: false,
+    built: true,
   },
   {
     id: 'border-radius-generator',
@@ -2022,7 +2034,7 @@ export const tools = [
     icon: '🌐',
     featured: false,
     priority: 0.8,
-    built: false,
+    built: true,
   },
   // DESIGN & CREATIVE TOOLS
   {

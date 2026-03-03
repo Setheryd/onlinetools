@@ -283,13 +283,14 @@ Full list is in `frontend/src/lib/tools.js` (search for `built: false`). Below i
 
 | ID | Name | Notes |
 |----|------|--------|
-| markdown-editor | Markdown Editor | client-only; preview + export |
-| sql-formatter | SQL Formatter | client-only; format/highlight |
-| sha-generator | SHA Hash Generator | client-only; extend hash-generator or new |
+| markdown-editor | Markdown Editor | **Built.** client-only; marked lib, live preview, copy MD/HTML. |
+| sql-formatter | SQL Formatter | **Built.** client-only; format + uppercase keywords. |
+| sha-generator | SHA Hash Generator | **Built.** client-only; Web Crypto API (SHA-1/256/384/512). |
 | text-to-speech | Text to Speech | browser Web API or external API |
 | speech-to-text | Speech to Text | browser Web API or external API |
 | broken-link-checker | Broken Link Checker | needs server or proxy |
 | website-uptime-monitor | Website Uptime Monitor | backend/cron |
+| **route-optimizer** | **Route Optimizer** | **Coming soon.** Multi-stop route optimization; user will expose as API from another project. |
 | favicon-generator | Favicon Generator | client-side canvas/export |
 | word-to-pdf | Word to PDF | complex; library or API |
 | excel-to-pdf | Excel to PDF | complex; library or API |
@@ -310,14 +311,14 @@ Full list is in `frontend/src/lib/tools.js` (search for `built: false`). Below i
 | port-scanner | Port Scanner |
 | email-header-analyzer | Email Header Analyzer |
 | subdomain-enumerator | Subdomain Enumerator |
-| box-shadow-generator | Box Shadow Generator |
+| box-shadow-generator | Box Shadow Generator | **Built.** client-only; visual preview, copy CSS. |
 | border-radius-generator | Border Radius Generator |
 | font-pairing-generator | Font Pairing Generator |
 | icon-generator | Icon Generator (and others in tools.js) |
 
 ### Implementation notes
 
-- **Client-only (no backend):** markdown-editor, sql-formatter, box-shadow-generator, border-radius-generator, font-pairing-generator, color-palette-generator, favicon-generator, code-beautifier *(done)*, code-minifier. Add `page.js`, component, set `built: true`.
+- **Client-only (no backend):** markdown-editor *(done)*, sql-formatter *(done)*, box-shadow-generator *(done)*, sha-generator *(done)*, border-radius-generator, font-pairing-generator, color-palette-generator, favicon-generator, code-beautifier *(done)*, code-minifier. Add `page.js`, component, set `built: true`.
 - **Needs API/backend:** text-to-speech, speech-to-text, plagiarism-checker, grammar-checker, broken-link-checker, website-uptime-monitor, ip-lookup. Define API or use third-party; then build UI.
 - **Heavy (conversion):** pdf-to-word, word-to-pdf, excel-to-pdf, video-converter, audio-converter. Evaluate browser libraries vs server-side; scope as larger projects.
 
