@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400" width="800" height="400">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#4f46e5"/>
+      <stop offset="50%" style="stop-color:#7c3aed"/>
+      <stop offset="100%" style="stop-color:#a855f7"/>
+    </linearGradient>
+  </defs>
+  <text x="400" y="180" font-family="Arial, sans-serif" font-size="36" font-weight="700" fill="#3730a3" text-anchor="middle">TOOL GURU</text>
+  <text x="400" y="250" font-family="Arial, sans-serif" font-size="40" font-weight="700" fill="url(#g)" text-anchor="middle">APPROVED</text>
+  <rect x="300" y="270" width="200" height="4" rx="2" fill="url(#g)" opacity="0.8"/>
+</svg>
