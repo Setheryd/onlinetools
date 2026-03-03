@@ -263,6 +263,8 @@ const ImageCompressorTool = () => {
               <img
 						src={queue[selectedIdx].originalUrl}
                 alt="original"
+                loading="lazy"
+                decoding="async"
                 className="max-h-[20rem] w-auto mx-auto rounded"
                 onLoad={(e)=> setOrigDims({ w: e.currentTarget.naturalWidth, h: e.currentTarget.naturalHeight })}
               />
@@ -281,6 +283,8 @@ const ImageCompressorTool = () => {
               <img
 						src={queue[selectedIdx].outputUrl}
                 alt="output"
+                loading="lazy"
+                decoding="async"
                 className="max-h-[20rem] w-auto mx-auto rounded"
                 onLoad={(e)=> setOutDims({ w: e.currentTarget.naturalWidth, h: e.currentTarget.naturalHeight })}
               />

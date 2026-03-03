@@ -1,11 +1,13 @@
 import React from 'react';
 import Link from 'next/link';
 import Card from '../ui/Card';
+import CtaVariant from '../ui/CtaVariant';
 import { getRelatedTools } from '@/lib/tools';
 
 /**
  * Renders a "Related tools" section with links to other tools in the same category.
  * Pass either `tools` (array) or `toolId` (string); when toolId is passed, related tools are resolved internally.
+ * Section heading is A/B tested (variant A: "Related tools", variant B: "Try these next") via CtaVariant.
  * @param {{ tools?: Array<{ id: string, name: string, path: string, icon?: string, built?: boolean }>, toolId?: string }} props
  */
 const RelatedToolsSection = ({ tools: toolsProp, toolId }) => {
@@ -18,7 +20,9 @@ const RelatedToolsSection = ({ tools: toolsProp, toolId }) => {
     <div className="mt-12 max-w-4xl mx-auto px-4">
       <div className="flex items-center gap-2 mb-4">
         <div className="w-1 h-6 bg-gradient-to-b from-blue-500 to-purple-600 rounded-full"></div>
-        <h2 className="text-xl font-bold text-gray-900">Related tools</h2>
+        <h2 className="text-xl font-bold text-gray-900">
+          <CtaVariant variantA="Related tools" variantB="Try these next" storageKey="related-tools-heading" />
+        </h2>
       </div>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
         {list.map((tool) => (

@@ -90,6 +90,8 @@ const ToolBlogPost = ({ post, toolPath }) => {
               src={post.featuredImage}
               alt={post.title}
               className="w-full h-48 object-cover rounded-lg"
+              loading="lazy"
+              decoding="async"
             />
           </div>
         )}

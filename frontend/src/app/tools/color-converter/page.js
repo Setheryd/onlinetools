@@ -3,8 +3,10 @@ import Header from '../../components/layout/Header';
 import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import ColorConverterTool from '../../components/tools/ColorConverterTool';
+import ToolBlogPost from '../../components/blog/ToolBlogPost';
 import ToolContentSection from '../../components/tools/ToolContentSection';
 import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
+import { blogService } from '../../utils/blogService';
 export const metadata = {
   title: 'Color Converter — The Tool Guru',
   description: 'Pick a color and convert between HEX, RGB, HSL, HSV, and CMYK. Supports alpha.',
@@ -38,7 +40,8 @@ export const metadata = {
   },
 }
 
-const ColorConverterPage = () => {
+const ColorConverterPage = async () => {
+  const colorBlogPost = await blogService.getPostBySlug('mastering-color-conversion-and-design');
   const structuredData = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -133,6 +136,9 @@ const ColorConverterPage = () => {
               }
             ]}
           />
+        </div>
+        <div className="max-w-4xl mx-auto px-4 mt-8">
+          <ToolBlogPost post={colorBlogPost} toolPath="/tools/color-converter" />
         </div>
       <RelatedToolsSection toolId="color-converter" />
 

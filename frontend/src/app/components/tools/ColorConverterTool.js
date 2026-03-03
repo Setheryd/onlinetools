@@ -314,6 +314,8 @@ const ColorConverterTool = () => {
                 src="https://images.pexels.com/photos/1029243/pexels-photo-1029243.jpeg?auto=compress&cs=tinysrgb&w=1000"
                 alt="Color Conversion Guide"
                 className="rounded-lg shadow-lg w-full h-64 object-cover"
+                loading="lazy"
+                decoding="async"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent rounded-lg" />
             </div>

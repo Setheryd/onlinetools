@@ -524,6 +524,8 @@ const ImageToPdfTool = () => {
                       src={file.thumbnailUrl} 
                       alt={file.name}
                       className="w-16 h-16 object-cover rounded border"
+                      loading="lazy"
+                      decoding="async"
                     />
                   </div>
                   

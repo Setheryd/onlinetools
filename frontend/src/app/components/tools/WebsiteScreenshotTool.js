@@ -420,6 +420,8 @@ const WebsiteScreenshotTool = () => {
             <img
               src={screenshotUrl}
               alt="Website Screenshot"
+              loading="lazy"
+              decoding="async"
               className="max-w-full h-auto mx-auto rounded shadow-lg"
               style={{ maxHeight: '600px' }}
             />

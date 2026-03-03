@@ -179,6 +179,8 @@ const ImageFiltersTool = () => {
                 src={queue[selectedIdx].originalUrl}
                 alt="preview"
                 className="max-h-[22rem] w-auto"
+                loading="lazy"
+                decoding="async"
                 style={{
                   transform: `rotate(${Number(rotate)||0}deg) ${flip ? 'scaleY(-1)' : ''} ${flop ? 'scaleX(-1)' : ''}`.trim(),
                   filter: `grayscale(${grayscale?1:0}) invert(${negate?1:0}) blur(${blur/10}rem) saturate(${saturation}) brightness(${brightness}) hue-rotate(${hue}deg)`
@@ -195,7 +197,7 @@ const ImageFiltersTool = () => {
           <div className="p-3 bg-gray-50 border rounded">
             <div className="text-sm text-gray-700 mb-2">Processed (after run)</div>
             {queue[selectedIdx]?.outputUrl ? (
-              <img src={queue[selectedIdx].outputUrl} alt="output" className="max-h-[22rem] w-auto mx-auto rounded" />
+              <img src={queue[selectedIdx].outputUrl} alt="output" className="max-h-[22rem] w-auto mx-auto rounded" loading="lazy" decoding="async" />
             ) : (
               <div className="text-xs text-gray-500">Run "Process All" to see the final server output.</div>
             )}

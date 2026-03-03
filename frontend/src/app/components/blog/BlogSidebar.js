@@ -115,6 +115,8 @@ const BlogSidebar = ({ categories = [], recentPosts = [], searchQuery = '', onSe
                           src={post.featuredImage}
                           alt={post.title}
                           className="w-full h-full object-cover rounded-lg group-hover:scale-105 transition-transform duration-200"
+                          loading="lazy"
+                          decoding="async"
                         />
                         <div className="absolute inset-0 bg-black/10 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-200"></div>
                       </div>

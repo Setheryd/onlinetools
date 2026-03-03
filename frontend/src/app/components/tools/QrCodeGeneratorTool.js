@@ -202,7 +202,7 @@ const QrCodeGeneratorTool = () => {
                   />
                 )}
                 {format === 'png' && pngUrl && (
-                  <img src={pngUrl} alt="QR code" className="max-w-full max-h-[28rem] rounded" />
+                  <img src={pngUrl} alt="QR code" className="max-w-full max-h-[28rem] rounded" loading="lazy" decoding="async" />
                 )}
               </>
             )}

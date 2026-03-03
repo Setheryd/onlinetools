@@ -284,6 +284,8 @@ const ImageWatermarkerTool = () => {
                     src={queue[selectedIdx].originalUrl}
                     alt="preview"
                     className="max-h-[22rem] w-auto"
+                    loading="lazy"
+                    decoding="async"
                     onLoad={(e)=> setNaturalDims({ w: e.currentTarget.naturalWidth, h: e.currentTarget.naturalHeight })}
                   />
                   {text && (
@@ -336,7 +338,7 @@ const ImageWatermarkerTool = () => {
           <div className="p-3 bg-gray-50 border rounded">
             <div className="text-sm text-gray-700 mb-2">Processed (after run)</div>
             {queue[selectedIdx]?.outputUrl ? (
-              <img src={queue[selectedIdx].outputUrl} alt="output" className="max-h-[22rem] w-auto mx-auto rounded" />
+              <img src={queue[selectedIdx].outputUrl} alt="output" className="max-h-[22rem] w-auto mx-auto rounded" loading="lazy" decoding="async" />
             ) : (
               <div className="text-xs text-gray-500">Run "Process All" or process this item to see the final result.</div>
             )}

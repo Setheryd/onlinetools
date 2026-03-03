@@ -427,7 +427,7 @@ const Base64Tool = () => {
             <div className="p-4 bg-gray-50 border border-gray-200 rounded-md">
               {previewEnabled && resolvedMimeType?.startsWith('image/') && (
                 <div className="w-full">
-                  <img src={decodedBlobUrl} alt="Decoded preview" className="max-h-[28rem] w-auto mx-auto rounded-md border" />
+                  <img src={decodedBlobUrl} alt="Decoded preview" className="max-h-[28rem] w-auto mx-auto rounded-md border" loading="lazy" decoding="async" />
                 </div>
               )}
               {previewEnabled && resolvedMimeType === 'application/pdf' && (

@@ -3,8 +3,10 @@ import Header from '../../components/layout/Header';
 import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
 import GradientMakerTool from '../../components/tools/GradientMakerTool';
+import ToolBlogPost from '../../components/blog/ToolBlogPost';
 import ToolContentSection from '../../components/tools/ToolContentSection';
 import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
+import { blogService } from '../../utils/blogService';
 export const metadata = {
   title: 'Gradient Maker — The Tool Guru',
   description: 'Create beautiful CSS gradients with our comprehensive gradient maker. Generate linear, radial, conic gradients and export as PNG, SVG, JPEG or CSS.',
@@ -134,6 +136,9 @@ const GradientMakerPage = () => {
               }
             ]}
           />
+        </div>
+        <div className="max-w-4xl mx-auto px-4 mt-8">
+          <ToolBlogPost post={gradientBlogPost} toolPath="/tools/gradient-generator" />
         </div>
       <RelatedToolsSection toolId="gradient-generator" />
 

@@ -314,6 +314,7 @@ const ImageCropperTool = () => {
                 src={queue[selectedIdx].originalUrl}
                 alt="to-crop"
                 className="max-h-[24rem] w-auto block"
+                decoding="async"
                 onLoad={(e)=> setNaturalDims({ w: e.currentTarget.naturalWidth, h: e.currentTarget.naturalHeight })}
               />
               {/* crop rectangle */}

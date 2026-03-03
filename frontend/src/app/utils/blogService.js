@@ -825,6 +825,42 @@ const LazyComponent = lazy(() => import('./Component'));<br/>
         featuredImage: 'https://images.pexels.com/photos/3183150/pexels-photo-3183150.jpeg?auto=compress&cs=tinysrgb&w=1000'
       }
     ]
+  },
+  {
+    id: 18,
+    slug: 'complete-guide-to-css-gradients',
+    title: 'Complete Guide to CSS Gradients: From Linear to Conic',
+    excerpt: 'Master CSS gradients for modern web design. Learn linear, radial, and conic gradients, color stops, and how to export gradients for your projects.',
+    content: `
+      <div class="prose prose-lg max-w-none">
+        <div class="bg-gradient-to-r from-indigo-50 to-cyan-50 p-8 rounded-xl mb-8">
+          <h2 class="text-2xl font-bold text-gray-900 mb-4">Why Gradients Matter in Web Design</h2>
+          <p class="text-lg text-gray-700 leading-relaxed">CSS gradients let you create smooth transitions between two or more colors without using image files. They improve performance, scale perfectly, and give you full control over direction, stops, and opacity. From hero backgrounds to buttons and borders, gradients are a staple of modern UI.</p>
+        </div>
+        <p>This guide covers linear, radial, and conic gradients, best practices for accessibility and performance, and how to use our Gradient Maker tool to export CSS or images.</p>
+      </div>
+    `,
+    featuredImage: 'https://images.pexels.com/photos/1181677/pexels-photo-1181677.jpeg?auto=compress&cs=tinysrgb&w=1000',
+    category: 'Design Tools',
+    tags: ['CSS Gradients', 'Web Design', 'Linear Gradient', 'Radial Gradient', 'Conic Gradient', 'UI Design', 'Backgrounds'],
+    publishedAt: '2025-01-26T10:00:00Z',
+    featured: true,
+    author: {
+      name: 'Design & Color Expert',
+      bio: 'Senior design consultant with expertise in CSS, color theory, and modern UI patterns.',
+      social: {
+        twitter: 'https://twitter.com/designcolorexpert',
+        linkedin: 'https://linkedin.com/in/designcolorexpert'
+      }
+    },
+    relatedPosts: [
+      {
+        slug: 'mastering-color-conversion-and-design',
+        title: 'Mastering Color Conversion and Design: A Complete Guide',
+        excerpt: 'Learn about color conversion and design fundamentals.',
+        featuredImage: 'https://images.pexels.com/photos/669615/pexels-photo-669615.jpeg?auto=compress&cs=tinysrgb&w=1000'
+      }
+    ]
   }
 ];
 

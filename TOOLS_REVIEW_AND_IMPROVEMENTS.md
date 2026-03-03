@@ -231,11 +231,11 @@ Ideas focused on **top performers** (Gradient Maker, Base64, All Tools, PDF Edit
 
 | Idea | Effort | Notes |
 |------|--------|--------|
-| Add or expand blog posts for top tools | M | Base64, PDF Editor, Color Converter, Gradient Maker — match slugs in blogService and add ToolBlogPost where missing. |
-| Add SoftwareApplication / HowTo structured data per tool | M | Improves rich results and SEO; start with top 10 tools. *(Done: WebApplication JSON-LD added to base64 and password-generator.)* |
+| Add or expand blog posts for top tools | M | Base64, PDF Editor, Color Converter, Gradient Maker — match slugs in blogService and add ToolBlogPost where missing. *(Done: ToolBlogPost on color-converter, gradient-generator; new post complete-guide-to-css-gradients.)* |
+| Add SoftwareApplication / HowTo structured data per tool | M | Improves rich results and SEO; start with top 10 tools. *(Done: WebApplication JSON-LD on base64, password-generator, json-formatter, pdf-editor, color-converter, gradient-generator.)* |
 | Internal linking from blog to tools and between tools | S | Link from “getting-started-with-base64-encoding” and similar posts to the matching tool and related tools. *(Done: Related tools blocks added to 3 posts.)* |
-| Improve Core Web Vitals on heavy tool pages | M | Image lazy-load, reduce main-thread work; focus on PDF/Image tools if LCP or INP are weak. |
-| A/B test CTA copy or placement of “Related tools” | L | Optional; after baseline improvements are done. |
+| Improve Core Web Vitals on heavy tool pages | M | Image lazy-load, reduce main-thread work; focus on PDF/Image tools if LCP or INP are weak. *(Done: loading="lazy"/decoding="async" on blog and image-heavy tool components.)* |
+| A/B test CTA copy or placement of “Related tools” | L | Optional; after baseline improvements are done. *(Done: CtaVariant component; RelatedToolsSection heading A/B "Related tools" vs "Try these next".)* |
 | Fix 404s | S | Investigate “Page Not Found” (238 GA views); fix or redirect. *(Done: 404 page leads with "Browse all tools".)* |
 
 ---
