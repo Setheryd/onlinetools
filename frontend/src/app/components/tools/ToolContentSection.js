@@ -1,17 +1,21 @@
 import React from 'react';
 import Card from '../ui/Card';
+import StructuredData from '../StructuredData';
 
-const ToolContentSection = ({ 
-  toolName, 
-  description, 
-  features = [], 
-  useCases = [], 
+const ToolContentSection = ({
+  toolName,
+  description,
+  features = [],
+  useCases = [],
   howToUse = [],
   tips = [],
   faq = []
 }) => {
   return (
     <div className="mt-12 space-y-8">
+      {faq.length > 0 && (
+        <StructuredData type="faq" data={{ questions: faq }} />
+      )}
       {/* About Section */}
       <Card className="p-8 overflow-hidden relative">
         <div className="absolute top-0 right-0 w-64 h-64 bg-gradient-to-br from-blue-100 to-purple-100 rounded-full -mr-32 -mt-32 opacity-50"></div>

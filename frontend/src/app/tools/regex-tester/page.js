@@ -46,14 +46,37 @@ const RegexTesterPage = () => (
       <div className="max-w-4xl mx-auto px-4">
         <ToolContentSection
           toolName="Regex Tester"
-          description="Test and debug regular expressions with real-time matching and highlighting. Enter a pattern and sample text to see matches, groups, and errors. Essential for developers. All processing in your browser."
-          features={["Real-time match highlighting", "Capture groups", "Error messages", "Sample text", "Copy pattern", "Works in browser"]}
-          howToUse={["Enter a regex pattern", "Enter or paste test text", "View matches and groups", "Fix pattern and retest"]}
-          useCases={["Debug regex", "Validate patterns", "Learn regex", "Extract data patterns"]}
-          tips={["Use flags (g, i, m) as needed. Escape special chars in the pattern (e.g. \\. for a dot)."]}
+          description="Test and debug regular expressions with real-time matching and highlighting. Enter a regex pattern and sample text to see which parts match, capture groups, and any syntax errors. Essential for developers and anyone learning or using regex in code, configs, or search. The tool uses JavaScript's RegExp (ECMAScript) flavor, so patterns are compatible with JS, Node, and many other environments. All processing runs in your browser—your patterns and text never leave your device. Use it to validate patterns before deploying, learn how regex works, or extract and verify data-matching logic."
+          features={[
+            'Real-time match highlighting so you see exactly what the pattern matches',
+            'Capture groups displayed so you can verify (group1), (?:non-capture), etc.',
+            'Clear error messages when the pattern has syntax errors',
+            'Sample text area to paste or type test strings',
+            'Support for flags: global (g), case-insensitive (i), multiline (m)',
+            'Runs in your browser; no server uploads'
+          ]}
+          howToUse={[
+            'Enter your regular expression in the pattern field',
+            'Add flags (g, i, m) if you need global, case-insensitive, or multiline matching',
+            'Enter or paste sample text in the test area',
+            'View matches and capture groups in the output',
+            'If the pattern is invalid, read the error message and fix the syntax, then retest'
+          ]}
+          useCases={[
+            'Debug regex: quickly see why a pattern does or does not match',
+            'Validate patterns before adding them to code or configs',
+            'Learn regex: experiment with ., *, +, ?, [], (), and character classes',
+            'Extract data patterns: test that your regex captures the right parts of a string'
+          ]}
+          tips={[
+            'Use flags as needed: g for all matches, i for ignore case, m for ^ and $ per line. Escape special characters (e.g. \\. for a literal dot, \\( for parenthesis).',
+            'In character classes [], many symbols lose special meaning—but - and ] may need escaping.',
+            'Test with edge cases: empty string, long text, and strings with special characters.'
+          ]}
           faq={[
-            { question: "What regex flavor is used?", answer: "JavaScript's RegExp (ECMAScript). Supports standard syntax: ., *, +, ?, [], (), |, \\d, \\w, etc." },
-            { question: "Why is my regex not matching?", answer: "Check escaping (e.g. . matches any char; \\. matches a literal dot). Ensure flags (g for global) if you expect multiple matches." }
+            { question: 'What regex flavor is used?', answer: "JavaScript's RegExp (ECMAScript). Supports standard syntax: ., *, +, ?, [], (), |, \\d, \\w, \\s, anchors ^ and $, and common modifiers." },
+            { question: 'Why is my regex not matching?', answer: 'Check escaping: . matches any character; \\. matches a literal dot. Use the g flag if you expect multiple matches. Ensure character classes and quantifiers are correct.' },
+            { question: 'Can I test capture groups?', answer: 'Yes. Use parentheses in your pattern (e.g., (\\d+)) and the tool will show matched groups so you can verify extraction.' }
           ]}
         />
       </div>
