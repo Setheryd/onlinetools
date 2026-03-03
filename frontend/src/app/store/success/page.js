@@ -18,7 +18,9 @@ export default function StoreSuccessPage() {
       <Body>
         <div className="max-w-2xl mx-auto text-center">
           <Card className="p-8 md:p-12">
-            <div className="text-6xl mb-6">✓</div>
+            <div className="w-20 h-20 mx-auto mb-6 rounded-full bg-green-100 flex items-center justify-center">
+              <span className="text-4xl text-green-600" aria-hidden="true">✓</span>
+            </div>
             <h1 className="text-3xl font-bold text-gray-900 mb-4">
               Thank you for your order
             </h1>

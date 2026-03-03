@@ -12,6 +12,8 @@ import { STORE_PRODUCTS } from '@/lib/store-products';
 const StorePage = () => {
   const [products, setProducts] = useState(STORE_PRODUCTS);
   const [cart, setCart] = useState([]);
+  const [catalogLoading, setCatalogLoading] = useState(true);
+  const [checkoutLoading, setCheckoutLoading] = useState(false);
 
   useEffect(() => {
     fetch('/api/store/catalog')
@@ -19,7 +21,8 @@ const StorePage = () => {
       .then((data) => {
         if (data.products?.length > 0) setProducts(data.products);
       })
-      .catch(() => {});
+      .catch(() => {})
+      .finally(() => setCatalogLoading(false));
   }, []);
 
   const addToCart = (product, quantity = 1) => {
@@ -58,6 +61,7 @@ const StorePage = () => {
 
   const handleCheckout = async () => {
     if (cart.length === 0) return;
+    setCheckoutLoading(true);
     try {
       const res = await fetch('/api/store/checkout', {
         method: 'POST',
@@ -78,6 +82,8 @@ const StorePage = () => {
       if (data.url) window.location.href = data.url;
     } catch (err) {
       alert(err.message || 'Something went wrong. Please try again.');
+    } finally {
+      setCheckoutLoading(false);
     }
   };
 
@@ -95,6 +101,9 @@ const StorePage = () => {
             </p>
           </div>
 
+          {catalogLoading && (
+            <p className="text-center text-gray-500 mb-8">Loading products…</p>
+          )}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
             {products.map((product) => (
               <Card key={product.id} className="overflow-hidden flex flex-col">
@@ -179,8 +188,13 @@ const StorePage = () => {
                 <span className="text-lg font-bold text-gray-900">
                   Total: ${(cartTotalCents / 100).toFixed(2)}
                 </span>
-                <Button variant="primary" onClick={handleCheckout} size="lg">
-                  Checkout
+                <Button
+                  variant="primary"
+                  onClick={handleCheckout}
+                  size="lg"
+                  disabled={checkoutLoading}
+                >
+                  {checkoutLoading ? 'Redirecting…' : 'Checkout'}
                 </Button>
               </div>
             </Card>
