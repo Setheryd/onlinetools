@@ -363,6 +363,20 @@ const Header = () => {
               )}
             </div>
 
+            {/* Buy Me a Coffee */}
+            <a
+              href="https://www.buymeacoffee.com/thetoolguru"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block transition-all duration-200 hover:opacity-90 hover:scale-105 focus:outline-none focus:ring-2 focus:ring-amber-400 focus:ring-offset-2 rounded-lg"
+            >
+              <img
+                src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+                alt="Buy Me A Coffee"
+                className="h-9 w-auto object-contain"
+                style={{ width: '130px' }}
+              />
+            </a>
             {/* CTA Button */}
             <Link href="/tools">
               <Button variant="primary" size="sm" className="text-sm px-4 py-1.5">
@@ -511,7 +525,21 @@ const Header = () => {
                     {item.name}
                   </Link>
                 ))}
-              <div className="pt-4">
+              <div className="pt-4 space-y-2">
+                <a
+                  href="https://www.buymeacoffee.com/thetoolguru"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={() => setIsMobileMenuOpen(false)}
+                  className="inline-block transition-all duration-200 hover:opacity-90 hover:scale-[1.02] rounded-lg"
+                >
+                  <img
+                    src="https://cdn.buymeacoffee.com/buttons/v2/default-yellow.png"
+                    alt="Buy Me A Coffee"
+                    className="h-12 w-auto max-w-full object-contain"
+                    style={{ width: '173px' }}
+                  />
+                </a>
                 <Link href="/tools">
                   <Button variant="primary" className="w-full" onClick={() => setIsMobileMenuOpen(false)}>
                     Get Started

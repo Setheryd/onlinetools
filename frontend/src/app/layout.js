@@ -88,7 +88,7 @@ export const metadata = {
     // Add verification meta when you have real codes: 'google-site-verification', 'msvalidate.01', 'yandex-verification'
     
     // Content security policy
-    'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com;"
+    'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://cdnjs.buymeacoffee.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdn.buymeacoffee.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://buymeacoffee.com; frame-src https://www.buymeacoffee.com;"
   },
 }
 
@@ -170,6 +170,19 @@ j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
         <link href="https://fonts.googleapis.com/css2?family=Sora:wght@600;700;800&display=swap" rel="stylesheet" />
       </head>
       <body className="min-h-screen bg-gray-50" suppressHydrationWarning>
+        {/* Buy Me a Coffee - must be in initial HTML so DOMContentLoaded listener runs */}
+        <script
+          data-name="BMC-Widget"
+          data-cfasync="false"
+          src="https://cdnjs.buymeacoffee.com/1.0.0/widget.prod.min.js"
+          data-id="thetoolguru"
+          data-description="Support me on Buy me a coffee!"
+          data-message="Thanks for stopping by. If these tools helped, a coffee would mean a lot — no pressure."
+          data-color="#BD5FFF"
+          data-position="Right"
+          data-x_margin="18"
+          data-y_margin="18"
+        />
         {/* Google Tag Manager (noscript) */}
         <noscript>
           <iframe 
