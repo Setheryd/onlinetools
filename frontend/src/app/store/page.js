@@ -1,6 +1,6 @@
 'use client';
 
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, Suspense } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
@@ -11,7 +11,7 @@ import Card from '../components/ui/Card';
 import Button from '../components/ui/Button';
 import { STORE_PRODUCTS, getProductById } from '@/lib/store-products';
 
-const StorePage = () => {
+function StorePageContent() {
   const searchParams = useSearchParams();
   const [products, setProducts] = useState(STORE_PRODUCTS);
   const [cart, setCart] = useState([]);
@@ -246,6 +246,34 @@ const StorePage = () => {
       <Footer />
     </div>
   );
-};
+}
 
-export default StorePage;
+function StorePageFallback() {
+  return (
+    <div className="min-h-screen bg-gray-50">
+      <Header />
+      <Body>
+        <div className="max-w-6xl mx-auto">
+          <div className="text-center mb-12">
+            <h1 className="text-4xl font-bold text-gray-900 mb-4">
+              The Tool Guru Store
+            </h1>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Support the site with branded merch. Printed and shipped by Printful.
+            </p>
+          </div>
+          <p className="text-center text-gray-500">Loading store…</p>
+        </div>
+      </Body>
+      <Footer />
+    </div>
+  );
+}
+
+export default function StorePage() {
+  return (
+    <Suspense fallback={<StorePageFallback />}>
+      <StorePageContent />
+    </Suspense>
+  );
+}

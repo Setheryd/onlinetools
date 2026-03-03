@@ -40,13 +40,24 @@ export async function POST(request) {
     return NextResponse.json({ received: true });
   }
 
-  const session = event.data.object;
+  let session = event.data.object;
 
   try {
+    const stripe = getStripe();
+    if (!session.customer_details?.address && session.id) {
+      const retrieved = await stripe.checkout.sessions.retrieve(session.id, {
+        expand: ['customer_details'],
+      });
+      session = retrieved;
+    }
+
     const cartStr = session.metadata?.cart;
     if (!cartStr) {
       console.error('No cart in session metadata:', session.id);
-      return NextResponse.json({ received: true });
+      return NextResponse.json(
+        { error: 'No cart in session metadata', received: true },
+        { status: 200 }
+      );
     }
 
     const cart = JSON.parse(cartStr);
@@ -55,7 +66,10 @@ export async function POST(request) {
 
     if (!address) {
       console.error('No address in checkout session:', session.id);
-      return NextResponse.json({ received: true });
+      return NextResponse.json(
+        { error: 'No address in checkout session', received: true },
+        { status: 200 }
+      );
     }
 
     const recipient = {
@@ -86,7 +100,7 @@ export async function POST(request) {
       const errText = await printfulRes.text();
       console.error('Printful order failed:', printfulRes.status, errText);
       return NextResponse.json(
-        { error: 'Fulfillment request failed' },
+        { error: 'Printful order failed', status: printfulRes.status, detail: errText.slice(0, 200) },
         { status: 502 }
       );
     }
@@ -97,7 +111,7 @@ export async function POST(request) {
   } catch (err) {
     console.error('Webhook handler error:', err);
     return NextResponse.json(
-      { error: err.message || 'Internal error' },
+      { error: 'Webhook handler error', message: err.message || 'Internal error' },
       { status: 500 }
     );
   }
