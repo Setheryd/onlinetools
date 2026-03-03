@@ -46,14 +46,38 @@ const UnitConverterPage = () => (
       <div className="max-w-4xl mx-auto px-4">
         <ToolContentSection
           toolName="Unit Converter"
-          description="Convert units across length, weight, temperature, volume, area, and more. One tool for many unit types. Metric and imperial. All in your browser."
-          features={["Multiple categories", "Length, weight, temp, volume, area", "Metric and imperial", "Instant conversion", "Works in browser"]}
-          howToUse={["Select category", "Enter value and choose units", "View result"]}
-          useCases={["Daily conversions", "Recipes", "DIY and construction", "Travel", "Education"]}
-          tips={["Pick the category first, then source and target units. Results update as you type."]}
+          description="Convert between units across multiple categories: length, weight, temperature, volume, area, and more. One tool handles metric and imperial systems so you can switch between meters and feet, kilograms and pounds, Celsius and Fahrenheit, liters and gallons, and other common units. Enter a value and choose source and target units to get an instant, accurate conversion. All calculations run in your browser with no data sent to servers. Useful for daily life, recipes, DIY and construction, travel, and education—anywhere unit conversion is needed."
+          features={[
+            'Multiple categories: length, weight, temperature, volume, area, and more',
+            'Metric and imperial units in each category',
+            'Instant conversion as you type; no submit required',
+            'Clear source and target unit selection',
+            'Copy result for use in documents or apps',
+            'Runs entirely in your browser; no account needed'
+          ]}
+          howToUse={[
+            'Select the category (e.g., length, weight, temperature)',
+            'Enter the value you want to convert',
+            'Choose the unit of the value you entered (source unit)',
+            'Choose the unit you want to convert to (target unit)',
+            'View the result; it updates as you change values or units'
+          ]}
+          useCases={[
+            'Daily conversions: quick answers for cooking, shopping, or travel',
+            'Recipes: convert grams to ounces or cups to milliliters',
+            'DIY and construction: switch between feet, meters, and inches',
+            'Travel: understand distances, speeds, and temperatures abroad',
+            'Education: teach or learn metric and imperial systems'
+          ]}
+          tips={[
+            'Pick the category first, then set source and target units. Results update as you type.',
+            'For temperature, formulas differ from simple multiplication (e.g., °C to °F uses a formula).',
+            'When in doubt, double-check critical conversions (e.g., medicine or engineering) with a second source.'
+          ]}
           faq={[
-            { question: "Which unit types are supported?", answer: "Length, weight, temperature, volume, area, and more. Select a category to see available units." },
-            { question: "Are conversions accurate?", answer: "Yes. Standard conversion factors are used for each unit type." }
+            { question: 'Which unit types are supported?', answer: 'Length, weight, temperature, volume, area, and other common categories. Select a category to see all available units in that group.' },
+            { question: 'Are conversions accurate?', answer: 'Yes. Standard, widely accepted conversion factors are used for each unit type. For critical applications, verify with official or local standards.' },
+            { question: 'Can I convert between metric and imperial?', answer: 'Yes. You can convert from any unit to any other in the same category, including metric to imperial and back.' }
           ]}
         />
       </div>
