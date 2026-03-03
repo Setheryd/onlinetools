@@ -31,7 +31,7 @@ const DnsLookupTool = () => {
       if (!resp.ok) throw new Error(data.error || 'Lookup failed');
       setResult(data);
     } catch (e) {
-      setError(e.message);
+      setError(e?.message === 'Failed to fetch' ? 'Network error. Check your connection and try again.' : (e?.message || 'Lookup failed'));
     } finally {
       setLoading(false);
     }

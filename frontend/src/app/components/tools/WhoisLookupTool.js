@@ -27,7 +27,7 @@ const WhoisLookupTool = () => {
       if (!resp.ok) throw new Error(json.error || 'Lookup failed');
       setData(json);
     } catch (e) {
-      setError(e.message);
+      setError(e?.message === 'Failed to fetch' ? 'Network error. Check your connection and try again.' : (e?.message || 'Lookup failed'));
     } finally {
       setLoading(false);
     }

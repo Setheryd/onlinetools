@@ -39,8 +39,36 @@ export const metadata = {
 }
 
 const ColorConverterPage = () => {
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'Color Converter',
+    applicationCategory: 'DesignApplication',
+    operatingSystem: 'Any',
+    url: 'https://thetool.guru/tools/color-converter',
+    description: 'Pick a color and convert between HEX, RGB, HSL, HSV, and CMYK. Supports alpha. No signup required.',
+    browserRequirements: 'Requires JavaScript. Works in modern browsers.',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    featureList: [
+      'Convert HEX, RGB, HSL, HSV, CMYK',
+      'Interactive color picker',
+      'Alpha transparency support',
+      'Real-time conversion',
+      'Copy values to clipboard',
+      'Works in browser for privacy',
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <Header />
       <Body>
         <ColorConverterTool />

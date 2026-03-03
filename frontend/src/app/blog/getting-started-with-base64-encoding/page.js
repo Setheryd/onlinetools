@@ -453,6 +453,17 @@ const Base64EncodingBlogPost = () => {
           </Link>
         </div>
         
+        <div class="bg-gray-100 border border-gray-200 rounded-lg p-6 mb-12">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Related tools</h3>
+          <p class="text-gray-700 mb-4">Try these other encoding and data tools:</p>
+          <ul class="space-y-2 text-gray-800">
+            <li><a href="/tools/base64" class="text-blue-600 hover:underline font-medium">Base64 Encoder/Decoder</a> — encode and decode Base64</li>
+            <li><a href="/tools/binary-encoder" class="text-blue-600 hover:underline font-medium">Binary Encoder/Decoder</a> — text to binary and back</li>
+            <li><a href="/tools/hex-encoder" class="text-blue-600 hover:underline font-medium">Hex Encoder/Decoder</a> — text to hexadecimal</li>
+            <li><a href="/tools/url-encoder" class="text-blue-600 hover:underline font-medium">URL Encoder/Decoder</a> — percent-encode for URLs</li>
+          </ul>
+        </div>
+        
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Conclusion: The Foundation of Modern Data Exchange</h2>
         <p class="text-lg text-gray-700 mb-6">Base64 encoding is more than just a technical curiosity—it's a fundamental building block of modern computing that enables seamless data exchange across different systems and protocols.</p>
         

@@ -44,8 +44,35 @@ const Base64Page = async () => {
   // Get the Base64 blog post from the service
   const base64BlogPost = await blogService.getPostBySlug('getting-started-with-base64-encoding');
 
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'Base64 Encoder & Decoder',
+    applicationCategory: 'DeveloperApplication',
+    operatingSystem: 'Any',
+    url: 'https://thetool.guru/tools/base64',
+    description: 'Free base64 encoder and decoder. Encode text to Base64 and decode Base64 to text instantly in your browser. No signup required.',
+    browserRequirements: 'Requires JavaScript. Works in modern browsers.',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    featureList: [
+      'Encode text and binary data to Base64 format',
+      'Decode Base64 strings back to original text',
+      'Real-time encoding and decoding',
+      'Copy to clipboard',
+      'Works entirely in browser for privacy',
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <Header />
       <Body>
         <Base64Tool />

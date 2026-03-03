@@ -398,6 +398,16 @@ const PasswordGeneratorBlogPost = () => {
           </Link>
         </div>
         
+        <div class="bg-gray-100 border border-gray-200 rounded-lg p-6 mb-12">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Related tools</h3>
+          <p class="text-gray-700 mb-4">Try these other security and utility tools:</p>
+          <ul class="space-y-2 text-gray-800">
+            <li><a href="/tools/password-generator" class="text-red-600 hover:underline font-medium">Password Generator</a> — create strong passwords</li>
+            <li><a href="/tools/password-strength-checker" class="text-red-600 hover:underline font-medium">Password Strength Checker</a> — check password strength</li>
+            <li><a href="/tools/hash-generator" class="text-red-600 hover:underline font-medium">Hash Generator</a> — MD5, SHA-1, SHA-256</li>
+          </ul>
+        </div>
+        
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Conclusion: Taking Control of Your Digital Security</h2>
         <p class="text-lg text-gray-700 mb-6">Strong passwords are the foundation of digital security, and password generators are the tools that make creating and managing secure passwords practical and effective.</p>
         

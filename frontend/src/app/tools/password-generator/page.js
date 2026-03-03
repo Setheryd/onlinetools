@@ -44,8 +44,36 @@ const PasswordGeneratorPage = async () => {
   // Get the password generator blog post from the service
   const passwordBlogPost = await blogService.getPostBySlug('ultimate-guide-to-password-generators');
 
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'Password Generator',
+    applicationCategory: 'UtilitiesApplication',
+    operatingSystem: 'Any',
+    url: 'https://thetool.guru/tools/password-generator',
+    description: 'Generate strong, secure passwords with customizable options. Create random passwords with letters, numbers, and special characters. No signup required.',
+    browserRequirements: 'Requires JavaScript. Works in modern browsers.',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    featureList: [
+      'Generate passwords from 4 to 128 characters',
+      'Include or exclude uppercase, lowercase, numbers, special characters',
+      'Exclude similar and ambiguous characters',
+      'Generate multiple passwords at once',
+      'Copy to clipboard',
+      'Cryptographically secure random generation',
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <Header />
       <Body>
         <PasswordGenerator />

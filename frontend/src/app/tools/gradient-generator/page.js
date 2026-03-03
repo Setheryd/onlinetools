@@ -39,8 +39,36 @@ export const metadata = {
 }
 
 const GradientMakerPage = () => {
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'Gradient Maker',
+    applicationCategory: 'DesignApplication',
+    operatingSystem: 'Any',
+    url: 'https://thetool.guru/tools/gradient-generator',
+    description: 'Create beautiful CSS gradients. Generate linear, radial, conic gradients and export as PNG, SVG, JPEG or CSS. No signup required.',
+    browserRequirements: 'Requires JavaScript. Works in modern browsers.',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    featureList: [
+      'Linear, radial, and conic gradients',
+      'Multiple color stops',
+      'Real-time preview',
+      'Export PNG, SVG, JPEG, CSS',
+      'Copy CSS code',
+      'Works in browser for privacy',
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <Header />
       <Body>
         <GradientMakerTool />

@@ -232,19 +232,20 @@ Ideas focused on **top performers** (Gradient Maker, Base64, All Tools, PDF Edit
 | Idea | Effort | Notes |
 |------|--------|--------|
 | Add or expand blog posts for top tools | M | Base64, PDF Editor, Color Converter, Gradient Maker — match slugs in blogService and add ToolBlogPost where missing. |
-| Add SoftwareApplication / HowTo structured data per tool | M | Improves rich results and SEO; start with top 10 tools. |
-| Internal linking from blog to tools and between tools | S | Link from “getting-started-with-base64-encoding” and similar posts to the matching tool and related tools. |
+| Add SoftwareApplication / HowTo structured data per tool | M | Improves rich results and SEO; start with top 10 tools. *(Done: WebApplication JSON-LD added to base64 and password-generator.)* |
+| Internal linking from blog to tools and between tools | S | Link from “getting-started-with-base64-encoding” and similar posts to the matching tool and related tools. *(Done: Related tools blocks added to 3 posts.)* |
 | Improve Core Web Vitals on heavy tool pages | M | Image lazy-load, reduce main-thread work; focus on PDF/Image tools if LCP or INP are weak. |
 | A/B test CTA copy or placement of “Related tools” | L | Optional; after baseline improvements are done. |
-| Fix 404s | S | Investigate “Page Not Found” (238 GA views); fix or redirect. |
+| Fix 404s | S | Investigate “Page Not Found” (238 GA views); fix or redirect. *(Done: 404 page leads with "Browse all tools".)* |
 
 ---
 
 ## 8. Functionality and ease of use
 
-**API-backed tools (ensure clear loading/error states):**  
-DNS Lookup, WHOIS Lookup, SSL Checker, Website Speed Test, HTTP Headers Checker, Redirect Checker, Meta Analyzer, Robots Tester, Website Screenshot, cURL tool (and any other that call `frontend/src/app/api/*`).  
+**API-backed tools (ensure clear loading/error states):**
+DNS Lookup, WHOIS Lookup, SSL Checker, Website Speed Test, HTTP Headers Checker, Redirect Checker, Meta Analyzer, Robots Tester, Website Screenshot, cURL tool (and any other that call `frontend/src/app/api/*`).
 Verify: spinner/loading state, error message when API fails, no blank screen on CORS/network errors.
+*(Audit done: DNS, WHOIS, SSL, Website Speed Test all have loading state, error UI, and try/catch. Added user-friendly "Network error. Check your connection and try again." for fetch failures on DNS, WHOIS, SSL.)*
 
 **Client-only tools:**  
 Most others (Base64, Password Generator, JSON Formatter, converters, etc.). Quick check: copy buttons work, labels are clear, layout is usable on mobile.

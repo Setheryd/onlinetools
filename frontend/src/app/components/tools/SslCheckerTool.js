@@ -26,7 +26,7 @@ const SslCheckerTool = () => {
       if (!resp.ok) throw new Error(json.error || 'Failed to fetch');
       setData(json);
     } catch (e) {
-      setError(e.message);
+      setError(e?.message === 'Failed to fetch' ? 'Network error. Check your connection and try again.' : (e?.message || 'Check failed'));
     } finally {
       setLoading(false);
     }

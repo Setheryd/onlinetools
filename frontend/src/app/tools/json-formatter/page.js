@@ -44,8 +44,37 @@ const JsonFormatterPage = async () => {
   // Get the JSON formatter blog post from the service
   const jsonBlogPost = await blogService.getPostBySlug('mastering-json-formatting-and-validation');
 
+  const structuredData = {
+    '@context': 'https://schema.org',
+    '@type': 'WebApplication',
+    name: 'JSON Formatter & Validator',
+    applicationCategory: 'DeveloperApplication',
+    operatingSystem: 'Any',
+    url: 'https://thetool.guru/tools/json-formatter',
+    description: 'Free JSON formatter and validator online. Format, validate, and beautify JSON with syntax highlighting. No signup required.',
+    browserRequirements: 'Requires JavaScript. Works in modern browsers.',
+    offers: {
+      '@type': 'Offer',
+      price: '0',
+      priceCurrency: 'USD',
+    },
+    featureList: [
+      'Format JSON with customizable indentation',
+      'Validate JSON syntax and detect errors',
+      'Syntax highlighting',
+      'Minify JSON',
+      'Copy to clipboard',
+      'Error detection with line numbers',
+      'Works in browser for privacy',
+    ],
+  };
+
   return (
     <div className="min-h-screen bg-gray-50">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(structuredData) }}
+      />
       <Header />
       <Body>
         <JsonFormatterTool />

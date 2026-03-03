@@ -444,6 +444,17 @@ const JSONFormattingBlogPost = () => {
           </Link>
         </div>
         
+        <div class="bg-gray-100 border border-gray-200 rounded-lg p-6 mb-12">
+          <h3 class="text-lg font-semibold text-gray-900 mb-3">Related tools</h3>
+          <p class="text-gray-700 mb-4">Try these other data and developer tools:</p>
+          <ul class="space-y-2 text-gray-800">
+            <li><a href="/tools/json-formatter" class="text-green-600 hover:underline font-medium">JSON Formatter & Validator</a> — format and validate JSON</li>
+            <li><a href="/tools/base64" class="text-green-600 hover:underline font-medium">Base64 Encoder/Decoder</a> — encode and decode Base64</li>
+            <li><a href="/tools/csv-to-json" class="text-green-600 hover:underline font-medium">CSV ⇄ JSON Converter</a> — convert between CSV and JSON</li>
+            <li><a href="/tools/xml-formatter" class="text-green-600 hover:underline font-medium">XML Formatter</a> — format and validate XML</li>
+          </ul>
+        </div>
+        
         <h2 class="text-3xl font-bold text-gray-900 mb-6">Conclusion: Building Robust Data-Driven Applications</h2>
         <p class="text-lg text-gray-700 mb-6">Proper JSON formatting and validation are not just technical niceties—they're essential practices for building reliable, maintainable, and scalable applications in today's data-driven world.</p>
         
