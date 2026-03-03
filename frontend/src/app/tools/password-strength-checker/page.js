@@ -38,6 +38,31 @@ export const metadata = {
   },
 }
 
+const PasswordStrengthCheckerPage = () => (
+  <div className="min-h-screen bg-gray-50">
+    <Header />
+    <Body>
+      <PasswordStrengthCheckerTool />
+      <div className="max-w-4xl mx-auto px-4">
+        <ToolContentSection
+          toolName="Password Strength Checker"
+          description="Check password strength and get suggestions. See how length, variety of characters, and common patterns affect security. For awareness only—never enter a real password you use. All checks run in your browser."
+          features={["Strength score", "Suggestions", "Length and character variety", "Runs in browser"]}
+          howToUse={["Type or paste a sample password (e.g. a test value)", "View strength and tips", "Use suggestions to improve passwords elsewhere"]}
+          useCases={["Testing policy", "Learning what makes a strong password", "Checking before signup"]}
+          tips={["Never enter a real password. Use a similar fake one to test. Prefer a password manager for real passwords."]}
+          faq={[
+            { question: "Is my password sent anywhere?", answer: "No. Checking runs in your browser. Nothing is sent to a server. Still, do not enter a real password—use a test value." },
+            { question: "What makes a password strong?", answer: "Length (12+), mix of letters, numbers, symbols, and avoiding dictionary words or personal info." }
+          ]}
+        />
+      </div>
+      <RelatedToolsSection toolId="password-strength-checker" />
+    </Body>
+    <Footer />
+  </div>
+);
+
 export default PasswordStrengthCheckerPage;
 
 

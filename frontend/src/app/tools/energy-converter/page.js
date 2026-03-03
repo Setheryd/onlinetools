@@ -38,6 +38,27 @@ export const metadata = {
   },
 }
 
+const EnergyConverterPage = () => (
+  <div className="min-h-screen bg-gray-50">
+    <Header />
+    <Body>
+      <EnergyConverterTool />
+      <div className="max-w-4xl mx-auto px-4">
+        <ToolContentSection
+          toolName="Energy Converter"
+          description="Convert between joules, watt-hours, kWh, calories, BTU, and more. For physics, utilities, and nutrition. All in your browser."
+          features={["Joules, Wh, kWh", "Calories, BTU", "Instant conversion", "Works in browser"]}
+          howToUse={["Enter value", "Select source and target units", "View result"]}
+          useCases={["Physics", "Electricity bills", "Nutrition (calories)", "HVAC (BTU)"]}
+          faq={[{ question: "What is a joule?", answer: "The SI unit of energy. 1 kWh = 3,600,000 joules. 1 calorie ≈ 4.184 joules." }]}
+        />
+      </div>
+      <RelatedToolsSection toolId="energy-converter" />
+    </Body>
+    <Footer />
+  </div>
+);
+
 export default EnergyConverterPage;
 
 

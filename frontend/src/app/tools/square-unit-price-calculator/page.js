@@ -38,4 +38,28 @@ export const metadata = {
   },
 }
 
+const SquareUnitPriceCalculatorPage = () => (
+  <div className="min-h-screen bg-gray-50">
+    <Header />
+    <Body>
+      <SquareUnitPriceCalculatorTool />
+      <div className="max-w-4xl mx-auto px-4">
+        <ToolContentSection
+          toolName="Price per Square Meter & Square Foot Calculator"
+          description="Calculate price per square meter, price per square foot, or total cost from area/volume and unit price. For real estate, flooring, and materials."
+          features={["Price per sq m / sq ft", "Total from area and unit price", "Area and volume", "Works in browser"]}
+          howToUse={["Enter dimensions or area", "Enter unit price", "View price per unit or total"]}
+          useCases={["Real estate", "Flooring", "Materials", "Comparing quotes"]}
+          faq={[
+            { question: "How do I get price per square meter?", answer: "Divide total cost by area in square meters. Or enter total and area; the tool computes it." },
+            { question: "Square foot or square meter?", answer: "The tool supports both. Use your local unit (e.g. sq ft in US, sq m elsewhere)." }
+          ]}
+        />
+      </div>
+      <RelatedToolsSection toolId="square-unit-price-calculator" />
+    </Body>
+    <Footer />
+  </div>
+);
+
 export default SquareUnitPriceCalculatorPage;

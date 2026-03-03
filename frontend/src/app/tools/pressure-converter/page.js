@@ -38,6 +38,27 @@ export const metadata = {
   },
 }
 
+const PressureConverterPage = () => (
+  <div className="min-h-screen bg-gray-50">
+    <Header />
+    <Body>
+      <PressureConverterTool />
+      <div className="max-w-4xl mx-auto px-4">
+        <ToolContentSection
+          toolName="Pressure Converter"
+          description="Convert between Pa, kPa, MPa, bar, atm, and psi. For tires, hydraulics, and chemistry. All in your browser."
+          features={["Pa, kPa, bar, atm, psi", "Instant conversion", "Works in browser"]}
+          howToUse={["Enter value", "Select units", "View result"]}
+          useCases={["Tire pressure", "Hydraulics", "Scuba", "Chemistry"]}
+          faq={[{ question: "What is psi?", answer: "Pounds per square inch. Common in the US for tire pressure. 1 bar ≈ 14.5 psi." }]}
+        />
+      </div>
+      <RelatedToolsSection toolId="pressure-converter" />
+    </Body>
+    <Footer />
+  </div>
+);
+
 export default PressureConverterPage;
 
 

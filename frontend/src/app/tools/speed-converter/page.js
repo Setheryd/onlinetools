@@ -38,6 +38,27 @@ export const metadata = {
   },
 }
 
+const SpeedConverterPage = () => (
+  <div className="min-h-screen bg-gray-50">
+    <Header />
+    <Body>
+      <SpeedConverterTool />
+      <div className="max-w-4xl mx-auto px-4">
+        <ToolContentSection
+          toolName="Speed Converter"
+          description="Convert between m/s, km/h, mph, knots, ft/s. For driving, aviation, and science. All in your browser."
+          features={["m/s, km/h, mph, knots, ft/s", "Instant conversion", "Works in browser"]}
+          howToUse={["Enter speed", "Select units", "View result"]}
+          useCases={["Driving", "Aviation", "Weather", "Sports"]}
+          faq={[{ question: "How do I convert mph to km/h?", answer: "Multiply by 1.609. Or use this tool: enter mph and select km/h as target." }]}
+        />
+      </div>
+      <RelatedToolsSection toolId="speed-converter" />
+    </Body>
+    <Footer />
+  </div>
+);
+
 export default SpeedConverterPage;
 
 

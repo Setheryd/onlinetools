@@ -38,4 +38,28 @@ export const metadata = {
   },
 }
 
+const WebsiteSpeedTestPage = () => (
+  <div className="min-h-screen bg-gray-50">
+    <Header />
+    <Body>
+      <WebsiteSpeedTest />
+      <div className="max-w-4xl mx-auto px-4">
+        <ToolContentSection
+          toolName="Website Speed Test"
+          description="Test internet connection speed (download/upload), ping, and website performance. Get quick metrics for your connection or a URL. Runs in your browser."
+          features={["Download/upload speed", "Ping", "URL performance", "Simple metrics", "Browser-based"]}
+          howToUse={["Run connection test or enter a URL", "View results", "Compare or share if needed"]}
+          useCases={["Check broadband", "Debug slow sites", "Before/after changes"]}
+          faq={[
+            { question: "How accurate is the speed test?", answer: "Results depend on your connection, server location, and browser. Use as a rough guide." },
+            { question: "Does it work on mobile?", answer: "Yes. Run from your phone or tablet to test mobile network speed." }
+          ]}
+        />
+      </div>
+      <RelatedToolsSection toolId="website-speed-test" />
+    </Body>
+    <Footer />
+  </div>
+);
+
 export default WebsiteSpeedTestPage;

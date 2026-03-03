@@ -38,6 +38,27 @@ export const metadata = {
   },
 }
 
+const VolumeConverterPage = () => (
+  <div className="min-h-screen bg-gray-50">
+    <Header />
+    <Body>
+      <VolumeConverterTool />
+      <div className="max-w-4xl mx-auto px-4">
+        <ToolContentSection
+          toolName="Volume Converter"
+          description="Convert between liters, gallons, cups, fluid ounces, cubic meters, and more. For cooking, fuel, and science."
+          features={["Liters, gallons, cups, fl oz", "Cubic units", "Instant conversion", "Works in browser"]}
+          howToUse={["Enter value", "Select units", "View result"]}
+          useCases={["Cooking", "Fuel", "Chemistry", "DIY"]}
+          faq={[{ question: "US or UK gallon?", answer: "US gallon ≈ 3.785 L. UK (imperial) gallon ≈ 4.546 L. The tool uses the standard you select." }]}
+        />
+      </div>
+      <RelatedToolsSection toolId="volume-converter" />
+    </Body>
+    <Footer />
+  </div>
+);
+
 export default VolumeConverterPage;
 
 

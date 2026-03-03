@@ -38,4 +38,29 @@ export const metadata = {
   },
 }
 
+const RegexTesterPage = () => (
+  <div className="min-h-screen bg-gray-50">
+    <Header />
+    <Body>
+      <RegexTesterTool />
+      <div className="max-w-4xl mx-auto px-4">
+        <ToolContentSection
+          toolName="Regex Tester"
+          description="Test and debug regular expressions with real-time matching and highlighting. Enter a pattern and sample text to see matches, groups, and errors. Essential for developers. All processing in your browser."
+          features={["Real-time match highlighting", "Capture groups", "Error messages", "Sample text", "Copy pattern", "Works in browser"]}
+          howToUse={["Enter a regex pattern", "Enter or paste test text", "View matches and groups", "Fix pattern and retest"]}
+          useCases={["Debug regex", "Validate patterns", "Learn regex", "Extract data patterns"]}
+          tips={["Use flags (g, i, m) as needed. Escape special chars in the pattern (e.g. \\. for a dot)."]}
+          faq={[
+            { question: "What regex flavor is used?", answer: "JavaScript's RegExp (ECMAScript). Supports standard syntax: ., *, +, ?, [], (), |, \\d, \\w, etc." },
+            { question: "Why is my regex not matching?", answer: "Check escaping (e.g. . matches any char; \\. matches a literal dot). Ensure flags (g for global) if you expect multiple matches." }
+          ]}
+        />
+      </div>
+      <RelatedToolsSection toolId="regex-tester" />
+    </Body>
+    <Footer />
+  </div>
+);
+
 export default RegexTesterPage;

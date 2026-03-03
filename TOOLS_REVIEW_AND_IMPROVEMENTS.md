@@ -221,7 +221,7 @@ For tools that are **not** in the top 15 by GA views (or have 0 clicks in Search
 
 **Audit done (batch 2):** Same fix (full page + ToolContentSection + FAQ) applied to: uuid-generator, rot13-encoder, hex-encoder, url-encoder, csv-to-json, dice-roller, timestamp-converter, html-encoder, jwt-decoder, random-number-generator, text-case-converter.
 
-**Still to do (metadata-only, no page body):** email-validator, energy-converter, length-converter, meta-tag-generator, password-strength-checker, percentage-calculator, power-converter, pressure-converter, regex-tester, speed-converter, square-unit-price-calculator, temperature-converter, time-zone-converter, unit-converter, volume-converter, website-speed-test, weight-converter. Add the same page structure + ToolContentSection + FAQ for each.
+**Audit done (batch 3):** Same fix applied to remaining metadata-only pages: email-validator, weight-converter, temperature-converter, regex-tester, unit-converter, energy-converter, length-converter, speed-converter, volume-converter, power-converter, pressure-converter, percentage-calculator, square-unit-price-calculator, time-zone-converter, website-speed-test, meta-tag-generator, password-strength-checker. §6 audit complete: all built tool pages now have a page component body and ToolContentSection (with FAQ where applicable).
 
 ---
 

@@ -38,6 +38,27 @@ export const metadata = {
   },
 }
 
+const LengthConverterPage = () => (
+  <div className="min-h-screen bg-gray-50">
+    <Header />
+    <Body>
+      <LengthConverterTool />
+      <div className="max-w-4xl mx-auto px-4">
+        <ToolContentSection
+          toolName="Length Converter"
+          description="Convert length units: meters, feet, inches, miles, km, yards, and more. Metric and imperial. For DIY, travel, and education."
+          features={["m, ft, in, mi, km, yd", "Instant conversion", "Bidirectional", "Works in browser"]}
+          howToUse={["Enter value", "Select units", "View result"]}
+          useCases={["DIY and construction", "Travel", "Sports", "Education"]}
+          faq={[{ question: "How many feet in a meter?", answer: "1 meter ≈ 3.281 feet. 1 foot = 12 inches." }]}
+        />
+      </div>
+      <RelatedToolsSection toolId="length-converter" />
+    </Body>
+    <Footer />
+  </div>
+);
+
 export default LengthConverterPage;
 
 

@@ -38,6 +38,27 @@ export const metadata = {
   },
 }
 
+const PowerConverterPage = () => (
+  <div className="min-h-screen bg-gray-50">
+    <Header />
+    <Body>
+      <PowerConverterTool />
+      <div className="max-w-4xl mx-auto px-4">
+        <ToolContentSection
+          toolName="Power Converter"
+          description="Convert between Watts, kilowatts, horsepower, and dBm. For engines, electronics, and RF. All in your browser."
+          features={["W, kW, hp, dBm", "Instant conversion", "Works in browser"]}
+          howToUse={["Enter value", "Select units", "View result"]}
+          useCases={["Cars (hp)", "Electronics (W)", "RF (dBm)"]}
+          faq={[{ question: "What is dBm?", answer: "Decibels relative to 1 milliwatt. Used in radio and telecom. 0 dBm = 1 mW." }]}
+        />
+      </div>
+      <RelatedToolsSection toolId="power-converter" />
+    </Body>
+    <Footer />
+  </div>
+);
+
 export default PowerConverterPage;
 
 

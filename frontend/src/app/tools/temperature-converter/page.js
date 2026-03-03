@@ -38,6 +38,31 @@ export const metadata = {
   },
 }
 
+const TemperatureConverterPage = () => (
+  <div className="min-h-screen bg-gray-50">
+    <Header />
+    <Body>
+      <TemperatureConverterTool />
+      <div className="max-w-4xl mx-auto px-4">
+        <ToolContentSection
+          toolName="Temperature Converter"
+          description="Convert between Celsius, Fahrenheit, and Kelvin. For weather, cooking, science, and travel. Accurate formulas; all in your browser."
+          features={["Celsius, Fahrenheit, Kelvin", "Instant conversion", "Bidirectional", "Copy result", "Works in browser"]}
+          howToUse={["Enter a temperature", "Choose source and target scale", "View result"]}
+          useCases={["Weather", "Cooking and baking", "Science and labs", "Travel"]}
+          tips={["Water freezes at 0°C / 32°F. Boils at 100°C / 212°F. Kelvin = Celsius + 273.15."]}
+          faq={[
+            { question: "How do I convert Fahrenheit to Celsius?", answer: "Use the formula: C = (F − 32) × 5/9. Or use this tool: enter F and select Celsius as target." },
+            { question: "What is Kelvin used for?", answer: "Kelvin is the SI unit for temperature, used in science. 0 K is absolute zero. Kelvin = Celsius + 273.15." }
+          ]}
+        />
+      </div>
+      <RelatedToolsSection toolId="temperature-converter" />
+    </Body>
+    <Footer />
+  </div>
+);
+
 export default TemperatureConverterPage;
 
 

@@ -38,6 +38,30 @@ export const metadata = {
   },
 }
 
+const TimeZoneConverterPage = () => (
+  <div className="min-h-screen bg-gray-50">
+    <Header />
+    <Body>
+      <TimeZoneConverterTool />
+      <div className="max-w-4xl mx-auto px-4">
+        <ToolContentSection
+          toolName="Time Zone Converter"
+          description="Convert a date and time between time zones. Pick source and target zones (e.g. UTC, EST, PST). Essential for meetings and travel. Uses your browser."
+          features={["Convert between time zones", "Date and time", "Common zones (UTC, EST, PST, etc.)", "Works in browser"]}
+          howToUse={["Enter or pick date and time", "Select source time zone", "Select target time zone", "View result"]}
+          useCases={["Meetings", "Travel", "Support", "Scheduling"]}
+          faq={[
+            { question: "What is UTC?", answer: "Coordinated Universal Time—the reference. EST = UTC−5, PST = UTC−8 (approx; DST can shift)." },
+            { question: "Does it handle daylight saving?", answer: "Yes. Named zones (e.g. America/New_York) account for DST automatically." }
+          ]}
+        />
+      </div>
+      <RelatedToolsSection toolId="time-zone-converter" />
+    </Body>
+    <Footer />
+  </div>
+);
+
 export default TimeZoneConverterPage;
 
 

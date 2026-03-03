@@ -38,6 +38,30 @@ export const metadata = {
   },
 }
 
+const MetaTagGeneratorPage = () => (
+  <div className="min-h-screen bg-gray-50">
+    <Header />
+    <Body>
+      <MetaTagGeneratorTool />
+      <div className="max-w-4xl mx-auto px-4">
+        <ToolContentSection
+          toolName="Meta Tag Generator"
+          description="Generate SEO and social meta tags: title, description, Open Graph, and Twitter Card markup. Paste into your HTML head for better search and social previews. All in your browser."
+          features={["Title, description", "Open Graph tags", "Twitter Card tags", "Copy HTML", "Works in browser"]}
+          howToUse={["Enter page title and description", "Add image URL if needed", "Copy generated meta tags into your page head"]}
+          useCases={["New pages", "Blog posts", "Landing pages", "Social sharing"]}
+          faq={[
+            { question: "What are Open Graph tags?", answer: "Meta tags that control how your page looks when shared on Facebook, LinkedIn, etc. (og:title, og:description, og:image)." },
+            { question: "Do I need both OG and Twitter?", answer: "Twitter can use OG tags as fallback. Adding Twitter-specific tags gives you control over how it looks on Twitter." }
+          ]}
+        />
+      </div>
+      <RelatedToolsSection toolId="meta-tag-generator" />
+    </Body>
+    <Footer />
+  </div>
+);
+
 export default MetaTagGeneratorPage;
 
 
