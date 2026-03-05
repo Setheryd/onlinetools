@@ -113,8 +113,16 @@ const WebsiteScreenshotTool = () => {
       });
 
       if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(errorData.error || 'Failed to capture screenshot');
+        let errorMessage = 'Failed to capture screenshot';
+        try {
+          const errorData = await response.json();
+          errorMessage = errorData.error || errorMessage;
+        } catch {
+          if (response.status === 504) {
+            errorMessage = 'The page took too long to capture. Try a simpler URL (e.g. example.com) or try again.';
+          }
+        }
+        throw new Error(errorMessage);
       }
 
       // Get the blob and create object URL
