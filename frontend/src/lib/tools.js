@@ -4193,6 +4193,8 @@ export function getBuiltTools() {
 
 // IDs of newest tools (newest first). Prepend new tool IDs here when you ship them.
 const NEWEST_TOOL_IDS = [
+  'url-fetch',
+  'speech-to-text',
   'ping-tool',
   'article-extractor',
   'website-screenshot',

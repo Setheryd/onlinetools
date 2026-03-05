@@ -39,15 +39,38 @@ const CronJobGeneratorTool = () => {
   const [dom, setDom] = useState('*');
   const [month, setMonth] = useState('*');
   const [dow, setDow] = useState('*');
+  const [nextRuns, setNextRuns] = useState(null);
+  const [nextRunsLoading, setNextRunsLoading] = useState(false);
+  const [nextRunsError, setNextRunsError] = useState('');
   const expr = useMemo(() => `${minute} ${hour} ${dom} ${month} ${dow}`, [minute, hour, dom, month, dow]);
   const desc = useMemo(() => humanize(expr), [expr]);
+  const canParse = useMemo(() => FIVE_PARTS.test(expr.trim()) && desc !== 'Invalid cron expression', [expr, desc]);
 
   const applyPreset = (p) => {
     const [mi, ho, d1, mo, d2] = p.split(' ');
     setMinute(mi); setHour(ho); setDom(d1); setMonth(mo); setDow(d2);
+    setNextRuns(null);
+    setNextRunsError('');
   };
 
   const copy = async () => { try { await navigator.clipboard.writeText(expr); } catch {} };
+
+  const fetchNextRuns = async () => {
+    if (!canParse) return;
+    setNextRunsLoading(true);
+    setNextRunsError('');
+    setNextRuns(null);
+    try {
+      const res = await fetch(`/api/cron/parse?expression=${encodeURIComponent(expr.trim())}&count=10`);
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || 'Failed to get next runs');
+      setNextRuns(json.next_runs ?? json.times ?? []);
+    } catch (e) {
+      setNextRunsError(e.message);
+    } finally {
+      setNextRunsLoading(false);
+    }
+  };
 
   return (
     <div className="max-w-5xl mx-auto p-6 bg-white rounded-xl shadow-md border border-gray-200">
@@ -76,10 +99,30 @@ const CronJobGeneratorTool = () => {
         </div>
       </div>
 
-      <div className="p-4 bg-blue-50 border border-blue-200 rounded">
+      <div className="p-4 bg-blue-50 border border-blue-200 rounded mb-4">
         <div className="text-sm font-semibold text-blue-800 mb-1">Summary</div>
         <div className="text-sm text-blue-700">{desc}</div>
       </div>
+
+      {canParse && (
+        <div className="p-4 bg-gray-50 border rounded">
+          <div className="text-sm font-semibold text-gray-800 mb-2">Next run times</div>
+          <p className="text-xs text-gray-600 mb-2">Uses server-side cron parsing when API is configured.</p>
+          <Button variant="outline" size="sm" onClick={fetchNextRuns} disabled={nextRunsLoading}>
+            {nextRunsLoading ? 'Loading…' : 'Show next 10 runs'}
+          </Button>
+          {nextRunsError && (
+            <p className="mt-2 text-sm text-amber-700">{nextRunsError}</p>
+          )}
+          {nextRuns && nextRuns.length > 0 && (
+            <ul className="mt-3 text-sm font-mono text-gray-800 space-y-1">
+              {nextRuns.map((t, i) => (
+                <li key={i}>{t}</li>
+              ))}
+            </ul>
+          )}
+        </div>
+      )}
     </div>
   );
 };

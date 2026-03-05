@@ -103,9 +103,55 @@ const MetaAnalyzerTool = () => {
           )}
         </div>
       )}
+
+      <div className="mt-8 pt-6 border-t border-gray-200">
+        <div className="text-lg font-semibold text-gray-900 mb-3">SEO validators (API)</div>
+        <p className="text-sm text-gray-600 mb-4">Validate robots.txt, sitemap, and Open Graph for a URL. Requires backend API.</p>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+          <ValidatorBlock label="Robots.txt" apiPath="/api/validate/robots-txt" url={url.trim()} />
+          <ValidatorBlock label="Sitemap" apiPath="/api/validate/sitemap" url={url.trim()} />
+          <ValidatorBlock label="Open Graph" apiPath="/api/validate/og" url={url.trim()} />
+        </div>
+      </div>
     </div>
   );
 };
+
+function ValidatorBlock({ label, apiPath, url }) {
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState('');
+  const [result, setResult] = useState(null);
+
+  const run = async () => {
+    if (!url || !url.startsWith('http')) return;
+    setLoading(true); setError(''); setResult(null);
+    try {
+      const res = await fetch(`${apiPath}?url=${encodeURIComponent(url)}`);
+      const json = await res.json();
+      if (!res.ok) throw new Error(json.error || 'Validation failed');
+      setResult(json);
+    } catch (e) {
+      setError(e.message);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  return (
+    <div className="p-4 bg-gray-50 border rounded">
+      <div className="text-sm font-semibold text-gray-900 mb-2">{label}</div>
+      <Button variant="outline" size="sm" onClick={run} disabled={!url || loading}>
+        {loading ? 'Checking…' : 'Validate'}
+      </Button>
+      {error && <p className="mt-2 text-xs text-red-600">{error}</p>}
+      {result && (
+        <pre className="mt-2 text-xs text-gray-700 whitespace-pre-wrap break-words max-h-32 overflow-y-auto">
+          {typeof result === 'object' ? JSON.stringify(result, null, 2) : String(result)}
+        </pre>
+      )}
+    </div>
+  );
+}
 
 export default MetaAnalyzerTool;
 
