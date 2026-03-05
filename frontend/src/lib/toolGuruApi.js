@@ -108,6 +108,34 @@ export async function ping(query) {
 }
 
 /**
+ * GET /api/traceroute – trace route to host (hop-by-hop).
+ * @param {Object} query - { host, max_hops? }
+ * @returns {Promise<{ hops?: Array<{ hop?, ip?, hostname?, rtt_ms? }>, error?: string }>}
+ */
+export async function traceroute(query) {
+  if (!baseUrl) {
+    throw Object.assign(new Error('TOOL_GURU_API_URL is not set'), { status: 502, detail: 'Traceroute service not configured.' });
+  }
+  const params = new URLSearchParams();
+  if (query.host) params.set('host', String(query.host).trim());
+  if (query.max_hops != null && query.max_hops !== '') params.set('max_hops', String(query.max_hops));
+  const qs = params.toString();
+  const url = `${baseUrl}/api/traceroute${qs ? `?${qs}` : ''}`;
+  const res = await fetch(url, {
+    method: 'GET',
+    headers: apiKey ? { 'X-API-Key': apiKey, 'Authorization': `Bearer ${apiKey}` } : {},
+  });
+  const data = await res.json().catch(() => ({}));
+  if (!res.ok) {
+    const err = new Error(data.detail || data.error || 'Traceroute failed');
+    err.status = res.status;
+    err.detail = data.detail || data.error || err.message;
+    throw err;
+  }
+  return data;
+}
+
+/**
  * GET /api/redirect/check – follow redirects and return chain + final URL.
  * @param {Object} query - { url }
  * @returns {Promise<{ chain?, redirects?, final_url?, totalMs?, total_time_ms? }>}

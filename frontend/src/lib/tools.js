@@ -2366,7 +2366,7 @@ export const tools = [
     icon: '🛤️',
     featured: false,
     priority: 0.6,
-    built: false,
+    built: true,
   },
 
   {
@@ -3417,7 +3417,7 @@ export const tools = [
     icon: '🤖',
     featured: false,
     priority: 0.7,
-    built: false,
+    built: true,
   },
   {
     id: 'sitemap-validator',
@@ -3429,7 +3429,7 @@ export const tools = [
     icon: '🗺️',
     featured: false,
     priority: 0.7,
-    built: false,
+    built: true,
   },
   {
     id: 'rich-results-simulator',
@@ -4193,6 +4193,9 @@ export function getBuiltTools() {
 
 // IDs of newest tools (newest first). Prepend new tool IDs here when you ship them.
 const NEWEST_TOOL_IDS = [
+  'sitemap-validator',
+  'robots-txt-validator',
+  'traceroute-tool',
   'url-fetch',
   'speech-to-text',
   'ping-tool',
