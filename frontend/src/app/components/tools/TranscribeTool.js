@@ -32,8 +32,23 @@ const TranscribeTool = () => {
         method: 'POST',
         body: formData,
       });
-      const json = await res.json();
-      if (!res.ok) throw new Error(json.error || 'Transcription failed');
+      const raw = await res.text();
+      let json;
+      try {
+        json = raw ? JSON.parse(raw) : {};
+      } catch {
+        if (!res.ok) {
+          if (res.status === 413) {
+            setError('File too large. Maximum size is 25 MB. The server may have a lower limit.');
+            return;
+          }
+          setError(res.status === 500 ? 'Server error. Try again later.' : `Request failed (${res.status}).`);
+          return;
+        }
+        setError('Invalid response from server.');
+        return;
+      }
+      if (!res.ok) throw new Error(json.error || json.detail || 'Transcription failed');
       setResult(json);
     } catch (e) {
       setError(e.message);
@@ -60,7 +75,7 @@ const TranscribeTool = () => {
     <div className="max-w-4xl mx-auto p-6 bg-white rounded-xl shadow-md border border-gray-200">
       <h1 className="text-3xl font-bold text-gray-900 mb-4">Audio to Text (Transcribe)</h1>
       <p className="text-gray-600 mb-6">
-        Upload an audio or video file and get a text transcript. Powered by server-side speech recognition (e.g. Whisper). Supports MP3, WAV, M4A, and common video formats.
+        Upload an audio or video file and get a text transcript. Powered by server-side speech recognition (e.g. Whisper). Supports MP3, WAV, M4A, and common video formats. Max 25 MB (uploads through this page may be limited to about 4.5 MB by the host).
       </p>
 
       <div className="flex flex-wrap items-end gap-3 mb-4">
@@ -108,7 +123,7 @@ const TranscribeTool = () => {
             </div>
           ) : (
             <div className="p-3 bg-yellow-50 border border-yellow-200 rounded-md text-yellow-900 text-sm">
-              No transcript returned. The service may be unavailable (e.g. Whisper not installed) or the file format may not be supported.
+              No speech detected. The file may be silent, too short, or in an unsupported format.
             </div>
           )}
         </div>

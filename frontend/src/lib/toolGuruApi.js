@@ -194,7 +194,20 @@ export async function transcribe(formData) {
     headers: authHeaders(),
     body: formData,
   });
-  return handleJsonResponse(res, 'Transcription failed');
+  const text = await res.text();
+  let data;
+  try {
+    data = text ? JSON.parse(text) : {};
+  } catch {
+    data = { detail: res.status === 413 ? 'File too large. Maximum size is 25 MB.' : (text.slice(0, 200) || 'Invalid response from server.') };
+  }
+  if (!res.ok) {
+    const err = new Error(data.detail || data.error || 'Transcription failed');
+    err.status = res.status;
+    err.detail = data.detail || data.error || err.message;
+    throw err;
+  }
+  return data;
 }
 
 /**

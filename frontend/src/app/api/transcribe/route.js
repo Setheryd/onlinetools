@@ -29,8 +29,8 @@ export async function POST(request) {
     const text = data.text ?? data.transcript ?? '';
     return NextResponse.json({ text, ...data });
   } catch (err) {
-    const status = err.status || 500;
-    const message = err.detail || err.message || 'Transcription failed';
+    const status = err.status ?? 500;
+    const message = err.detail ?? err.message ?? 'Transcription failed';
     if (status === 503) {
       return NextResponse.json(
         { error: 'Transcription service unavailable. Whisper may not be installed on the server.' },
@@ -39,6 +39,15 @@ export async function POST(request) {
     }
     if (status === 429) {
       return NextResponse.json({ error: 'Rate limit exceeded. Try again later.' }, { status: 429 });
+    }
+    if (status === 413) {
+      return NextResponse.json(
+        { error: message || 'File too large. Maximum size is 25 MB.' },
+        { status: 413 }
+      );
+    }
+    if (status === 422) {
+      return NextResponse.json({ error: message || 'No speech detected in the audio.' }, { status: 422 });
     }
     return NextResponse.json({ error: message }, { status: status >= 400 ? status : 500 });
   }
