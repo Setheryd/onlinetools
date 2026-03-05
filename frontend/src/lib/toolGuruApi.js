@@ -413,3 +413,66 @@ export async function timezoneConvert(query) {
 }
 
 export { baseUrl, apiKey };
+
+const ROUTE_OPTIMIZER_TIMEOUT_MS = 90000; // 90 s — geocoding + routing can take 5–60 s
+
+/**
+ * POST /api/route-optimizer – optimize stop order to minimize driving time/distance.
+ * @param {{ addresses: string[], roundtrip?: boolean, start_at_first?: boolean }} body
+ * @returns {Promise<{ ordered_addresses: string[], legs: Array<{ from_address, to_address, distance_meters, duration_seconds }>, total_distance_meters: number, total_duration_seconds: number, total_distance_miles?: number, total_duration_minutes?: number }>}
+ */
+export async function routeOptimizer(body) {
+  if (!baseUrl) {
+    throw Object.assign(new Error('TOOL_GURU_API_URL is not set'), { status: 502, detail: 'Route optimizer not configured.' });
+  }
+  const addresses = (body.addresses || [])
+    .map((a) => (a && typeof a === 'string' ? a.trim() : ''))
+    .filter(Boolean);
+  if (addresses.length < 2) {
+    const err = new Error('At least 2 addresses are required.');
+    err.status = 400;
+    err.detail = err.message;
+    throw err;
+  }
+  if (addresses.length > 25) {
+    const err = new Error('Maximum 25 addresses allowed.');
+    err.status = 400;
+    err.detail = err.message;
+    throw err;
+  }
+  const controller = new AbortController();
+  const timeoutId = setTimeout(() => controller.abort(), ROUTE_OPTIMIZER_TIMEOUT_MS);
+  try {
+    const res = await fetch(`${baseUrl}/api/route-optimizer`, {
+      method: 'POST',
+      headers: headers(),
+      body: JSON.stringify({
+        addresses,
+        roundtrip: body.roundtrip ?? false,
+        start_at_first: body.start_at_first ?? false,
+      }),
+      signal: controller.signal,
+    });
+    clearTimeout(timeoutId);
+    const data = await res.json().catch(() => ({}));
+    if (!res.ok) {
+      const message = typeof data.detail === 'string'
+        ? data.detail
+        : res.status === 429
+          ? 'Too many requests. Try again in a minute.'
+          : 'Could not optimize route. Try again.';
+      const err = new Error(message);
+      err.status = res.status;
+      err.detail = message;
+      throw err;
+    }
+    return data;
+  } catch (e) {
+    clearTimeout(timeoutId);
+    if (e.status) throw e;
+    const err = new Error(e.name === 'AbortError' ? 'Request timed out. Try fewer addresses or try again.' : (e.message || 'Network error. Try again.'));
+    err.status = e.name === 'AbortError' ? 504 : 502;
+    err.detail = err.message;
+    throw err;
+  }
+}

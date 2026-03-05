@@ -88,7 +88,7 @@ export const metadata = {
     // Add verification meta when you have real codes: 'google-site-verification', 'msvalidate.01', 'yandex-verification'
     
     // Content security policy
-    'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://cdnjs.buymeacoffee.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdn.buymeacoffee.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://buymeacoffee.com; frame-src https://www.buymeacoffee.com;"
+    'Content-Security-Policy': "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval' https://www.googletagmanager.com https://www.google-analytics.com https://cdnjs.buymeacoffee.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com https://cdn.buymeacoffee.com; img-src 'self' data: https:; connect-src 'self' https://www.google-analytics.com https://buymeacoffee.com https://nominatim.openstreetmap.org https://router.project-osrm.org; frame-src https://www.buymeacoffee.com https://www.openstreetmap.org;"
   },
 }
 
