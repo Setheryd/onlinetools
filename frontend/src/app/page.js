@@ -6,7 +6,7 @@ import Footer from './components/layout/Footer';
 import Body from './components/layout/Body';
 import Card from './components/ui/Card';
 import Badge from './components/ui/Badge';
-import { getBuiltTools } from '@/lib/tools';
+import { getBuiltTools, getNewestTools } from '@/lib/tools';
 import Button from './components/ui/Button';
 
 export const metadata = {
@@ -164,6 +164,42 @@ const Home = () => {
               </Button>
             </Link>
           </div>
+        </section>
+
+        {/* Newest Tools Section */}
+        <section className="mb-16">
+          <div className="text-center mb-8">
+            <h2 className="text-3xl font-bold text-gray-900 mb-4">
+              Newest Tools
+            </h2>
+            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+              Recently added utilities—try them first
+            </p>
+          </div>
+          <Card className="p-6">
+            <ul className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-3">
+              {getNewestTools(10).map((tool) => (
+                <li key={tool.id}>
+                  <Link
+                    href={tool.path}
+                    className="flex items-center gap-3 p-3 rounded-lg hover:bg-gray-100 transition-colors group"
+                  >
+                    <span className="text-2xl" aria-hidden>{tool.icon}</span>
+                    <span className="font-medium text-gray-900 group-hover:text-blue-600 truncate">
+                      {tool.name}
+                    </span>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <div className="text-center mt-6">
+              <Link href="/tools">
+                <Button variant="outline" size="sm">
+                  View all tools
+                </Button>
+              </Link>
+            </div>
+          </Card>
         </section>
 
         {/* Features Section */}

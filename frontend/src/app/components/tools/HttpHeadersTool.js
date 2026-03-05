@@ -10,7 +10,8 @@ function isValidUrl(u) {
 const HttpHeadersTool = ({
   title = 'HTTP Headers Checker',
   description = 'Inspect response headers and follow redirects to see each hop.',
-  mode = 'headers'
+  mode = 'headers',
+  apiEndpoint = null,
 }) => {
   const [url, setUrl] = useState('https://thetool.guru');
   const [loading, setLoading] = useState(false);
@@ -24,11 +25,20 @@ const HttpHeadersTool = ({
   const run = async () => {
     setLoading(true); setError(''); setData(null);
     try {
-      const u = new URL('/api/http', window.location.origin);
+      let base = apiEndpoint || '/api/http';
+      const u = new URL(base, window.location.origin);
       u.searchParams.set('url', url.trim());
-      u.searchParams.set('maxRedirects', '10');
-      const resp = await fetch(u);
-      const json = await resp.json();
+      if (!apiEndpoint) u.searchParams.set('maxRedirects', '10');
+      let resp = await fetch(u);
+      let json = await resp.json();
+      if (resp.status === 503 && apiEndpoint) {
+        base = '/api/http';
+        const fallback = new URL(base, window.location.origin);
+        fallback.searchParams.set('url', url.trim());
+        fallback.searchParams.set('maxRedirects', '10');
+        resp = await fetch(fallback);
+        json = await resp.json();
+      }
       if (!resp.ok) throw new Error(json.error || 'Request failed');
       setData(json);
     } catch (e) {

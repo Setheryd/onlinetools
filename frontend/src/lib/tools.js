@@ -2036,6 +2036,18 @@ export const tools = [
     priority: 0.8,
     built: true,
   },
+  {
+    id: 'article-extractor',
+    name: 'Article Extractor',
+    description: 'Extract main article content from any URL. Get clean text or markdown with optional metadata—no CORS, server-side fetch.',
+    path: '/tools/article-extractor',
+    category: 'web',
+    keywords: ['article', 'extract', 'content', 'markdown', 'text', 'readability', 'url', 'blog', 'news'],
+    icon: '📄',
+    featured: false,
+    priority: 0.8,
+    built: true,
+  },
   // DESIGN & CREATIVE TOOLS
   {
     id: 'logo-maker',
@@ -2322,15 +2334,15 @@ export const tools = [
   // NETWORK & SYSTEM TOOLS
   {
     id: 'ping-tool',
-    name: 'Ping Tool',
-    description: 'Ping hosts to check connectivity and response times.',
+    name: 'Ping & Port Check',
+    description: 'Check host reachability and latency. Optional port for TCP checks. Server-side so it works from anywhere.',
     path: '/tools/ping-tool',
     category: 'web',
-    keywords: ['ping', 'network', 'connectivity', 'response time', 'host', 'latency'],
+    keywords: ['ping', 'network', 'connectivity', 'response time', 'host', 'latency', 'port', 'TCP'],
     icon: '📡',
     featured: false,
     priority: 0.7,
-    built: false,
+    built: true,
   },
   {
     id: 'traceroute-tool',
@@ -4165,6 +4177,36 @@ export function getAllToolsForSitemap() {
 // Built vs unbuilt tools (driven by which routes are implemented)
 export function getBuiltTools() {
   return tools.filter(tool => tool.built === true);
+}
+
+// IDs of newest tools (newest first). Prepend new tool IDs here when you ship them.
+const NEWEST_TOOL_IDS = [
+  'ping-tool',
+  'article-extractor',
+  'website-screenshot',
+  'pdf-to-image',
+  'pdf-organizer',
+  'pdf-splitter',
+  'pdf-compressor',
+  'pdf-editor',
+  'image-watermarker',
+  'image-cropper',
+  'image-filters',
+  'screenshot-tool',
+  'text-analyzer',
+  'acronym-generator',
+  'rot13-encoder',
+];
+
+export function getNewestTools(limit = 10) {
+  const byId = new Map(tools.filter(t => t.built).map(t => [t.id, t]));
+  const result = [];
+  for (const id of NEWEST_TOOL_IDS) {
+    const tool = byId.get(id);
+    if (tool) result.push(tool);
+    if (result.length >= limit) break;
+  }
+  return result;
 }
 
 export function getUnbuiltTools() {
