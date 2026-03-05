@@ -2,6 +2,7 @@
 import React, { useMemo, useState } from 'react';
 import Button from '../ui/Button';
 
+const FIVE_PARTS = /^\S+\s+\S+\s+\S+\s+\S+\s+\S+$/;
 const presets = [
   { label: 'Every minute', expr: '* * * * *' },
   { label: 'Every 5 minutes', expr: '*/5 * * * *' },

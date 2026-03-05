@@ -138,4 +138,237 @@ export async function redirectCheck(query) {
   return data;
 }
 
+function authHeaders() {
+  return apiKey ? { 'X-API-Key': apiKey, 'Authorization': `Bearer ${apiKey}` } : {};
+}
+
+function handleJsonResponse(res, errMessage) {
+  return res.json().catch(() => ({})).then(data => {
+    if (!res.ok) {
+      const err = new Error(data.detail || data.error || errMessage);
+      err.status = res.status;
+      err.detail = data.detail || data.error || err.message;
+      throw err;
+    }
+    return data;
+  });
+}
+
+/**
+ * POST /api/transcribe – audio to text (e.g. Whisper).
+ * @param {FormData} formData - multipart with 'file' or 'audio' (audio file)
+ * @returns {Promise<{ text?: string, transcript?: string }>}
+ */
+export async function transcribe(formData) {
+  if (!baseUrl) throw Object.assign(new Error('TOOL_GURU_API_URL is not set'), { status: 502, detail: 'Transcribe not configured.' });
+  const res = await fetch(`${baseUrl}/api/transcribe`, {
+    method: 'POST',
+    headers: authHeaders(),
+    body: formData,
+  });
+  return handleJsonResponse(res, 'Transcription failed');
+}
+
+/**
+ * GET /api/cron/parse – next run times for a cron expression.
+ * @param {{ expression: string, count?: number }} query
+ * @returns {Promise<{ next_runs?: string[], times?: string[] }>}
+ */
+export async function cronParse(query) {
+  if (!baseUrl) throw Object.assign(new Error('TOOL_GURU_API_URL is not set'), { status: 502, detail: 'Cron parse not configured.' });
+  const params = new URLSearchParams();
+  params.set('expression', String(query.expression || '').trim());
+  if (query.count != null) params.set('count', String(query.count));
+  const res = await fetch(`${baseUrl}/api/cron/parse?${params}`, { method: 'GET', headers: authHeaders() });
+  return handleJsonResponse(res, 'Cron parse failed');
+}
+
+/**
+ * GET or POST /api/wget – fetch URL server-side (no CORS).
+ * @param {{ url: string, method?: string, includeBody?: boolean }} query or body
+ * @returns {Promise<{ status?: number, headers?: object, body?: string }>}
+ */
+export async function wget(params) {
+  if (!baseUrl) throw Object.assign(new Error('TOOL_GURU_API_URL is not set'), { status: 502, detail: 'URL fetch not configured.' });
+  const url = params.url && String(params.url).trim();
+  if (!url) {
+    const err = new Error('url is required');
+    err.status = 400;
+    err.detail = 'url is required';
+    throw err;
+  }
+  const res = await fetch(`${baseUrl}/api/wget`, {
+    method: 'POST',
+    headers: headers(),
+    body: JSON.stringify({ url: url.startsWith('http') ? url : `https://${url}`, method: params.method || 'GET', include_body: params.includeBody !== false }),
+  });
+  return handleJsonResponse(res, 'URL fetch failed');
+}
+
+/**
+ * GET /api/validate/robots-txt – validate robots.txt for a URL.
+ * @param {{ url: string }} query
+ */
+export async function validateRobotsTxt(query) {
+  if (!baseUrl) throw Object.assign(new Error('TOOL_GURU_API_URL is not set'), { status: 502, detail: 'Validation not configured.' });
+  const u = query.url && String(query.url).trim();
+  if (!u) {
+    const err = new Error('url is required');
+    err.status = 400;
+    err.detail = 'url is required';
+    throw err;
+  }
+  const params = new URLSearchParams({ url: u.startsWith('http') ? u : `https://${u}` });
+  const res = await fetch(`${baseUrl}/api/validate/robots-txt?${params}`, { method: 'GET', headers: authHeaders() });
+  return handleJsonResponse(res, 'Robots.txt validation failed');
+}
+
+/**
+ * GET /api/validate/sitemap – validate sitemap for a URL.
+ * @param {{ url: string }} query
+ */
+export async function validateSitemap(query) {
+  if (!baseUrl) throw Object.assign(new Error('TOOL_GURU_API_URL is not set'), { status: 502, detail: 'Validation not configured.' });
+  const u = query.url && String(query.url).trim();
+  if (!u) {
+    const err = new Error('url is required');
+    err.status = 400;
+    err.detail = 'url is required';
+    throw err;
+  }
+  const params = new URLSearchParams({ url: u.startsWith('http') ? u : `https://${u}` });
+  const res = await fetch(`${baseUrl}/api/validate/sitemap?${params}`, { method: 'GET', headers: authHeaders() });
+  return handleJsonResponse(res, 'Sitemap validation failed');
+}
+
+/**
+ * GET /api/validate/og – validate Open Graph tags for a URL.
+ * @param {{ url: string }} query
+ */
+export async function validateOg(query) {
+  if (!baseUrl) throw Object.assign(new Error('TOOL_GURU_API_URL is not set'), { status: 502, detail: 'Validation not configured.' });
+  const u = query.url && String(query.url).trim();
+  if (!u) {
+    const err = new Error('url is required');
+    err.status = 400;
+    err.detail = 'url is required';
+    throw err;
+  }
+  const params = new URLSearchParams({ url: u.startsWith('http') ? u : `https://${u}` });
+  const res = await fetch(`${baseUrl}/api/validate/og?${params}`, { method: 'GET', headers: authHeaders() });
+  return handleJsonResponse(res, 'OG validation failed');
+}
+
+/**
+ * POST /api/pdf/merge – merge PDFs (multipart).
+ * @param {FormData} formData - PDF files (e.g. file, file_0, file_1 or files[])
+ */
+export async function pdfMerge(formData) {
+  if (!baseUrl) throw Object.assign(new Error('TOOL_GURU_API_URL is not set'), { status: 502, detail: 'PDF merge not configured.' });
+  const res = await fetch(`${baseUrl}/api/pdf/merge`, { method: 'POST', headers: authHeaders(), body: formData });
+  if (!res.ok) {
+    const data = await res.json().catch(() => ({}));
+    const err = new Error(data.detail || data.error || 'PDF merge failed');
+    err.status = res.status;
+    err.detail = data.detail || data.error || err.message;
+    throw err;
+  }
+  return res.arrayBuffer();
+}
+
+/**
+ * POST /api/pdf/split – split PDF (multipart).
+ * @param {FormData} formData - pdf file + mode/ranges options
+ */
+export async function pdfSplit(formData) {
+  if (!baseUrl) throw Object.assign(new Error('TOOL_GURU_API_URL is not set'), { status: 502, detail: 'PDF split not configured.' });
+  const res = await fetch(`${baseUrl}/api/pdf/split`, { method: 'POST', headers: authHeaders(), body: formData });
+  if (!res.ok) {
+    const data = await res.json().catch(() => ({}));
+    const err = new Error(data.detail || data.error || 'PDF split failed');
+    err.status = res.status;
+    err.detail = data.detail || data.error || err.message;
+    throw err;
+  }
+  return res.arrayBuffer();
+}
+
+/**
+ * POST /api/pdf/from-images – create PDF from images (multipart).
+ * @param {FormData} formData - image files
+ */
+export async function pdfFromImages(formData) {
+  if (!baseUrl) throw Object.assign(new Error('TOOL_GURU_API_URL is not set'), { status: 502, detail: 'PDF from images not configured.' });
+  const res = await fetch(`${baseUrl}/api/pdf/from-images`, { method: 'POST', headers: authHeaders(), body: formData });
+  if (!res.ok) {
+    const data = await res.json().catch(() => ({}));
+    const err = new Error(data.detail || data.error || 'PDF creation failed');
+    err.status = res.status;
+    err.detail = data.detail || data.error || err.message;
+    throw err;
+  }
+  return res.arrayBuffer();
+}
+
+/**
+ * POST /api/image/resize (or crop, rotate, thumbnail, convert) – image ops.
+ * @param {FormData} formData - image file + width, height, etc.
+ * @param {string} action - resize | crop | rotate | thumbnail | convert
+ */
+export async function imageOp(formData, action = 'resize') {
+  if (!baseUrl) throw Object.assign(new Error('TOOL_GURU_API_URL is not set'), { status: 502, detail: 'Image service not configured.' });
+  const endpoint = ['resize', 'crop', 'rotate', 'thumbnail', 'convert'].includes(action) ? action : 'resize';
+  const res = await fetch(`${baseUrl}/api/image/${endpoint}`, { method: 'POST', headers: authHeaders(), body: formData });
+  if (!res.ok) {
+    const data = await res.json().catch(() => ({}));
+    const err = new Error(data.detail || data.error || 'Image operation failed');
+    err.status = res.status;
+    err.detail = data.detail || data.error || err.message;
+    throw err;
+  }
+  return res.arrayBuffer();
+}
+
+/**
+ * GET /api/convert/storage – convert storage units.
+ * @param {{ value: string|number, from: string, to: string }} query
+ */
+export async function convertStorage(query) {
+  if (!baseUrl) throw Object.assign(new Error('TOOL_GURU_API_URL is not set'), { status: 502, detail: 'Convert not configured.' });
+  const params = new URLSearchParams(query);
+  const res = await fetch(`${baseUrl}/api/convert/storage?${params}`, { method: 'GET', headers: authHeaders() });
+  return handleJsonResponse(res, 'Storage conversion failed');
+}
+
+/**
+ * GET /api/convert/date/calculate – date calculations.
+ * @param {{ ... }} query - op, date, days, etc.
+ */
+export async function dateCalculate(query) {
+  if (!baseUrl) throw Object.assign(new Error('TOOL_GURU_API_URL is not set'), { status: 502, detail: 'Date calculate not configured.' });
+  const params = new URLSearchParams(query);
+  const res = await fetch(`${baseUrl}/api/convert/date/calculate?${params}`, { method: 'GET', headers: authHeaders() });
+  return handleJsonResponse(res, 'Date calculation failed');
+}
+
+/**
+ * GET /api/convert/timezone/list – list timezones.
+ */
+export async function timezoneList() {
+  if (!baseUrl) throw Object.assign(new Error('TOOL_GURU_API_URL is not set'), { status: 502, detail: 'Timezone list not configured.' });
+  const res = await fetch(`${baseUrl}/api/convert/timezone/list`, { method: 'GET', headers: authHeaders() });
+  return handleJsonResponse(res, 'Timezone list failed');
+}
+
+/**
+ * GET /api/convert/timezone – convert time between timezones.
+ * @param {{ from: string, to: string, time?: string }} query
+ */
+export async function timezoneConvert(query) {
+  if (!baseUrl) throw Object.assign(new Error('TOOL_GURU_API_URL is not set'), { status: 502, detail: 'Timezone convert not configured.' });
+  const params = new URLSearchParams(query);
+  const res = await fetch(`${baseUrl}/api/convert/timezone?${params}`, { method: 'GET', headers: authHeaders() });
+  return handleJsonResponse(res, 'Timezone conversion failed');
+}
+
 export { baseUrl, apiKey };

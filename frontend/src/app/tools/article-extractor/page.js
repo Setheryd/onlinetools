@@ -5,7 +5,7 @@ import Body from '../../components/layout/Body';
 import ArticleExtractorTool from '../../components/tools/ArticleExtractorTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
 import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
-import CommentSection from '../../components/tools/CommentSection';
+import CommentSection from '../../../components/tools/CommentSection';
 
 export const metadata = {
   title: 'Article Extractor — The Tool Guru',

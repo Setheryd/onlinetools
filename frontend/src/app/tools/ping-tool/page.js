@@ -5,7 +5,7 @@ import Body from '../../components/layout/Body';
 import PingTool from '../../components/tools/PingTool';
 import ToolContentSection from '../../components/tools/ToolContentSection';
 import RelatedToolsSection from '../../components/tools/RelatedToolsSection';
-import CommentSection from '../../components/tools/CommentSection';
+import CommentSection from '../../../components/tools/CommentSection';
 
 export const metadata = {
   title: 'Ping & Port Check — The Tool Guru',
