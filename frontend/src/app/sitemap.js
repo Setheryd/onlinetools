@@ -84,28 +84,7 @@ export default function sitemap() {
     priority: tool.priority ?? 0.5,
   }))
 
-  // TIER 5: Utility pages
-  const utilityPages = [
-    {
-      url: `${baseUrl}/sitemap.xml`,
-      lastModified: currentDate,
-      changeFrequency: 'daily',
-      priority: 0.3,
-    },
-    {
-      url: `${baseUrl}/robots.txt`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.1,
-    },
-    {
-      url: `${baseUrl}/ads.txt`,
-      lastModified: currentDate,
-      changeFrequency: 'monthly',
-      priority: 0.1,
-    },
-  ]
-  
-  // Combine all pages in priority order
-  return [...criticalPages, ...importantPages, ...blogPages, ...builtTools, ...utilityPages]
+  // Do not list sitemap.xml, robots.txt, or ads.txt as indexable pages — they are
+  // discovered via robots.txt and can cause crawl noise or 404 confusion in Search Console.
+  return [...criticalPages, ...importantPages, ...blogPages, ...builtTools]
 }

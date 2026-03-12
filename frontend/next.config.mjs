@@ -14,6 +14,14 @@ const nextConfig = {
       },
     },
   },
+  async redirects() {
+    return [
+      // Blog tag pages never existed; send to blog index (fixes Search Console 404s)
+      { source: '/blog/tag/:path*', destination: '/blog', permanent: true },
+      // Old search template URL (literal {search_term_string}) — send to tools
+      { source: '/search', destination: '/tools', permanent: true },
+    ];
+  },
 };
 
 export default nextConfig;

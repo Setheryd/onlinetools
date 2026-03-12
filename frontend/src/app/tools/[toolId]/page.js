@@ -1,5 +1,5 @@
 import React from 'react';
-import { notFound } from 'next/navigation';
+import { notFound, redirect } from 'next/navigation';
 import Header from '../../components/layout/Header';
 import Footer from '../../components/layout/Footer';
 import Body from '../../components/layout/Body';
@@ -10,6 +10,7 @@ import { getToolById } from '@/lib/tools';
  * Catch-all for tool IDs that don't have a dedicated page (built: false).
  * Built tools have static routes (e.g. tools/base64/page.js) and take precedence.
  * Unbuilt tools (e.g. /tools/route-optimizer) hit this and show Coming Soon instead of 404.
+ * Unknown tool IDs (not in registry) redirect to /tools to fix Search Console 404s.
  */
 export async function generateMetadata({ params }) {
   const { toolId } = await params;
@@ -32,7 +33,8 @@ export default async function ToolIdPage({ params }) {
   const { toolId } = await params;
   const tool = getToolById(toolId);
 
-  if (!tool) notFound();
+  // Unknown tool IDs (not in registry) → permanent redirect to /tools (fixes GSC 404s)
+  if (!tool) redirect('/tools');
   if (tool.built === true) notFound();
 
   return (
